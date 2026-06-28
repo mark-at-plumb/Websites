@@ -1,0 +1,70 @@
+---
+import Chevron from './Chevron.astro';
+const badges = [
+  { label: '24/7 Emergency Service', sub: 'Weekends + public holidays', img: '/images/badge-24hrs.png' },
+  { label: 'Lifetime Labour Warranty', sub: 'On every job we complete', img: '/images/badge-guarantee.png' },
+  { label: 'Fixed Upfront Pricing', sub: 'No hourly, no bill shock', img: '/images/badge-no-fees.png' },
+  { label: '$50 Off First Service', sub: 'For new customers', img: '/images/badge-discount.png' },
+];
+---
+<section class="relative z-10 -mt-[7rem] mx-auto max-w-7xl px-5 sm:px-8">
+  <div class="bg-white shadow-[0_24px_60px_-20px_rgba(17,24,39,0.35)] grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-brand-surface border-t-2 border-brand-accent">
+    {badges.map((b) => (
+      <div class="group flex items-start gap-3.5 p-5 sm:p-7 relative">
+        <span class="absolute left-0 top-0 h-full w-0.5 bg-brand-accent scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300"></span>
+        <span class="shrink-0 grid place-items-center w-11 h-11 rounded-full bg-brand-primary ring-1 ring-brand-accent/30">
+          <img src={b.img} alt={b.label} class="w-6 h-6 object-contain" />
+        </span>
+        <div>
+          <p class="font-heading font-extrabold text-brand-primary leading-tight text-[15px] tracking-[-0.01em]">{b.label}</p>
+          <p class="text-[12.5px] text-brand-muted mt-1 leading-snug">{b.sub}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- count-up stat bar -->
+  <div id="d1-stats" class="mt-4 grid grid-cols-3 bg-brand-primary text-white divide-x divide-white/10">
+    <div class="py-5 text-center">
+      <div class="font-heading font-black text-[clamp(1.6rem,4vw,2.4rem)] text-brand-accent tracking-[-0.02em]"><span class="d1-count" data-to="500">0</span>+</div>
+      <p class="text-[11px] uppercase tracking-[0.18em] text-white/55 mt-1">5-Star Reviews</p>
+    </div>
+    <div class="py-5 text-center">
+      <div class="font-heading font-black text-[clamp(1.6rem,4vw,2.4rem)] text-brand-accent tracking-[-0.02em]"><span class="d1-count" data-to="10">0</span> yrs</div>
+      <p class="text-[11px] uppercase tracking-[0.18em] text-white/55 mt-1">Adelaide Experience</p>
+    </div>
+    <div class="py-5 text-center">
+      <div class="font-heading font-black text-[clamp(1.6rem,4vw,2.4rem)] text-brand-accent tracking-[-0.02em]"><span class="d1-count" data-to="24">0</span>/<span class="d1-count" data-to="7">0</span></div>
+      <p class="text-[11px] uppercase tracking-[0.18em] text-white/55 mt-1">Emergency Response</p>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.getElementById('d1-stats');
+    if (!root) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const run = (el) => {
+      const to = parseInt(el.dataset.to, 10);
+      if (reduce) { el.textContent = to; return; }
+      const dur = 1400, start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(to * eased);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          root.querySelectorAll('.d1-count').forEach(run);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(root);
+  })();
+</script>

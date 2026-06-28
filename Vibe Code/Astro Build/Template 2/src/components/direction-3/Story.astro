@@ -1,0 +1,42 @@
+---
+import Droplet from './Droplet.astro';
+---
+<section id="story" class="bg-brand-surface py-[clamp(4.5rem,9vw,7rem)] overflow-hidden">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 grid items-center gap-12 lg:grid-cols-[5fr_7fr]">
+    <!-- founding story photo with teal colour overlay + big number -->
+    <div class="d3-reveal relative aspect-[4/5] rounded-[24px] overflow-hidden">
+      <img src="/images/hero-tradesman.jpg" alt="Our local plumber on the job in Happy Valley" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+      <!-- teal colour overlay to maintain the teal visual language -->
+      <div class="absolute inset-0 bg-brand-accent/20"></div>
+      <div class="absolute inset-0" style="background:linear-gradient(150deg,rgba(13,115,119,0.35) 0%,rgba(10,90,93,0.25) 45%,rgba(44,51,68,0.7) 100%);"></div>
+      <Droplet class="absolute -right-6 -top-6 w-40 h-48 text-white/[0.10]" />
+      <Droplet class="absolute right-8 bottom-10 w-10 h-12 text-white/15 d3-float" />
+      <div class="absolute inset-0 flex flex-col justify-end p-9 text-white">
+        <span class="font-heading font-black leading-none text-[clamp(4rem,11vw,7rem)]" style="font-variation-settings:'opsz' 144;">10</span>
+        <span class="font-heading italic text-[clamp(1.25rem,3vw,1.75rem)] -mt-2">years local</span>
+        <span class="mt-4 font-body text-[14px] text-white/70 max-w-[28ch]">A decade of Adelaide experience, built into every Happy Valley job.</span>
+      </div>
+    </div>
+
+    <div class="d3-reveal" style="--rd:120ms">
+      <p class="font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-4 flex items-center gap-2"><Droplet class="w-2.5 h-3" /> Our story</p>
+      <h2 class="font-heading font-black text-brand-primary leading-[1.05] tracking-[-0.02em] text-[clamp(2rem,5vw,3.25rem)]" style="font-variation-settings:'opsz' 96;">
+        How Plumber Happy Valley started
+      </h2>
+      <p class="mt-6 font-body text-[18px] leading-[1.75] text-brand-secondary">
+        We started this business after a decade of watching homeowners get let down by tradies who showed up late and rushed the job. So we built one that does the opposite.
+      </p>
+      <p class="mt-5 font-body text-[17px] leading-[1.75] text-brand-secondary">
+        We are local and family-owned, which means our name is on the work and our neighbours are the customers. Every job is fixed-price and upfront — no hourly meter, no bill shock — and backed by a Lifetime Labour Warranty. We turn up when we say we will, do the job properly, and treat your home the way we would want ours treated.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+        {[['500+','5-star reviews'],['Lic. #333997','Master Plumber SA'],['24/7','Emergency service']].map(([n,l]) => (
+          <div>
+            <div class="font-heading font-bold text-[26px] text-brand-accent" style="font-variation-settings:'opsz' 40;">{n}</div>
+            <div class="font-body text-[13px] text-brand-muted">{l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

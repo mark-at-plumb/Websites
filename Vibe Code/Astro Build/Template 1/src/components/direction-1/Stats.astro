@@ -1,0 +1,65 @@
+---
+import Pipe from './Pipe.astro';
+const stats = [
+  { num: 500, suffix: '+', label: '5-star reviews from Adelaide homeowners' },
+  { num: 10, suffix: '+', label: 'Years working on local homes' },
+  { num: 24, suffix: '/7', label: 'Emergency response, every day', noCount: true },
+];
+---
+<section class="stats">
+  <div class="stats__inner">
+    {stats.map((s) => (
+      <div class="stats__item reveal">
+        <span class="stats__num" data-target={s.num} data-suffix={s.suffix} data-nocount={s.noCount ? '1' : '0'}>
+          {s.noCount ? `${s.num}${s.suffix}` : `0${s.suffix}`}
+        </span>
+        <span class="stats__bar"><Pipe width="40px" color="var(--color-brand-primary)" /></span>
+        <span class="stats__label">{s.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats { background: var(--color-brand-secondary); position: relative; }
+  .stats__inner {
+    max-width: 1140px; margin: 0 auto; padding: clamp(60px,7vw,90px) clamp(16px,4vw,40px);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  }
+  .stats__item { text-align: center; }
+  .stats__num {
+    display: block; font-family: var(--font-heading); font-weight: 900; letter-spacing: -.04em;
+    font-size: clamp(64px, 8vw, 96px); line-height: .9; color: var(--color-brand-primary);
+    /* overlap the section top border */
+    margin-top: clamp(-44px, -4vw, -30px);
+    text-shadow: 0 6px 30px rgba(212,136,46,.25);
+  }
+  .stats__bar { display: flex; justify-content: center; margin: 14px 0 14px; }
+  .stats__label { font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,.78); max-width: 22ch; margin: 0 auto; display: block; }
+
+  @media (max-width: 760px) { .stats__inner { grid-template-columns: 1fr; gap: 44px; } }
+</style>
+
+<script>
+  const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+  const animate = (el: HTMLElement) => {
+    if (el.dataset.nocount === '1') return;
+    const target = Number(el.dataset.target || 0);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1500; const start = performance.now();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { el.textContent = `${target}${suffix}`; return; }
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / dur);
+      el.textContent = `${Math.round(target * easeOut(p))}${suffix}`;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { animate(e.target as HTMLElement); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll<HTMLElement>('.stats__num').forEach((el) => io.observe(el));
+</script>

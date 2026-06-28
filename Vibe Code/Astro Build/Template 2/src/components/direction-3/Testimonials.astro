@@ -1,0 +1,36 @@
+---
+const quotes = [
+  { q: 'Gave me a fixed price over the phone, turned up exactly when they said, and the bill was the price I was quoted. After years of being mucked around, that honestly felt rare.', a: 'Margaret W.', s: 'Hot water replacement', img: '/images/happy-client.webp' },
+  { q: 'Burst pipe at 11pm and someone local actually answered. They were here within the hour, sorted it calmly and cleaned up after themselves. I have already passed their number on.', a: 'David & Sue T.', s: 'Emergency burst pipe' },
+  { q: 'Polite, tidy and they explained everything before doing it. They treated our place like it was their own. You can tell it is a family business that cares.', a: 'Anh P.', s: 'Blocked drain & taps' },
+];
+---
+<section id="reviews" class="bg-brand-bg py-[clamp(4.5rem,9vw,7rem)]">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <div class="d3-reveal text-center mb-16">
+      <p class="font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-4">500+ five-star reviews</p>
+      <h2 class="font-heading font-black text-brand-primary leading-[1.05] tracking-[-0.02em] text-[clamp(2rem,5vw,3.25rem)]" style="font-variation-settings:'opsz' 96;">
+        What the neighbours say
+      </h2>
+    </div>
+    <div class="space-y-16 sm:space-y-20">
+      {quotes.map((t, i) => (
+        <figure class={`d3-reveal relative max-w-3xl ${i % 2 ? 'sm:ml-auto sm:text-right' : ''}`}>
+          <span class="font-heading text-brand-accent/25 leading-none select-none block text-[120px] h-[60px] -mb-2" aria-hidden="true">&#10077;</span>
+          <blockquote class="font-heading text-brand-primary leading-[1.35] text-[clamp(1.35rem,3.2vw,2rem)]" style="font-variation-settings:'opsz' 60;">
+            {t.q}
+          </blockquote>
+          <figcaption class={`mt-5 font-body text-[15px] ${t.img ? `flex items-center gap-4 ${i % 2 ? 'sm:flex-row-reverse' : ''}` : ''}`}>
+            {t.img && (
+              <img src={t.img} alt={`${t.a}, happy local customer`} class="w-16 h-16 rounded-full object-cover ring-2 ring-brand-accent/20" loading="lazy" decoding="async" />
+            )}
+            <span>
+              <span class="font-semibold text-brand-primary">{t.a}</span>
+              <span class="text-brand-muted"> · {t.s}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

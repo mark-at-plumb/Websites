@@ -1,0 +1,40 @@
+---
+const benefits = [
+  { label: 'Show up on time', text: 'We confirm the day before and stick to the window.' },
+  { label: 'Fixed upfront pricing', text: 'You see the price before we touch a tool.' },
+  { label: 'Lifetime Labour Warranty', text: 'If the work fails, we come back. No cost.' },
+  { label: 'Licensed & insured', text: 'Lic. #333997, $5M public liability.' },
+];
+---
+<!-- Section 5: Split — Photo + Why Choose -->
+<section class="d5-why">
+  <div class="d5-why-photo">
+    <img
+      src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80&fit=crop"
+      alt="Plumber fitting pipework under a sink"
+      loading="lazy" width="800" height="900" />
+  </div>
+  <div class="d5-why-text">
+    <div class="d5-why-inner">
+      <p class="d5-eyebrow">Why Choose Us</p>
+      <h2 class="d5-h2">What sets Plumber Happy Valley apart from the rest</h2>
+      <p class="d5-body">
+        We started this business after a decade of watching homeowners get let down. So we
+        built one that does the opposite. We show up on time, every time. We quote the job
+        before we start. And we stand behind every job with a Lifetime Labour Warranty.
+      </p>
+      <ul class="d5-benefits">
+        {benefits.map((b) => (
+          <li>
+            <span class="d5-tick" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <span><strong>{b.label}</strong> — {b.text}</span>
+          </li>
+        ))}
+      </ul>
+      <a href="#about" class="d5-textlink">LEARN MORE ABOUT US →</a>
+    </div>
+  </div>
+</section>

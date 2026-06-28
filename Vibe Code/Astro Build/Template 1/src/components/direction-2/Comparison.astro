@@ -1,0 +1,82 @@
+---
+const rows = [
+  { label: 'Pricing', us: 'Fixed upfront, agreed before we start', them: 'Hourly rate, final bill is a surprise' },
+  { label: 'Availability', us: '24/7, weekends and public holidays', them: 'Business hours, if they answer' },
+  { label: 'Warranty', us: 'Lifetime Labour Warranty on every job', them: 'A few months, if anything' },
+  { label: 'Licensing', us: 'Fully licensed, Lic. #333997', them: 'Often unclear or unlicensed' },
+  { label: 'The team', us: 'Local, family-owned, same faces', them: 'Whoever turns up that day' },
+  { label: 'On time', us: 'We arrive when we say we will', them: '"Sometime between 8 and 4"' },
+];
+---
+
+<section class="np-compare np-section np-reveal">
+  <div class="np-wrap">
+    <div class="np-sec-head">
+      <p class="np-marker">The difference</p>
+      <h2 class="np-h2">Plumber Happy Valley vs. a random tradie</h2>
+    </div>
+    <div class="np-rule"></div>
+    <table class="np-table">
+      <thead>
+        <tr>
+          <th class="np-th-label"></th>
+          <th class="np-th-us">Plumber Happy Valley</th>
+          <th class="np-th-them">A random tradie</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr>
+            <th scope="row" class="np-td-label">{r.label}</th>
+            <td class="np-td-us">{r.us}</td>
+            <td class="np-td-them">{r.them}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .np-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-family: var(--font-body);
+  }
+  .np-table th, .np-table td { text-align: left; padding: 0.9rem 1rem; vertical-align: top; }
+  .np-table thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--color-brand-text);
+    padding-bottom: 0.6rem;
+  }
+  .np-th-us { color: var(--color-brand-primary); }
+  .np-th-them { color: var(--color-brand-muted); }
+  .np-table tbody tr { border-bottom: 1px solid color-mix(in srgb, var(--color-brand-primary) 22%, transparent); }
+  .np-td-label {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--color-brand-text);
+    width: 18%;
+    white-space: nowrap;
+  }
+  .np-td-us { font-size: 0.97rem; color: var(--color-brand-text); width: 41%; }
+  .np-td-them { font-size: 0.97rem; color: var(--color-brand-muted); width: 41%; }
+  .np-table tbody td:first-of-type, .np-td-us {
+    border-left: 1px solid color-mix(in srgb, var(--color-brand-primary) 22%, transparent);
+    padding-left: 1.25rem;
+  }
+
+  @media (max-width: 700px) {
+    .np-table, .np-table thead, .np-table tbody, .np-table tr { display: block; }
+    .np-table thead { display: none; }
+    .np-table tbody tr { padding: 0.9rem 0; }
+    .np-table th, .np-table td { display: block; padding: 0.15rem 0; }
+    .np-td-label { width: auto; margin-bottom: 0.35rem; }
+    .np-td-us, .np-td-them { width: auto; border-left: none !important; padding-left: 1.2rem !important; position: relative; }
+    .np-td-us::before { content: '✓'; position: absolute; left: 0; color: var(--color-brand-primary); }
+    .np-td-them::before { content: '✕'; position: absolute; left: 0; color: var(--color-brand-muted); }
+  }
+</style>

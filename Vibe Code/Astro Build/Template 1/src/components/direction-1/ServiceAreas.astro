@@ -1,0 +1,26 @@
+---
+import SectionHead from './SectionHead.astro';
+const areas = ['Aberfoyle Park', 'Reynella', 'Flagstaff Hill', 'Chandlers Hill', 'Morphett Vale', 'Christie Downs', "O'Halloran Hill"];
+---
+<section class="areas" id="areas">
+  <div class="areas__inner">
+    <SectionHead eyebrow="Beyond Happy Valley" title="We Also Serve Nearby Suburbs" align="center" />
+    <div class="areas__grid reveal">
+      {areas.map((a) => (
+        <a class="areas__pill" href="#quote">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          {a}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .areas { padding: clamp(64px,8vw,104px) 0; }
+  .areas__inner { max-width: 980px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); }
+  .areas__grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .areas__pill { display: inline-flex; align-items: center; gap: 9px; background: #fff; border: 1px solid rgba(26,46,68,.1); color: var(--color-brand-secondary); text-decoration: none; font-family: var(--font-body); font-weight: 600; font-size: 15px; padding: 12px 20px; border-radius: 999px; box-shadow: 0 6px 16px rgba(26,46,68,.06); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .areas__pill svg { color: var(--color-brand-primary); }
+  .areas__pill:hover { transform: translateY(-3px); border-color: var(--color-brand-primary); box-shadow: 0 14px 28px rgba(26,46,68,.12); }
+</style>

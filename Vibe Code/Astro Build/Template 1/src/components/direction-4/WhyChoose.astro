@@ -1,0 +1,44 @@
+---
+import SectionHead from './SectionHead.astro';
+const reasons = [
+  { t: 'You deal with the same team', d: 'No call centre, no rotating subcontractors. The plumber who quotes the job is the one who does it and answers if you call back.', icon: 'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21a8 8 0 0 1 16 0' },
+  { t: 'Pricing you can trust', d: 'Fixed upfront quotes mean the number you approve is the number you pay. No hourly creep, no padded invoices.', icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6' },
+  { t: 'Properly licensed and insured', d: 'Lic. #333997, ABN 52 668 135 886, fully insured. Every job done to code, with paperwork to prove it.', icon: 'M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6Z' },
+  { t: 'We back our work', d: 'A lifetime labour warranty on workmanship. If something we fixed gives you trouble, we come back and make it right.', icon: 'M20 6 9 17l-5-5' },
+];
+---
+<section class="why sec" id="why">
+  <div class="wrap">
+    <SectionHead eyebrow="Why Locals Choose Us" title="The reasons Happy Valley keeps calling back" align="center" />
+    <div class="why__grid">
+      {reasons.map((r, i) => (
+        <article class="why__card reveal" style={`--rd:${i * 70}ms`}>
+          <span class="why__icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d={r.icon} fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <h3>{r.t}</h3>
+            <p>{r.d}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why { background: var(--color-brand-bg); }
+  .why__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .why__card {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--color-brand-surface); border: 1px solid rgba(15,23,42,.06);
+    border-radius: var(--radius); padding: 28px;
+  }
+  .why__icon {
+    display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: var(--radius);
+    background: var(--color-brand-primary); color: #fff; flex: none; box-shadow: 0 4px 12px rgba(14,116,144,.28);
+  }
+  .why__card h3 { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: var(--color-brand-secondary); margin: 0 0 7px; }
+  .why__card p { font-family: var(--font-body); font-size: 14.5px; line-height: 1.65; color: var(--color-brand-muted); margin: 0; }
+  @media (max-width: 760px) { .why__grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,52 @@
+---
+import SectionHead from './SectionHead.astro';
+const rows = [
+  'Shows up on time',
+  'Fixed price agreed upfront',
+  'Lifetime Labour Warranty',
+  'Fully licensed and insured',
+  'Available 24/7, weekends included',
+  'Local and family-owned',
+];
+---
+<section class="cmp">
+  <div class="cmp__inner">
+    <SectionHead eyebrow="The honest comparison" title="Plumber Happy Valley vs. a Random Tradie" align="center" />
+    <div class="cmp__table reveal">
+      <div class="cmp__head">
+        <span class="cmp__head-label">What matters to you</span>
+        <span class="cmp__head-us">Plumber Happy Valley</span>
+        <span class="cmp__head-them">A Random Tradie</span>
+      </div>
+      {rows.map((r) => (
+        <div class="cmp__row">
+          <span class="cmp__label">{r}</span>
+          <span class="cmp__us"><span class="cmp__yes">✓</span></span>
+          <span class="cmp__them"><span class="cmp__no">✕</span></span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cmp { padding: clamp(72px,9vw,116px) 0; background: var(--color-brand-surface); }
+  .cmp__inner { max-width: 900px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); }
+  .cmp__table { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 46px rgba(26,46,68,.12); }
+  .cmp__head, .cmp__row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: center; }
+  .cmp__head { background: var(--color-brand-secondary); color: #fff; }
+  .cmp__head span { padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 14px; text-align: center; }
+  .cmp__head-label { text-align: left !important; }
+  .cmp__head-us { color: var(--color-brand-accent); }
+  .cmp__row { border-bottom: 1px solid rgba(26,46,68,.07); }
+  .cmp__row:last-child { border-bottom: 0; }
+  .cmp__label { padding: 18px 20px; font-family: var(--font-body); font-weight: 500; font-size: 15px; color: var(--color-brand-secondary); }
+  .cmp__us, .cmp__them { display: grid; place-items: center; padding: 18px; }
+  .cmp__us { background: rgba(212,136,46,.07); }
+  .cmp__yes { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--color-brand-primary); color: #fff; font-weight: 900; }
+  .cmp__no { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #e4e0d6; color: #9aa6b1; font-weight: 900; }
+  @media (max-width: 560px) {
+    .cmp__head span, .cmp__label { font-size: 12.5px; padding: 14px 10px; }
+    .cmp__us, .cmp__them { padding: 12px; }
+  }
+</style>

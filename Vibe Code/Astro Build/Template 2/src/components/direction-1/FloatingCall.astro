@@ -1,0 +1,11 @@
+---
+---
+<a href="tel:1300000000" aria-label="Call now: 1300 XXX XXX"
+   class="lg:hidden fixed bottom-5 right-5 z-50 grid place-items-center w-14 h-14 rounded-full bg-brand-accent text-brand-primary shadow-[0_10px_30px_rgba(234,108,10,0.5)] d1-pulse">
+  <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<style is:global>
+  @keyframes d1Pulse { 0% { box-shadow: 0 10px 30px rgba(234,108,10,0.5), 0 0 0 0 rgba(234,108,10,0.5); } 70% { box-shadow: 0 10px 30px rgba(234,108,10,0.5), 0 0 0 16px rgba(234,108,10,0); } 100% { box-shadow: 0 10px 30px rgba(234,108,10,0.5), 0 0 0 0 rgba(234,108,10,0); } }
+  .d1-pulse { animation: d1Pulse 2.2s ease-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .d1-pulse { animation: none; } }
+</style>

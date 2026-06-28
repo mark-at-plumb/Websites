@@ -1,0 +1,47 @@
+---
+const suburbs = ['Aberfoyle Park', 'Flagstaff Hill', 'Reynella', 'Morphett Vale', 'Hallett Cove', 'Coromandel Valley', 'Old Reynella', 'Woodcroft'];
+---
+
+<section class="np-areas np-section np-reveal">
+  <div class="np-wrap np-areas-inner">
+    <p class="np-areas-head">We also serve</p>
+    <ul class="np-areas-list">
+      {suburbs.map((s) => (
+        <li class="np-areas-item">{s}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .np-areas-inner { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0; }
+  .np-areas-head {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-brand-primary);
+    margin: 0 1.5rem 0 0;
+    white-space: nowrap;
+  }
+  .np-areas-list {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; align-items: baseline;
+  }
+  .np-areas-item {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-brand-text);
+    padding: 0 0.9rem;
+    position: relative;
+  }
+  .np-areas-item + .np-areas-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%; transform: translateY(-50%);
+    height: 0.9em; width: 1px;
+    background: color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+  }
+  .np-areas-item:first-child { padding-left: 0; }
+</style>

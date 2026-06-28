@@ -1,0 +1,64 @@
+---
+import Shield from './Shield.astro';
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#why' },
+  { label: 'Process', href: '#process' },
+  { label: 'Reviews', href: '#reviews' },
+  { label: 'Areas', href: '#areas' },
+];
+---
+<header id="d2-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 flex items-center justify-between h-[var(--nav-h,80px)] transition-all duration-500">
+    <a href="#top" class="flex items-center gap-3 group">
+      <span class="d2-logo-mark grid place-items-center w-10 h-10 rounded-xl bg-brand-accent text-brand-primary shrink-0 transition-colors">
+        <Shield class="w-5 h-6" />
+      </span>
+      <span class="d2-logo-text font-heading font-extrabold tracking-[-0.02em] leading-none text-[18px] transition-colors">
+        Plumber <span class="text-brand-accent">Happy Valley</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9">
+      {links.map((l) => (
+        <a href={l.href} class="d2-nav-link text-[13px] font-semibold tracking-[0.04em] transition-colors">{l.label}</a>
+      ))}
+    </nav>
+
+    <a href="tel:1300000000" class="group inline-flex items-center gap-2.5 bg-brand-accent text-brand-primary font-heading font-bold text-[14px] sm:text-[15px] px-4 sm:px-5 py-2.5 rounded-xl shadow-[0_6px_20px_-6px_rgba(245,158,11,0.6)] hover:shadow-[0_10px_28px_-6px_rgba(245,158,11,0.8)] hover:-translate-y-0.5 transition-all duration-300">
+      <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+        <path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="hidden sm:inline">Call:</span> 1300 XXX XXX
+    </a>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const nav = document.getElementById('d2-nav');
+    const onScroll = () => {
+      nav.classList.toggle('d2-nav--solid', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+<style is:global>
+  :root { --nav-h: 80px; }
+  /* transparent over hero */
+  #d2-nav .d2-nav-link { color: rgba(26,32,64,0.66); }
+  #d2-nav .d2-nav-link:hover { color: var(--color-brand-primary); }
+  #d2-nav .d2-logo-text { color: var(--color-brand-text); }
+
+  #d2-nav.d2-nav--solid {
+    --nav-h: 64px;
+    background-color: rgba(29,52,97,0.96);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(245,158,11,0.35), 0 12px 36px -12px rgba(15,23,42,0.5);
+  }
+  #d2-nav.d2-nav--solid .d2-nav-link { color: rgba(255,255,255,0.72); }
+  #d2-nav.d2-nav--solid .d2-nav-link:hover { color: #fff; }
+  #d2-nav.d2-nav--solid .d2-logo-text { color: #fff; }
+</style>

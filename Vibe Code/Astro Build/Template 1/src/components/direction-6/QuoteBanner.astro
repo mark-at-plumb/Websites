@@ -1,0 +1,18 @@
+---
+---
+<section class="d6-qb">
+  <div class="d6-qb__wrap d6-wrap">
+    <h2 class="d6-qb__h reveal">Get a fast quote on <span>plumbing services</span></h2>
+    <a class="d6-btn d6-btn--orange reveal" href="#contact">GET A FREE QUOTE</a>
+  </div>
+</section>
+
+<style>
+  .d6-qb { background: var(--color-brand-secondary); }
+  .d6-qb__wrap { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap;
+    padding: clamp(40px,5vw,64px) 0; position: relative; }
+  .d6-qb__wrap::before { content: ''; position: absolute; left: calc(-1 * clamp(18px,4vw,40px)); top: clamp(40px,5vw,64px); bottom: clamp(40px,5vw,64px); width: 4px; background: var(--color-brand-primary); }
+  .d6-qb__h { font-family: var(--font-heading); font-weight: 800; font-size: clamp(26px,3.4vw,40px); color: #fff; margin: 0; line-height: 1.15; letter-spacing: -.01em; }
+  .d6-qb__h span { color: var(--color-brand-primary); }
+  @media (max-width: 880px) { .d6-qb__wrap::before { display: none; } }
+</style>

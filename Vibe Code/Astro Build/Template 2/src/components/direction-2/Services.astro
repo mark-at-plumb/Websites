@@ -1,0 +1,49 @@
+---
+import Shield from './Shield.astro';
+const services = [
+  { name: 'General Plumbing', href: '/general-plumbing/', img: '/images/kitchen.jpg', desc: 'Everyday repairs and installs done properly — leaking taps, faulty cisterns, new fixtures and fittings. One licensed team for the whole house, with fixed pricing quoted before we start.' },
+  { name: 'Emergency Plumbing', href: '/emergency-plumbing/', img: '/images/service-emergency.jpg', desc: 'Within-the-hour response for burst pipes, overflowing toilets and major leaks. We answer 24/7, weekends and public holidays included, and arrive ready to make it safe fast.' },
+  { name: 'Blocked Drains', href: '/blocked-drains/', img: '/images/service-drains.jpg', desc: 'CCTV drain cameras and high-pressure jetting clear the blockage and show you the cause. No guesswork, no repeat call-outs — we fix the root of the problem.' },
+  { name: 'Hot Water', href: '/hot-water/', img: '/images/service-hotwater.jpg', desc: 'Repairs, replacements and upgrades across gas, electric, solar and heat pump systems. Cold shower this morning? We carry common units and restore hot water same day.' },
+  { name: 'Gas Fitting', href: '/gas-fitting/', img: '/images/kitchen.jpg', desc: 'Licensed gas work you can trust — cooktop and heater installs, gas leak detection and compliance certificates. Safe, certified and signed off to South Australian standards.' },
+  { name: 'Pipe Relining', href: '/pipe-relining/', img: '/images/service-drains.jpg', desc: 'Repair damaged pipes without digging up the garden. Trenchless relining cures a new pipe inside the old one — ideal for Happy Valley\'s ageing clay drainage.' },
+  { name: 'Leak Detection', href: '/leak-detection/', img: '/images/bathroom.jpg', desc: 'Acoustic and thermal equipment pinpoints hidden leaks behind walls and under slabs. We find it precisely, so the repair is targeted and the damage stays small.' },
+  { name: 'Taps & Toilets', href: '/taps-toilets/', img: '/images/bathroom.jpg', desc: 'Dripping taps, running toilets and worn washers fixed for good. We replace tired tapware and cisterns with quality parts and back the labour for life.' },
+  { name: 'Burst Pipes', href: '/burst-pipes/', img: '/images/service-emergency.jpg', desc: 'Fast isolation and repair of burst and split pipes to stop water damage in its tracks. We restore supply and check the surrounding run for further weakness.' },
+];
+---
+<section id="services" class="bg-brand-surface">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-24 md:py-32">
+    <div class="reveal max-w-2xl">
+      <p class="flex items-center gap-2 font-heading font-medium text-[11px] tracking-[0.18em] uppercase text-brand-accent mb-4">
+        <Shield class="w-3.5 h-4" /> What We Do
+      </p>
+      <h2 class="font-heading font-extrabold text-brand-text tracking-[-0.025em] leading-[1.05] text-[clamp(2rem,4.5vw,3rem)]">Our plumbing services</h2>
+      <p class="mt-4 text-[1.05rem] text-brand-text/70 font-light">Nine licensed services covering everything a Happy Valley home needs — every job backed by our Lifetime Labour Warranty and fixed upfront pricing.</p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((s, i) => (
+        <a href={s.href} class={`d2-card reveal group relative block overflow-hidden rounded-xl bg-white shadow-[0_10px_30px_-18px_rgba(15,23,42,0.35)] hover:shadow-[0_24px_50px_-20px_rgba(29,52,97,0.4)] transition-all duration-300 ${i % 3 === 1 ? 'lg:translate-y-2' : ''}`} style={`--d:${(i % 3) * 90}ms`}>
+          <span class="d2-card-top absolute left-0 top-0 z-10 h-1 rounded-t-xl bg-brand-accent"></span>
+          <img src={s.img} alt={s.name} loading="lazy" class="w-full h-44 object-cover rounded-t-xl" />
+          <div class="relative p-7">
+            <span class="absolute right-5 top-5 text-brand-primary/[0.06] group-hover:text-brand-accent/30 transition-colors" aria-hidden="true"><Shield class="w-7 h-8" /></span>
+            <h3 class="font-heading font-bold text-[1.2rem] text-brand-text pr-8 group-hover:text-brand-primary transition-colors">{s.name}</h3>
+            <p class="mt-3 text-[14.5px] leading-relaxed text-brand-muted">{s.desc}</p>
+            <span class="mt-5 inline-flex items-center gap-1.5 font-heading font-semibold text-[13.5px] text-brand-primary group-hover:text-brand-accent transition-colors">
+              Learn more
+              <svg viewBox="0 0 24 24" class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+  .d2-card-top { width: 0; transition: width .45s cubic-bezier(.22,1,.36,1); }
+  .d2-card:hover .d2-card-top { width: 100%; }
+</style>

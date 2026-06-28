@@ -1,0 +1,144 @@
+---
+const phone = '(08) 8000 0000';
+const tel = `tel:${phone.replace(/[^\d+]/g, '')}`;
+
+const left = [
+  { name: 'General Plumbing', desc: 'Repairs, installations, and maintenance for every part of your home.' },
+  { name: 'Emergency Plumbing', desc: 'Burst pipes and floods, sorted fast. We answer 24/7.' },
+  { name: 'Blocked Drains', desc: 'We clear blockages and find the cause so it stays clear.' },
+  { name: 'Hot Water Systems', desc: 'Repairs and replacements for gas, electric, and solar systems.' },
+  { name: 'Leaking Taps', desc: 'A dripping tap fixed properly, before it wastes your water.' },
+];
+const right = [
+  { name: 'Toilet Repairs', desc: 'Running, leaking, or blocked toilets repaired the same day.' },
+  { name: 'Gas Fitting', desc: 'Licensed gas work for cooktops, heaters, and hot water.' },
+  { name: 'CCTV Drain Inspection', desc: 'We send a camera down to see exactly what is going on.' },
+  { name: 'Pipe Relining', desc: 'We repair old pipes from the inside, no digging up your yard.' },
+];
+---
+
+<section class="np-services np-section np-reveal" id="services">
+  <div class="np-wrap">
+    <div class="np-sec-head">
+      <p class="np-marker">02 / Services</p>
+      <h2 class="np-h2">Our plumbing services</h2>
+    </div>
+
+    <div class="np-rule"></div>
+
+    <div class="np-svc-grid">
+      <div class="np-svc-col-left">
+        <p class="np-svc-intro">
+          Whatever's gone wrong in your home, we've seen it before. From a dripping
+          tap to a flooded laundry, we do the job properly the first time. Here's
+          what we look after across Happy Valley.
+        </p>
+        <ul class="np-svc-list">
+          {left.map((s, i) => (
+            <li class="np-svc-item" style={`--np-stagger:${i * 80}ms`}>
+              <h3 class="np-svc-name">{s.name}</h3>
+              <p class="np-svc-desc">{s.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="np-svc-col-right">
+        <ul class="np-svc-list">
+          {right.map((s, i) => (
+            <li class="np-svc-item" style={`--np-stagger:${(i + 5) * 80}ms`}>
+              <h3 class="np-svc-name">{s.name}</h3>
+              <p class="np-svc-desc">{s.desc}</p>
+            </li>
+          ))}
+        </ul>
+        <div class="np-svc-sidebar">
+          <p class="np-sidebar-eyebrow">Need it sorted today?</p>
+          <p class="np-sidebar-copy">Call us and a licensed plumber will be on the way.</p>
+          <a class="np-btn np-btn-solid" href={tel}>Call {phone}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .np-svc-grid {
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  .np-svc-intro {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.55;
+    color: var(--color-brand-text);
+    margin: 0 0 1.75rem;
+    max-width: 44ch;
+  }
+  .np-svc-list { list-style: none; margin: 0; padding: 0; }
+  .np-svc-item {
+    padding: 1rem 0 1rem 1.1rem;
+    border-left: 3px solid var(--color-brand-primary);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-primary) 22%, transparent);
+  }
+  .np-svc-item:last-child { border-bottom: none; }
+  .np-svc-name {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 24;
+    font-weight: 600;
+    font-size: 1.18rem;
+    margin: 0 0 0.2rem;
+    color: var(--color-brand-text);
+  }
+  .np-svc-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--color-brand-muted);
+    margin: 0;
+    max-width: 42ch;
+  }
+  .np-svc-sidebar {
+    margin-top: 1.75rem;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--color-brand-primary) 30%, transparent);
+    background: var(--color-brand-surface);
+  }
+  .np-sidebar-eyebrow {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 24;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--color-brand-primary);
+    margin: 0 0 0.4rem;
+  }
+  .np-sidebar-copy {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-brand-text);
+    margin: 0 0 1.1rem;
+    line-height: 1.45;
+  }
+
+  /* staggered reveal driven by parent .is-visible */
+  .np-svc-item {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .np-reveal.is-visible .np-svc-item {
+    animation: np-stagger-in 0.5s ease-out forwards;
+    animation-delay: var(--np-stagger, 0ms);
+  }
+  @keyframes np-stagger-in { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 820px) {
+    .np-svc-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .np-svc-item { opacity: 1; transform: none; animation: none; }
+    .np-reveal.is-visible .np-svc-item { animation: none; }
+  }
+</style>

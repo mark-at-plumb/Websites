@@ -1,0 +1,35 @@
+---
+---
+<div class="d6-util">
+  <div class="d6-util__wrap d6-wrap">
+    <span class="d6-util__left">Happy Valley's trusted local plumber</span>
+    <span class="d6-util__right">
+      <a href="tel:0880000000">(08) 8000 0000</a>
+      <span class="d6-util__dot" aria-hidden="true">·</span> Available 24/7
+    </span>
+  </div>
+</div>
+
+<style>
+  .d6-util {
+    background: var(--color-brand-primary);
+    color: #fff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 13px;
+    position: relative;
+    z-index: 60;
+  }
+  .d6-util__wrap { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .d6-util__left { font-weight: 500; letter-spacing: .01em; }
+  .d6-util__right { font-weight: 500; }
+  .d6-util__right a { color: #fff; text-decoration: none; font-weight: 700; }
+  .d6-util__right a:hover { text-decoration: underline; }
+  .d6-util__dot { opacity: .6; margin: 0 4px; }
+  @media (max-width: 620px) {
+    .d6-util__left { display: none; }
+    .d6-util__wrap { justify-content: center; }
+  }
+</style>

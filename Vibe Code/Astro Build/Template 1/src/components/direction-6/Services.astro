@@ -1,0 +1,55 @@
+---
+const B = 'https://jimmysparkselectrical.com.au/wp-content/uploads/2026/03/';
+const services = [
+  { t: 'Blocked Drains', img: B + 'jimmy-sparks-electrical-thornbury-cable-pulling-residential-1.webp', d: 'High-pressure jetting and CCTV diagnosis to clear blockages fast and stop them coming back.' },
+  { t: 'Emergency Plumbing', img: B + 'jimmy-sparks-electrical-ceiling-fan-repair-residential-1.webp', d: 'Burst pipes, overflows and leaks handled 24/7, with a licensed plumber on the way within the hour.' },
+  { t: 'Hot Water Systems', img: B + 'jimmy-sparks-electrical-commercial-ceiling-fan-wiring.webp', d: 'Repairs, replacements and new installs for gas, electric and heat-pump hot water units.' },
+  { t: 'Leaking Taps', img: B + 'jimmy-sparks-electrical-thornbury-outdoor-light-fitting-1.webp', d: 'Dripping taps and worn fittings repaired or replaced to stop waste and protect your water bill.' },
+  { t: 'Gas Fitting', img: B + 'jimmy-sparks-electrical-distillery-still-maintenance-1.webp', d: 'Licensed gas work for appliances, cooktops and lines, fitted safely and fully compliant.' },
+  { t: 'Pipe Relining', img: B + 'jimmy-sparks-electrical-electrician-with-dog-branded-ute-4-copy-1.webp', d: 'No-dig pipe relining that repairs damaged drains without tearing up your yard or driveway.' },
+];
+---
+<section class="d6-svc d6-sec" id="services">
+  <div class="d6-wrap">
+    <div class="d6-svc__head">
+      <span class="d6-eyebrow reveal">Our Services</span>
+      <h2 class="d6-h2 reveal">Plumbing done properly across Happy Valley</h2>
+      <p class="d6-svc__intro reveal">From a dripping tap to a burst main, our licensed team handles every job with fixed upfront pricing and a Lifetime Labour Warranty. One local family team for all your plumbing.</p>
+    </div>
+    <div class="d6-svc__grid">
+      {services.map((s, i) => (
+        <a class="d6-svc__card reveal" href="#contact" style={`--rd:${Math.floor(i / 3) * 100}ms`}>
+          <div class="d6-svc__img"><img src={s.img} alt={s.t + ' in Happy Valley'} loading="lazy" width="400" height="200" /></div>
+          <div class="d6-svc__body">
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+            <span class="d6-svc__link">Learn more →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .d6-svc__head { max-width: 760px; margin-bottom: 40px; }
+  .d6-svc__intro { font-family: var(--font-body); font-size: 16px; line-height: 1.65; color: var(--color-brand-muted); margin: 14px 0 0; }
+  .d6-svc__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .d6-svc__card {
+    display: flex; flex-direction: column; background: var(--color-brand-bg); border: 1px solid #e4ebf1;
+    border-radius: 6px; overflow: hidden; text-decoration: none; position: relative;
+    transition: transform .2s ease, box-shadow .2s ease; box-shadow: 0 1px 3px rgba(15,25,35,.05);
+  }
+  .d6-svc__card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--color-brand-primary); transform: scaleX(0); transform-origin: left; transition: transform .2s ease; z-index: 2; }
+  .d6-svc__card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(15,25,35,.12); }
+  .d6-svc__card:hover::before { transform: scaleX(1); }
+  .d6-svc__img { height: 200px; overflow: hidden; }
+  .d6-svc__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+  .d6-svc__card:hover .d6-svc__img img { transform: scale(1.05); }
+  .d6-svc__body { padding: 22px; }
+  .d6-svc__body h3 { font-family: var(--font-heading); font-weight: 700; font-size: 19px; color: var(--color-brand-text); margin: 0 0 8px; }
+  .d6-svc__body p { font-family: var(--font-body); font-size: 14.5px; line-height: 1.55; color: var(--color-brand-muted); margin: 0 0 14px; }
+  .d6-svc__link { font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: var(--color-brand-primary); }
+  @media (max-width: 880px) { .d6-svc__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .d6-svc__grid { grid-template-columns: 1fr; } }
+</style>

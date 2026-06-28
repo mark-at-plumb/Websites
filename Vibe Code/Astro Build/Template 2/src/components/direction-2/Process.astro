@@ -1,0 +1,29 @@
+---
+import Shield from './Shield.astro';
+const steps = [
+  { n: '1', title: 'Call or Book Online', desc: 'Speak to a real plumber, not a call centre. Tell us what\'s going on and we\'ll book a time that suits — same day for urgent jobs, within the hour for emergencies.' },
+  { n: '2', title: 'On-Time Arrival', desc: 'We turn up when we say we will, in a fully stocked van. We\'ll assess the problem, explain what\'s causing it, and walk you through your options in plain language.' },
+  { n: '3', title: 'Fixed Price Upfront', desc: 'You get the full cost in writing before any work starts. Approve it and we get straight to work — no hourly meter running, no surprises on the final invoice.' },
+  { n: '4', title: 'Done & Guaranteed', desc: 'We complete the job properly, clean up after ourselves, and back the labour with our Lifetime Warranty. You\'re only finished when you\'re completely happy.' },
+];
+---
+<section id="process" class="bg-brand-surface">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-24 md:py-32">
+    <div class="reveal max-w-2xl">
+      <p class="flex items-center gap-2 font-heading font-medium text-[11px] tracking-[0.18em] uppercase text-brand-accent mb-4">
+        <Shield class="w-3.5 h-4" /> How It Works
+      </p>
+      <h2 class="font-heading font-extrabold text-brand-text tracking-[-0.025em] leading-[1.05] text-[clamp(2rem,4.5vw,3rem)]">Four steps, no surprises</h2>
+    </div>
+    <div class="relative mt-16 grid md:grid-cols-4 gap-10 md:gap-6">
+      <div class="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] h-0.5 bg-brand-primary/15" aria-hidden="true"></div>
+      {steps.map((s, i) => (
+        <div class="reveal relative text-center md:text-left" style={`--d:${i * 110}ms`}>
+          <span class="relative z-10 grid place-items-center w-14 h-14 mx-auto md:mx-0 rounded-full bg-brand-accent text-brand-primary font-heading font-extrabold text-[1.4rem] shadow-[0_8px_20px_-6px_rgba(245,158,11,0.6)]">{s.n}</span>
+          <h3 class="mt-5 font-heading font-bold text-[1.15rem] text-brand-text">{s.title}</h3>
+          <p class="mt-2.5 text-[14.5px] leading-relaxed text-brand-muted">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

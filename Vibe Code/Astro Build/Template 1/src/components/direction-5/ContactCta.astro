@@ -1,0 +1,43 @@
+---
+const PHONE = '(08) 8000 0000';
+const tel = `tel:${PHONE.replace(/[^0-9+]/g, '')}`;
+---
+<!-- Section 16: Final Quote CTA + Form -->
+<section class="d5-contact" id="contact">
+  <div class="d5-wrap d5-contact-grid">
+    <div class="d5-contact-left">
+      <p class="d5-eyebrow">Free Quote</p>
+      <h2 class="d5-h2 d5-white">Get a free quote today</h2>
+      <p class="d5-body d5-muted-light">
+        We'll get back to you within 2 hours. Faster for emergencies — call us direct.
+      </p>
+      <ul class="d5-contact-details">
+        <li><span>Phone</span><a href={tel}>{PHONE}</a></li>
+        <li><span>Email</span><a href="mailto:hello@plumberhappyvalley.com.au">hello@plumberhappyvalley.com.au</a></li>
+        <li><span>Area</span>Happy Valley SA 5159 &amp; surrounds</li>
+      </ul>
+    </div>
+    <div class="d5-contact-right">
+      <form class="d5-form" onsubmit="event.preventDefault(); this.querySelector('.d5-form-done').hidden=false;">
+        <div class="d5-field">
+          <label for="d5-name">Name</label>
+          <input id="d5-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="d5-field">
+          <label for="d5-phone">Phone</label>
+          <input id="d5-phone" name="phone" type="tel" autocomplete="tel" required />
+        </div>
+        <div class="d5-field">
+          <label for="d5-email">Email</label>
+          <input id="d5-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="d5-field">
+          <label for="d5-msg">What do you need?</label>
+          <textarea id="d5-msg" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="d5-btn d5-btn-primary d5-btn-block">SEND MY REQUEST</button>
+        <p class="d5-form-done" role="status" hidden>Thanks — we'll be in touch within 2 hours.</p>
+      </form>
+    </div>
+  </div>
+</section>

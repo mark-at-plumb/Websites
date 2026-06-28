@@ -1,0 +1,121 @@
+---
+---
+
+<section class="np-local np-section np-reveal" id="local">
+  <div class="np-wrap">
+    <div class="np-sec-head">
+      <p class="np-marker">03 / Local Knowledge</p>
+      <h2 class="np-h2">Plumbing in Happy Valley</h2>
+    </div>
+
+    <div class="np-rule"></div>
+
+    <div class="np-local-grid">
+      <div class="np-local-main">
+        <p>
+          Happy Valley grew quickly through the 1980s, so a lot of homes here are
+          now hitting the age where the original plumbing starts to show its years.
+          We see it every week. Galvanised pipes that have corroded from the inside.
+          Hot water systems well past their warranty. Drains that were fine for
+          thirty years and have finally given up.
+        </p>
+        <p>
+          The established gardens that make this suburb so green are also the reason
+          we get so many blocked drain calls. Tree roots find the smallest crack in
+          a clay pipe and grow straight into it. A camera inspection shows us exactly
+          where the problem is, and pipe relining fixes it without digging up your yard.
+        </p>
+
+        <blockquote class="np-pullquote">
+          <span class="np-pullquote-mark" aria-hidden="true">&ldquo;</span>
+          We know the streets, the soil, and the homes. That local knowledge means
+          we find the real problem faster.
+        </blockquote>
+
+        <p>
+          Because we work across Happy Valley every day, we know what to look for
+          before we arrive. That saves you time, and it saves you money. We give you
+          a fixed price up front, so you decide with all the facts in front of you.
+        </p>
+      </div>
+
+      <aside class="np-local-side">
+        <p class="np-local-side-head">Common in Happy Valley homes</p>
+        <ul class="np-local-side-list">
+          <li>Ageing galvanised supply pipes</li>
+          <li>Root intrusion in clay drains</li>
+          <li>Original hot water systems</li>
+          <li>Low pressure from corrosion</li>
+          <li>Worn tap and toilet washers</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .np-local-grid {
+    display: grid;
+    grid-template-columns: 62fr 38fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  .np-local-main p {
+    font-family: var(--font-body);
+    font-size: 1.06rem;
+    line-height: 1.62;
+    color: var(--color-brand-text);
+    margin: 0 0 1.1rem;
+  }
+  .np-pullquote {
+    margin: 1.75rem 0 1.75rem -2.5rem;
+    padding: 0.5rem 0 0.5rem 0;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.18;
+    color: var(--color-brand-secondary);
+    position: relative;
+    max-width: 24ch;
+  }
+  .np-pullquote-mark {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 0;
+    color: var(--color-brand-primary);
+    position: absolute;
+    left: -0.1em;
+    top: 0.55em;
+  }
+  .np-pullquote { padding-left: 1.6em; }
+
+  .np-local-side {
+    border-top: 1px solid color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+    padding-top: 1rem;
+  }
+  .np-local-side-head {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-brand-primary);
+    margin: 0 0 0.75rem;
+  }
+  .np-local-side-list { list-style: none; margin: 0; padding: 0; }
+  .np-local-side-list li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-brand-text);
+    padding: 0.65rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-primary) 22%, transparent);
+  }
+  .np-local-side-list li:last-child { border-bottom: none; }
+
+  @media (max-width: 820px) {
+    .np-local-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .np-pullquote { margin-left: 0; max-width: none; }
+  }
+</style>

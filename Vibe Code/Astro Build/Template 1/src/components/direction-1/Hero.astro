@@ -1,0 +1,121 @@
+---
+import Pipe from './Pipe.astro';
+const trust = [
+  'Lifetime Labour Warranty',
+  'Fixed Upfront Pricing',
+  '24/7 Emergency',
+  '$50 Off First Service',
+];
+---
+<section class="hero" id="top">
+  <div class="hero__photo" aria-hidden="true">
+    <div class="hero__photo-grad"></div>
+    <svg class="hero__silhouette" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax meet">
+      <defs>
+        <linearGradient id="sil" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0e1b2a"/>
+          <stop offset="1" stop-color="#060d16"/>
+        </linearGradient>
+      </defs>
+      <!-- abstract worker-at-work silhouette: head, shoulders, raised arm with wrench -->
+      <g fill="url(#sil)">
+        <circle cx="186" cy="150" r="40"/>
+        <path d="M118 520c0-92 24-178 70-178s70 86 70 178Z"/>
+        <rect x="150" y="196" width="78" height="150" rx="30"/>
+        <rect x="214" y="206" width="30" height="120" rx="15" transform="rotate(38 229 266)"/>
+      </g>
+      <rect x="262" y="150" width="22" height="70" rx="11" fill="#0a1320" transform="rotate(38 273 185)"/>
+    </svg>
+    <span class="hero__photo-tag">Real local plumbers. Real Happy Valley homes.</span>
+  </div>
+
+  <div class="hero__panel">
+    <div class="hero__panel-inner">
+      <span class="hero__eyebrow reveal" data-d="0">
+        <Pipe width="28px" color="var(--color-brand-accent)" /> Your Local Happy Valley Plumber
+      </span>
+      <h1 class="hero__h1 reveal" data-d="1">24/7 Emergency Plumber in <span>Happy Valley</span></h1>
+      <p class="hero__sub reveal" data-d="2">
+        We're Plumber Happy Valley. Fixed upfront pricing. Lifetime Labour Warranty.
+        We show up when we say.
+      </p>
+      <ul class="hero__trust reveal" data-d="3">
+        {trust.map((t) => <li><span class="tick">✓</span>{t}</li>)}
+      </ul>
+      <div class="hero__cta reveal" data-d="4">
+        <a class="btn btn--amber" href="tel:0880000000">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1Z" fill="currentColor"/></svg>
+          Call (08) 8000 0000
+        </a>
+        <a class="btn btn--ghost" href="#quote">Get a Free Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { display: grid; grid-template-columns: 55fr 45fr; min-height: 100vh; padding-top: 76px; }
+
+  .hero__photo { position: relative; overflow: hidden; background: var(--color-brand-secondary); }
+  .hero__photo-grad {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(120% 90% at 20% 10%, rgba(212,136,46,.22), transparent 55%),
+      linear-gradient(155deg, #213a55 0%, #16283c 45%, #0c1726 100%);
+  }
+  .hero__silhouette { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); height: 78%; opacity: .9; }
+  .hero__photo-tag {
+    position: absolute; left: 28px; bottom: 26px; right: 28px;
+    font-family: var(--font-body); font-weight: 500; font-size: 13px; color: rgba(255,255,255,.72);
+    border-left: 3px solid var(--color-brand-primary); padding-left: 12px;
+  }
+
+  .hero__panel { background: var(--color-brand-secondary); display: flex; align-items: center; }
+  .hero__panel-inner { padding: clamp(32px,5vw,64px) clamp(28px,5vw,68px); max-width: 620px; }
+
+  .hero__eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--font-body); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .15em; font-size: 12px; color: var(--color-brand-accent); margin-bottom: 22px;
+  }
+  .hero__h1 {
+    font-family: var(--font-heading); font-weight: 900; letter-spacing: -.03em;
+    line-height: 1.02; color: #fff; font-size: clamp(38px, 4.6vw, 62px); margin: 0 0 20px;
+  }
+  .hero__h1 span { color: var(--color-brand-primary); }
+  .hero__sub {
+    font-family: var(--font-body); font-weight: 400; font-size: clamp(16px,1.4vw,18px);
+    line-height: 1.65; color: rgba(255,255,255,.78); margin: 0 0 26px; max-width: 46ch;
+  }
+  .hero__trust { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero__trust li {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-body); font-weight: 600; font-size: 13px; color: #fff;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    padding: 8px 14px; border-radius: 999px;
+  }
+  .hero__trust .tick { color: var(--color-brand-accent); font-weight: 800; }
+
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 14px; }
+
+  .reveal { opacity: 0; transform: translateY(18px); }
+  .reveal.in { opacity: 1; transform: none; transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero__photo { min-height: 320px; }
+    .hero__silhouette { height: 88%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+
+<script>
+  // Staggered hero entrance
+  const items = Array.from(document.querySelectorAll('.hero .reveal')) as HTMLElement[];
+  items.forEach((el) => {
+    const d = Number(el.dataset.d || 0) * 130;
+    setTimeout(() => el.classList.add('in'), 180 + d);
+  });
+</script>

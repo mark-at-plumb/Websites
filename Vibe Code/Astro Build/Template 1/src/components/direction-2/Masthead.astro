@@ -1,0 +1,139 @@
+---
+const phone = '(08) 8000 0000';
+const tel = `tel:${phone.replace(/[^\d+]/g, '')}`;
+---
+
+<header class="np-mast" id="top">
+  <div class="np-mast-inner">
+    <p class="np-mast-est">Est. Happy Valley · South Australia</p>
+
+    <h1 class="np-mast-title" aria-label="Happy Valley">
+      <span class="np-word" data-word="HAPPY">HAPPY</span>
+      <span class="np-word" data-word="VALLEY">VALLEY</span>
+    </h1>
+
+    <div class="np-rule np-mast-rule"></div>
+
+    <div class="np-mast-grid">
+      <div class="np-mast-lede">
+        <p class="np-tagline">Your Local Plumber</p>
+        <p class="np-sub">Fixed upfront pricing. Lifetime Labour Warranty. We show up on time.</p>
+        <div class="np-mast-cta">
+          <a class="np-btn np-btn-outline" href={tel}>Call {phone}</a>
+          <a class="np-btn np-btn-text" href="#book">Book Online &rarr;</a>
+        </div>
+      </div>
+
+      <aside class="np-mast-stat">
+        <div class="np-rule"></div>
+        <p class="np-stat-num">500+</p>
+        <p class="np-stat-label">5-star reviews from Happy&nbsp;Valley homes</p>
+        <div class="np-rule"></div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<style>
+  .np-mast {
+    padding: 2.5rem 2rem 2.75rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+  }
+  .np-mast-inner { max-width: 1240px; margin: 0 auto; }
+
+  .np-mast-est {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-brand-primary);
+    margin: 0 0 0.4rem;
+  }
+
+  .np-mast-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-optical-sizing: auto;
+    font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
+    font-weight: 600;
+    line-height: 0.84;
+    letter-spacing: -0.015em;
+    color: var(--color-brand-text);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.18em;
+  }
+  .np-word {
+    display: inline-block;
+    font-size: clamp(3.5rem, 22vw, 17rem);
+    overflow: hidden;
+  }
+  /* page-load: words slide up from below */
+  .np-word::after {
+    content: attr(data-word);
+    display: block;
+    transform: translateY(110%);
+    animation: np-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  .np-word { color: transparent; }
+  .np-word[data-word="VALLEY"]::after {
+    animation-delay: 0.12s;
+    color: var(--color-brand-primary);
+  }
+  .np-word[data-word="HAPPY"]::after { color: var(--color-brand-text); }
+  @keyframes np-rise { to { transform: translateY(0); } }
+
+  .np-mast-rule { margin: 1.4rem 0 1.6rem; }
+
+  .np-mast-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.42fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .np-tagline {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-variation-settings: 'opsz' 40;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    color: var(--color-brand-primary);
+    margin: 0 0 0.5rem;
+  }
+  .np-sub {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+    color: var(--color-brand-text);
+    max-width: 34ch;
+    margin: 0 0 1.4rem;
+    line-height: 1.5;
+  }
+  .np-mast-cta { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; }
+
+  .np-mast-stat { padding-top: 0.2rem; }
+  .np-stat-num {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144;
+    font-weight: 600;
+    font-size: clamp(2.75rem, 5vw, 3.6rem);
+    line-height: 1;
+    color: var(--color-brand-text);
+    margin: 0.8rem 0 0.3rem;
+  }
+  .np-stat-label {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--color-brand-muted);
+    margin: 0 0 0.8rem;
+    line-height: 1.35;
+  }
+
+  @media (max-width: 760px) {
+    .np-mast-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .np-mast-stat { max-width: 22rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .np-word::after { animation: none; transform: none; }
+  }
+</style>

@@ -1,0 +1,57 @@
+---
+import Chevron from './Chevron.astro';
+const links = [
+  { label: 'Home', href: '#top' },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#why' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+<header id="d1-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-brand-primary/95 backdrop-blur-0">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 flex items-center justify-between h-[var(--nav-h)] transition-all duration-300">
+    <a href="#top" class="flex items-center gap-2.5 group">
+      <span class="grid place-items-center w-9 h-9 bg-brand-accent text-brand-primary shrink-0">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M14 5a3 3 0 0 0-3 3v2H8a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2h3v2a3 3 0 1 0 6 0" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="font-heading font-extrabold tracking-[-0.02em] text-white leading-none text-[15px] sm:text-[17px]">
+        Plumber <span class="text-brand-accent">Happy Valley</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8">
+      {links.map((l) => (
+        <a href={l.href} class="text-[13px] font-semibold uppercase tracking-[0.08em] text-white/70 hover:text-white transition-colors">{l.label}</a>
+      ))}
+    </nav>
+
+    <a href="tel:1300000000" class="group flex items-center gap-2.5 bg-brand-accent text-brand-primary font-heading font-extrabold text-[14px] sm:text-[15px] px-4 sm:px-5 py-2.5 hover:bg-white transition-colors whitespace-nowrap shrink-0">
+      <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+        <path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="hidden sm:inline">Call Now:</span> 1300 XXX XXX
+      <Chevron class="hidden sm:block w-3.5 h-3.5 -ml-0.5 transition-transform group-hover:translate-x-1" />
+    </a>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const nav = document.getElementById('d1-nav');
+    const onScroll = () => {
+      if (window.scrollY > 40) {
+        nav.classList.add('d1-nav--shrunk');
+      } else {
+        nav.classList.remove('d1-nav--shrunk');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+<style is:global>
+  :root { --nav-h: 76px; }
+  #d1-nav.d1-nav--shrunk { --nav-h: 60px; background-color: rgba(17,24,39,0.82); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(234,108,10,0.4), 0 8px 30px rgba(0,0,0,0.3); }
+</style>

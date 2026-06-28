@@ -1,0 +1,53 @@
+---
+import Droplet from './Droplet.astro';
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'Our Story', href: '#story' },
+  { label: 'Why Us', href: '#why' },
+  { label: 'Reviews', href: '#reviews' },
+];
+---
+<header id="d3-nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 flex items-center justify-between h-[var(--nav-h)] transition-all duration-300">
+    <a href="#top" class="flex items-center gap-2.5 group">
+      <Droplet class="w-4 h-5 text-brand-accent transition-transform group-hover:-translate-y-0.5" />
+      <span class="font-heading font-bold tracking-[-0.01em] text-brand-primary leading-none text-[18px]" style="font-variation-settings:'opsz' 36;">
+        Plumber <span class="italic text-brand-accent">Happy Valley</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9">
+      {links.map((l) => (
+        <a href={l.href} class="text-[14px] font-body font-normal text-brand-secondary hover:text-brand-accent transition-colors">{l.label}</a>
+      ))}
+    </nav>
+
+    <a href="tel:1300000000" class="group flex items-center gap-2 rounded-full bg-brand-accent text-white font-body font-semibold text-[14px] px-5 py-2.5 hover:bg-brand-primary transition-colors">
+      <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+        <path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="hidden sm:inline">Call:</span> 1300 XXX XXX
+    </a>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const nav = document.getElementById('d3-nav');
+    const onScroll = () => {
+      nav.classList.toggle('d3-nav--solid', window.scrollY > 30);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+<style is:global>
+  :root { --nav-h: 80px; }
+  #d3-nav.d3-nav--solid {
+    --nav-h: 66px;
+    background-color: rgba(254,252,247,0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(13,115,119,0.10), 0 10px 30px -12px rgba(44,51,68,0.18);
+  }
+</style>

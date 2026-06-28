@@ -1,0 +1,7 @@
+---
+interface Props { size?: number; color?: string; }
+const { size = 14, color = 'var(--color-brand-primary)' } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex:none">
+  <path d="M20 6 9 17l-5-5" stroke={color} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

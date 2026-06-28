@@ -1,0 +1,41 @@
+---
+const usps = [
+  { icon: 'M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6Z', title: 'Fully Licensed', body: 'Lic. #333997. ABN 52 668 135 886. Every job to code.' },
+  { icon: 'M12 6v6l4 2M12 22A10 10 0 1 1 12 2a10 10 0 0 1 0 20Z', title: 'On Time, Every Time', body: 'Booked windows we keep, plus 24/7 emergency cover.' },
+  { icon: 'M3 7h18M3 12h18M3 17h10', title: 'Fixed Upfront Pricing', body: 'You see the price before we start. No surprises.' },
+  { icon: 'M20 6 9 17l-5-5', title: 'Lifetime Labour Warranty', body: 'We stand behind our workmanship for the long run.' },
+];
+---
+<section class="usp">
+  <div class="usp__grid wrap">
+    {usps.map((u, i) => (
+      <article class="usp__card reveal" style={`--rd:${i * 80}ms`}>
+        <span class="usp__icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d={u.icon} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>{u.title}</h3>
+        <p>{u.body}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .usp { background: var(--color-brand-surface); border-bottom: 1px solid rgba(15,23,42,.05); }
+  .usp__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding-top: 36px; padding-bottom: 36px; margin-top: -42px; }
+  .usp__card {
+    background: #fff; border: 1px solid rgba(15,23,42,.06); border-radius: var(--radius);
+    padding: 24px 22px; box-shadow: var(--shadow-1);
+    transition: transform .2s var(--ease-expo), box-shadow .2s ease;
+  }
+  .usp__card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+  .usp__icon {
+    display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: var(--radius);
+    background: rgba(14,116,144,.10); color: var(--color-brand-primary); margin-bottom: 14px;
+  }
+  .usp__card h3 { font-family: var(--font-heading); font-weight: 700; font-size: 16px; letter-spacing: -.01em; color: var(--color-brand-secondary); margin: 0 0 6px; }
+  .usp__card p { font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--color-brand-muted); margin: 0; }
+
+  @media (max-width: 900px) { .usp__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .usp__grid { grid-template-columns: 1fr; } }
+</style>

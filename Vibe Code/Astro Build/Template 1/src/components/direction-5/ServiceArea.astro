@@ -1,0 +1,26 @@
+---
+const suburbs = ['Aberfoyle Park', 'Reynella', 'Flagstaff Hill', 'Chandlers Hill', 'Morphett Vale',
+  'Christie Downs', "O'Halloran Hill", 'Woodcroft', 'Noarlunga'];
+---
+<!-- Section 13: Service Area -->
+<section class="d5-area">
+  <div class="d5-wrap d5-area-grid">
+    <div class="d5-area-text">
+      <h2 class="d5-h2">We serve Happy Valley and surrounds</h2>
+      <p class="d5-body">
+        Based in Happy Valley, we cover the southern suburbs of Adelaide. If you're nearby and
+        we're not listed, give us a call — chances are we're already on a job near you.
+      </p>
+      <ul class="d5-area-list">
+        {suburbs.map((s) => (
+          <li><a href="#contact"><span class="d5-bullet-dot" aria-hidden="true"></span>{s}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="d5-area-photo">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=700&q=80&fit=crop"
+        alt="Aerial view of Happy Valley and surrounding suburbs" loading="lazy" width="700" height="600" />
+      <span class="d5-area-tint" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>

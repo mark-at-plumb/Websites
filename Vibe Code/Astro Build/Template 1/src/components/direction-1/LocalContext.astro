@@ -1,0 +1,32 @@
+---
+import SectionHead from './SectionHead.astro';
+---
+<section class="local">
+  <div class="local__inner">
+    <SectionHead eyebrow="Know your suburb" title="Plumbing in Happy Valley" />
+    <div class="local__cols">
+      <p class="reveal">
+        Happy Valley has a mix of established homes, and many were built before modern plumbing
+        standards. We often find old cast-iron and earthenware pipes under these properties. Over
+        the years they rust, crack and let tree roots in. If your home is one of the older ones near
+        the reservoir, a camera inspection is the fastest way to see what is really going on before
+        a small problem becomes a big one.
+      </p>
+      <p class="reveal">
+        The leafy streets that make Happy Valley such a nice place to live also cause plenty of root
+        intrusion. Mature gum trees and established gardens send roots straight into joints and old
+        clay drains. We see it across the suburb every week. Because we work in Happy Valley all the
+        time, we know the local soil, the common pipe layouts and the quirks of homes here. That
+        local knowledge means we find the cause faster, and we fix it properly the first time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .local { padding: clamp(64px,8vw,104px) 0; }
+  .local__inner { max-width: 1040px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); }
+  .local__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px,4vw,56px); }
+  .local__cols p { font-family: var(--font-body); font-size: 16px; line-height: 1.8; color: #41515f; margin: 0; }
+  @media (max-width: 720px) { .local__cols { grid-template-columns: 1fr; gap: 22px; } }
+</style>

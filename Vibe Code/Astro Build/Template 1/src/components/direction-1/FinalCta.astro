@@ -1,0 +1,29 @@
+---
+import Pipe from './Pipe.astro';
+---
+<section class="fcta">
+  <div class="fcta__inner reveal">
+    <Pipe width="56px" color="var(--color-brand-secondary)" />
+    <h2>Ready to Book Your Happy Valley Plumber?</h2>
+    <p>Give us a call or request a free quote. A licensed local plumber is ready to help today.</p>
+    <div class="fcta__btns">
+      <a class="fcta__call" href="tel:0880000000">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1Z" fill="currentColor"/></svg>
+        Call (08) 8000 0000
+      </a>
+      <a class="fcta__quote" href="#quote">Get a Free Quote →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fcta { background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-accent)); padding: clamp(72px,9vw,116px) 0; text-align: center; }
+  .fcta__inner { max-width: 720px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); display: flex; flex-direction: column; align-items: center; }
+  .fcta h2 { font-family: var(--font-heading); font-weight: 900; letter-spacing: -.03em; line-height: 1.05; font-size: clamp(30px,4vw,50px); color: var(--color-brand-secondary); margin: 22px 0 14px; }
+  .fcta p { font-family: var(--font-body); font-size: 17px; line-height: 1.65; color: rgba(26,46,68,.82); margin: 0 0 30px; max-width: 46ch; }
+  .fcta__btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .fcta__call { display: inline-flex; align-items: center; gap: 10px; background: var(--color-brand-secondary); color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: 18px; padding: 16px 28px; border-radius: 12px; text-decoration: none; box-shadow: 0 14px 30px rgba(26,46,68,.3); transition: transform .25s ease, box-shadow .25s ease; }
+  .fcta__call:hover { transform: translateY(-3px); box-shadow: 0 22px 44px rgba(26,46,68,.42); }
+  .fcta__quote { display: inline-flex; align-items: center; background: transparent; border: 2px solid var(--color-brand-secondary); color: var(--color-brand-secondary); font-family: var(--font-body); font-weight: 700; font-size: 16px; padding: 15px 26px; border-radius: 12px; text-decoration: none; transition: background .25s ease, color .25s ease; }
+  .fcta__quote:hover { background: var(--color-brand-secondary); color: #fff; }
+</style>

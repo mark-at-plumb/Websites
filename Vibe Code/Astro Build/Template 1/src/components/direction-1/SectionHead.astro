@@ -1,0 +1,30 @@
+---
+import Pipe from './Pipe.astro';
+interface Props { eyebrow: string; title: string; align?: 'left' | 'center'; light?: boolean; }
+const { eyebrow, title, align = 'left', light = false } = Astro.props;
+---
+<div class={`shead ${align === 'center' ? 'shead--c' : ''} ${light ? 'shead--light' : ''} reveal`}>
+  <span class="shead__eyebrow">
+    <Pipe width="26px" color="var(--color-brand-primary)" />{eyebrow}
+  </span>
+  <h2 class="shead__title" set:html={title}></h2>
+</div>
+
+<style>
+  .shead { margin-bottom: 40px; }
+  .shead--c { text-align: center; }
+  .shead__eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--font-body); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .15em; font-size: 12px; color: var(--color-brand-muted); margin-bottom: 16px;
+  }
+  .shead--c .shead__eyebrow { justify-content: center; }
+  .shead__title {
+    font-family: var(--font-heading); font-weight: 900; letter-spacing: -.03em;
+    line-height: 1.06; color: var(--color-brand-secondary);
+    font-size: clamp(28px, 3.6vw, 46px); margin: 0; max-width: 18ch;
+  }
+  .shead--c .shead__title { max-width: none; }
+  .shead--light .shead__title { color: #fff; }
+  .shead--light .shead__eyebrow { color: var(--color-brand-accent); }
+</style>

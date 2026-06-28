@@ -1,0 +1,148 @@
+---
+import Tick from './Tick.astro';
+const pills = ['Lic. #333997', 'Fixed Upfront Pricing', '24/7 Emergency', '$50 Off First Service'];
+---
+<section class="hero" id="top">
+  <!-- LEFT: photo / gradient panel with ambient shift -->
+  <div class="hero__photo" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=1200&q=85&fit=crop&crop=center" alt="A licensed plumber at work servicing pipes in a Happy Valley home" loading="eager" />
+    <div class="hero__overlay"></div>
+    <div class="hero__grad"></div>
+    <span class="hero__tag"><Tick size={12} color="var(--color-brand-accent)" /> Licensed local plumbers, working across Happy Valley.</span>
+  </div>
+
+  <!-- RIGHT: dark panel, wipes in -->
+  <div class="hero__panel">
+    <div class="hero__texture" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <span class="hero__eyebrow" data-anim="eyebrow">
+        <Tick size={13} color="var(--color-brand-accent)" /> Your Local Happy Valley Plumber
+      </span>
+      <h1 class="hero__h1" data-anim="h1">24/7 Emergency Plumbing in <span>Happy Valley</span></h1>
+      <p class="hero__sub" data-anim="sub">
+        We're Plumber Happy Valley. Fully licensed, fixed upfront pricing, and a lifetime labour
+        warranty on every job. We turn up when we say we will.
+      </p>
+      <ul class="hero__pills" data-anim="pills">
+        {pills.map((p, i) => (
+          <li style={`--i:${i}`}><span class="pill-tick" aria-hidden="true"></span>{p}</li>
+        ))}
+      </ul>
+      <div class="hero__cta" data-anim="cta">
+        <a class="btn btn--primary" href="tel:0880000000">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1Z" fill="currentColor"/></svg>
+          Call (08) 8000 0000
+        </a>
+        <a class="btn btn--ghost" href="#quote">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { display: grid; grid-template-columns: 55fr 45fr; min-height: 100vh; padding-top: 70px; }
+
+  /* Left panel */
+  .hero__photo { position: relative; overflow: hidden; background: var(--color-brand-secondary); opacity: 0; }
+  .hero__photo.in { opacity: 1; transition: opacity .5s ease .1s; }
+  .hero__photo img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    z-index: 0;
+  }
+  .hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(14,29,44,0.4) 0%, rgba(14,29,44,0.65) 100%);
+    z-index: 1;
+  }
+  .hero__grad {
+    position: absolute; inset: 0; z-index: 2; opacity: .4;
+    background:
+      radial-gradient(120% 90% at 22% 12%, rgba(14,165,233,.20), transparent 55%),
+      linear-gradient(155deg, #16313f 0%, #122838 46%, #0b1722 100%);
+    animation: ambient 8s ease-in-out infinite;
+  }
+  @keyframes ambient {
+    0%   { filter: hue-rotate(0deg) brightness(1); }
+    50%  { filter: hue-rotate(-8deg) brightness(1.05); }
+    100% { filter: hue-rotate(0deg) brightness(1); }
+  }
+  .hero__tag {
+    position: absolute; left: 30px; bottom: 28px; right: 30px; z-index: 3;
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--font-body); font-weight: 500; font-size: 13px; color: rgba(255,255,255,.78);
+    border-left: 2px solid var(--color-brand-accent); padding-left: 12px;
+  }
+
+  /* Right panel + wipe */
+  .hero__panel {
+    position: relative; background: var(--color-brand-secondary);
+    display: flex; align-items: center; overflow: hidden;
+    clip-path: inset(0 100% 0 0);
+    animation: wipe .6s ease-out .05s forwards;
+  }
+  @keyframes wipe { to { clip-path: inset(0 0% 0 0); } }
+  .hero__texture {
+    position: absolute; inset: 0; pointer-events: none; opacity: .04;
+    background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 1px, transparent 9px);
+  }
+  .hero__inner { position: relative; padding: clamp(36px,5vw,68px) clamp(28px,5vw,64px); max-width: 600px; }
+
+  .hero__eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-body); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .16em; font-size: 12px; color: var(--color-brand-accent); margin-bottom: 22px;
+  }
+  .hero__h1 {
+    font-family: var(--font-heading); font-weight: 800; letter-spacing: -.03em;
+    line-height: 1.04; color: #fff; font-size: clamp(36px, 4.4vw, 60px); margin: 0 0 20px;
+  }
+  .hero__h1 span { color: var(--color-brand-accent); }
+  .hero__sub {
+    font-family: var(--font-body); font-weight: 400; font-size: clamp(15px,1.3vw,17.5px);
+    line-height: 1.65; color: rgba(255,255,255,.76); margin: 0 0 26px; max-width: 48ch;
+  }
+  .hero__pills { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-wrap: wrap; gap: 9px; }
+  .hero__pills li {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-body); font-weight: 600; font-size: 12.5px; color: #fff;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+    padding: 8px 13px; border-radius: var(--radius);
+  }
+  .pill-tick { width: 9px; height: 9px; flex: none; border-bottom: 1.5px solid var(--color-brand-accent); border-right: 1.5px solid var(--color-brand-accent); transform: rotate(45deg) translateY(-1px); }
+
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* ---- Load sequence ---- */
+  [data-anim] { opacity: 0; }
+  .hero.seq [data-anim="eyebrow"] { animation: rise .4s var(--ease-expo) .15s forwards; --from: 12px; }
+  .hero.seq [data-anim="h1"]      { animation: rise .5s var(--ease-expo) .25s forwards; --from: 16px; }
+  .hero.seq [data-anim="sub"]     { animation: rise .4s var(--ease-expo) .38s forwards; --from: 12px; }
+  .hero.seq [data-anim="pills"]   { opacity: 1; }
+  .hero.seq [data-anim="cta"]     { animation: rise .4s var(--ease-expo) .62s forwards; --from: 12px; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(var(--from, 14px)); } to { opacity: 1; transform: none; } }
+
+  /* Pills stagger left-to-right starting 480ms */
+  .hero__pills li { opacity: 0; }
+  .hero.seq .hero__pills li { animation: rise .4s var(--ease-expo) forwards; animation-delay: calc(480ms + var(--i) * 60ms); --from: 10px; }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero__photo { min-height: 300px; order: -1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__photo { opacity: 1; }
+    .hero__panel { clip-path: none; animation: none; }
+    .hero__grad { animation: none; }
+    [data-anim], .hero__pills li { opacity: 1 !important; transform: none !important; animation: none !important; }
+  }
+</style>
+
+<script>
+  const hero = document.getElementById('top');
+  requestAnimationFrame(() => {
+    hero?.classList.add('seq');
+    hero?.querySelector('.hero__photo')?.classList.add('in');
+  });
+</script>

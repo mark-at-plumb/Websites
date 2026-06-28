@@ -1,0 +1,68 @@
+---
+const steps = [
+  { n: '01', t: 'Call us', d: 'Tell us what is going on. We answer 24/7 and book a time that suits you.' },
+  { n: '02', t: 'Fixed price', d: 'We assess the job and give you an upfront price before any work starts.' },
+  { n: '03', t: 'We fix it', d: 'A licensed plumber does the job properly and leaves your home tidy.' },
+  { n: '04', t: 'Warranty', d: 'Every job is backed by our Lifetime Labour Warranty. We stand behind it.' },
+];
+---
+
+<section class="np-process np-section np-reveal">
+  <div class="np-wrap">
+    <div class="np-sec-head">
+      <p class="np-marker">How it works</p>
+      <h2 class="np-h2">Our process</h2>
+    </div>
+    <div class="np-rule"></div>
+    <ol class="np-proc-grid">
+      {steps.map((s) => (
+        <li class="np-proc">
+          <span class="np-proc-num">{s.n}</span>
+          <h3 class="np-proc-title">{s.t}</h3>
+          <p class="np-proc-desc">{s.d}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .np-proc-grid {
+    list-style: none; margin: 2rem 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  }
+  .np-proc {
+    padding: 0 1.5rem;
+    border-left: 1px solid color-mix(in srgb, var(--color-brand-primary) 30%, transparent);
+  }
+  .np-proc:first-child { padding-left: 0; border-left: none; }
+  .np-proc-num {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 48;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--color-brand-primary);
+  }
+  .np-proc-title {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 24;
+    font-weight: 600;
+    font-size: 1.18rem;
+    margin: 0.4rem 0 0.35rem;
+    color: var(--color-brand-text);
+  }
+  .np-proc-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-brand-muted);
+    margin: 0;
+  }
+  @media (max-width: 760px) {
+    .np-proc-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
+    .np-proc { padding-left: 0; border-left: none; }
+  }
+  @media (max-width: 440px) {
+    .np-proc-grid { grid-template-columns: 1fr; }
+  }
+</style>

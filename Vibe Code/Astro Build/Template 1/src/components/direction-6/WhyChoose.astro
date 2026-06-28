@@ -1,0 +1,50 @@
+---
+import Tick from './Tick.astro';
+const IMG = 'https://jimmysparkselectrical.com.au/wp-content/uploads/2026/04/Jimmy-Sparks-Electrical-Happy-Client-Photo.webp';
+const rows = [
+  { t: 'On time, every time', d: 'We confirm the day before and stick to the window.' },
+  { t: 'Fixed upfront pricing', d: 'You see the price before we touch a tool.' },
+  { t: 'Lifetime Labour Warranty', d: 'If the work fails, we return at no cost.' },
+  { t: 'Licensed & insured', d: 'Lic. #333997. $5M public liability on every job.' },
+];
+---
+<section class="d6-why d6-sec" id="about">
+  <div class="d6-why__grid d6-wrap">
+    <div class="d6-why__media reveal">
+      <img src={IMG} alt="A happy Happy Valley homeowner with their plumber" loading="lazy" width="700" height="800" />
+    </div>
+    <div class="d6-why__text">
+      <span class="d6-eyebrow reveal">Why Choose Us</span>
+      <h2 class="d6-h2 reveal">What sets Plumber Happy Valley apart</h2>
+      <p class="d6-why__body reveal">
+        We built this business after watching homeowners get let down. Tradies who didn't show up.
+        Prices that changed after the job. So we did the opposite. Show up on time. Quote upfront.
+        Back every job with a Lifetime Labour Warranty.
+      </p>
+      <ul class="d6-why__rows">
+        {rows.map((r, i) => (
+          <li class="reveal" style={`--rd:${i * 80}ms`}>
+            <span class="d6-why__tick"><Tick size={14} color="#fff" /></span>
+            <span><strong>{r.t}</strong><span class="d6-why__d">{r.d}</span></span>
+          </li>
+        ))}
+      </ul>
+      <a class="d6-why__link reveal" href="#contact">LEARN MORE ABOUT US →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .d6-why__grid { display: grid; grid-template-columns: 45fr 55fr; gap: clamp(28px,4vw,60px); align-items: center; }
+  .d6-why__media { border-radius: 6px; overflow: hidden; }
+  .d6-why__media img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 7/8; }
+  .d6-why__body { font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--color-brand-muted); margin: 0 0 26px; max-width: 70ch; }
+  .d6-why__rows { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 16px; }
+  .d6-why__rows li { display: flex; gap: 13px; align-items: flex-start; }
+  .d6-why__tick { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--color-brand-primary); display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .d6-why__rows strong { display: block; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-brand-text); }
+  .d6-why__d { font-family: var(--font-body); font-size: 14.5px; color: var(--color-brand-muted); line-height: 1.5; }
+  .d6-why__link { font-family: var(--font-heading); font-weight: 700; font-size: 14px; letter-spacing: .03em; color: var(--color-brand-primary); text-decoration: none; }
+  .d6-why__link:hover { text-decoration: underline; }
+  @media (max-width: 880px) { .d6-why__grid { grid-template-columns: 1fr; } }
+</style>

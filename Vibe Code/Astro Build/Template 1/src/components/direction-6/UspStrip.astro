@@ -1,0 +1,47 @@
+---
+const items = [
+  { t: '$50 Off First Service', d: 'New customers save on their first call-out.', icon: 'dollar' },
+  { t: '$0 Call Out Fee', d: 'We charge for the job, not the drive.', icon: 'wrench' },
+  { t: 'Free Quotes', d: 'Fixed upfront price before we lift a tool.', icon: 'shield' },
+  { t: 'Same-Day Service', d: 'On the van and on the way, within the hour.', icon: 'clock' },
+];
+const icons: Record<string, string> = {
+  dollar: '<path d="M12 2v20M16 6.5C16 4.6 14.2 3.5 12 3.5S8 4.6 8 6.5 9.8 9.5 12 9.5s4 1.1 4 3-1.8 3-4 3-4-1.1-4-3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>',
+  wrench: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.4-.4-2.1 2.5-2.5z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>',
+  shield: '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+  clock: '<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>',
+};
+---
+<section class="d6-usp">
+  <div class="d6-usp__grid d6-wrap">
+    {items.map((it) => (
+      <div class="d6-usp__col reveal">
+        <span class="d6-usp__icon" set:html={`<svg viewBox="0 0 24 24" width="34" height="34">${icons[it.icon]}</svg>`} />
+        <h3>{it.t}</h3>
+        <p>{it.d}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .d6-usp { background: var(--color-brand-secondary); }
+  .d6-usp__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .d6-usp__col { padding: clamp(34px,4vw,52px) clamp(20px,2.4vw,32px); position: relative; transition: background .2s ease; }
+  .d6-usp__col + .d6-usp__col { border-left: 1px solid rgba(14,116,144,.45); }
+  .d6-usp__col:hover { background: rgba(255,255,255,.04); }
+  .d6-usp__icon { color: #fff; display: block; margin-bottom: 16px; transition: color .2s ease; }
+  .d6-usp__col:hover .d6-usp__icon { color: var(--color-brand-primary); }
+  .d6-usp__col h3 { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: #fff; margin: 0 0 8px; }
+  .d6-usp__col p { font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.62); margin: 0; }
+  @media (max-width: 880px) {
+    .d6-usp__grid { grid-template-columns: 1fr 1fr; }
+    .d6-usp__col:nth-child(3) { border-left: none; }
+    .d6-usp__col:nth-child(odd) { border-left: none; }
+    .d6-usp__col:nth-child(n+3) { border-top: 1px solid rgba(14,116,144,.45); }
+  }
+  @media (max-width: 520px) {
+    .d6-usp__grid { grid-template-columns: 1fr; }
+    .d6-usp__col + .d6-usp__col { border-left: none; border-top: 1px solid rgba(14,116,144,.45); }
+  }
+</style>

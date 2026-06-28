@@ -1,0 +1,32 @@
+---
+import SectionHead from './SectionHead.astro';
+import Tick from './Tick.astro';
+const areas = [
+  'Happy Valley', 'Aberfoyle Park', 'Flagstaff Hill', 'Chandlers Hill',
+  'Reynella', 'Old Reynella', 'Morphett Vale', 'Woodcroft',
+  'Hallett Cove', 'Trott Park', 'Cherry Gardens', 'Coromandel Valley',
+];
+---
+<section class="areas sec wrap" id="areas">
+  <SectionHead eyebrow="Where We Work" title="Servicing Happy Valley and the southern suburbs" align="center" />
+  <ul class="areas__grid reveal">
+    {areas.map((a) => (
+      <li><Tick size={12} />{a}</li>
+    ))}
+  </ul>
+  <p class="areas__note reveal" style="--rd:120ms">Not sure if you're in our patch? Give us a call, we cover most of southern Adelaide.</p>
+</section>
+
+<style>
+  .areas { background: var(--color-brand-bg); }
+  .areas__grid { list-style: none; margin: 0 0 24px; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .areas__grid li {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-body); font-weight: 500; font-size: 14.5px; color: var(--color-brand-secondary);
+    background: var(--color-brand-surface); border: 1px solid rgba(15,23,42,.06);
+    border-radius: var(--radius); padding: 13px 16px;
+  }
+  .areas__note { text-align: center; font-family: var(--font-body); font-size: 14.5px; color: var(--color-brand-muted); margin: 0; }
+  @media (max-width: 760px) { .areas__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .areas__grid { grid-template-columns: 1fr; } }
+</style>

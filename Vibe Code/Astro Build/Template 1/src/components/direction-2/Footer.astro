@@ -1,0 +1,98 @@
+---
+const phone = '(08) 8000 0000';
+const tel = `tel:${phone.replace(/[^\d+]/g, '')}`;
+const year = new Date().getFullYear();
+---
+
+<footer class="np-footer">
+  <div class="np-wrap">
+    <div class="np-rule"></div>
+    <div class="np-foot-grid">
+      <div class="np-foot-brand">
+        <p class="np-foot-name">Plumber Happy Valley</p>
+        <p class="np-foot-tag">Your local, family-owned plumber. Fixed upfront pricing and a Lifetime Labour Warranty on every job.</p>
+        <a class="np-foot-phone" href={tel}>{phone}</a>
+      </div>
+      <div class="np-foot-meta">
+        <dl class="np-foot-dl">
+          <div><dt>Licence</dt><dd>Lic. #333997</dd></div>
+          <div><dt>ABN</dt><dd>52 668 135 886</dd></div>
+          <div><dt>Hours</dt><dd>24/7, incl. public holidays</dd></div>
+          <div><dt>Areas</dt><dd>Happy Valley &amp; surrounds</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="np-rule"></div>
+    <p class="np-foot-copy">© {year} Plumber Happy Valley. Master Plumber South Australia. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .np-footer {
+    background: var(--color-brand-bg);
+    padding: 2rem 0 2.5rem;
+  }
+  .np-foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.5rem;
+    padding: 1.75rem 0;
+  }
+  .np-foot-name {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 40;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--color-brand-text);
+    margin: 0 0 0.5rem;
+  }
+  .np-foot-tag {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-brand-muted);
+    margin: 0 0 0.9rem;
+    max-width: 42ch;
+  }
+  .np-foot-phone {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 36;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--color-brand-primary);
+    text-decoration: none;
+  }
+  .np-foot-phone:hover { color: var(--color-brand-secondary); }
+  .np-foot-dl { margin: 0; }
+  .np-foot-dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-primary) 22%, transparent);
+  }
+  .np-foot-dl dt {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-brand-primary);
+  }
+  .np-foot-dl dd {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--color-brand-text);
+    margin: 0;
+    text-align: right;
+  }
+  .np-foot-copy {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-brand-muted);
+    margin: 1.25rem 0 0;
+  }
+  @media (max-width: 700px) {
+    .np-foot-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  }
+</style>

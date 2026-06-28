@@ -1,0 +1,86 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "trade-authority",
+      "name": "Trade Authority",
+      "description": "Dark near-black header with a large bold white headline and prominent orange phone CTA. A tight trust-badge strip sits immediately below. Services grid is dense and information-rich with sharp card edges and orange hover accents. Sections alternate white and light grey. Typography leans heavy with Raleway at ultra-bold weights for muscular authority.",
+      "rationale": "The orange-and-dark combination is proven in the trades space — instantly readable, maximum conversion density. Closest in spirit to jimmysparkselectrical.com.au.",
+      "palette": {
+        "primary": "#111827",
+        "secondary": "#374151",
+        "accent": "#EA6C0A",
+        "bg": "#FFFFFF",
+        "surface": "#F9FAFB",
+        "text": "#111827",
+        "muted": "#6B7280"
+      },
+      "fonts": {
+        "heading": { "family": "Raleway", "package": "raleway", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "dense",
+        "typography": "heavy-weight-sans + geometric-sans",
+        "hero": "dark-full-bleed",
+        "shape_language": "sharp-edges",
+        "visual_metaphor": "authority"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "neighbourhood-pro",
+      "name": "Neighbourhood Pro",
+      "description": "Deep navy replaces black for a more considered trustworthy feel. Split hero: bold headline left, phone number and star-rating badge right. Trust signals as inline stat callouts (500+ reviews, 10 years, 24/7) rather than icon badges. Service cards have subtle drop shadows and 12px rounded corners. Amber CTAs pop against navy. Generous spacing — the page breathes.",
+      "rationale": "Navy and amber reads as reliable and established without the rawness of pure black. Strong for homeowners who want a professional outfit, not just a sole trader.",
+      "palette": {
+        "primary": "#1D3461",
+        "secondary": "#2D4A8A",
+        "accent": "#F59E0B",
+        "bg": "#FAFAF7",
+        "surface": "#F0EFE9",
+        "text": "#1A2040",
+        "muted": "#64748B"
+      },
+      "fonts": {
+        "heading": { "family": "Lexend", "package": "lexend", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Source Sans 3", "package": "source-sans-3", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "balanced",
+        "typography": "clean-geometric + humanist-sans",
+        "hero": "split-screen",
+        "shape_language": "rounded-cards",
+        "visual_metaphor": "professional-neighbour"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "local-promise",
+      "name": "The Local Promise",
+      "description": "Bold serif typographic hero: 'Your local [Suburb] plumber. On time. Done properly.' — no background image, the brand promise IS the hero. Teal accent is unexpected in the trades space and instantly distinctive. Spacious, warm-cream background. Service cards are rounded (20px) and generous. The founding family story gets a dedicated story block. Fraunces shifts weight optically across sizes.",
+      "rationale": "Stands out in search results where every other plumber site is black-and-orange. The serif and teal combination communicates quality over cheap-and-fast. Best for attracting the 35–65 homeowner who values trust over price.",
+      "palette": {
+        "primary": "#2C3344",
+        "secondary": "#3D4F6B",
+        "accent": "#0D7377",
+        "bg": "#FEFCF7",
+        "surface": "#F5F0E8",
+        "text": "#1C2434",
+        "muted": "#7A8499"
+      },
+      "fonts": {
+        "heading": { "family": "Fraunces", "package": "fraunces", "fallback": "Georgia, serif" },
+        "body": { "family": "DM Sans", "package": "dm-sans", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "spacious",
+        "typography": "optical-size-serif + friendly-geometric",
+        "hero": "typographic",
+        "shape_language": "pill-rounded",
+        "visual_metaphor": "human-local"
+      }
+    }
+  ],
+  "total": 3
+}

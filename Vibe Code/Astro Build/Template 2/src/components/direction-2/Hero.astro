@@ -1,0 +1,70 @@
+---
+import Shield from './Shield.astro';
+---
+<section id="top" class="relative bg-brand-bg overflow-hidden">
+  <!-- ambient shield motif, very low opacity -->
+  <div class="pointer-events-none absolute -right-24 top-10 text-brand-primary/[0.04] hidden md:block" aria-hidden="true">
+    <Shield class="w-[460px] h-[540px]" />
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8 pt-[136px] pb-20 md:pt-[176px] md:pb-28 grid lg:grid-cols-[60fr_40fr] gap-12 lg:gap-16 items-center">
+    <!-- LEFT 60% -->
+    <div class="d2-hero-left relative isolate overflow-hidden rounded-2xl p-8 sm:p-10 -m-2 sm:-m-4">
+      <img src="/images/hero-plumber.jpg" alt="Licensed plumber working under a sink" class="absolute inset-0 -z-20 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-brand-primary/80"></div>
+      <p class="flex items-center gap-2 font-heading font-medium text-[11px] tracking-[0.18em] uppercase text-brand-accent mb-6">
+        <Shield class="w-3.5 h-4" /> Family-Owned · A Decade in Adelaide
+      </p>
+      <h1 class="font-heading font-extrabold text-white leading-[1.02] tracking-[-0.03em] text-[clamp(2.6rem,6.4vw,4.5rem)]">
+        <span class="text-brand-accent">Happy Valley's</span> local plumber. On time. Upfront price. Done properly.
+      </h1>
+      <p class="mt-7 max-w-xl text-[1.0625rem] md:text-[1.15rem] leading-relaxed font-light text-white/80">
+        We're the licensed, family-run team Happy Valley homeowners call when they want it done right the first time — fixed pricing quoted before we start, a Lifetime Labour Warranty on every job, and someone who actually turns up when we say we will.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="tel:1300000000" class="group inline-flex items-center gap-2.5 bg-brand-accent text-brand-primary font-heading font-bold text-[16px] px-7 py-4 rounded-xl shadow-[0_10px_30px_-8px_rgba(245,158,11,0.65)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.85)] transition-all duration-300">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Call 1300 XXX XXX
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 font-heading font-semibold text-[15px] text-white px-6 py-4 rounded-xl border-2 border-white/25 hover:border-white/50 hover:bg-white/[0.06] transition-all duration-300">
+          Get a Free Quote
+        </a>
+      </div>
+      <p class="mt-6 flex items-center gap-2 text-[13.5px] text-white/65">
+        <Shield class="w-3.5 h-4 text-white/60" />
+        Lic. #333997 · Master Plumber South Australia · 24/7 Emergency
+      </p>
+    </div>
+
+    <!-- RIGHT 40% — navy call card -->
+    <div class="d2-hero-right">
+      <div class="relative rounded-2xl bg-brand-primary text-white p-8 sm:p-9 shadow-[0_30px_70px_-25px_rgba(15,23,42,0.6)] overflow-hidden">
+        <div class="pointer-events-none absolute -right-8 -bottom-8 text-white/[0.05]" aria-hidden="true">
+          <Shield class="w-44 h-52" />
+        </div>
+        <div class="relative">
+          <div class="flex items-center gap-1.5 text-brand-accent">
+            {Array.from({length:5}).map(() => (
+              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.9L12 18l-6.1 3.1L7.1 14l-5-4.9 6.9-1L12 2Z"/></svg>
+            ))}
+          </div>
+          <p class="mt-3 text-[14px] text-white/70 font-light">Rated by <span class="font-semibold text-white">500+</span> Adelaide homeowners</p>
+
+          <p class="mt-7 text-[12px] tracking-[0.16em] uppercase text-white/55 font-heading font-medium">Speak to a plumber now</p>
+          <a href="tel:1300000000" class="block mt-1 font-heading font-extrabold tracking-[-0.02em] text-[clamp(2rem,4.5vw,2.6rem)] leading-none hover:text-brand-accent transition-colors">
+            1300 XXX XXX
+          </a>
+
+          <a href="tel:1300000000" class="mt-6 w-full inline-flex items-center justify-center gap-2 bg-brand-accent text-brand-primary font-heading font-bold text-[16px] py-4 rounded-xl hover:bg-amber-400 transition-colors">
+            Call Now
+          </a>
+
+          <div class="mt-6 flex items-center gap-3 rounded-xl bg-brand-accent/15 border border-brand-accent/30 px-4 py-3">
+            <span class="grid place-items-center w-9 h-9 rounded-lg bg-brand-accent text-brand-primary shrink-0 font-heading font-extrabold text-[15px]">$50</span>
+            <p class="text-[13.5px] leading-snug"><span class="font-semibold text-white">$50 off your first service</span><br/><span class="text-white/60">New customers · mention this offer</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

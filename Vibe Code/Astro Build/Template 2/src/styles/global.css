@@ -1,0 +1,13 @@
+/* Direction 1: Trade Authority */
+@import '@fontsource-variable/raleway';
+@import '@fontsource-variable/inter';
+/* Direction 2: Neighbourhood Pro */
+@import '@fontsource-variable/lexend';
+@import '@fontsource-variable/source-sans-3';
+/* Direction 3: The Local Promise */
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/dm-sans';
+
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";

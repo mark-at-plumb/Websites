@@ -1,0 +1,51 @@
+---
+const phone = '(08) 8000 0000';
+const tel = `tel:${phone.replace(/[^\d+]/g, '')}`;
+---
+
+<section class="np-final np-section np-reveal" id="book">
+  <div class="np-wrap np-final-inner">
+    <p class="np-final-eyebrow">Happy Valley · 24/7</p>
+    <h2 class="np-final-h2">Need a plumber? Let's get it sorted.</h2>
+    <p class="np-final-sub">Fixed upfront pricing and a Lifetime Labour Warranty on every job. Call us now, or book online and we will come to you.</p>
+    <div class="np-final-cta">
+      <a class="np-btn np-btn-dark" href={tel}>Call {phone}</a>
+      <a class="np-btn np-btn-dark-outline" href="#book">Book online &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .np-final { background: var(--color-brand-primary); }
+  .np-final-inner { text-align: center; }
+  .np-final-eyebrow {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-brand-text);
+    opacity: 0.7;
+    margin: 0 0 0.75rem;
+  }
+  .np-final-h2 {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 96;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--color-brand-text);
+    margin: 0 0 0.9rem;
+  }
+  .np-final-sub {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--color-brand-text);
+    opacity: 0.85;
+    max-width: 48ch;
+    margin: 0 auto 1.6rem;
+  }
+  .np-final-cta { display: flex; flex-wrap: wrap; gap: 0.85rem; justify-content: center; }
+</style>

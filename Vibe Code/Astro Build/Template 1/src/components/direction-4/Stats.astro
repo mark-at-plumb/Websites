@@ -1,0 +1,72 @@
+---
+const stats = [
+  { num: 500, suffix: '+', label: '5-star reviews from Adelaide homeowners' },
+  { num: 10, suffix: '+', label: 'Years working on local homes' },
+  { num: 24, suffix: '/7', label: 'Emergency response, every day', noCount: true },
+];
+---
+<section class="stats">
+  <div class="stats__texture" aria-hidden="true"></div>
+  <div class="stats__inner wrap">
+    {stats.map((s) => (
+      <div class="stats__item reveal">
+        <span class="stats__num" data-target={s.num} data-suffix={s.suffix} data-nocount={s.noCount ? '1' : '0'}>
+          {s.noCount ? `${s.num}${s.suffix}` : `0${s.suffix}`}
+        </span>
+        <span class="stats__line" aria-hidden="true"></span>
+        <span class="stats__label">{s.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats { position: relative; background: var(--color-brand-secondary); overflow: hidden; }
+  .stats__texture {
+    position: absolute; inset: 0; pointer-events: none; opacity: .04;
+    background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 1px, transparent 11px);
+  }
+  .stats__inner {
+    position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    padding-top: clamp(64px,8vw,96px); padding-bottom: clamp(64px,8vw,96px);
+  }
+  .stats__item { text-align: center; }
+  .stats__num {
+    display: block; font-family: var(--font-heading); font-weight: 800; letter-spacing: -.04em;
+    font-size: clamp(58px, 7.5vw, 90px); line-height: .9; color: var(--color-brand-accent);
+  }
+  .stats__line {
+    display: block; width: 44px; height: 2px; margin: 18px auto 16px;
+    background: var(--color-brand-primary); border-radius: 2px;
+    animation: breathe 3s ease-in-out infinite;
+  }
+  @keyframes breathe { 0%,100% { opacity: .4; } 50% { opacity: .7; } }
+  .stats__label { font-family: var(--font-body); font-weight: 400; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,.74); max-width: 22ch; margin: 0 auto; display: block; }
+
+  @media (max-width: 760px) { .stats__inner { grid-template-columns: 1fr; gap: 44px; } }
+  @media (prefers-reduced-motion: reduce) { .stats__line { animation: none; opacity: .55; } }
+</style>
+
+<script>
+  const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const animate = (el: HTMLElement) => {
+    if (el.dataset.nocount === '1') return;
+    const target = Number(el.dataset.target || 0);
+    const suffix = el.dataset.suffix || '';
+    if (reduce) { el.textContent = `${target}${suffix}`; return; }
+    const dur = 1600; const start = performance.now();
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / dur);
+      el.textContent = `${Math.round(target * easeOutQuart(p))}${suffix}`;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { animate(e.target as HTMLElement); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll<HTMLElement>('.stats__num').forEach((el) => io.observe(el));
+</script>

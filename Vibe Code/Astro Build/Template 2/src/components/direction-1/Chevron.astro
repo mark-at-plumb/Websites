@@ -1,0 +1,10 @@
+---
+// Recurring orange chevron motif (→)
+interface Props {
+  class?: string;
+}
+const { class: cls = '' } = Astro.props;
+---
+<svg class={cls} viewBox="0 0 16 16" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" />
+</svg>

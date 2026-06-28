@@ -1,0 +1,40 @@
+---
+const PHONE = '(08) 8000 0000';
+const tel = `tel:${PHONE.replace(/[^0-9+]/g, '')}`;
+const year = new Date().getFullYear();
+---
+<!-- Section 17: Footer -->
+<footer class="d5-footer">
+  <div class="d5-wrap d5-footer-grid">
+    <div class="d5-footer-brand">
+      <span class="d5-logo d5-logo-light">Plumber Happy Valley</span>
+      <p>Local, family-owned plumbing for Happy Valley and the southern suburbs. On time, upfront, and backed for life.</p>
+      <a href={tel} class="d5-btn d5-btn-primary">CALL {PHONE}</a>
+    </div>
+    <div class="d5-footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Emergency Plumbing</a></li>
+        <li><a href="#services">Blocked Drains</a></li>
+        <li><a href="#services">Hot Water Systems</a></li>
+        <li><a href="#services">Gas Fitting</a></li>
+        <li><a href="#services">Pipe Relining</a></li>
+      </ul>
+    </div>
+    <div class="d5-footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="d5-footer-bar">
+    <div class="d5-wrap d5-footer-bar-inner">
+      <span>ABN 52 668 135 886 &nbsp;|&nbsp; Lic. #333997</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms</a> &nbsp;|&nbsp; © {year} Plumber Happy Valley</span>
+    </div>
+  </div>
+</footer>

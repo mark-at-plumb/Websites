@@ -1,0 +1,30 @@
+---
+const faqs = [
+  { q: 'Do you charge a call-out fee?', a: 'No. We charge for the job, not the drive. You get a free, fixed upfront quote before any work starts, so there are no surprise charges.' },
+  { q: 'Are you available after hours and on weekends?', a: 'Yes. We run 24/7 emergency plumbing, including weekends and public holidays, and aim to be at your door within the hour.' },
+  { q: 'Are you licensed and insured?', a: 'Yes. We are fully licensed (Lic. #333997) and carry $5M public liability insurance on every job we do.' },
+  { q: 'What is the Lifetime Labour Warranty?', a: 'If the workmanship on a job we have done fails, we come back and put it right at no cost to you. It backs every job, for life.' },
+  { q: 'How does your pricing work?', a: 'We quote a fixed price upfront after inspecting the job. You approve it before we start, so the price you agree to is the price you pay.' },
+  { q: 'Do you offer any discounts?', a: 'Yes. New customers get $50 off their first service, and we offer 10% off for pensioners and seniors. Just mention it when you call.' },
+];
+---
+<!-- Section 15: FAQs -->
+<section class="d5-faqs" id="faq">
+  <div class="d5-wrap">
+    <div class="d5-section-head">
+      <h2 class="d5-h2 d5-center">Frequently asked questions</h2>
+      <p class="d5-body d5-center d5-narrow">Straight answers to the questions Happy Valley homeowners ask us most.</p>
+    </div>
+    <div class="d5-faq-grid">
+      {faqs.map((f) => (
+        <details class="d5-faq">
+          <summary>
+            <span>{f.q}</span>
+            <span class="d5-faq-ind" aria-hidden="true"></span>
+          </summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

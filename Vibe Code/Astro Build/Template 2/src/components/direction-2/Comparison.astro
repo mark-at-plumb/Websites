@@ -1,0 +1,57 @@
+---
+import Shield from './Shield.astro';
+const rows = [
+  'Fixed upfront pricing — no hourly rates',
+  'Lifetime Labour Warranty on every job',
+  'Within-the-hour emergency response, 24/7',
+  'Licensed Master Plumber (Lic. #333997)',
+  'Same-day hot water replacements in stock',
+  'Family-owned, local team — no call centre',
+  'Honest assessment with CCTV & leak detection',
+  '$50 off your first service',
+];
+---
+<section class="bg-brand-bg">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8 py-24 md:py-32">
+    <div class="reveal max-w-2xl mb-12">
+      <p class="flex items-center gap-2 font-heading font-medium text-[11px] tracking-[0.18em] uppercase text-brand-accent mb-4">
+        <Shield class="w-3.5 h-4" /> The Difference
+      </p>
+      <h2 class="font-heading font-extrabold text-brand-text tracking-[-0.025em] leading-[1.05] text-[clamp(2rem,4.5vw,3rem)]">How Plumber Happy Valley compares</h2>
+    </div>
+
+    <div class="reveal overflow-hidden rounded-2xl border border-brand-primary/10 shadow-[0_20px_50px_-25px_rgba(15,23,42,0.4)]">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-brand-primary text-white">
+            <th class="py-5 px-5 sm:px-7 font-heading font-bold text-[14px] sm:text-[15px]">What matters to you</th>
+            <th class="py-5 px-3 sm:px-5 text-center font-heading font-bold text-[13px] sm:text-[15px] w-[26%]">
+              <span class="inline-flex items-center gap-1.5 text-brand-accent"><Shield class="w-4 h-5" /> Us</span>
+            </th>
+            <th class="py-5 px-3 sm:px-5 text-center font-heading font-semibold text-[13px] sm:text-[15px] text-white/55 w-[26%]">Typical tradie</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr class={i % 2 ? 'bg-brand-surface/60' : 'bg-white'}>
+              <td class="py-4 px-5 sm:px-7 text-[14px] sm:text-[15px] text-brand-text">{r}</td>
+              <td class="py-4 px-3 sm:px-5 text-center">
+                <svg viewBox="0 0 24 24" class="inline w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </td>
+              <td class="py-4 px-3 sm:px-5 text-center">
+                <svg viewBox="0 0 24 24" class="inline w-5 h-5 text-brand-muted/40" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" stroke-linecap="round"/></svg>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="reveal mt-10 text-center">
+      <a href="tel:1300000000" class="inline-flex items-center gap-2.5 bg-brand-accent text-brand-primary font-heading font-bold text-[16px] px-7 py-4 rounded-xl shadow-[0_10px_30px_-8px_rgba(245,158,11,0.65)] hover:-translate-y-0.5 transition-all duration-300">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Call 1300 XXX XXX
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,193 @@
+---
+import Pipe from './Pipe.astro';
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Why Us', href: '#why' },
+  { label: 'Areas', href: '#areas' },
+  { label: 'FAQs', href: '#faqs' },
+];
+---
+<header class="nav" id="site-nav" data-scrolled="false">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">
+      <span class="nav__logo">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M4 14a6 6 0 0 1 6-6h2V4l8 8-8 8v-4h-2a6 6 0 0 1-6-6Z" fill="currentColor" opacity="0"/>
+          <path d="M6 9.5C6 7 8 5 10.5 5S15 7 15 9.5v2h2.5a2.5 2.5 0 0 1 0 5H15v2.5a2.5 2.5 0 0 1-5 0V13H7.5a2.5 2.5 0 0 1 0-5H10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="nav__name">
+        Plumber <strong>Happy Valley</strong>
+      </span>
+      <span class="nav__badge" id="suburb-badge">
+        <span class="nav__badge-dot"></span>Happy Valley
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <div class="nav__actions">
+      <a class="nav__phone" href="tel:0880000000">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1Z" fill="currentColor"/></svg>
+        (08) 8000 0000
+      </a>
+      <a class="nav__cta" href="#quote">Get a Quote</a>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__divider"><Pipe width="100%" color="rgba(212,136,46,0.5)" /></div>
+</header>
+
+<div class="drawer" id="nav-drawer" aria-hidden="true">
+  <div class="drawer__panel">
+    <button class="drawer__close" id="drawer-close" aria-label="Close menu">&times;</button>
+    <span class="drawer__badge"><span class="nav__badge-dot"></span>Happy Valley</span>
+    <nav class="drawer__links">
+      {links.map((l) => <a href={l.href} data-drawer-link>{l.label}</a>)}
+    </nav>
+    <a class="drawer__phone" href="tel:0880000000">Call (08) 8000 0000</a>
+    <a class="drawer__cta" href="#quote" data-drawer-link>Get a Free Quote</a>
+  </div>
+  <div class="drawer__scrim" id="drawer-scrim"></div>
+</div>
+
+<style>
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    transition: background .35s ease, box-shadow .35s ease, padding .35s ease;
+    padding: 18px 0 0;
+  }
+  .nav__inner {
+    max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px);
+    display: flex; align-items: center; gap: 24px;
+    height: 76px; transition: height .35s ease;
+  }
+  .nav[data-scrolled="true"] { background: var(--color-brand-secondary); box-shadow: 0 10px 30px rgba(26,46,68,.25); padding: 0; }
+  .nav[data-scrolled="true"] .nav__inner { height: 62px; }
+  .nav[data-scrolled="true"] .nav__divider { opacity: 0; }
+
+  .nav__brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex: none; }
+  .nav__logo {
+    width: 38px; height: 38px; border-radius: 10px; flex: none;
+    display: grid; place-items: center;
+    background: var(--color-brand-primary); color: #fff;
+    box-shadow: 0 6px 16px rgba(212,136,46,.35);
+  }
+  .nav__name {
+    font-family: var(--font-heading); font-weight: 600; font-size: 15px;
+    letter-spacing: -.01em; color: var(--color-brand-secondary); line-height: 1;
+    transition: color .35s ease;
+  }
+  .nav__name strong { font-weight: 900; display: block; font-size: 16px; }
+  .nav[data-scrolled="true"] .nav__name { color: #fff; }
+
+  .nav__badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-body); font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .08em;
+    color: var(--color-brand-secondary);
+    background: rgba(212,136,46,.16); border: 1px solid rgba(212,136,46,.5);
+    padding: 6px 11px; border-radius: 999px; margin-left: 4px;
+  }
+  .nav[data-scrolled="true"] .nav__badge { color: var(--color-brand-accent); border-color: rgba(212,136,46,.7); background: rgba(212,136,46,.18); }
+  .nav__badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-brand-primary); box-shadow: 0 0 0 0 rgba(212,136,46,.6); }
+  #suburb-badge.pulse .nav__badge-dot { animation: badgePulse 2s ease-out 1; }
+  @keyframes badgePulse {
+    0% { box-shadow: 0 0 0 0 rgba(212,136,46,.6); }
+    70% { box-shadow: 0 0 0 12px rgba(212,136,46,0); }
+    100% { box-shadow: 0 0 0 0 rgba(212,136,46,0); }
+  }
+
+  .nav__links { display: flex; gap: 26px; margin-left: auto; }
+  .nav__links a {
+    font-family: var(--font-body); font-weight: 500; font-size: 14px;
+    color: var(--color-brand-secondary); text-decoration: none; position: relative;
+    transition: color .25s ease;
+  }
+  .nav__links a::after {
+    content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 2px;
+    background: var(--color-brand-primary); border-radius: 2px; transition: width .25s ease;
+  }
+  .nav__links a:hover::after { width: 100%; }
+  .nav[data-scrolled="true"] .nav__links a { color: rgba(255,255,255,.85); }
+
+  .nav__actions { display: flex; align-items: center; gap: 16px; flex: none; }
+  .nav__phone {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-heading); font-weight: 700; font-size: 14px;
+    color: var(--color-brand-secondary); text-decoration: none; transition: color .35s ease;
+  }
+  .nav[data-scrolled="true"] .nav__phone { color: #fff; }
+  .nav__cta {
+    font-family: var(--font-body); font-weight: 700; font-size: 14px;
+    background: var(--color-brand-primary); color: #fff; text-decoration: none;
+    padding: 11px 20px; border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(212,136,46,.35); transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .nav__cta:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(212,136,46,.45); }
+
+  .nav__divider { max-width: 1240px; margin: 12px auto 0; padding: 0 clamp(16px,4vw,40px); transition: opacity .3s ease; }
+
+  .nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
+  .nav__burger span { width: 24px; height: 2.5px; background: var(--color-brand-secondary); border-radius: 2px; transition: background .35s ease; }
+  .nav[data-scrolled="true"] .nav__burger span { background: #fff; }
+
+  /* Drawer */
+  .drawer { position: fixed; inset: 0; z-index: 200; visibility: hidden; }
+  .drawer.open { visibility: visible; }
+  .drawer__scrim { position: absolute; inset: 0; background: rgba(26,46,68,.5); opacity: 0; transition: opacity .35s ease; }
+  .drawer.open .drawer__scrim { opacity: 1; }
+  .drawer__panel {
+    position: absolute; top: 0; right: 0; bottom: 0; width: min(86vw, 340px);
+    background: var(--color-brand-secondary); color: #fff; z-index: 1;
+    transform: translateX(100%); transition: transform .4s cubic-bezier(.16,1,.3,1);
+    padding: 28px 26px; display: flex; flex-direction: column; gap: 22px;
+  }
+  .drawer.open .drawer__panel { transform: translateX(0); }
+  .drawer__close { align-self: flex-end; background: none; border: 0; color: #fff; font-size: 32px; line-height: 1; cursor: pointer; }
+  .drawer__badge {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+    font-family: var(--font-body); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--color-brand-accent); background: rgba(212,136,46,.16); border: 1px solid rgba(212,136,46,.5);
+    padding: 7px 13px; border-radius: 999px;
+  }
+  .drawer__links { display: flex; flex-direction: column; gap: 4px; }
+  .drawer__links a { font-family: var(--font-heading); font-weight: 700; font-size: 22px; color: #fff; text-decoration: none; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .drawer__phone { font-family: var(--font-heading); font-weight: 800; font-size: 18px; color: var(--color-brand-accent); text-decoration: none; margin-top: auto; }
+  .drawer__cta { background: var(--color-brand-primary); color: #fff; text-align: center; font-family: var(--font-body); font-weight: 700; padding: 14px; border-radius: 10px; text-decoration: none; }
+
+  @media (max-width: 940px) {
+    .nav__links, .nav__phone, .nav__cta { display: none; }
+    .nav__burger { display: flex; }
+    .nav__badge { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav, .nav *, .drawer * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const onScroll = () => nav?.setAttribute('data-scrolled', String(window.scrollY > 50));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Badge pulse on load
+  const badge = document.getElementById('suburb-badge');
+  requestAnimationFrame(() => badge?.classList.add('pulse'));
+
+  // Drawer
+  const drawer = document.getElementById('nav-drawer');
+  const burger = document.getElementById('nav-burger');
+  const open = () => { drawer?.classList.add('open'); drawer?.setAttribute('aria-hidden', 'false'); burger?.setAttribute('aria-expanded', 'true'); };
+  const close = () => { drawer?.classList.remove('open'); drawer?.setAttribute('aria-hidden', 'true'); burger?.setAttribute('aria-expanded', 'false'); };
+  burger?.addEventListener('click', open);
+  document.getElementById('drawer-close')?.addEventListener('click', close);
+  document.getElementById('drawer-scrim')?.addEventListener('click', close);
+  document.querySelectorAll('[data-drawer-link]').forEach((a) => a.addEventListener('click', close));
+</script>

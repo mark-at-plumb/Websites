@@ -1,0 +1,61 @@
+---
+const reasons = [
+  { t: 'Local and family-owned', d: 'We are not a franchise or a national chain. We live and work around Happy Valley.' },
+  { t: 'Lifetime Labour Warranty', d: 'Every job we do is backed for life. If our work fails, we come back and fix it.' },
+  { t: 'Fixed upfront pricing', d: 'You know the price before we start. No hourly surprises, no padded invoices.' },
+  { t: 'We show up on time', d: 'We respect your day. When we give you a time, we are there.' },
+];
+---
+
+<section class="np-why np-section np-reveal">
+  <div class="np-wrap">
+    <div class="np-sec-head">
+      <p class="np-marker">Why locals choose us</p>
+      <h2 class="np-h2">Four reasons to call us first</h2>
+    </div>
+    <div class="np-rule"></div>
+    <ul class="np-why-list">
+      {reasons.map((r) => (
+        <li class="np-why-item">
+          <span class="np-why-tick">✓</span>
+          <div>
+            <h3 class="np-why-title">{r.t}</h3>
+            <p class="np-why-desc">{r.d}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .np-why-list { list-style: none; margin: 2rem 0 0; padding: 0; }
+  .np-why-item {
+    display: flex; gap: 1rem; align-items: baseline;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-primary) 22%, transparent);
+  }
+  .np-why-item:last-child { border-bottom: none; }
+  .np-why-tick {
+    color: var(--color-brand-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .np-why-title {
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 24;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0 0 0.2rem;
+    color: var(--color-brand-text);
+  }
+  .np-why-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-brand-muted);
+    margin: 0;
+    max-width: 60ch;
+  }
+</style>

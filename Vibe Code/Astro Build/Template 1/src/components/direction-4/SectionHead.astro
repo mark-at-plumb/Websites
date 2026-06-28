@@ -1,0 +1,30 @@
+---
+import Tick from './Tick.astro';
+interface Props { eyebrow: string; title: string; align?: 'left' | 'center'; light?: boolean; }
+const { eyebrow, title, align = 'left', light = false } = Astro.props;
+---
+<div class={`shead ${align === 'center' ? 'shead--c' : ''} ${light ? 'shead--light' : ''} reveal`}>
+  <span class="shead__eyebrow">
+    <Tick size={12} color={light ? 'var(--color-brand-accent)' : 'var(--color-brand-primary)'} />{eyebrow}
+  </span>
+  <h2 class="shead__title" set:html={title}></h2>
+</div>
+
+<style>
+  .shead { margin-bottom: 44px; }
+  .shead--c { text-align: center; }
+  .shead__eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-body); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .16em; font-size: 12px; color: var(--color-brand-primary); margin-bottom: 14px;
+  }
+  .shead--c .shead__eyebrow { justify-content: center; }
+  .shead__title {
+    font-family: var(--font-heading); font-weight: 800; letter-spacing: -.025em;
+    line-height: 1.08; color: var(--color-brand-secondary);
+    font-size: clamp(28px, 3.6vw, 44px); margin: 0; max-width: 20ch;
+  }
+  .shead--c .shead__title { max-width: none; margin-inline: auto; }
+  .shead--light .shead__title { color: #fff; }
+  .shead--light .shead__eyebrow { color: var(--color-brand-accent); }
+</style>

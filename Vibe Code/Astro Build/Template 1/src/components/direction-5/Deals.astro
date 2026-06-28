@@ -1,0 +1,23 @@
+---
+const deals = [
+  { big: '$50 OFF', title: 'First Service', text: 'New customers only. Valid on any plumbing service.' },
+  { big: '10% OFF', title: 'Senior Discount', text: '10% off for pensioners and seniors. Just mention it when you call.' },
+  { big: 'FREE', title: 'Quotes & Call Out', text: 'No call-out fee. No surprise charges. Free upfront quote on every job.' },
+  { big: '$89', title: 'Drain Clear Special', text: 'Blocked drain cleared from $89. CCTV inspection included on request.' },
+];
+---
+<!-- Section 9: Deals -->
+<section class="d5-deals">
+  <div class="d5-wrap">
+    <h2 class="d5-h2 d5-center">Happy Valley's plumbing deals</h2>
+    <div class="d5-deals-grid">
+      {deals.map((d) => (
+        <article class="d5-deal-card">
+          <p class="d5-deal-big">{d.big}</p>
+          <h3 class="d5-deal-title">{d.title}</h3>
+          <p class="d5-deal-text">{d.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

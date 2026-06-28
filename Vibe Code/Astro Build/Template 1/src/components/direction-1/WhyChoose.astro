@@ -1,0 +1,45 @@
+---
+import SectionHead from './SectionHead.astro';
+const reasons = [
+  { t: 'We Actually Show Up', d: 'We give you a time and we keep it. No all-day waiting windows, no no-shows.', icon: 'clock' },
+  { t: 'One Price, Agreed Upfront', d: 'You know the cost before we start. The price we quote is the price you pay.', icon: 'tag' },
+  { t: 'Covered for Life', d: 'Our Lifetime Labour Warranty means our workmanship is backed for good.', icon: 'shield' },
+  { t: 'Local and Family-Owned', d: 'We live and work around Adelaide. You deal with us, not a national chain.', icon: 'home' },
+];
+const icons: Record<string, string> = {
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  tag: '<path d="M3 12V5a2 2 0 0 1 2-2h7l9 9-9 9Z"/><circle cx="8" cy="8" r="1.4"/>',
+  shield: '<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6Z"/><path d="M9 12l2 2 4-4"/>',
+  home: '<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/>',
+};
+---
+<section class="why" id="why">
+  <div class="why__inner">
+    <SectionHead eyebrow="Why locals choose us" title="The Reasons Happy Valley Calls Us First" />
+    <div class="why__grid">
+      {reasons.map((r, i) => (
+        <article class="why__card reveal" style={`--rd:${i * 90}ms`}>
+          <span class="why__icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons[r.icon]} />
+          </span>
+          <div>
+            <h3>{r.t}</h3>
+            <p>{r.d}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why { padding: clamp(72px,9vw,116px) 0; }
+  .why__inner { max-width: 1100px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); }
+  .why__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .why__card { display: flex; gap: 18px; background: #fff; border-radius: 10px; padding: 28px; box-shadow: 0 12px 30px rgba(26,46,68,.08); border: 1px solid rgba(26,46,68,.05); border-left: 4px solid var(--color-brand-primary); transition: transform .3s ease, box-shadow .3s ease; }
+  .why__card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(26,46,68,.16); }
+  .why__icon { display: grid; place-items: center; width: 50px; height: 50px; flex: none; border-radius: 12px; background: rgba(212,136,46,.14); color: var(--color-brand-primary); }
+  .why__card h3 { font-family: var(--font-heading); font-weight: 800; font-size: 18px; color: var(--color-brand-secondary); margin: 0 0 8px; }
+  .why__card p { font-family: var(--font-body); font-size: 14px; line-height: 1.65; color: #51606e; margin: 0; }
+  @media (max-width: 720px) { .why__grid { grid-template-columns: 1fr; } }
+</style>

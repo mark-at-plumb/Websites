@@ -1,0 +1,68 @@
+---
+import Shield from './Shield.astro';
+const services = [
+  ['General Plumbing','/general-plumbing/'],['Emergency Plumbing','/emergency-plumbing/'],
+  ['Blocked Drains','/blocked-drains/'],['Hot Water','/hot-water/'],
+  ['Gas Fitting','/gas-fitting/'],['Pipe Relining','/pipe-relining/'],
+  ['Leak Detection','/leak-detection/'],['Taps & Toilets','/taps-toilets/'],
+  ['Burst Pipes','/burst-pipes/'],
+];
+const trust = ['$50 Off First Service','Lifetime Labour Warranty','Fixed Upfront Pricing','24/7 Emergency Service','10% Pensioner Discount','Humm Interest-Free Finance'];
+---
+<footer class="bg-brand-primary text-white">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 pt-20 pb-12">
+    <div class="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="grid place-items-center w-10 h-10 rounded-xl bg-brand-accent text-brand-primary"><Shield class="w-5 h-6" /></span>
+          <span class="font-heading font-extrabold text-[18px] leading-none">Plumber <span class="text-brand-accent">Happy Valley</span></span>
+        </div>
+        <p class="mt-5 text-[14.5px] leading-relaxed text-white/65 max-w-xs font-light">Local, family-owned plumbing serving Happy Valley and the southern suburbs. Show up on time. Do the job properly. Treat the home with respect.</p>
+        <a href="tel:1300000000" class="mt-6 inline-flex items-center gap-2.5 bg-brand-accent text-brand-primary font-heading font-bold text-[15px] px-5 py-3 rounded-xl hover:bg-amber-400 transition-colors">
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          1300 XXX XXX
+        </a>
+      </div>
+
+      <div>
+        <h4 class="font-heading font-bold text-[13px] tracking-[0.1em] uppercase text-white/50 mb-4">Services</h4>
+        <ul class="space-y-2.5">
+          {services.map(([l,h]) => (<li><a href={h} class="text-[14px] text-white/75 hover:text-brand-accent transition-colors">{l}</a></li>))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-heading font-bold text-[13px] tracking-[0.1em] uppercase text-white/50 mb-4">Why Us</h4>
+        <ul class="space-y-2.5">
+          {trust.map((t) => (
+            <li class="flex items-start gap-2 text-[14px] text-white/75">
+              <Shield class="w-3.5 h-4 mt-0.5 text-brand-accent shrink-0" /> {t}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-heading font-bold text-[13px] tracking-[0.1em] uppercase text-white/50 mb-4">Credentials</h4>
+        <ul class="space-y-2.5 text-[14px] text-white/75">
+          <li>Lic. #333997</li>
+          <li>Master Plumber South Australia</li>
+          <li>Fully Licensed &amp; Insured</li>
+          <li>ABN 52 668 135 886</li>
+          <li>500+ 5-Star Reviews</li>
+          <li>A Decade of Adelaide Experience</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <p class="text-[13px] text-white/55">© 2026 Plumber Happy Valley · Family-owned and locally led. We donate a portion of every job to local Adelaide community groups.</p>
+      <div class="flex gap-5 text-[13px] text-white/55">
+        <a href="/lifetime-labour-warranty/" class="hover:text-brand-accent transition-colors">Warranty</a>
+        <a href="/financing/" class="hover:text-brand-accent transition-colors">Financing</a>
+        <a href="/privacy-policy/" class="hover:text-brand-accent transition-colors">Privacy</a>
+        <a href="/terms-of-use/" class="hover:text-brand-accent transition-colors">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>

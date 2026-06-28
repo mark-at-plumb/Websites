@@ -1,0 +1,42 @@
+---
+const services = [
+  { name: 'Blocked Drains', img: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&fit=crop',
+    text: 'High-pressure jetting and CCTV diagnosis to clear blocked drains fast and stop them coming back for good.' },
+  { name: 'Emergency Plumbing', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop',
+    text: 'Burst pipes and floods answered 24/7, weekends and public holidays included, with within-the-hour response.' },
+  { name: 'Hot Water Systems', img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop',
+    text: 'Repairs, replacements and new installs for gas, electric and heat pump hot water systems across Happy Valley.' },
+  { name: 'Leaking Taps', img: 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f?w=600&q=80&fit=crop',
+    text: 'Dripping taps and worn washers fixed in one visit, cutting your water bill and the late-night drip.' },
+  { name: 'Gas Fitting', img: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80&fit=crop',
+    text: 'Licensed gas fitting for cooktops, heaters and appliances, plus leak detection and full safety checks.' },
+  { name: 'Pipe Relining', img: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80&fit=crop',
+    text: 'No-dig pipe relining repairs cracked and broken pipes without tearing up your yard or driveway.' },
+];
+---
+<!-- Section 7: Services Grid -->
+<section class="d5-services" id="services">
+  <div class="d5-wrap">
+    <div class="d5-section-head">
+      <h2 class="d5-h2 d5-center">Our Plumbing Services in Happy Valley</h2>
+      <p class="d5-body d5-center d5-narrow">
+        From a dripping tap to a midnight burst pipe, our licensed Happy Valley plumbers handle
+        the lot. Fixed upfront pricing and a Lifetime Labour Warranty on every job we do.
+      </p>
+    </div>
+    <div class="d5-services-grid">
+      {services.map((s) => (
+        <article class="d5-service-card">
+          <div class="d5-service-photo">
+            <img src={s.img} alt={s.name} loading="lazy" width="600" height="400" />
+          </div>
+          <div class="d5-service-body">
+            <h3 class="d5-service-name">{s.name}</h3>
+            <p class="d5-service-text">{s.text}</p>
+            <a href="#contact" class="d5-textlink">Learn more →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

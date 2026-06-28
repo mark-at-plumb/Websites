@@ -1,0 +1,49 @@
+---
+const usps = [
+  { t: 'Around the Clock, Every Day', d: 'We answer 24/7, weekends and public holidays included, every time.', icon: 'clock' },
+  { t: 'Lifetime Labour Warranty Always', d: 'Our workmanship is backed for life. If our work fails, we fix it.', icon: 'shield' },
+  { t: 'Fixed Upfront Pricing, No Surprises', d: 'You get the price before we start. No hourly creep, no shock bills.', icon: 'tag' },
+  { t: 'Local Family Business, Not a Franchise', d: 'One licensed Adelaide team that lives and works near your suburb.', icon: 'home' },
+];
+const icons: Record<string, string> = {
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  shield: '<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6Z"/><path d="M9 12l2 2 4-4"/>',
+  tag: '<path d="M3 12V5a2 2 0 0 1 2-2h7l9 9-9 9Z"/><circle cx="8" cy="8" r="1.4"/>',
+  home: '<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/>',
+};
+---
+<section class="usp">
+  <div class="usp__grid">
+    {usps.map((u, i) => (
+      <article class={`usp__card reveal ${i % 2 ? 'usp__card--down' : 'usp__card--up'}`} style={`--rd:${i * 90}ms`}>
+        <span class="usp__icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons[u.icon]} />
+        </span>
+        <h3>{u.t}</h3>
+        <p>{u.d}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .usp { max-width: 1240px; margin: -64px auto 0; padding: 0 clamp(16px,4vw,40px); position: relative; z-index: 5; }
+  .usp__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .usp__card {
+    background: #fff; border-radius: 10px; padding: 28px 24px;
+    box-shadow: 0 18px 40px rgba(26,46,68,.10); border: 1px solid rgba(26,46,68,.05);
+    transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease;
+  }
+  .usp__card--up { transform: translateY(-4px); }
+  .usp__card--down { transform: translateY(4px); }
+  .usp__card:hover { transform: translateY(-10px); box-shadow: 0 28px 56px rgba(26,46,68,.18); }
+  .usp__icon {
+    display: grid; place-items: center; width: 50px; height: 50px; border-radius: 12px;
+    background: rgba(212,136,46,.14); color: var(--color-brand-primary); margin-bottom: 18px;
+  }
+  .usp__card h3 { font-family: var(--font-heading); font-weight: 800; font-size: 16px; letter-spacing: -.01em; color: var(--color-brand-secondary); margin: 0 0 10px; line-height: 1.25; }
+  .usp__card p { font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: 1.6; color: #51606e; margin: 0; }
+
+  @media (max-width: 900px) { .usp__grid { grid-template-columns: repeat(2, 1fr); } .usp { margin-top: -40px; } }
+  @media (max-width: 520px) { .usp__grid { grid-template-columns: 1fr; } .usp__card--up, .usp__card--down { transform: none; } }
+</style>

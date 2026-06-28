@@ -1,0 +1,93 @@
+---
+const phone = '(08) 8000 0000';
+const tel = `tel:${phone.replace(/[^\d+]/g, '')}`;
+const items = [
+  'Burst or leaking pipes',
+  'No hot water',
+  'Blocked or overflowing drains',
+  'Gas leaks and smells',
+  'Overflowing or blocked toilets',
+  'Flooding and water damage',
+];
+---
+
+<section class="np-emergency np-section np-reveal" id="emergency">
+  <div class="np-wrap">
+    <div class="np-sec-head">
+      <p class="np-marker np-marker-light">Emergency</p>
+      <h2 class="np-h2 np-h2-light">Emergency plumber Happy Valley</h2>
+    </div>
+
+    <div class="np-rule np-rule-light"></div>
+
+    <div class="np-em-grid">
+      <ul class="np-em-list">
+        {items.map((item) => (
+          <li class="np-em-item"><span class="np-em-tick">✓</span>{item}</li>
+        ))}
+      </ul>
+
+      <div class="np-em-call">
+        <p class="np-em-line">We answer 24/7, including weekends and public holidays.</p>
+        <a class="np-em-phone" href={tel}>{phone}</a>
+        <a class="np-btn np-btn-solid" href={tel}>Call now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .np-emergency { background: var(--color-brand-text); }
+  .np-em-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 3rem;
+    margin-top: 2rem;
+    align-items: center;
+  }
+  .np-em-list {
+    list-style: none; margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .np-em-item {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--color-brand-bg);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-accent) 35%, transparent);
+  }
+  .np-em-tick { color: var(--color-brand-accent); font-weight: 700; }
+
+  .np-em-call { text-align: left; }
+  .np-em-line {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: color-mix(in srgb, var(--color-brand-bg) 78%, transparent);
+    margin: 0 0 0.75rem;
+    line-height: 1.45;
+  }
+  .np-em-phone {
+    display: block;
+    font-family: var(--font-heading);
+    font-variation-settings: 'opsz' 144;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    color: var(--color-brand-accent);
+    text-decoration: none;
+    line-height: 1;
+    margin: 0 0 1.1rem;
+  }
+  .np-em-phone:hover { color: var(--color-brand-bg); }
+
+  @media (max-width: 820px) {
+    .np-em-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  }
+  @media (max-width: 480px) {
+    .np-em-list { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,114 @@
+---
+import Droplet from './Droplet.astro';
+const pills = ['$50 Off First Service', '24/7 Emergency', 'Fixed Upfront Pricing', 'Lifetime Labour Warranty'];
+---
+<section id="top" class="relative bg-brand-bg overflow-hidden pt-[calc(var(--nav-h)+clamp(3.5rem,9vw,7rem))] pb-[clamp(4rem,9vw,7rem)]">
+  <!-- floating ambient droplet -->
+  <Droplet class="d3-float pointer-events-none absolute top-[18%] left-[8%] w-10 h-12 text-brand-accent/10" />
+  <Droplet class="d3-float-slow pointer-events-none absolute top-[34%] right-[10%] w-16 h-20 text-brand-accent/[0.07]" />
+
+  <div class="relative mx-auto max-w-4xl px-5 sm:px-8 text-center">
+    <p class="d3-rise font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-7 flex items-center justify-center gap-2" style="--d:0s">
+      <Droplet class="w-2.5 h-3" /> Adelaide · Family-Owned · A Decade Local
+    </p>
+
+    <h1 class="font-heading font-black text-brand-primary leading-[0.98] tracking-[-0.02em] text-[clamp(2.75rem,9vw,6rem)]" style="font-variation-settings:'opsz' 144;">
+      <span class="block">
+        <span class="d3-word">Your</span> <span class="d3-word">local</span>
+        <span class="d3-word italic text-brand-accent relative inline-block">Happy Valley
+          <svg class="absolute -bottom-3 left-0 w-full" viewBox="0 0 360 16" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M3 9C40 4 70 13 110 9C150 5 180 13 220 9C260 5 300 13 357 7" stroke="#0D7377" stroke-width="4" stroke-linecap="round" class="d3-underline"/>
+          </svg>
+        </span>
+      </span>
+      <span class="block"><span class="d3-word">plumber.</span></span>
+      <span class="block mt-2 text-brand-secondary"><span class="d3-word">On</span> <span class="d3-word">time.</span> <span class="d3-word">Done</span> <span class="d3-word italic">properly.</span></span>
+    </h1>
+
+    <p class="d3-rise mt-9 mx-auto max-w-[54ch] font-body text-[clamp(1rem,1.5vw,1.0625rem)] leading-[1.7] text-brand-secondary" style="--d:1.4s">
+      We started this business after a decade of watching homeowners get let down by tradies who showed up late and rushed the job. So we built one that does the opposite — fixed upfront pricing, a lifetime labour warranty, and real respect for your home.
+    </p>
+
+    <div class="d3-rise mt-9 flex flex-wrap items-center justify-center gap-4" style="--d:1.55s">
+      <a href="tel:1300000000" class="group inline-flex items-center gap-2.5 rounded-full bg-brand-accent text-white font-body font-semibold text-[16px] px-8 py-4 shadow-[0_10px_30px_-8px_rgba(13,115,119,0.5)] hover:bg-brand-primary transition-colors">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Call 1300 XXX XXX
+      </a>
+      <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-brand-primary/20 text-brand-primary font-body font-semibold text-[16px] px-8 py-4 hover:border-brand-accent hover:text-brand-accent transition-colors">
+        See what we do
+      </a>
+    </div>
+
+    <!-- social proof: small client avatar + reviews label -->
+    <div class="d3-rise mt-8 flex items-center justify-center gap-3" style="--d:1.62s">
+      <img src="/images/happy-client.webp" alt="A happy local Happy Valley customer" class="w-11 h-11 rounded-full object-cover ring-2 ring-brand-accent/25" loading="lazy" decoding="async" />
+      <span class="text-left">
+        <span class="flex text-brand-accent text-[15px] leading-none" aria-hidden="true">★★★★★</span>
+        <span class="font-body text-[13px] text-brand-muted">500+ five-star reviews</span>
+      </span>
+    </div>
+
+    <!-- typewriter brand promise -->
+    <p id="d3-promise" class="d3-rise mt-12 font-heading italic text-brand-muted text-[clamp(0.95rem,1.6vw,1.15rem)] min-h-[1.5em]" style="--d:1.7s" data-text="“Show up on time. Do the job properly. Treat the home with respect.”"></p>
+
+    <div class="d3-rise mt-9 flex flex-wrap items-center justify-center gap-2.5" style="--d:1.85s">
+      {pills.map((p) => (
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/25 text-brand-accent font-body font-medium text-[12.5px] px-3.5 py-1.5">
+          <Droplet class="w-2 h-2.5" />{p}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const el = document.getElementById('d3-promise');
+    if (!el) return;
+    const text = el.dataset.text;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { el.textContent = text; return; }
+    let i = 0;
+    const start = () => {
+      const tick = () => {
+        el.textContent = text.slice(0, i++);
+        if (i <= text.length) setTimeout(tick, 26);
+        else el.classList.add('d3-promise--done');
+      };
+      tick();
+    };
+    // begin after headline stagger + reveal (~2.6s)
+    setTimeout(start, 2600);
+  })();
+</script>
+
+<style is:global>
+  @keyframes d3Word { from { opacity:0; transform: translateY(28px); } to { opacity:1; transform:none; } }
+  .d3-word { display:inline-block; opacity:0; animation: d3Word .65s cubic-bezier(.2,.7,.2,1) forwards; }
+  .d3-word:nth-of-type(1){animation-delay:.15s}
+  .d3-word:nth-of-type(2){animation-delay:.30s}
+  .d3-word:nth-of-type(3){animation-delay:.45s}
+  .d3-word:nth-of-type(4){animation-delay:.60s}
+  .d3-word:nth-of-type(5){animation-delay:.80s}
+  .d3-word:nth-of-type(6){animation-delay:.95s}
+  .d3-word:nth-of-type(7){animation-delay:1.10s}
+  .d3-word:nth-of-type(8){animation-delay:1.25s}
+
+  @keyframes d3Rise { from { opacity:0; transform: translateY(18px); } to { opacity:1; transform:none; } }
+  .d3-rise { opacity:0; animation: d3Rise .8s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: var(--d,0s); }
+
+  @keyframes d3Draw { from { stroke-dashoffset: 380; } to { stroke-dashoffset: 0; } }
+  .d3-underline { stroke-dasharray: 380; stroke-dashoffset: 380; animation: d3Draw 1s ease forwards 1.6s; }
+
+  #d3-promise.d3-promise--done::after { content:''; }
+
+  @keyframes d3Float { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-18px) } }
+  .d3-float { animation: d3Float 6s ease-in-out infinite; }
+  .d3-float-slow { animation: d3Float 9s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .d3-word, .d3-rise { animation: none; opacity:1; transform:none; }
+    .d3-underline { animation:none; stroke-dashoffset:0; }
+    .d3-float, .d3-float-slow { animation: none; }
+  }
+</style>

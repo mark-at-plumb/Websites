@@ -1,0 +1,45 @@
+---
+// Recurring structural motif: a strong 2px black horizontal rule that
+// "draws in" from left to right on scroll/load. Used above and below nav,
+// between sections, as the hero divider, in the credentials certificate,
+// process row and footer. This is the spine the whole document hangs on.
+interface Props {
+  weight?: string;
+  color?: string;
+  class?: string;
+  draw?: boolean;
+}
+const {
+  weight = '2px',
+  color = 'var(--color-brand-text)',
+  class: cls = '',
+  draw = true,
+} = Astro.props;
+---
+<div
+  class={`tm-rule ${draw ? 'tm-rule--draw' : ''} ${cls}`}
+  style={`--rule-w:${weight};--rule-c:${color}`}
+  aria-hidden="true"
+>
+</div>
+
+<style>
+  .tm-rule {
+    width: 100%;
+    height: var(--rule-w);
+    background: var(--rule-c);
+    transform-origin: left center;
+  }
+  .tm-rule--draw {
+    transform: scaleX(0);
+  }
+  .tm-rule--draw.is-drawn {
+    transform: scaleX(1);
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tm-rule--draw {
+      transform: none;
+    }
+  }
+</style>

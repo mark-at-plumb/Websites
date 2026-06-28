@@ -1,0 +1,46 @@
+---
+import SectionHead from './SectionHead.astro';
+
+const features = [
+  { title: '24/7 Emergency Service', icon: 'clock', desc: 'Plumbing rarely fails at a convenient time. We answer the phone day or night, weekends and public holidays, and aim to be on-site within the hour.' },
+  { title: 'Lifetime Labour Warranty', icon: 'shield', desc: 'We stand behind our workmanship for life. If something we installed or repaired fails because of our labour, we come back and fix it at no charge.' },
+  { title: 'Fixed Upfront Pricing', icon: 'tag', desc: 'You approve the full price before we start. No hourly meter running, no surprise call-out fees, no bill shock when the job is finished. Ever.' },
+  { title: 'Family-Owned, Locally Led', icon: 'home', desc: 'We live and work in Adelaide. You deal with the same trusted local team every time, people who treat your home the way we treat our own.' },
+];
+---
+<section id="why" class="relative bg-brand-surface pt-[clamp(6rem,11vw,9rem)] pb-[clamp(4rem,8vw,7rem)]">
+  <!-- orange diagonal divider sitting on top edge -->
+  <div class="absolute top-0 inset-x-0 h-[clamp(3rem,7vw,6rem)] bg-brand-accent" style="clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);"></div>
+  <div class="absolute top-0 inset-x-0 h-[clamp(3rem,7vw,6rem)] bg-brand-surface" style="clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+    <SectionHead eyebrow="Why Choose Us" title="The plumber Adelaide homeowners actually trust">
+      We built this business for people who have been let down by tradies before. Here is what you can count on, every job, no exceptions.
+    </SectionHead>
+
+    <div class="mt-12 grid lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-10 items-stretch">
+      <div data-reveal class="relative overflow-hidden min-h-[18rem]">
+        <img src="/ab-images/ab-electrical-team-sydney-harbour-bridge.webp" alt="Licensed plumbing team" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-brand-primary/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6 sm:p-8">
+          <p class="font-heading font-black text-white text-[clamp(1.4rem,3vw,2rem)] leading-tight tracking-[-0.02em]">A real local team</p>
+          <p class="mt-2 text-white/80 text-[14px] max-w-xs leading-relaxed">Licensed, insured and accountable. You deal with the same trusted faces every visit.</p>
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-px bg-white/0">
+      {features.map((f, i) => (
+        <div data-reveal style={`--rd:${(i % 2) * 90}ms`} class="group bg-white border border-brand-surface p-7 sm:p-9 hover:border-brand-accent transition-colors">
+          <span class="grid place-items-center w-12 h-12 bg-brand-primary text-brand-accent">
+            {f.icon === 'clock' && (<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>)}
+            {f.icon === 'shield' && (<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>)}
+            {f.icon === 'tag' && (<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12V5a2 2 0 0 1 2-2h7l9 9-9 9-9-9Z"/><circle cx="8" cy="8" r="1.4" fill="currentColor"/></svg>)}
+            {f.icon === 'home' && (<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 11l8-6 8 6M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>)}
+          </span>
+          <h3 class="mt-6 font-heading font-extrabold text-[1.4rem] tracking-[-0.02em] text-brand-primary leading-tight">{f.title}</h3>
+          <p class="mt-3 text-[14.5px] leading-relaxed text-brand-muted">{f.desc}</p>
+        </div>
+      ))}
+      </div>
+    </div>
+  </div>
+</section>

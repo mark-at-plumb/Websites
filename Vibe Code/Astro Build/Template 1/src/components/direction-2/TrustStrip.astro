@@ -1,0 +1,64 @@
+---
+const items = [
+  '24/7 Emergency Response',
+  'Lifetime Labour Warranty',
+  'Fixed Upfront Pricing',
+  '$50 Off Your First Service',
+];
+---
+
+<section class="np-trust np-reveal" aria-label="Why locals call us">
+  <ul class="np-trust-inner">
+    {items.map((item) => (
+      <li class="np-trust-item"><span class="np-tick">✓</span>{item}</li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .np-trust {
+    background: var(--color-brand-surface);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+  }
+  .np-trust-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0.9rem 2rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+  }
+  .np-trust-item {
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1.4rem;
+    position: relative;
+  }
+  .np-trust-item:first-child { padding-left: 0; }
+  /* hairline rule motif between items */
+  .np-trust-item + .np-trust-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.1em;
+    width: 1px;
+    background: color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+  }
+  .np-tick { color: var(--color-brand-primary); font-weight: 700; }
+
+  @media (max-width: 760px) {
+    .np-trust-inner { gap: 0.55rem 0; }
+    .np-trust-item { width: 100%; padding: 0.15rem 0; }
+    .np-trust-item + .np-trust-item::before { display: none; }
+  }
+</style>

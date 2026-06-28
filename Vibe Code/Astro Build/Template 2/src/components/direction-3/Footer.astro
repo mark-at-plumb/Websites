@@ -1,0 +1,57 @@
+---
+import Droplet from './Droplet.astro';
+const services = [
+  ['General Plumbing', '/general-plumbing/'], ['Emergency Plumbing', '/emergency-plumbing/'],
+  ['Blocked Drains', '/blocked-drains/'], ['Hot Water', '/hot-water/'],
+  ['Gas Fitting', '/gas-fitting/'], ['Pipe Relining', '/pipe-relining/'],
+  ['Leak Detection', '/leak-detection/'], ['Taps & Toilets', '/taps-toilets/'],
+  ['Burst Pipes', '/burst-pipes/'],
+];
+---
+<footer class="bg-brand-primary text-white/70 pt-[clamp(3.5rem,7vw,5rem)] pb-10">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="grid gap-12 md:grid-cols-3">
+      <div>
+        <div class="flex items-center gap-2.5 mb-5">
+          <Droplet class="w-4 h-5 text-brand-accent" />
+          <span class="font-heading font-bold text-[19px] text-white" style="font-variation-settings:'opsz' 36;">Plumber <span class="italic text-brand-accent">Happy Valley</span></span>
+        </div>
+        <p class="font-body text-[15px] leading-[1.7] max-w-[34ch]">
+          The local, family-owned plumber for Happy Valley. We show up on time, do the job properly, and treat your home with respect — every time.
+        </p>
+        <a href="tel:1300000000" class="mt-6 inline-flex items-center gap-2 font-heading font-bold text-[20px] text-white hover:text-brand-accent transition-colors" style="font-variation-settings:'opsz' 36;">
+          <Droplet class="w-3 h-4 text-brand-accent" /> 1300 XXX XXX
+        </a>
+      </div>
+
+      <div>
+        <h3 class="font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-5">Services</h3>
+        <ul class="space-y-2.5 font-body text-[15px]">
+          {services.map(([n, h]) => (
+            <li><a href={h} class="hover:text-white transition-colors">{n}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-5">The detail</h3>
+        <ul class="space-y-2.5 font-body text-[15px]">
+          <li>Lic. #333997 — Master Plumber South Australia</li>
+          <li>ABN 52 668 135 886</li>
+          <li>Fully licensed &amp; insured</li>
+          <li>Lifetime Labour Warranty</li>
+          <li>Humm interest-free finance available</li>
+          <li>10% pensioner discount</li>
+        </ul>
+        <p class="mt-6 font-body text-[14px] leading-[1.7] text-white/55">
+          Proud supporters of the Make-A-Wish Foundation — a little of every job goes towards local kids' wishes.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-7 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 font-body text-[13px] text-white/45">
+      <p>&copy; 2026 Plumber Happy Valley. Built by locals, for locals.</p>
+      <p class="flex items-center gap-1.5"><Droplet class="w-2.5 h-3 text-brand-accent/70" /> On time. Done properly. Respect for your home.</p>
+    </div>
+  </div>
+</footer>

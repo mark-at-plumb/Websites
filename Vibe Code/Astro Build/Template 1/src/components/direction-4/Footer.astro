@@ -1,0 +1,65 @@
+---
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Why Us', href: '#why' },
+  { label: 'Areas', href: '#areas' },
+  { label: 'FAQs', href: '#faqs' },
+];
+const year = new Date().getFullYear();
+---
+<footer class="ft">
+  <div class="ft__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 40c180-44 420-44 720 0s540 44 720 0V70H0Z" fill="var(--color-brand-secondary)"/></svg>
+  </div>
+  <div class="ft__body">
+    <div class="ft__texture" aria-hidden="true"></div>
+    <div class="ft__inner wrap">
+      <div class="ft__top">
+        <div class="ft__brand">
+          <span class="ft__name">Plumber <strong>Happy Valley</strong></span>
+          <p>Licensed local plumbing for Happy Valley and the southern suburbs. Fixed pricing, lifetime labour warranty, available 24/7.</p>
+          <a class="ft__phone" href="tel:0880000000">(08) 8000 0000</a>
+        </div>
+        <nav class="ft__nav" aria-label="Footer">
+          <span class="ft__h">Explore</span>
+          {links.map((l) => <a href={l.href}>{l.label}</a>)}
+        </nav>
+        <div class="ft__creds">
+          <span class="ft__h">Credentials</span>
+          <span>Lic. #333997</span>
+          <span>ABN 52 668 135 886</span>
+          <span>Fully insured</span>
+          <span>Lifetime labour warranty</span>
+        </div>
+      </div>
+      <div class="ft__bottom">
+        <span>&copy; {year} Plumber Happy Valley. All rights reserved.</span>
+        <span>Happy Valley, South Australia</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ft__wave { line-height: 0; }
+  .ft__wave svg { width: 100%; height: 70px; display: block; }
+  .ft__body { position: relative; background: var(--color-brand-secondary); overflow: hidden; }
+  .ft__texture {
+    position: absolute; inset: 0; pointer-events: none; opacity: .04;
+    background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 1px, transparent 11px);
+  }
+  .ft__inner { position: relative; padding-top: 12px; padding-bottom: 36px; }
+  .ft__top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: clamp(28px,5vw,56px); padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .ft__name { font-family: var(--font-heading); font-weight: 500; font-size: 18px; color: #fff; }
+  .ft__name strong { font-weight: 800; }
+  .ft__brand p { font-family: var(--font-body); font-size: 14px; line-height: 1.65; color: rgba(255,255,255,.66); margin: 12px 0 16px; max-width: 40ch; }
+  .ft__phone { font-family: var(--font-heading); font-weight: 700; font-size: 20px; color: var(--color-brand-accent); text-decoration: none; }
+  .ft__h { display: block; font-family: var(--font-body); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: 11px; color: var(--color-brand-accent); margin-bottom: 14px; }
+  .ft__nav, .ft__creds { display: flex; flex-direction: column; gap: 9px; }
+  .ft__nav a { font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; transition: color .2s ease; }
+  .ft__nav a:hover { color: #fff; }
+  .ft__creds span:not(.ft__h) { font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,.72); }
+  .ft__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 22px; font-family: var(--font-body); font-size: 12.5px; color: rgba(255,255,255,.5); }
+  @media (max-width: 720px) { .ft__top { grid-template-columns: 1fr; } }
+</style>

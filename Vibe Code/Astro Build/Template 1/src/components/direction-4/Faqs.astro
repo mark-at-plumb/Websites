@@ -1,0 +1,64 @@
+---
+import SectionHead from './SectionHead.astro';
+const faqs = [
+  { q: 'Are you fully licensed?', a: 'Yes. We hold plumbing licence #333997 and we are fully insured. Every job is completed to code and we are happy to provide compliance paperwork on request.' },
+  { q: 'How does your pricing work?', a: 'We give you a fixed upfront quote before any work starts. The price you approve is the price you pay. No hourly creep and no surprise charges on the invoice.' },
+  { q: 'Do you really answer 24/7?', a: 'We do. Call any hour and you will speak to a licensed plumber, not an answering machine. For genuine emergencies we will talk you through making it safe and get a van to you fast.' },
+  { q: 'What areas do you cover?', a: 'We are based locally and cover Happy Valley plus the surrounding southern suburbs, including Aberfoyle Park, Flagstaff Hill, Reynella, Morphett Vale and more. Not sure? Give us a call.' },
+  { q: 'Is there a warranty on the work?', a: 'Yes. We back our workmanship with a lifetime labour warranty. If something we fixed gives you trouble, we come back and make it right.' },
+  { q: 'Is the $50 off offer for everyone?', a: 'The $50 off applies to your first service with us. Just mention it when you book and we will apply it to your first invoice.' },
+];
+---
+<section class="faqs sec" id="faqs">
+  <div class="wrap">
+    <SectionHead eyebrow="Good Questions" title="Frequently asked questions" align="center" />
+    <div class="faqs__list reveal">
+      {faqs.map((f) => (
+        <div class="faq">
+          <button class="faq__q" aria-expanded="false">
+            <span class="faq__tick" aria-hidden="true"></span>
+            <span class="faq__text">{f.q}</span>
+            <span class="faq__plus" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a"><p>{f.a}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faqs { background: var(--color-brand-surface); }
+  .faqs__list { max-width: 800px; margin: 0 auto; display: grid; gap: 12px; }
+  .faq { background: #fff; border: 1px solid rgba(15,23,42,.07); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-1); }
+  .faq__q {
+    width: 100%; display: flex; align-items: center; gap: 14px; cursor: pointer;
+    background: none; border: 0; text-align: left; padding: 20px 22px;
+    font-family: var(--font-heading); font-weight: 600; font-size: 16.5px; color: var(--color-brand-secondary);
+  }
+  .faq__tick { width: 12px; height: 12px; flex: none; border-bottom: 1.5px solid var(--color-brand-primary); border-right: 1.5px solid var(--color-brand-primary); transform: rotate(-45deg); }
+  .faq__text { flex: 1; }
+  .faq__plus { position: relative; width: 14px; height: 14px; flex: none; }
+  .faq__plus::before, .faq__plus::after { content: ''; position: absolute; background: var(--color-brand-primary); border-radius: 2px; transition: transform .25s var(--ease-expo); }
+  .faq__plus::before { left: 0; right: 0; top: 6px; height: 2px; }
+  .faq__plus::after { top: 0; bottom: 0; left: 6px; width: 2px; }
+  .faq[data-open="true"] .faq__plus::after { transform: scaleY(0); }
+
+  .faq__a { max-height: 0; overflow: hidden; transition: max-height .3s var(--ease-expo); }
+  .faq__a p { font-family: var(--font-body); font-size: 14.5px; line-height: 1.7; color: var(--color-brand-muted); margin: 0; padding: 0 22px 22px 48px; }
+
+  @media (prefers-reduced-motion: reduce) { .faq__a { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.faq').forEach((faq) => {
+    const btn = faq.querySelector<HTMLButtonElement>('.faq__q');
+    const ans = faq.querySelector<HTMLElement>('.faq__a');
+    btn?.addEventListener('click', () => {
+      const open = faq.dataset.open === 'true';
+      faq.dataset.open = String(!open);
+      btn.setAttribute('aria-expanded', String(!open));
+      if (ans) ans.style.maxHeight = open ? '0' : ans.scrollHeight + 'px';
+    });
+  });
+</script>

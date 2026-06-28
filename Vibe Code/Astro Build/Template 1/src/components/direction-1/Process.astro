@@ -1,0 +1,40 @@
+---
+import SectionHead from './SectionHead.astro';
+import Pipe from './Pipe.astro';
+const steps = [
+  { n: '1', t: 'Call Us', d: 'Ring us any time. We pick up, ask a few questions and book you in.' },
+  { n: '2', t: 'Get Your Upfront Price', d: 'We look at the job and give you a fixed price before any work starts.' },
+  { n: '3', t: 'We Do the Job', d: 'A licensed plumber does the work properly and tidies up after.' },
+  { n: '4', t: 'Backed by Warranty', d: 'Our labour is covered for life. If it fails, we come back and fix it.' },
+];
+---
+<section class="proc">
+  <div class="proc__inner">
+    <SectionHead eyebrow="Simple from the start" title="How It Works" align="center" />
+    <div class="proc__grid">
+      {steps.map((s, i) => (
+        <div class="proc__step reveal" style={`--rd:${i * 110}ms`}>
+          <span class="proc__num">{s.n}</span>
+          {i < steps.length - 1 && <span class="proc__connector"><Pipe width="100%" color="rgba(212,136,46,.55)" /></span>}
+          <h3>{s.t}</h3>
+          <p>{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .proc { padding: clamp(72px,9vw,116px) 0; background: var(--color-brand-surface); }
+  .proc__inner { max-width: 1140px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); }
+  .proc__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .proc__step { position: relative; }
+  .proc__num { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 16px; background: var(--color-brand-secondary); color: var(--color-brand-accent); font-family: var(--font-heading); font-weight: 900; font-size: 30px; margin-bottom: 20px; box-shadow: 0 12px 26px rgba(26,46,68,.18); }
+  .proc__connector { position: absolute; top: 32px; left: 76px; right: -28px; display: none; }
+  .proc__step:not(:last-child) .proc__connector { display: block; }
+  .proc__step h3 { font-family: var(--font-heading); font-weight: 800; font-size: 19px; letter-spacing: -.01em; color: var(--color-brand-secondary); margin: 0 0 10px; }
+  .proc__step p { font-family: var(--font-body); font-size: 14px; line-height: 1.65; color: #51606e; margin: 0; }
+  @media (min-width: 901px) { .proc__connector { display: block; } }
+  @media (max-width: 900px) { .proc__grid { grid-template-columns: 1fr 1fr; } .proc__connector { display: none !important; } }
+  @media (max-width: 480px) { .proc__grid { grid-template-columns: 1fr; } }
+</style>

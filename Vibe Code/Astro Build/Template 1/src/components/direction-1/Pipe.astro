@@ -1,0 +1,36 @@
+---
+// Recurring visual motif: an abstract pipe connector — a line with rounded
+// caps and two coupling nodes. Used in nav, section transitions, cards,
+// credentials and the footer (5+ placements).
+interface Props {
+  width?: string;
+  color?: string;
+  class?: string;
+  vertical?: boolean;
+}
+const { width = '64px', color = 'var(--color-brand-primary)', class: cls = '', vertical = false } = Astro.props;
+---
+<span class={`pipe ${vertical ? 'pipe--v' : ''} ${cls}`} style={`--pipe-w:${width};--pipe-c:${color}`} aria-hidden="true">
+  <span class="pipe__cap"></span>
+  <span class="pipe__line"></span>
+  <span class="pipe__node"></span>
+  <span class="pipe__line"></span>
+  <span class="pipe__cap"></span>
+</span>
+
+<style>
+  .pipe {
+    display: inline-flex;
+    align-items: center;
+    width: var(--pipe-w);
+    color: var(--pipe-c);
+  }
+  .pipe__line { flex: 1; height: 3px; background: currentColor; border-radius: 3px; }
+  .pipe__cap { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+  .pipe__node {
+    width: 9px; height: 9px; flex: none; border-radius: 50%;
+    border: 3px solid currentColor; background: transparent;
+  }
+  .pipe--v { flex-direction: column; width: auto; height: var(--pipe-w); }
+  .pipe--v .pipe__line { width: 3px; height: auto; }
+</style>

@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '@fontsource-variable/outfit';
+import '@fontsource-variable/inter';
+import Nav from '../components/direction-4/Nav.astro';
+import Hero from '../components/direction-4/Hero.astro';
+import UspStrip from '../components/direction-4/UspStrip.astro';
+import About from '../components/direction-4/About.astro';
+import Services from '../components/direction-4/Services.astro';
+import Stats from '../components/direction-4/Stats.astro';
+import LocalContext from '../components/direction-4/LocalContext.astro';
+import Emergency from '../components/direction-4/Emergency.astro';
+import Process from '../components/direction-4/Process.astro';
+import WhyChoose from '../components/direction-4/WhyChoose.astro';
+import Comparison from '../components/direction-4/Comparison.astro';
+import Credentials from '../components/direction-4/Credentials.astro';
+import ServiceAreas from '../components/direction-4/ServiceAreas.astro';
+import FinalCta from '../components/direction-4/FinalCta.astro';
+import Faqs from '../components/direction-4/Faqs.astro';
+import Footer from '../components/direction-4/Footer.astro';
+---
+<Layout title="The Professional — Plumber Happy Valley">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #0E7490;
+      --color-brand-secondary: #1E2D3D;
+      --color-brand-accent:    #0EA5E9;
+      --color-brand-bg:        #FFFFFF;
+      --color-brand-surface:   #F0F4F8;
+      --color-brand-text:      #0F172A;
+      --color-brand-muted:     #64748B;
+      --font-heading: 'Outfit Variable', system-ui, sans-serif;
+      --font-body:    'Inter Variable', system-ui, sans-serif;
+
+      --radius: 6px;
+      --shadow-1: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-2: 0 2px 6px rgba(0,0,0,0.10), 0 12px 28px rgba(14,116,144,0.10);
+      --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--color-brand-bg); color: var(--color-brand-text);
+      font-family: var(--font-body); -webkit-font-smoothing: antialiased;
+    }
+    img, svg { max-width: 100%; }
+
+    /* ---- Shared buttons ---- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      text-decoration: none; border-radius: var(--radius);
+      font-family: var(--font-heading); font-weight: 600; letter-spacing: -0.01em;
+      cursor: pointer; border: none;
+      transition: transform .15s var(--ease-expo), background .15s ease, box-shadow .15s ease, color .15s ease, border-color .15s ease;
+    }
+    .btn--primary {
+      background: var(--color-brand-primary); color: #fff;
+      font-size: 17px; padding: 15px 26px; box-shadow: 0 6px 18px rgba(14,116,144,.28);
+    }
+    .btn--primary:hover { background: #0a5e76; transform: scale(1.02); box-shadow: 0 10px 26px rgba(14,116,144,.38); }
+    .btn--ghost {
+      background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.34);
+      font-size: 15px; padding: 14px 24px;
+    }
+    .btn--ghost:hover { background: rgba(14,116,144,.16); border-color: var(--color-brand-accent); color: #fff; }
+    .btn--ghost-dark {
+      background: transparent; color: var(--color-brand-primary);
+      border: 1.5px solid rgba(14,116,144,.30); font-size: 15px; padding: 14px 24px;
+    }
+    .btn--ghost-dark:hover { background: rgba(14,116,144,.08); border-color: var(--color-brand-primary); }
+
+    /* ---- Section scaffold ---- */
+    .wrap { max-width: 1200px; margin: 0 auto; padding-left: clamp(18px,4vw,40px); padding-right: clamp(18px,4vw,40px); }
+    .sec { padding-top: clamp(64px,8vw,104px); padding-bottom: clamp(64px,8vw,104px); }
+
+    /* ---- Global scroll-reveal ---- */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .45s var(--ease-expo), transform .45s var(--ease-expo);
+      transition-delay: var(--rd, 0ms);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    :focus-visible { outline: 3px solid var(--color-brand-primary); outline-offset: 3px; border-radius: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { animation: none !important; }
+    }
+  </style>
+
+  <Nav />
+  <main>
+    <Hero />
+    <UspStrip />
+    <About />
+    <Services />
+    <Stats />
+    <LocalContext />
+    <Emergency />
+    <Process />
+    <WhyChoose />
+    <Comparison />
+    <Credentials />
+    <ServiceAreas />
+    <FinalCta />
+    <Faqs />
+  </main>
+  <Footer />
+
+  <script>
+    // Orchestrated scroll-reveal. Hero sequences itself on load.
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => {
+      if (el.closest('.hero')) return;
+      io.observe(el);
+    });
+  </script>
+</Layout>

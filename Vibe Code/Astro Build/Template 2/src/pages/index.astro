@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+const directions = [
+  {
+    n: 1,
+    name: 'Trade Authority',
+    slug: 'direction-1-trade-authority',
+    palette: 'Near-Black · Orange #EA6C0A · White',
+    fonts: 'Raleway + Inter',
+    description: 'Dark full-bleed hero, tight trust-badge strip, dense services grid with sharp edges and orange hover accents. Maximum conversion density — closest to jimmysparkselectrical.com.au.',
+  },
+  {
+    n: 2,
+    name: 'Neighbourhood Pro',
+    slug: 'direction-2-neighbourhood-pro',
+    palette: 'Deep Navy #1D3461 · Amber #F59E0B · Warm White',
+    fonts: 'Lexend + Source Sans 3',
+    description: 'Split hero (60/40), animated stat counters, rounded service cards with amber hover borders. More breathing room — professional and approachable without the raw trades look.',
+  },
+  {
+    n: 3,
+    name: 'The Local Promise',
+    slug: 'direction-3-local-promise',
+    palette: 'Warm Charcoal #2C3344 · Teal #0D7377 · Cream',
+    fonts: 'Fraunces + DM Sans',
+    description: 'Typographic serif hero with no image — the brand promise IS the design. Teal accent stands out in a sea of orange trades sites. Warm, spacious, family-owned story focus.',
+  },
+];
+---
+<Layout title="Your Homepage Concepts — Plumber [Suburb]">
+  <style is:global>
+    :root {
+      --color-brand-bg: #FAFAFA;
+      --color-brand-text: #111827;
+      --color-brand-muted: #6B7280;
+      --color-brand-surface: #F3F4F6;
+      --font-body: system-ui, sans-serif;
+      --font-heading: system-ui, sans-serif;
+    }
+  </style>
+  <main style="max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem;">
+    <p style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-brand-muted); margin-bottom: 0.75rem;">Plumber [Suburb] Network</p>
+    <h1 style="font-size: 1.875rem; font-weight: 700; margin: 0 0 0.5rem; font-family: system-ui, sans-serif;">Your Homepage Concepts</h1>
+    <p style="color: var(--color-brand-muted); margin: 0 0 3rem; font-size: 1rem; line-height: 1.6;">Three distinct directions. Click each to preview. Scroll through fully before deciding — first impressions matter, but so does how it feels halfway down the page.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      {directions.map(d => (
+        <a
+          href={`/${d.slug}/`}
+          style="display: block; padding: 1.75rem; border: 1px solid #E5E7EB; border-radius: 12px; text-decoration: none; color: inherit; background: white; transition: border-color 0.15s, box-shadow 0.15s;"
+        >
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #111827; color: white; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">{d.n}</span>
+            <span style="font-size: 1.125rem; font-weight: 700;">{d.name}</span>
+          </div>
+          <p style="color: #374151; font-size: 0.9rem; line-height: 1.6; margin: 0 0 0.75rem;">{d.description}</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.75rem; color: var(--color-brand-muted);">
+            <span>🎨 {d.palette}</span>
+            <span>Aa {d.fonts}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <p style="margin-top: 3rem; font-size: 0.85rem; color: var(--color-brand-muted); line-height: 1.6;">
+      <strong style="color: var(--color-brand-text);">What to look for:</strong> Which one makes you lean forward? Which looks like <em>your</em> brand? Which would you send to a new customer without hesitation? Come back with notes — I'll build the final site from your feedback.
+    </p>
+  </main>
+</Layout>

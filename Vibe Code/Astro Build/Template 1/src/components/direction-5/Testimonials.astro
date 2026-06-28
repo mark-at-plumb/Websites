@@ -1,0 +1,26 @@
+---
+const reviews = [
+  { quote: 'Our hot water packed it in on a Sunday night and they had a new system in by lunch the next day. Clear price up front, no mess left behind. Genuinely the easiest tradie experience we have had.',
+    name: 'Karen M.', date: 'March 2025' },
+  { quote: 'Blocked drain at the worst possible time with family over. They turned up within the hour, jetted it out and showed me the camera footage so I knew it was actually sorted. Fair price too.',
+    name: 'Dave T.', date: 'January 2025' },
+  { quote: 'Booked a leaking tap and they spotted a dodgy connection the last plumber left behind. Fixed both, charged what they quoted. Polite, on time and cleaned up after themselves. Will use again.',
+    name: 'Priya S.', date: 'November 2024' },
+];
+---
+<!-- Section 14: Testimonials -->
+<section class="d5-testi" id="reviews">
+  <div class="d5-wrap">
+    <h2 class="d5-h2 d5-center">Thousands of happy customers</h2>
+    <div class="d5-testi-grid">
+      {reviews.map((r) => (
+        <article class="d5-testi-card">
+          <span class="d5-testi-quotemark" aria-hidden="true">&ldquo;</span>
+          <p class="d5-testi-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p class="d5-testi-quote">{r.quote}</p>
+          <p class="d5-testi-meta"><strong>{r.name}</strong> · Happy Valley · {r.date}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

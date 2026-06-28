@@ -1,0 +1,51 @@
+---
+import SectionHead from './SectionHead.astro';
+const steps = [
+  { n: '01', t: 'Call or book online', d: 'Tell us what is going on. We will give you a booking window that suits and confirm it.' },
+  { n: '02', t: 'On-site assessment', d: 'A licensed plumber inspects the problem properly and explains exactly what is needed.' },
+  { n: '03', t: 'Fixed upfront quote', d: 'You get a clear price before any work starts. Approve it and we begin, no surprises.' },
+  { n: '04', t: 'Fixed and guaranteed', d: 'We complete the work to code, clean up, and back it with our lifetime labour warranty.' },
+];
+---
+<section class="proc sec">
+  <div class="wrap">
+    <SectionHead eyebrow="How It Works" title="Four steps, no guesswork" align="center" />
+    <div class="proc__list">
+      {steps.map((s, i) => (
+        <div class={`proc__step reveal ${i % 2 === 0 ? 'from-l' : 'from-r'}`} style={`--rd:${i * 60}ms`}>
+          <span class="proc__n">{s.n}</span>
+          <div class="proc__body">
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .proc { background: var(--color-brand-surface); }
+  .proc__list { display: grid; gap: 16px; max-width: 820px; margin: 0 auto; }
+  .proc__step {
+    display: flex; gap: 22px; align-items: center;
+    background: #fff; border: 1px solid rgba(15,23,42,.06); border-radius: var(--radius);
+    padding: 24px 28px; box-shadow: var(--shadow-1);
+  }
+  .proc__n {
+    font-family: var(--font-heading); font-weight: 800; font-size: 30px; letter-spacing: -.03em;
+    color: var(--color-brand-primary); flex: none; width: 56px;
+    border-right: 2px solid rgba(14,116,144,.18); padding-right: 18px;
+  }
+  .proc__body h3 { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: var(--color-brand-secondary); margin: 0 0 5px; }
+  .proc__body p { font-family: var(--font-body); font-size: 14.5px; line-height: 1.6; color: var(--color-brand-muted); margin: 0; }
+
+  /* Alternating slide-in */
+  .proc__step.from-l { transform: translateX(-28px); }
+  .proc__step.from-r { transform: translateX(28px); }
+  .proc__step.reveal { opacity: 0; transition: opacity .45s var(--ease-expo) var(--rd, 0ms), transform .45s var(--ease-expo) var(--rd, 0ms); }
+  .proc__step.reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 560px) { .proc__step { padding: 20px; gap: 16px; } .proc__n { width: 44px; font-size: 24px; padding-right: 12px; } }
+  @media (prefers-reduced-motion: reduce) { .proc__step { transform: none !important; } }
+</style>

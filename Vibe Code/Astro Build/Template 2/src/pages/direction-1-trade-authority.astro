@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-1/Nav.astro';
+import Hero from '../components/direction-1/Hero.astro';
+import TrustStrip from '../components/direction-1/TrustStrip.astro';
+import Services from '../components/direction-1/Services.astro';
+import WhyChooseUs from '../components/direction-1/WhyChooseUs.astro';
+import Process from '../components/direction-1/Process.astro';
+import Comparison from '../components/direction-1/Comparison.astro';
+import Testimonials from '../components/direction-1/Testimonials.astro';
+import Credentials from '../components/direction-1/Credentials.astro';
+import ServiceAreas from '../components/direction-1/ServiceAreas.astro';
+import FinalCTA from '../components/direction-1/FinalCTA.astro';
+import Footer from '../components/direction-1/Footer.astro';
+import FloatingCall from '../components/direction-1/FloatingCall.astro';
+import Reveal from '../components/direction-1/Reveal.astro';
+---
+<Layout title="Trade Authority — Plumber Happy Valley">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #111827;
+      --color-brand-secondary: #374151;
+      --color-brand-accent:    #EA6C0A;
+      --color-brand-bg:        #FFFFFF;
+      --color-brand-surface:   #F9FAFB;
+      --color-brand-text:      #111827;
+      --color-brand-muted:     #6B7280;
+      --font-heading: 'Raleway Variable', system-ui, sans-serif;
+      --font-body:    'Inter Variable', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    ::selection { background: #EA6C0A; color: #fff; }
+  </style>
+
+  <Reveal />
+  <Nav />
+  <main>
+    <Hero />
+    <TrustStrip />
+    <Services />
+    <WhyChooseUs />
+    <Process />
+    <Comparison />
+    <Testimonials />
+    <Credentials />
+    <ServiceAreas />
+    <FinalCTA />
+  </main>
+
+  <!-- Google Business Profile map -->
+  <div class="bg-brand-primary">
+    <iframe
+      src="https://maps.google.com/maps?cid=14533648556102223988&output=embed"
+      width="100%"
+      height="420"
+      style="border:0;display:block;"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Plumber Happy Valley — Google Maps"
+    ></iframe>
+  </div>
+
+  <Footer />
+  <FloatingCall />
+</Layout>

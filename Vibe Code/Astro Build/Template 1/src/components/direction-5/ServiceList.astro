@@ -1,0 +1,33 @@
+---
+const services = [
+  'Emergency Plumbing', 'Blocked Drains', 'Hot Water Systems', 'Leaking Taps', 'Gas Fitting',
+  'Toilet Repairs', 'CCTV Drain Camera', 'Pipe Relining', 'Burst Pipes', 'Stormwater Drainage',
+  'Dishwasher Installation', 'Roof Plumbing', 'General Plumbing',
+];
+const stats = [
+  { big: '500+', text: '5-star reviews from Adelaide homeowners' },
+  { big: '10+', text: 'years of Adelaide plumbing experience' },
+  { big: '24/7', text: 'emergency response, always' },
+];
+---
+<!-- Section 11: Full services list -->
+<section class="d5-slist">
+  <div class="d5-wrap d5-slist-grid">
+    <div class="d5-slist-left">
+      <h2 class="d5-h2">Our plumbing services in Happy Valley</h2>
+      <ul class="d5-slist-items">
+        {services.map((s) => (
+          <li><span class="d5-bullet-dot" aria-hidden="true"></span>{s}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="d5-slist-right">
+      {stats.map((s) => (
+        <div class="d5-statbox">
+          <span class="d5-statbox-big">{s.big}</span>
+          <span class="d5-statbox-text">{s.text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

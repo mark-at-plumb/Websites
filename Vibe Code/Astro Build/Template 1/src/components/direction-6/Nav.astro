@@ -1,0 +1,108 @@
+---
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Reviews', href: '#reviews' },
+  { label: 'FAQ', href: '#faqs' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+<header class="d6-nav" id="d6-nav">
+  <div class="d6-nav__wrap d6-wrap">
+    <a class="d6-nav__brand" href="#top">
+      <span class="d6-nav__name">Plumber Happy Valley</span>
+      <span class="d6-nav__badge">Happy Valley</span>
+    </a>
+    <nav class="d6-nav__links" aria-label="Primary">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <a class="d6-nav__call" href="tel:0880000000">CALL (08) 8000 0000</a>
+    <button class="d6-nav__burger" id="d6-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="d6-drawer" id="d6-drawer" aria-hidden="true">
+    <nav class="d6-drawer__links" aria-label="Mobile">
+      {links.map((l) => <a href={l.href} data-close>{l.label}</a>)}
+      <a class="d6-drawer__call" href="tel:0880000000" data-close>CALL (08) 8000 0000</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .d6-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--color-brand-bg);
+    height: 72px; display: flex; align-items: center;
+    transition: box-shadow .25s ease;
+  }
+  .d6-nav.scrolled { box-shadow: 0 2px 18px rgba(15,25,35,.10); }
+  .d6-nav__wrap { display: flex; align-items: center; gap: 28px; width: 100%; }
+  .d6-nav__brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .d6-nav__name { font-family: var(--font-heading); font-weight: 800; font-size: 19px; color: var(--color-brand-text); letter-spacing: -.01em; }
+  .d6-nav__badge {
+    font-family: var(--font-body); font-weight: 700; font-size: 10.5px; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--color-brand-primary);
+    background: rgba(14,116,144,.10); padding: 3px 8px; border-radius: 3px;
+  }
+  .d6-nav__links { display: flex; gap: 26px; margin-left: auto; }
+  .d6-nav__links a {
+    position: relative; font-family: var(--font-body); font-weight: 600; font-size: 15px;
+    color: var(--color-brand-text); text-decoration: none; padding: 4px 0;
+  }
+  .d6-nav__links a::after {
+    content: ''; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%;
+    background: var(--color-brand-primary); transform: scaleX(0); transform-origin: left;
+    transition: transform .2s ease;
+  }
+  .d6-nav__links a:hover::after { transform: scaleX(1); }
+  .d6-nav__call {
+    font-family: var(--font-heading); font-weight: 700; font-size: 14px; letter-spacing: .01em;
+    background: var(--color-brand-primary); color: #fff; text-decoration: none;
+    padding: 12px 18px; border-radius: 4px; transition: background .15s ease, transform .15s ease;
+  }
+  .d6-nav__call:hover { background: #0a5d74; transform: scale(1.02); }
+  .d6-nav__burger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+  .d6-nav__burger span { display: block; width: 24px; height: 2px; background: var(--color-brand-text); transition: transform .2s ease, opacity .2s ease; }
+  .d6-nav.open .d6-nav__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .d6-nav.open .d6-nav__burger span:nth-child(2) { opacity: 0; }
+  .d6-nav.open .d6-nav__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .d6-drawer {
+    position: fixed; top: 72px; right: 0; bottom: 0; width: min(320px, 84vw);
+    background: var(--color-brand-secondary); transform: translateX(100%);
+    transition: transform .3s var(--d6-ease); z-index: 49; padding: 28px 24px;
+  }
+  .d6-nav.open .d6-drawer { transform: translateX(0); }
+  .d6-drawer__links { display: flex; flex-direction: column; gap: 4px; }
+  .d6-drawer__links a {
+    font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: #fff;
+    text-decoration: none; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .d6-drawer__call {
+    margin-top: 18px; background: var(--color-brand-primary); text-align: center; border-radius: 4px; border: 0 !important;
+  }
+
+  @media (max-width: 900px) {
+    .d6-nav__links, .d6-nav__call { display: none; }
+    .d6-nav__burger { display: flex; margin-left: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .d6-drawer, .d6-nav__links a::after { transition: none; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('d6-nav');
+  const burger = document.getElementById('d6-burger');
+  burger?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(!!open));
+  });
+  document.querySelectorAll('[data-close]').forEach((a) =>
+    a.addEventListener('click', () => nav?.classList.remove('open'))
+  );
+  const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

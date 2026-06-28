@@ -1,0 +1,177 @@
+---
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Why Us', href: '#why' },
+  { label: 'Areas', href: '#areas' },
+  { label: 'FAQs', href: '#faqs' },
+];
+---
+<header class="nav" id="site-nav" data-scrolled="false">
+  <div class="nav__inner wrap">
+    <a class="nav__brand" href="#top">
+      <span class="nav__logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M6 9.5C6 7 8 5 10.5 5S15 7 15 9.5v2h2.5a2.5 2.5 0 0 1 0 5H15v2.5a2.5 2.5 0 0 1-5 0V13H7.5a2.5 2.5 0 0 1 0-5H10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="nav__name">Plumber <strong>Happy Valley</strong></span>
+      <span class="nav__badge" id="suburb-badge"><span class="nav__badge-dot"></span>Happy Valley</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <div class="nav__actions">
+      <a class="nav__phone" href="tel:0880000000">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1Z" fill="currentColor"/></svg>
+        (08) 8000 0000
+      </a>
+      <a class="nav__cta" href="#quote">Get a Quote</a>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="nav-drawer" aria-hidden="true">
+  <div class="drawer__panel">
+    <button class="drawer__close" id="drawer-close" aria-label="Close menu">&times;</button>
+    <span class="drawer__badge"><span class="nav__badge-dot"></span>Happy Valley</span>
+    <nav class="drawer__links">
+      {links.map((l) => <a href={l.href} data-drawer-link>{l.label}</a>)}
+    </nav>
+    <a class="drawer__phone" href="tel:0880000000">Call (08) 8000 0000</a>
+    <a class="drawer__cta" href="#quote" data-drawer-link>Get a Free Quote</a>
+  </div>
+  <div class="drawer__scrim" id="drawer-scrim"></div>
+</div>
+
+<style>
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,.86); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(15,23,42,.06);
+    transform: translateY(-60px); opacity: 0;
+    transition: background .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .nav.loaded { animation: navDrop .4s ease-out forwards; }
+  @keyframes navDrop { to { transform: translateY(0); opacity: 1; } }
+
+  .nav__inner { display: flex; align-items: center; gap: 24px; height: 70px; transition: height .3s ease; }
+  .nav[data-scrolled="true"] { box-shadow: var(--shadow-1); border-color: transparent; }
+  .nav[data-scrolled="true"] .nav__inner { height: 60px; }
+
+  .nav__brand { display: flex; align-items: center; gap: 11px; text-decoration: none; flex: none; }
+  .nav__logo {
+    width: 36px; height: 36px; border-radius: var(--radius); flex: none;
+    display: grid; place-items: center; background: var(--color-brand-primary); color: #fff;
+    box-shadow: 0 4px 12px rgba(14,116,144,.30);
+  }
+  .nav__name {
+    font-family: var(--font-heading); font-weight: 500; font-size: 14px;
+    letter-spacing: -.01em; color: var(--color-brand-secondary); line-height: 1.05;
+  }
+  .nav__name strong { font-weight: 800; display: block; font-size: 15.5px; }
+
+  .nav__badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-body); font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .07em; color: var(--color-brand-primary);
+    background: rgba(14,116,144,.08); border: 1px solid rgba(14,116,144,.24);
+    padding: 6px 11px; border-radius: 999px; margin-left: 4px;
+  }
+  .nav__badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-brand-primary); }
+  #suburb-badge.pulse .nav__badge-dot { animation: badgePulse 2.2s ease-out 1; }
+  @keyframes badgePulse {
+    0% { box-shadow: 0 0 0 0 rgba(14,116,144,.55); }
+    70% { box-shadow: 0 0 0 11px rgba(14,116,144,0); }
+    100% { box-shadow: 0 0 0 0 rgba(14,116,144,0); }
+  }
+
+  .nav__links { display: flex; gap: 28px; margin-left: auto; }
+  .nav__links a {
+    font-family: var(--font-body); font-weight: 500; font-size: 14px;
+    color: var(--color-brand-secondary); text-decoration: none; position: relative; padding: 4px 0;
+  }
+  .nav__links a::after {
+    content: ''; position: absolute; left: 0; bottom: -2px; width: 100%; height: 2px;
+    background: var(--color-brand-primary); border-radius: 2px;
+    transform: scaleX(0); transform-origin: left; transition: transform .2s var(--ease-expo);
+  }
+  .nav__links a:hover::after, .nav__links a:focus-visible::after { transform: scaleX(1); }
+
+  .nav__actions { display: flex; align-items: center; gap: 18px; flex: none; }
+  .nav__phone {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-heading); font-weight: 600; font-size: 14px;
+    color: var(--color-brand-secondary); text-decoration: none;
+  }
+  .nav__phone:hover { color: var(--color-brand-primary); }
+  .nav__cta {
+    font-family: var(--font-heading); font-weight: 600; font-size: 14px;
+    background: var(--color-brand-primary); color: #fff; text-decoration: none;
+    padding: 10px 18px; border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(14,116,144,.28); transition: background .15s ease, transform .15s var(--ease-expo);
+  }
+  .nav__cta:hover { background: #0a5e76; transform: scale(1.02); }
+
+  .nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
+  .nav__burger span { width: 23px; height: 2px; background: var(--color-brand-secondary); border-radius: 2px; }
+
+  /* Drawer */
+  .drawer { position: fixed; inset: 0; z-index: 200; visibility: hidden; }
+  .drawer.open { visibility: visible; }
+  .drawer__scrim { position: absolute; inset: 0; background: rgba(30,45,61,.5); opacity: 0; transition: opacity .35s ease; }
+  .drawer.open .drawer__scrim { opacity: 1; }
+  .drawer__panel {
+    position: absolute; top: 0; right: 0; bottom: 0; width: min(86vw, 340px);
+    background: var(--color-brand-secondary); color: #fff; z-index: 1;
+    transform: translateX(100%); transition: transform .4s var(--ease-expo);
+    padding: 28px 26px; display: flex; flex-direction: column; gap: 22px;
+  }
+  .drawer.open .drawer__panel { transform: translateX(0); }
+  .drawer__close { align-self: flex-end; background: none; border: 0; color: #fff; font-size: 32px; line-height: 1; cursor: pointer; }
+  .drawer__badge {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+    font-family: var(--font-body); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .07em;
+    color: var(--color-brand-accent); background: rgba(14,116,144,.18); border: 1px solid rgba(14,165,233,.4);
+    padding: 7px 13px; border-radius: 999px;
+  }
+  .drawer__links { display: flex; flex-direction: column; gap: 2px; }
+  .drawer__links a { font-family: var(--font-heading); font-weight: 700; font-size: 21px; color: #fff; text-decoration: none; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .drawer__phone { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: var(--color-brand-accent); text-decoration: none; margin-top: auto; }
+  .drawer__cta { background: var(--color-brand-primary); color: #fff; text-align: center; font-family: var(--font-heading); font-weight: 600; padding: 14px; border-radius: var(--radius); text-decoration: none; }
+
+  @media (max-width: 940px) {
+    .nav__links, .nav__phone, .nav__cta { display: none; }
+    .nav__burger { display: flex; }
+    .nav__badge { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav { transform: none; opacity: 1; animation: none; }
+    .nav, .nav *, .drawer * { transition: none !important; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  requestAnimationFrame(() => nav?.classList.add('loaded'));
+  const onScroll = () => nav?.setAttribute('data-scrolled', String(window.scrollY > 40));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const badge = document.getElementById('suburb-badge');
+  setTimeout(() => badge?.classList.add('pulse'), 700);
+
+  const drawer = document.getElementById('nav-drawer');
+  const burger = document.getElementById('nav-burger');
+  const open = () => { drawer?.classList.add('open'); drawer?.setAttribute('aria-hidden', 'false'); burger?.setAttribute('aria-expanded', 'true'); };
+  const close = () => { drawer?.classList.remove('open'); drawer?.setAttribute('aria-hidden', 'true'); burger?.setAttribute('aria-expanded', 'false'); };
+  burger?.addEventListener('click', open);
+  document.getElementById('drawer-close')?.addEventListener('click', close);
+  document.getElementById('drawer-scrim')?.addEventListener('click', close);
+  document.querySelectorAll('[data-drawer-link]').forEach((a) => a.addEventListener('click', close));
+</script>

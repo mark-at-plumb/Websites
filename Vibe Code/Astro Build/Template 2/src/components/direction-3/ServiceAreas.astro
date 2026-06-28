@@ -1,0 +1,20 @@
+---
+import Droplet from './Droplet.astro';
+const suburbs = ['Aberfoyle Park', 'Flagstaff Hill', 'Chandlers Hill', 'Cherry Gardens', 'Reynella', 'Old Reynella', 'Morphett Vale', 'Hallett Cove', 'Trott Park', 'Sheidow Park', 'Coromandel Valley', 'Bellevue Heights'];
+---
+<section class="bg-brand-bg py-[clamp(4.5rem,9vw,7rem)]">
+  <div class="mx-auto max-w-4xl px-5 sm:px-8 text-center">
+    <p class="d3-reveal font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-4 flex items-center justify-center gap-2"><Droplet class="w-2.5 h-3" /> Where we work</p>
+    <h2 class="d3-reveal font-heading font-black text-brand-primary leading-[1.08] tracking-[-0.02em] text-[clamp(1.85rem,4.5vw,3rem)]" style="font-variation-settings:'opsz' 96;">
+      We serve Happy Valley and the suburbs around it
+    </h2>
+    <p class="d3-reveal mt-5 mx-auto max-w-[56ch] font-body text-[17px] leading-[1.7] text-brand-secondary">
+      Happy Valley is home base, but we are out across the neighbouring streets every day. If you are nearby and need a plumber who shows up, give us a call.
+    </p>
+    <div class="d3-reveal mt-8 flex flex-wrap justify-center gap-x-2.5 gap-y-3">
+      {suburbs.map((s) => (
+        <a href="#" class="font-body text-[15px] text-brand-secondary hover:text-brand-accent transition-colors after:content-['·'] after:ml-2.5 after:text-brand-muted/40 last:after:content-['']">{s}</a>
+      ))}
+    </div>
+  </div>
+</section>

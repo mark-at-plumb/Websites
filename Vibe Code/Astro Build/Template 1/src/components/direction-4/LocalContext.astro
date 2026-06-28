@@ -1,0 +1,29 @@
+---
+import SectionHead from './SectionHead.astro';
+---
+<section class="local sec wrap">
+  <SectionHead eyebrow="Local Knowledge" title="We know Happy Valley plumbing, street by street." />
+  <div class="local__cols">
+    <p class="reveal" style="--rd:60ms">
+      Happy Valley sits on the southern edge of Adelaide, and its housing tells a story. A lot
+      of the area went up through the 1980s and 90s, which means we see plenty of ageing copper,
+      tired galvanised runs and hot water units well past their best. The clay-heavy soil shifts
+      with the seasons too, so slab cracks and root-invaded drains are part of the territory. We've
+      worked on enough of these homes to know what to check first.
+    </p>
+    <p class="reveal" style="--rd:120ms">
+      Being local means we're rarely far away. Whether you're near the Happy Valley Reservoir,
+      up around Education Road, or closer to the shops on Kenihans Road, a burst pipe doesn't sit
+      and wait. We carry the common parts on the van, so most jobs are sorted in a single visit.
+      And because we live here, the work we do is work we'll stand behind when we see you at the
+      footy or the bakery next week.
+    </p>
+  </div>
+</section>
+
+<style>
+  .local { background: var(--color-brand-bg); }
+  .local__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px,4vw,52px); }
+  .local__cols p { font-family: var(--font-body); font-size: 15.5px; line-height: 1.75; color: var(--color-brand-muted); margin: 0; }
+  @media (max-width: 760px) { .local__cols { grid-template-columns: 1fr; } }
+</style>

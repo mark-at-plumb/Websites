@@ -1,0 +1,46 @@
+---
+import SectionHead from './SectionHead.astro';
+import Chevron from './Chevron.astro';
+const rows = [
+  'Fixed upfront pricing, no bill shock',
+  'Lifetime Labour Warranty on every job',
+  '24/7 emergency response, within the hour',
+  'Licensed Master Plumber (Lic. #333997)',
+  'Same trusted local team every visit',
+  '$50 off your first service',
+  'Pensioner discount & interest-free finance',
+];
+---
+<section class="relative bg-brand-primary text-white py-[clamp(4rem,9vw,8rem)] overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 opacity-[0.05]" style="background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);background-size:56px 56px;"></div>
+  <div class="relative mx-auto max-w-5xl px-5 sm:px-8">
+    <SectionHead eyebrow="How We Compare" title="See the difference for yourself" align="center" dark>
+      Plenty of plumbers can turn up. Far fewer do it on a fixed price, on time, and stand behind the work for life.
+    </SectionHead>
+
+    <div data-reveal class="mt-12 border border-white/10">
+      <div class="grid grid-cols-[1fr_auto_auto] text-[12px] sm:text-[13px] font-heading font-extrabold uppercase tracking-[0.08em]">
+        <div class="p-4 sm:p-5 bg-white/[0.03]">What matters</div>
+        <div class="p-4 sm:p-5 text-center bg-brand-accent text-brand-primary w-[88px] sm:w-[160px]">Us</div>
+        <div class="p-4 sm:p-5 text-center bg-white/[0.03] text-white/55 w-[88px] sm:w-[160px]">Typical</div>
+      </div>
+      {rows.map((r, i) => (
+        <div class={`grid grid-cols-[1fr_auto_auto] items-center border-t border-white/10 ${i % 2 ? 'bg-white/[0.02]' : ''}`}>
+          <div class="p-4 sm:p-5 text-[14px] sm:text-[15px] text-white/85 flex items-center gap-2.5"><Chevron class="w-3.5 h-3.5 text-brand-accent shrink-0" />{r}</div>
+          <div class="p-4 sm:p-5 grid place-items-center w-[88px] sm:w-[160px] bg-brand-accent/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="p-4 sm:p-5 grid place-items-center w-[88px] sm:w-[160px]">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 text-white/25" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div data-reveal class="mt-10 text-center">
+      <a href="tel:1300000000" class="group inline-flex items-center gap-2.5 bg-brand-accent text-brand-primary font-heading font-extrabold text-[16px] px-7 py-4 hover:bg-white transition-colors">
+        Call Now: 1300 XXX XXX <Chevron class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+      </a>
+    </div>
+  </div>
+</section>

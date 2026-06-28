@@ -1,0 +1,26 @@
+---
+const PHONE = '(08) 8000 0000';
+const tel = `tel:${PHONE.replace(/[^0-9+]/g, '')}`;
+const bullets = ['Burst Pipes', 'Blocked Drains', 'Gas Leaks', 'No Hot Water', 'Overflowing Toilets', 'Roof Leaks'];
+---
+<!-- Section 8: Emergency -->
+<section class="d5-emergency">
+  <div class="d5-wrap d5-emergency-grid">
+    <div class="d5-emergency-text">
+      <p class="d5-eyebrow">Emergency Plumbing</p>
+      <h2 class="d5-h2 d5-white">If it leaks, drips, or bursts — <span class="d5-orange">we can fix it</span></h2>
+      <p class="d5-body d5-muted-light">
+        Burst pipes don't wait for business hours. Neither do we. Our emergency plumbers answer
+        24/7, including weekends and public holidays. We aim to be at your door within the hour.
+      </p>
+      <ul class="d5-emergency-bullets">
+        {bullets.map((b) => (<li><span class="d5-bullet-dot" aria-hidden="true"></span>{b}</li>))}
+      </ul>
+      <a href={tel} class="d5-btn d5-btn-primary d5-btn-lg">CALL NOW — {PHONE}</a>
+    </div>
+    <div class="d5-emergency-photo">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&fit=crop"
+        alt="Emergency plumber responding to a burst pipe" loading="lazy" width="700" height="900" />
+    </div>
+  </div>
+</section>

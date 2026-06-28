@@ -1,0 +1,13 @@
+/* All direction font packages — unused fonts removed after direction is chosen */
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/source-sans-3';
+@import '@fontsource-variable/plus-jakarta-sans';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/outfit';
+@import '@fontsource-variable/exo-2';
+
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";

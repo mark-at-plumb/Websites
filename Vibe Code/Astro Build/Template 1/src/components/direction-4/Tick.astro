@@ -1,0 +1,11 @@
+---
+// Recurring precision-tick motif: a 45deg hairline in teal.
+interface Props { size?: number; color?: string; opacity?: number; }
+const { size = 12, color = 'var(--color-brand-primary)', opacity = 1 } = Astro.props;
+---
+<svg class="tick" width={size} height={size} viewBox="0 0 12 12" aria-hidden="true" style={`opacity:${opacity}`}>
+  <line x1="1.5" y1="10.5" x2="10.5" y2="1.5" stroke={color} stroke-width="1.5" stroke-linecap="round" />
+</svg>
+<style>
+  .tick { display: inline-block; flex: none; vertical-align: middle; }
+</style>

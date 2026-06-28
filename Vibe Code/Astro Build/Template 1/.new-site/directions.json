@@ -1,0 +1,92 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "direction-1-the-trusted-local",
+      "name": "The Trusted Local",
+      "description": "Full-bleed split-screen hero with a plumber photo on the left and a deep navy panel on the right carrying the headline and trust strip. Navy and warm amber throughout. Rounded card corners with subtle shadows. A suburb name badge persists in the sticky nav. Large stat numerals anchor the social proof strip.",
+      "rationale": "The navy and amber combination reads as reliable and warm without going corporate-blue. The split-screen hero does what jimmysparkselectrical.com.au does well — face of the business, immediate trust — but with more residential warmth. Montserrat at heavy weight gives the tradesman confidence this brand requires.",
+      "palette": {
+        "primary": "#D4882E",
+        "secondary": "#1A2E44",
+        "accent": "#E8A44A",
+        "bg": "#F8F6F2",
+        "surface": "#EEE9E0",
+        "text": "#1A2E44",
+        "muted": "#8A9CAD"
+      },
+      "fonts": {
+        "heading": { "family": "Montserrat", "package": "montserrat", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "DM Sans", "package": "dm-sans", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "balanced",
+        "typography": "condensed-heavy display vs. friendly body",
+        "hero": "split-screen",
+        "visual_metaphor": "residential-trust",
+        "shape": "rounded (10px)",
+        "elevation": "subtle-shadows",
+        "proof": "stats-forward"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "direction-2-the-neighbourhood-paper",
+      "name": "The Neighbourhood Paper",
+      "description": "The suburb name runs massive across the top like a newspaper masthead — HAPPY VALLEY in optical-size Fraunces serif with the tagline beneath. Warm paper-stock background throughout. Hairline horizontal rules divide sections with no rounded corners. Middle sections use an unequal two-column newspaper grid. Testimonial pull-quotes displayed as editorial-style large type. Copper CTAs. Flat, print-quality precision.",
+      "rationale": "Adelaide homeowners in the 35–65 bracket trust community-embedded businesses. A newspaper-masthead style signals 'we've been here forever' and 'we're part of this suburb' — exactly the brand promise. Fraunces optical-size serif headings give authority without corporate distance. The editorial density makes the page feel substantial and local, not a thin landing page.",
+      "palette": {
+        "primary": "#C45B2A",
+        "secondary": "#8C3D1A",
+        "accent": "#D4922A",
+        "bg": "#FAF8F4",
+        "surface": "#EDE9DC",
+        "text": "#1A1208",
+        "muted": "#9A8878"
+      },
+      "fonts": {
+        "heading": { "family": "Fraunces", "package": "fraunces", "fallback": "Georgia, serif" },
+        "body": { "family": "Source Sans 3", "package": "source-sans-3", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "dense-editorial",
+        "typography": "optical-size serif display vs. readable body",
+        "hero": "typographic-masthead",
+        "visual_metaphor": "editorial-local-press",
+        "shape": "flat / hairline rules",
+        "elevation": "flat",
+        "proof": "testimonials-forward"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "direction-3-the-trade-mark",
+      "name": "The Trade Mark",
+      "description": "The phone number is the hero — rendered at ~72px on the right side of a strong horizontal rule system, unmissable for emergency callers. Zero border-radius throughout. The credentials section is designed like a licence certificate — Lic. #333997, ABN, Lifetime Labour Warranty in a formal bordered block. Services display in a tight data-table-style grid. Trade red-orange primary — unexpected in this category, sits in the safety-equipment and trade-signage register.",
+      "rationale": "Emergency intent is the dominant homepage query. Making the phone number the visual centrepiece is a real design decision, not a default. The licence-certificate credential block directly addresses the 'are you actually licensed?' trust question. Sharp edges and geometric precision signal a professional operation, not a handyman.",
+      "palette": {
+        "primary": "#D93B1F",
+        "secondary": "#1F1F1F",
+        "accent": "#FF6B35",
+        "bg": "#FFFFFF",
+        "surface": "#F4F4F4",
+        "text": "#0F0F0F",
+        "muted": "#777777"
+      },
+      "fonts": {
+        "heading": { "family": "Plus Jakarta Sans", "package": "plus-jakarta-sans", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "spacious-hero / dense-info",
+        "typography": "geometric-sans uniform weight, phone-as-display",
+        "hero": "phone-number-as-hero",
+        "visual_metaphor": "trade-professional-document",
+        "shape": "sharp / zero radius",
+        "elevation": "flat-with-rules",
+        "proof": "credentials-forward"
+      }
+    }
+  ],
+  "total": 3
+}

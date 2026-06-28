@@ -1,0 +1,22 @@
+/*
+  Token → Utility mapping:
+  --color-brand-*  → bg-brand-*, text-brand-*, border-brand-*, ring-brand-*
+  --font-*         → font-heading, font-body
+
+  Defaults from Direction 1 (The Trusted Local).
+  Each direction page overrides via <style is:global> on :root.
+*/
+@theme {
+  /* ── Colors (defaults from Direction 1) ──────────── */
+  --color-brand-primary:   #D4882E;
+  --color-brand-secondary: #1A2E44;
+  --color-brand-accent:    #E8A44A;
+  --color-brand-bg:        #F8F6F2;
+  --color-brand-surface:   #EEE9E0;
+  --color-brand-text:      #1A2E44;
+  --color-brand-muted:     #8A9CAD;
+
+  /* ── Typography (defaults from Direction 1) ───────── */
+  --font-heading: 'Montserrat Variable', system-ui, sans-serif;
+  --font-body:    'DM Sans Variable', system-ui, sans-serif;
+}

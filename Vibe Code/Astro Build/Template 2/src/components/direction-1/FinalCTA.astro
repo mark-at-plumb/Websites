@@ -1,0 +1,32 @@
+---
+import Chevron from './Chevron.astro';
+---
+<section id="contact" class="relative bg-brand-accent text-brand-primary overflow-hidden py-[clamp(4rem,9vw,8rem)]">
+  <!-- background image with orange overlay -->
+  <div class="pointer-events-none absolute inset-0">
+    <img src="/ab-images/electricians-fleet-by-the-harbour.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" class="w-full h-full object-cover object-center" />
+    <div class="absolute inset-0 bg-brand-accent/88"></div>
+  </div>
+  <!-- dot grid texture -->
+  <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image:radial-gradient(circle, rgba(17,24,39,.9) 1.5px, transparent 1.5px);background-size:26px 26px;"></div>
+  <div class="relative mx-auto max-w-4xl px-5 sm:px-8 text-center">
+    <p data-reveal class="flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[0.34em] mb-5">
+      <Chevron class="w-3.5 h-3.5" /> On time. Done properly.
+    </p>
+    <h2 data-reveal class="font-heading font-black tracking-[-0.03em] leading-[0.98] text-[clamp(2.2rem,6vw,4rem)]">
+      Need a plumber in Happy Valley? Call now.
+    </h2>
+    <p data-reveal class="mt-5 text-[1.05rem] leading-relaxed text-brand-primary/75 max-w-xl mx-auto">
+      Speak to a real local team member, get a fixed price upfront, and have it sorted. Emergencies answered 24/7, every day of the year.
+    </p>
+    <div data-reveal class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="tel:1300000000" class="group inline-flex items-center gap-3 bg-brand-primary text-white font-heading font-black text-[clamp(1.1rem,2.4vw,1.5rem)] px-8 py-5 hover:bg-white hover:text-brand-primary transition-colors">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        1300 XXX XXX
+      </a>
+      <a href="#contact" class="inline-flex items-center gap-2 font-heading font-bold text-[15px] underline underline-offset-4 decoration-2 hover:opacity-70 transition-opacity">
+        Or get a free quote <Chevron class="w-4 h-4" />
+      </a>
+    </div>
+  </div>
+</section>

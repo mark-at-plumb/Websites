@@ -1,0 +1,84 @@
+---
+import Chevron from './Chevron.astro';
+---
+<section id="top" class="relative bg-brand-primary text-white overflow-hidden" style="min-height: clamp(520px, 90vh, 820px);">
+  <!-- ambient grid -->
+  <div class="pointer-events-none absolute inset-0 opacity-[0.05]" style="background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);background-size:64px 64px;"></div>
+  <!-- orange glow behind image side -->
+  <div class="pointer-events-none absolute top-0 right-0 w-[60%] h-full bg-brand-accent/10 blur-[80px]"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8 h-full grid lg:grid-cols-[58fr_42fr] gap-0 items-stretch" style="min-height: inherit; padding-top: calc(var(--nav-h, 76px) + clamp(3rem,6vw,5rem)); padding-bottom: clamp(4rem,8vw,6rem);">
+
+    <!-- LEFT: text content -->
+    <div class="flex flex-col justify-center pr-0 lg:pr-12 pb-8 lg:pb-0">
+      <p class="d1-rise text-[10px] font-semibold uppercase tracking-[0.34em] text-brand-accent mb-6 flex items-center gap-2" style="--d:0s">
+        <Chevron class="w-3.5 h-3.5" /> Adelaide · Family-Owned · Lic. #333997
+      </p>
+
+      <h1 class="font-heading font-black leading-[0.92] tracking-[-0.03em] text-[clamp(2.75rem,6.5vw,5rem)]">
+        <span class="d1-rise block" style="--d:.08s">Your local</span>
+        <span class="d1-rise block relative w-fit" style="--d:.18s">
+          <span class="text-brand-accent">Happy Valley</span>
+          <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 320 14" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2 9C70 3 230 2 318 7" stroke="#EA6C0A" stroke-width="4" stroke-linecap="round" class="d1-underline"/>
+          </svg>
+        </span>
+        <span class="d1-rise block" style="--d:.28s">plumber.</span>
+      </h1>
+
+      <p class="d1-rise mt-8 max-w-[52ch] text-[clamp(1rem,1.4vw,1.15rem)] leading-relaxed text-white/70" style="--d:.4s">
+        Behind every job is a licensed Adelaide team with a decade of experience and one simple promise: show up on time, do the work properly, and treat your home with respect. Fixed pricing, lifetime warranty, no bill shock.
+      </p>
+
+      <div class="d1-rise mt-9 flex flex-wrap items-center gap-4" style="--d:.52s">
+        <a href="tel:1300000000" class="group inline-flex items-center gap-2.5 bg-brand-accent text-brand-primary font-heading font-extrabold text-[16px] px-7 py-4 hover:bg-white transition-colors">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 5c0 8.837 7.163 16 16 16l1.5-3.5-4.5-2-1.8 1.8a12.5 12.5 0 0 1-5.3-5.3L6.5 10 4.5 5.5 3 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Call Now: 1300 XXX XXX
+          <Chevron class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </a>
+        <a href="#contact" class="group inline-flex items-center gap-2.5 border border-white/25 text-white font-heading font-bold text-[16px] px-7 py-4 hover:border-brand-accent hover:text-brand-accent transition-colors">
+          Get a Free Quote
+          <Chevron class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+
+      <!-- inline proof -->
+      <div class="d1-rise mt-10 flex items-center gap-3 text-sm text-white/55" style="--d:.62s">
+        <div class="flex text-brand-accent">
+          {Array.from({length:5}).map(() => (<svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9 4.7 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5Z"/></svg>))}
+        </div>
+        <span><span class="text-white font-bold">500+</span> five-star reviews from Adelaide homeowners</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: hero image -->
+    <div class="d1-rise hidden lg:block relative" style="--d:.3s">
+      <!-- angled left edge clip -->
+      <div class="absolute inset-0 overflow-hidden" style="clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);">
+        <img
+          src="/ab-images/ab-electrical-team-member-portrait.webp"
+          alt="Licensed local plumber ready to help"
+          class="w-full h-full object-cover object-center"
+          loading="eager"
+          decoding="async"
+        />
+        <!-- gradient blend on left edge -->
+        <div class="absolute inset-0" style="background: linear-gradient(to right, #111827 0%, transparent 25%);"></div>
+        <!-- orange accent bar at bottom -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-brand-accent"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style is:global>
+  @keyframes d1Rise { from { opacity:0; transform: translateY(22px); } to { opacity:1; transform:none; } }
+  .d1-rise { opacity:0; animation: d1Rise .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: var(--d,0s); }
+  @keyframes d1Draw { from { stroke-dashoffset: 340; } to { stroke-dashoffset: 0; } }
+  .d1-underline { stroke-dasharray: 340; stroke-dashoffset: 340; animation: d1Draw .8s ease forwards .6s; }
+  @media (prefers-reduced-motion: reduce) {
+    .d1-rise { animation: none; opacity:1; }
+    .d1-underline { animation: none; stroke-dashoffset: 0; }
+  }
+</style>

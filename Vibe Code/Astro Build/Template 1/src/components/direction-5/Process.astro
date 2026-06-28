@@ -1,0 +1,36 @@
+---
+const steps = [
+  { n: '1', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&q=80&fit=crop',
+    title: 'Call or Book Online', text: 'Ring us direct or book a time online. We answer 24/7 and lock in a window that suits you.' },
+  { n: '2', img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=300&q=80&fit=crop',
+    title: 'Get Your Upfront Price', text: 'We inspect the job and quote a fixed price before we start. You approve it before any work begins.' },
+  { n: '3', img: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=300&q=80&fit=crop',
+    title: 'Your Job Gets Completed', text: 'We finish the work properly and clean up after ourselves. Every job is backed by our Lifetime Labour Warranty.' },
+];
+---
+<!-- Section 10: Process -->
+<section class="d5-process">
+  <div class="d5-wrap">
+    <h2 class="d5-h2 d5-center d5-white">Our simple booking process</h2>
+    <div class="d5-process-grid">
+      {steps.map((s, i) => (
+        <>
+          <div class="d5-process-step">
+            <span class="d5-process-num">{s.n}</span>
+            <div class="d5-process-photo">
+              <img src={s.img} alt={s.title} loading="lazy" width="300" height="300" />
+            </div>
+            <h3 class="d5-process-title">{s.title}</h3>
+            <p class="d5-process-text">{s.text}</p>
+          </div>
+          {i < steps.length - 1 && (
+            <div class="d5-process-arrow" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </div>
+          )}
+        </>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-3/Nav.astro';
+import Hero from '../components/direction-3/Hero.astro';
+import PromiseStrip from '../components/direction-3/PromiseStrip.astro';
+import Services from '../components/direction-3/Services.astro';
+import Story from '../components/direction-3/Story.astro';
+import WhyUs from '../components/direction-3/WhyUs.astro';
+import Process from '../components/direction-3/Process.astro';
+import Testimonials from '../components/direction-3/Testimonials.astro';
+import Credentials from '../components/direction-3/Credentials.astro';
+import ServiceAreas from '../components/direction-3/ServiceAreas.astro';
+import FinalCTA from '../components/direction-3/FinalCTA.astro';
+import Footer from '../components/direction-3/Footer.astro';
+---
+<Layout title="The Local Promise — Plumber Happy Valley">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #2C3344;
+      --color-brand-secondary: #3D4F6B;
+      --color-brand-accent:    #0D7377;
+      --color-brand-bg:        #FEFCF7;
+      --color-brand-surface:   #F5F0E8;
+      --color-brand-text:      #1C2434;
+      --color-brand-muted:     #7A8499;
+      --font-heading: 'Fraunces Variable', Georgia, serif;
+      --font-body:    'DM Sans Variable', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background-color: #FEFCF7; }
+
+    /* Scroll reveal */
+    .d3-reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--rd, 0s); }
+    .d3-reveal.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .d3-reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+
+  <Nav />
+  <main>
+    <Hero />
+    <PromiseStrip />
+    <Services />
+    <Story />
+    <WhyUs />
+    <Process />
+    <Testimonials />
+    <Credentials />
+    <ServiceAreas />
+    <FinalCTA />
+  </main>
+  <Footer />
+
+  <script is:inline>
+    (() => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = document.querySelectorAll('.d3-reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        els.forEach((el) => el.classList.add('is-in'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach((el) => io.observe(el));
+    })();
+  </script>
+</Layout>

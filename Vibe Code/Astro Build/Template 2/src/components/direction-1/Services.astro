@@ -1,0 +1,46 @@
+---
+import Chevron from './Chevron.astro';
+import SectionHead from './SectionHead.astro';
+
+const services = [
+  { n: '01', title: 'General Plumbing', href: '/general-plumbing/', img: '/ab-images/electrician-testing-switchboard.webp', desc: 'Leaking taps, running toilets, low pressure or a repair that never got done right. We handle the everyday plumbing your Happy Valley home depends on.' },
+  { n: '02', title: 'Emergency Plumbing', href: '/emergency-plumbing/', img: '/ab-images/ab-electrician-arriving-at-job.webp', desc: 'Burst pipe at midnight or no water on a public holiday? We respond within the hour where availability allows, 24/7, with a plumber you can trust.' },
+  { n: '03', title: 'Blocked Drains', href: '/blocked-drains/', img: '/ab-images/ab-electrician-loading-ladder-van.webp', desc: 'Slow sinks, gurgling toilets and bad smells point to a blockage. We locate the cause with cameras and clear it properly, not just temporarily.' },
+  { n: '04', title: 'Hot Water', href: '/hot-water/', img: '/ab-images/ab-electrician-securing-equipment.webp', desc: 'Repairs, replacements and new installs across electric, gas, solar and heat pump systems. Cold shower today, hot water sorted the same day.' },
+  { n: '05', title: 'Gas Fitting', href: '/gas-fitting/', img: '/ab-images/electricians-discussing-job.webp', desc: 'Licensed gas work done safely: cooktops, heaters, hot water and leak repairs. Fully compliant installation and certification, every single time.' },
+  { n: '06', title: 'Pipe Relining', href: '/pipe-relining/', img: '/ab-images/electrician-with-ladder.webp', desc: 'Fix damaged pipes without digging up your yard. Trenchless relining is faster, cleaner and longer lasting than traditional pipe replacement.' },
+  { n: '07', title: 'Leak Detection', href: '/leak-detection/', img: '/ab-images/electrician-loading-tools.webp', desc: 'A rising water bill or damp wall usually means a hidden leak. We pinpoint it with non-invasive equipment before it damages your home.' },
+  { n: '08', title: 'Taps & Toilets', href: '/taps-toilets/', img: '/ab-images/ab-electrical-communications-residential-north-shore.webp', desc: 'Dripping taps and constantly running toilets waste water and money. We repair or replace tapware and cisterns with quality, water-efficient fittings.' },
+  { n: '09', title: 'Burst Pipes', href: '/burst-pipes/', img: '/ab-images/ab-electrician-securing-ladder.webp', desc: 'A burst pipe can flood a home fast. We isolate the water, repair the line and help limit the damage, day or night across Happy Valley.' },
+];
+---
+<section id="services" class="bg-brand-bg pt-[clamp(4rem,8vw,7rem)] pb-[clamp(4rem,8vw,7rem)]">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <SectionHead eyebrow="Our Services" title="Plumbing services in Happy Valley" align="left">
+      Every job is fully licensed, fixed-price and backed by our Lifetime Labour Warranty. Tap any service to see how we do it.
+    </SectionHead>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-surface border border-brand-surface">
+      {services.map((s, i) => (
+        <a href={s.href} data-reveal style={`--rd:${(i % 3) * 70}ms`}
+           class="group relative bg-white flex flex-col transition-colors duration-300 hover:bg-brand-primary">
+          <span class="absolute left-0 top-0 h-full w-[3px] bg-brand-accent transition-all duration-300 group-hover:w-full group-hover:opacity-10 z-10"></span>
+          <div class="relative overflow-hidden">
+            <img src={s.img} alt={s.title} loading="lazy" decoding="async" class="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <div class="relative p-7 sm:p-8 flex flex-col flex-1">
+          <div class="relative flex items-center justify-between">
+            <span class="font-heading font-black text-[13px] tracking-[0.15em] text-brand-accent">{s.n}</span>
+            <Chevron class="w-5 h-5 text-brand-muted group-hover:text-brand-accent transition-all duration-300 group-hover:translate-x-1" />
+          </div>
+          <h3 class="relative mt-5 font-heading font-extrabold text-[1.35rem] tracking-[-0.02em] text-brand-primary group-hover:text-white transition-colors leading-tight">{s.title}</h3>
+          <p class="relative mt-3 text-[14px] leading-relaxed text-brand-muted group-hover:text-white/70 transition-colors">{s.desc}</p>
+          <span class="relative mt-5 inline-flex items-center gap-1.5 text-[12px] font-heading font-bold uppercase tracking-[0.1em] text-brand-primary group-hover:text-brand-accent transition-colors">
+            Learn more <Chevron class="w-3.5 h-3.5" />
+          </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+---
+import SectionHead from './SectionHead.astro';
+const services = [
+  { t: 'Blocked Drains', d: 'CCTV diagnosis and high-pressure jetting to clear it properly, not just shift it.', icon: 'M4 7h16M7 7v10a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3V7' },
+  { t: 'Burst & Leaking Pipes', d: 'Fast leak detection and repair to stop water damage before it spreads.', icon: 'M12 2s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11Z' },
+  { t: 'Hot Water Systems', d: 'Repairs, replacements and upgrades for gas, electric and heat-pump units.', icon: 'M12 6v6l4 2M12 22A10 10 0 1 1 12 2a10 10 0 0 1 0 20Z' },
+  { t: 'Tap & Toilet Repairs', d: 'Dripping taps and running toilets fixed in one visit, parts on the van.', icon: 'M8 21h8M12 21v-6M6 9h12l-1.5 6h-9Z' },
+  { t: 'Gas Fitting', d: 'Licensed gas work for appliances, cooktops and compliance certificates.', icon: 'M12 3c3 3 4 6 4 9a4 4 0 0 1-8 0c0-1 .5-2 1-3' },
+  { t: 'Roof & Gutter Plumbing', d: 'Leak repairs, downpipes and stormwater that handle Adelaide downpours.', icon: 'M3 11 12 4l9 7M5 10v9h14v-9' },
+  { t: 'Renovations & Fitouts', d: 'Bathroom and kitchen rough-ins done to spec, on time, to code.', icon: 'M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6' },
+  { t: 'Backflow Prevention', d: 'Testing, installation and annual certification for compliant properties.', icon: 'M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4' },
+  { t: 'Emergency Plumbing', d: 'A real plumber on the phone and on the way, 24 hours a day, 7 days a week.', icon: 'M13 2 4 14h6l-1 8 9-12h-6Z' },
+];
+---
+<section class="services sec" id="services">
+  <div class="wrap">
+    <SectionHead eyebrow="What We Do" title="Plumbing services for Happy Valley homes" align="center" />
+    <img class="services__banner" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1400&q=80&fit=crop&crop=center" alt="A Plumber Happy Valley van and tools ready for a service call in Happy Valley" loading="lazy" />
+    <div class="services__grid">
+      {services.map((s, i) => (
+        <article class="svc reveal" style={`--rd:${Math.floor(i / 3) * 120}ms`}>
+          <span class="svc__icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d={s.icon} fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>{s.t}</h3>
+          <p>{s.d}</p>
+          <span class="svc__more">Learn more &rsaquo;</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services { background: var(--color-brand-bg); }
+  .services__banner { width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); margin-bottom: 2rem; display: block; }
+  .services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .svc {
+    position: relative; background: #fff; border: 1px solid rgba(15,23,42,.07);
+    border-left: 3px solid transparent; border-radius: var(--radius);
+    padding: 26px 24px; box-shadow: var(--shadow-1);
+    transition: transform .2s var(--ease-expo), box-shadow .2s ease, border-color .2s ease;
+  }
+  .svc:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); border-left-color: var(--color-brand-primary); }
+  .svc__icon {
+    display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius);
+    background: rgba(14,116,144,.10); color: var(--color-brand-primary); margin-bottom: 16px;
+  }
+  .svc h3 { font-family: var(--font-heading); font-weight: 700; font-size: 18px; letter-spacing: -.01em; color: var(--color-brand-secondary); margin: 0 0 8px; }
+  .svc p { font-family: var(--font-body); font-size: 14px; line-height: 1.6; color: var(--color-brand-muted); margin: 0 0 14px; }
+  .svc__more { font-family: var(--font-heading); font-weight: 600; font-size: 13px; color: var(--color-brand-primary); }
+
+  @media (max-width: 900px) { .services__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .services__grid { grid-template-columns: 1fr; } }
+</style>

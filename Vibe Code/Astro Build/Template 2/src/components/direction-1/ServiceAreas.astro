@@ -1,0 +1,27 @@
+---
+import SectionHead from './SectionHead.astro';
+import Chevron from './Chevron.astro';
+const suburbs = ['Aberfoyle Park', 'Reynella', 'Flagstaff Hill', 'Chandlers Hill', 'Trott Park', 'Morphett Vale', 'Old Reynella'];
+---
+<section class="bg-brand-bg py-[clamp(4rem,8vw,7rem)]">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <SectionHead eyebrow="Service Areas" title="Servicing Happy Valley & surrounding suburbs">
+      Based locally and on the road across the southern suburbs every day. If you are near Happy Valley, we have a plumber close by.
+    </SectionHead>
+
+    <div class="mt-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 items-center">
+      <ul data-reveal class="flex flex-wrap gap-3">
+        {suburbs.map((s) => (
+          <li>
+            <a href="#contact" class="group inline-flex items-center gap-2 border border-brand-surface bg-brand-surface hover:bg-brand-primary hover:border-brand-primary px-4 py-2.5 font-heading font-bold text-[14px] text-brand-primary hover:text-white transition-colors">
+              {s} <Chevron class="w-3.5 h-3.5 text-brand-accent transition-transform group-hover:translate-x-1" />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div data-reveal>
+        <img src="/ab-images/Sydney-map.webp" alt="Happy Valley service area map" loading="lazy" decoding="async" class="w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</section>

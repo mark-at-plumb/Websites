@@ -1,0 +1,49 @@
+---
+import SectionHead from './SectionHead.astro';
+const quotes = [
+  { name: 'Sharon M.', suburb: 'Aberfoyle Park', photo: '/ab-images/ab-electrical-team-member-portrait.webp', quote: 'Hot water died on a Sunday and they had a new unit in by the afternoon. Quoted upfront, no nasty surprise on the invoice. Exactly what they promised.' },
+  { name: 'Dave R.', suburb: 'Happy Valley', quote: 'Had a burst pipe at 11pm and genuinely thought we were stuffed. They answered, talked me through shutting the water off, and were here within the hour.' },
+  { name: 'Lucia P.', suburb: 'Flagstaff Hill', quote: 'After a few dodgy tradies I was wary. These guys showed up on time, were tidy, explained everything and the price did not budge. Finally a plumber I trust.' },
+];
+---
+<section class="bg-brand-surface py-[clamp(4rem,8vw,7rem)]">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <SectionHead eyebrow="Customer Reviews" title="What Adelaide homeowners say" align="center">
+      A few words from the 500+ locals who have trusted us with their homes.
+    </SectionHead>
+
+    <!-- featured client photo -->
+    <div data-reveal class="mt-12 relative overflow-hidden bg-brand-primary">
+      <img src="/ab-images/electrical-team-with-vans.webp" alt="Our plumbing team with vans" loading="lazy" decoding="async" class="w-full h-64 sm:h-80 object-cover opacity-90" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-6 sm:p-9 max-w-2xl">
+        <div class="flex text-brand-accent">
+          {Array.from({length:5}).map(() => (<svg viewBox="0 0 20 20" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9 4.7 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5Z"/></svg>))}
+        </div>
+        <p class="mt-4 font-heading font-extrabold text-white text-[clamp(1.1rem,2.4vw,1.6rem)] tracking-[-0.02em] leading-snug">"They treated my home like their own, start to finish."</p>
+        <p class="mt-2 text-[13px] uppercase tracking-[0.18em] text-white/70">Verified Happy Valley customer</p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-6 md:items-start">
+      {quotes.map((q, i) => (
+        <figure data-reveal style={`--rd:${i * 100}ms`} class={`group bg-white border border-brand-surface p-7 sm:p-8 hover:border-brand-accent transition-colors ${i % 2 ? 'md:translate-y-8' : ''}`}>
+          <span class="block font-heading font-black text-[3.5rem] leading-[0.6] text-brand-accent select-none">&ldquo;</span>
+          <div class="flex text-brand-accent mt-3">
+            {Array.from({length:5}).map(() => (<svg viewBox="0 0 20 20" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9 4.7 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5Z"/></svg>))}
+          </div>
+          <blockquote class="mt-4 text-[15px] leading-relaxed text-brand-text">{q.quote}</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3 pt-5 border-t border-brand-surface">
+            {q.photo
+              ? (<img src={q.photo} alt={q.name} loading="lazy" decoding="async" class="w-10 h-10 object-cover" />)
+              : (<span class="grid place-items-center w-10 h-10 rounded-full bg-brand-primary text-brand-accent font-heading font-black text-[15px]">{q.name[0]}</span>)}
+            <span>
+              <span class="block font-heading font-extrabold text-[14px] text-brand-primary leading-tight">{q.name}</span>
+              <span class="block text-[12.5px] text-brand-muted">{q.suburb}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

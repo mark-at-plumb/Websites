@@ -1,0 +1,39 @@
+---
+import Shield from './Shield.astro';
+const reviews = [
+  { quote: 'Our hot water died on a Sunday morning with a houseful of kids. They answered straight away and had a new unit running by early afternoon — and the price was exactly what they quoted on the phone.', name: 'Karen M.', suburb: 'Happy Valley', detail: 'Hot water replacement' },
+  { quote: 'After being mucked around by two other mobs, it was such a relief to deal with someone who turned up on time and explained everything. The CCTV camera showed exactly where the roots were in the drain.', name: 'Dave R.', suburb: 'Aberfoyle Park', detail: 'Blocked drain & relining' },
+  { quote: 'Fixed price up front, no nasty surprises, and they left the laundry cleaner than they found it. You can tell it\'s a family business that actually cares about doing it properly. Wouldn\'t use anyone else now.', name: 'Lucia & Tony P.', suburb: 'Flagstaff Hill', detail: 'Burst pipe repair' },
+];
+---
+<section id="reviews" class="bg-brand-surface">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-24 md:py-32">
+    <div class="reveal max-w-2xl">
+      <p class="flex items-center gap-2 font-heading font-medium text-[11px] tracking-[0.18em] uppercase text-brand-accent mb-4">
+        <Shield class="w-3.5 h-4" /> 500+ Five-Star Reviews
+      </p>
+      <h2 class="font-heading font-extrabold text-brand-text tracking-[-0.025em] leading-[1.05] text-[clamp(2rem,4.5vw,3rem)]">What your neighbours say</h2>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      {reviews.map((r, i) => (
+        <figure class={`reveal relative flex flex-col rounded-xl bg-white p-7 shadow-[0_12px_34px_-20px_rgba(15,23,42,0.4)] ${i === 1 ? 'md:translate-y-3' : ''}`} style={`--d:${i * 110}ms`}>
+          <div class="flex items-center gap-1 text-brand-accent">
+            {Array.from({length:5}).map(() => (
+              <svg viewBox="0 0 24 24" class="w-4.5 h-4.5" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.9L12 18l-6.1 3.1L7.1 14l-5-4.9 6.9-1L12 2Z"/></svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 text-[15px] leading-relaxed text-brand-text/85 flex-1">"{r.quote}"</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3 pt-5 border-t border-brand-primary/10">
+            {i === 1
+              ? <img src="/images/happy-client.webp" alt={r.name} loading="lazy" class="w-10 h-10 rounded-full object-cover shrink-0 ring-2 ring-brand-accent/40" />
+              : <span class="grid place-items-center w-10 h-10 rounded-full bg-brand-primary/8 text-brand-primary shrink-0"><Shield class="w-4 h-5" /></span>}
+            <span>
+              <span class="block font-heading font-bold text-[14px] text-brand-text">{r.name}</span>
+              <span class="block text-[12.5px] text-brand-muted">{r.suburb} · {r.detail}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

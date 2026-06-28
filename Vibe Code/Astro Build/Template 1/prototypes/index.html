@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plumber Happy Valley — Homepage Concepts</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f6f2; color: #1a2e44; padding: 3rem 1.5rem; }
+    .wrap { max-width: 680px; margin: 0 auto; }
+    .header { margin-bottom: 2.5rem; }
+    .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8a9cad; margin-bottom: 0.5rem; }
+    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .subtitle { color: #8a9cad; font-size: 0.9rem; line-height: 1.6; }
+    .note { background: #fff3cd; border: 1px solid #e0c060; border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.85rem; color: #6b5000; margin-bottom: 2rem; }
+    .directions { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+    .card { display: block; padding: 1.5rem 1.75rem; border: 1px solid #e0ddd8; border-radius: 10px; text-decoration: none; color: inherit; background: #fff; transition: border-color 0.2s; }
+    .card:hover { border-color: #d4882e; }
+    .card-top { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .dir-num { font-size: 0.7rem; font-weight: 600; color: #8a9cad; text-transform: uppercase; letter-spacing: 0.08em; }
+    .dir-name { font-size: 1.1rem; font-weight: 700; }
+    .dir-meta { font-size: 0.78rem; color: #8a9cad; margin-bottom: 0.5rem; }
+    .dir-desc { font-size: 0.88rem; color: #555; line-height: 1.55; }
+    .footer { padding-top: 1.5rem; border-top: 1px solid #e0ddd8; font-size: 0.8rem; color: #8a9cad; line-height: 1.6; }
+    .footer strong { color: #1a2e44; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="eyebrow">Plumber Happy Valley · Homepage Prototypes</div>
+      <h1>Your 3 Homepage Concepts</h1>
+      <p class="subtitle">Start <code>npm run dev</code> in the project root first, then click each direction below.</p>
+    </div>
+
+    <div class="note">
+      ⚠️ Make sure <code>npm run dev</code> is running at <strong>localhost:4321</strong> before clicking these links.
+    </div>
+
+    <div class="directions">
+      <a class="card" href="http://localhost:4321/direction-1-the-trusted-local">
+        <div class="card-top">
+          <span class="dir-num">Direction 1</span>
+          <span class="dir-name">The Trusted Local</span>
+        </div>
+        <div class="dir-meta">Navy #1A2E44 · Amber #D4882E · Off-White · Montserrat + DM Sans</div>
+        <div class="dir-desc">Split-screen hero with a navy panel and amber CTAs. Suburb badge in the sticky nav. Large stat counters on scroll. Warm, residential confidence — the local tradie you'd recommend to a neighbour.</div>
+      </a>
+
+      <a class="card" href="http://localhost:4321/direction-2-the-neighbourhood-paper">
+        <div class="card-top">
+          <span class="dir-num">Direction 2</span>
+          <span class="dir-name">The Neighbourhood Paper</span>
+        </div>
+        <div class="dir-meta">Paper #FAF8F4 · Copper #C45B2A · Ink #1A1208 · Fraunces + Source Sans 3</div>
+        <div class="dir-desc">Suburb name as a massive newspaper masthead. Hairline copper rules divide sections. Editorial two-column grid. Testimonial pull-quotes in large Fraunces italic. Zero border-radius. The brand that's been in the suburb forever.</div>
+      </a>
+
+      <a class="card" href="http://localhost:4321/direction-3-the-trade-mark">
+        <div class="card-top">
+          <span class="dir-num">Direction 3</span>
+          <span class="dir-name">The Trade Mark</span>
+        </div>
+        <div class="dir-meta">White · Charcoal #1F1F1F · Red-Orange #D93B1F · Plus Jakarta Sans + Inter</div>
+        <div class="dir-desc">Phone number as the visual hero at 72px — emergency callers see it first. Horizontal rule system structures the whole page. Credentials displayed as a licence certificate. Sharp, zero-radius, trade-precise.</div>
+      </a>
+    </div>
+
+    <div class="footer">
+      <strong>What to look for:</strong> Scroll through each one fully without analysing. Just notice what you feel. Which one makes you lean forward? Which looks like YOUR brand? Which would you be proud to show a client?<br><br>
+      Come back and tell me what you love from each direction — I'll build the final homepage from your feedback and lock in a design system so every page stays consistent automatically.
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+---
+import Pipe from './Pipe.astro';
+const services = ['General Plumbing', 'Emergency Plumbing', 'Blocked Drains', 'Hot Water Systems', 'Gas Fitting', 'Pipe Relining'];
+const quick = ['About Us', 'Our Services', 'Service Areas', 'Get a Quote', 'FAQs'];
+---
+<footer class="ft">
+  <div class="ft__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 40 C 240 80, 480 0, 720 30 S 1200 80, 1440 30 L1440 80 L0 80Z" fill="var(--color-brand-secondary)"/></svg>
+  </div>
+  <div class="ft__inner">
+    <div class="ft__brand">
+      <div class="ft__logo">
+        <span class="ft__mark">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5C6 7 8 5 10.5 5S15 7 15 9.5v2h2.5a2.5 2.5 0 0 1 0 5H15v2.5a2.5 2.5 0 0 1-5 0V13H7.5a2.5 2.5 0 0 1 0-5H10"/></svg>
+        </span>
+        <span>Plumber <strong>Happy Valley</strong></span>
+      </div>
+      <p class="ft__tag">Your local, family-owned plumber. Fixed prices, lifetime labour warranty, and we show up when we say.</p>
+      <div class="ft__meta">
+        <Pipe width="44px" color="rgba(212,136,46,.6)" />
+        <span>Serving Happy Valley, SA &middot; Lic. #333997</span>
+      </div>
+    </div>
+
+    <div class="ft__col">
+      <h4>Services</h4>
+      <ul>{services.map((s) => <li><a href="#services">{s}</a></li>)}</ul>
+    </div>
+    <div class="ft__col">
+      <h4>Quick Links</h4>
+      <ul>{quick.map((q) => <li><a href="#top">{q}</a></li>)}</ul>
+    </div>
+    <div class="ft__col ft__col--cta">
+      <h4>Need a plumber now?</h4>
+      <a class="ft__phone" href="tel:0880000000">(08) 8000 0000</a>
+      <a class="ft__quote" href="#quote">Get a Free Quote →</a>
+    </div>
+  </div>
+  <div class="ft__bar">
+    <span>ABN 52 668 135 886</span>
+    <span>&copy; 2026 Plumber Happy Valley. All rights reserved.</span>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<style>
+  .ft { background: var(--color-brand-secondary); color: rgba(255,255,255,.78); position: relative; }
+  .ft__wave { line-height: 0; margin-top: -1px; }
+  .ft__wave svg { width: 100%; height: clamp(40px,6vw,80px); display: block; background: var(--color-brand-bg); }
+  .ft__inner { max-width: 1180px; margin: 0 auto; padding: clamp(24px,4vw,48px) clamp(16px,4vw,40px) 48px; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: clamp(28px,4vw,56px); }
+  .ft__logo { display: flex; align-items: center; gap: 11px; font-family: var(--font-heading); font-weight: 600; font-size: 17px; color: #fff; }
+  .ft__logo strong { font-weight: 900; }
+  .ft__mark { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--color-brand-primary); color: #fff; flex: none; }
+  .ft__tag { font-family: var(--font-body); font-size: 14px; line-height: 1.65; margin: 18px 0 18px; max-width: 36ch; }
+  .ft__meta { display: flex; align-items: center; gap: 12px; font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,.6); }
+  .ft__col h4 { font-family: var(--font-heading); font-weight: 800; font-size: 14px; color: #fff; margin: 0 0 16px; }
+  .ft__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .ft__col a { font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; transition: color .2s ease; }
+  .ft__col a:hover { color: var(--color-brand-accent); }
+  .ft__phone { display: block; font-family: var(--font-heading); font-weight: 900; font-size: 22px; color: var(--color-brand-accent); text-decoration: none; margin-bottom: 14px; }
+  .ft__quote { display: inline-block; font-family: var(--font-body); font-weight: 700; font-size: 14px; color: #fff; background: var(--color-brand-primary); padding: 11px 18px; border-radius: 10px; text-decoration: none; }
+  .ft__bar { border-top: 1px solid rgba(255,255,255,.1); max-width: 1180px; margin: 0 auto; padding: 22px clamp(16px,4vw,40px); display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: center; font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,.55); }
+  .ft__bar a { color: rgba(255,255,255,.7); text-decoration: none; }
+  .ft__bar a:hover { color: var(--color-brand-accent); }
+  @media (max-width: 880px) { .ft__inner { grid-template-columns: 1fr 1fr; } .ft__brand { grid-column: 1 / -1; } }
+  @media (max-width: 520px) { .ft__inner { grid-template-columns: 1fr; } .ft__bar { justify-content: flex-start; } }
+</style>

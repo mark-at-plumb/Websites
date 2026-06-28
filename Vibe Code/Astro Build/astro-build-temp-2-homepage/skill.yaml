@@ -1,0 +1,94 @@
+name: astro-build-temp-2-homepage
+version: "1.0.0"
+display_name: "Astro Build Temp 2 - Homepage"
+description: >
+  Trade Authority homepage template for Astro 5 suburb-targeted micro-site networks.
+  Includes split hero, trust strip, services, testimonials, service areas map,
+  orange CTA with photo background, Google Maps GBP embed, and footer.
+author: mark-at-plumb
+tags:
+  - astro
+  - tailwind
+  - homepage
+  - local-trades
+  - plumbing
+  - micro-site
+
+# Stack versions locked to this template
+stack:
+  framework: astro@5
+  css: tailwindcss@4
+  css_plugin: "@tailwindcss/vite"
+  react: "@astrojs/react"
+  fonts:
+    - "@fontsource-variable/raleway"
+    - "@fontsource-variable/inter"
+
+# Design tokens for Direction 1 — Trade Authority
+design:
+  direction: "Trade Authority"
+  palette:
+    primary: "#111827"
+    accent: "#EA6C0A"
+    background: "#FFFFFF"
+    surface: "#F9FAFB"
+    text: "#111827"
+    muted: "#6B7280"
+  fonts:
+    heading: "Raleway Variable"
+    body: "Inter Variable"
+
+# Page sections in render order
+sections:
+  - id: nav
+    component: Nav
+    notes: Sticky dark bar, logo left, phone CTA right
+  - id: hero
+    component: Hero
+    notes: 58/42 split, dark text left, portrait photo right with angled clip-path
+  - id: trust-strip
+    component: TrustStrip
+    notes: 5–6 trust badges — licensed, insured, warranty, on-time, etc.
+  - id: services
+    component: Services
+    notes: Icon + title + blurb card grid
+  - id: why-choose-us
+    component: WhyChooseUs
+    notes: Alternating image/text feature blocks
+  - id: process
+    component: Process
+    notes: Numbered 3-step process
+  - id: comparison
+    component: Comparison
+    notes: Us vs. them comparison table
+  - id: testimonials
+    component: Testimonials
+    notes: Star-rated review cards
+  - id: credentials
+    component: Credentials
+    notes: License/badge strip
+  - id: service-areas
+    component: ServiceAreas
+    notes: Suburb tag list + map image (w-full h-auto — must not crop)
+  - id: final-cta
+    component: FinalCTA
+    notes: Orange bg + fleet/team photo (88% orange overlay) + headline + phone CTA
+  - id: maps-embed
+    inline: true
+    notes: Full-width Google Maps GBP iframe (height 420px) between FinalCTA and Footer
+  - id: footer
+    component: Footer
+    notes: 3-col layout + van skyline image strip above copyright
+
+# Known gotchas
+gotchas:
+  - "@astrojs/cloudflare is incompatible with Astro 7 — use output: static, no adapter"
+  - "Tailwind v4 uses @tailwindcss/vite Vite plugin, NOT @astrojs/tailwind integration"
+  - "Service areas map must use w-full h-auto, not object-cover, to show full image"
+  - "Dev server must be started with: astro dev --background (per CLAUDE.md)"
+  - "Font imports go in global.css via @fontsource-variable — no Google Fonts CDN"
+
+# Reference project
+source_project: "/Users/sarahcapacio/Documents/GitHub/Websites/Vibe Code/Astro Build/Template 2"
+source_direction: "direction-1-trade-authority"
+created: "2026-06-29"

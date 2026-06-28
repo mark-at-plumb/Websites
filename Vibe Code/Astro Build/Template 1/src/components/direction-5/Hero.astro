@@ -1,0 +1,35 @@
+---
+const PHONE = '(08) 8000 0000';
+const tel = `tel:${PHONE.replace(/[^0-9+]/g, '')}`;
+---
+<!-- Section 3: Hero -->
+<section class="d5-hero" id="top">
+  <div class="d5-wrap d5-hero-grid">
+    <div class="d5-hero-text">
+      <p class="d5-eyebrow d5-anim d5-anim-1">Happy Valley's #1 Rated Plumber</p>
+      <h1 class="d5-hero-h1 d5-anim d5-anim-2">Fast, Licensed Plumbing in Happy Valley</h1>
+      <p class="d5-hero-sub d5-anim d5-anim-3">
+        We're Plumber Happy Valley. Fixed upfront pricing, 24/7 emergency response, and a
+        Lifetime Labour Warranty on every job. No bill shock. No surprises.
+      </p>
+      <div class="d5-hero-ctas d5-anim d5-anim-4">
+        <a href={tel} class="d5-btn d5-btn-primary">CALL {PHONE}</a>
+        <a href="#contact" class="d5-btn d5-btn-ghost">GET A FREE QUOTE</a>
+      </div>
+      <ul class="d5-hero-trust d5-anim d5-anim-4">
+        <li>✓ Lic. #333997</li>
+        <li>✓ 500+ 5-star reviews</li>
+        <li>✓ $50 off first service</li>
+      </ul>
+    </div>
+    <div class="d5-hero-photo">
+      <img
+        src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=900&q=85&fit=crop"
+        alt="Licensed plumber at work in a Happy Valley home"
+        loading="eager"
+        width="900"
+        height="1100"
+      />
+    </div>
+  </div>
+</section>

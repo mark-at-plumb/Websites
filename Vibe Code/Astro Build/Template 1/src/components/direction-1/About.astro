@@ -1,0 +1,48 @@
+---
+import SectionHead from './SectionHead.astro';
+import Pipe from './Pipe.astro';
+---
+<section class="about" id="about">
+  <div class="about__inner">
+    <div class="about__copy">
+      <SectionHead eyebrow="Welcome to the neighbourhood" title="Happy Valley's Trusted Local Plumbers" />
+      <p class="about__lead reveal">
+        We're a family-owned plumbing business, and Happy Valley is our patch. For more than a
+        decade we've worked on Adelaide homes just like yours, from quick tap repairs to full
+        hot water replacements. We hold Lic. #333997, we're fully insured, and we've earned 500+
+        5-star reviews from local homeowners. When you call us, you get a licensed plumber who
+        turns up on time, gives you the price upfront, and treats your home with respect.
+      </p>
+      <div class="about__sig reveal">
+        <Pipe width="48px" />
+        <span>The Plumber Happy Valley family</span>
+      </div>
+    </div>
+    <aside class="about__card reveal">
+      <span class="about__card-eyebrow">Quick facts</span>
+      <ul>
+        <li><strong>Lic.</strong> #333997</li>
+        <li><strong>10+ years</strong> on Adelaide homes</li>
+        <li><strong>500+</strong> 5-star local reviews</li>
+        <li><strong>$5M</strong> public liability cover</li>
+      </ul>
+      <a class="about__card-cta" href="#quote">Book your plumber →</a>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .about { padding: clamp(72px,9vw,120px) 0; }
+  .about__inner { max-width: 1140px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(32px,5vw,72px); align-items: center; }
+  .about__lead { font-family: var(--font-body); font-weight: 400; font-size: clamp(16px,1.5vw,19px); line-height: 1.75; color: #41515f; margin: 0 0 24px; }
+  .about__sig { display: flex; align-items: center; gap: 14px; font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: var(--color-brand-secondary); }
+
+  .about__card { background: var(--color-brand-secondary); color: #fff; border-radius: 14px; padding: 32px; box-shadow: 0 24px 50px rgba(26,46,68,.22); }
+  .about__card-eyebrow { font-family: var(--font-body); text-transform: uppercase; letter-spacing: .15em; font-size: 11px; color: var(--color-brand-accent); }
+  .about__card ul { list-style: none; padding: 0; margin: 18px 0 24px; }
+  .about__card li { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); font-family: var(--font-body); font-size: 15px; color: rgba(255,255,255,.8); }
+  .about__card li strong { font-family: var(--font-heading); font-weight: 800; color: #fff; }
+  .about__card-cta { font-family: var(--font-body); font-weight: 700; color: var(--color-brand-accent); text-decoration: none; }
+
+  @media (max-width: 820px) { .about__inner { grid-template-columns: 1fr; } }
+</style>

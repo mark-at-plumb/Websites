@@ -1,0 +1,38 @@
+---
+import Droplet from './Droplet.astro';
+const reasons = [
+  { eyebrow: 'No bill shock', title: 'Fixed upfront pricing', desc: 'You hear the full price before we start — agreed in writing, not guessed on an hourly meter. The number we quote is the number you pay.' },
+  { eyebrow: 'Backed for life', title: 'Lifetime labour warranty', desc: 'Every job carries a Lifetime Labour Warranty. If our workmanship ever fails, we come back and put it right. That is what doing it properly means.' },
+  { eyebrow: 'Always answered', title: 'Within-the-hour response', desc: '24/7 emergency service across weekends and public holidays, with within-the-hour response where availability allows. A real local picks up the phone.' },
+  { eyebrow: 'Your neighbours', title: 'Family-owned and local', desc: 'Family-owned and locally led, with a decade of Adelaide experience. We are the plumbers your street already recommends — fully licensed and insured.' },
+];
+---
+<section id="why" class="bg-brand-bg py-[clamp(4.5rem,9vw,7rem)]">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="d3-reveal max-w-2xl mb-12">
+      <p class="font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-4 flex items-center gap-2"><Droplet class="w-2.5 h-3" /> Why choose us</p>
+      <h2 class="font-heading font-black text-brand-primary leading-[1.05] tracking-[-0.02em] text-[clamp(2rem,5vw,3.25rem)]" style="font-variation-settings:'opsz' 96;">
+        Why homeowners keep us on the fridge
+      </h2>
+    </div>
+    <div class="grid items-center gap-12 lg:grid-cols-[6fr_6fr]">
+      <!-- side image of a local home with warm overlay -->
+      <div class="d3-reveal relative aspect-[4/5] rounded-[20px] overflow-hidden lg:sticky lg:top-28">
+        <img src="/images/house.jpg" alt="A local Happy Valley home we look after" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+        <div class="absolute inset-0 bg-brand-accent/15"></div>
+        <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(13,115,119,0.10) 0%,rgba(122,79,40,0.25) 100%);"></div>
+        <Droplet class="absolute right-6 top-6 w-12 h-14 text-white/20 d3-float" />
+      </div>
+
+      <div class="grid gap-x-10 gap-y-9 sm:grid-cols-2">
+        {reasons.map((r, i) => (
+          <div class="d3-reveal border-t border-brand-primary/10 pt-7" style={`--rd:${(i%2)*90}ms`}>
+            <p class="font-body font-semibold text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-2">{r.eyebrow}</p>
+            <h3 class="font-heading font-bold text-[clamp(1.4rem,2.6vw,1.85rem)] text-brand-primary tracking-[-0.01em]" style="font-variation-settings:'opsz' 48;">{r.title}</h3>
+            <p class="mt-3 font-body text-[16px] leading-[1.7] text-brand-secondary max-w-[46ch]">{r.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
