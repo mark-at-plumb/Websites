@@ -1,0 +1,62 @@
+---
+const nav = [
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#usps' },
+  { label: 'How We Work', href: '#process' },
+  { label: 'Credentials', href: '#credentials' },
+  { label: 'Service Areas', href: '#areas' },
+];
+const services = ['Residential', 'Commercial', 'Emergency', 'Level 2', 'Data & Communications', 'Installations & Maintenance'];
+---
+<footer class="bg-brand-text text-brand-bg">
+  <div class="mx-auto max-w-[1200px] px-5 py-20 sm:px-8">
+    <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:gap-16">
+      <div class="col-span-2 md:col-span-1">
+        <a href="#top" class="flex items-baseline gap-1.5 font-heading">
+          <span class="text-2xl font-semibold text-brand-bg">AB</span>
+          <span class="text-2xl font-light italic text-brand-accent">Electricians</span>
+        </a>
+        <p class="mt-5 max-w-xs font-body text-[0.92rem] leading-[1.7] text-brand-bg/55">
+          The highest reviewed electrician in Sydney. On-time service, upfront pricing, quality guaranteed.
+        </p>
+      </div>
+
+      <div>
+        <p class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-brand-bg/45">Explore</p>
+        <ul class="mt-5 space-y-3">
+          {nav.map((l) => (
+            <li><a href={l.href} class="font-body text-[0.92rem] text-brand-bg/70 transition-colors hover:text-brand-accent">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-brand-bg/45">Services</p>
+        <ul class="mt-5 space-y-3">
+          {services.map((s) => (
+            <li><a href="#services" class="font-body text-[0.92rem] text-brand-bg/70 transition-colors hover:text-brand-accent">{s}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-body text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-brand-bg/45">Contact</p>
+        <ul class="mt-5 space-y-3 font-body text-[0.92rem] text-brand-bg/70">
+          <li><a href="tel:+61280000000" class="transition-colors hover:text-brand-accent">(02) 8000 0000</a></li>
+          <li><a href="mailto:info@abelectricians.com.au" class="transition-colors hover:text-brand-accent">info@abelectricians.com.au</a></li>
+          <li class="text-brand-bg/55">North Shore & Greater Sydney</li>
+        </ul>
+        <div class="mt-6 flex gap-3">
+          <a href="#" aria-label="Facebook" class="grid h-9 w-9 place-items-center rounded-full border border-brand-bg/20 text-brand-bg/70 transition-colors hover:border-brand-accent hover:text-brand-accent">f</a>
+          <a href="#" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-full border border-brand-bg/20 text-brand-bg/70 transition-colors hover:border-brand-accent hover:text-brand-accent">ig</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 h-px w-full bg-brand-bg/10"></div>
+    <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <p class="font-body text-[0.78rem] text-brand-bg/45">&copy; 2026 AB Electricians. NSW Fair Trading Licensed. All rights reserved.</p>
+      <p class="font-body text-[0.78rem] italic text-brand-bg/45">Highest reviewed electrician in Sydney.</p>
+    </div>
+  </div>
+</footer>

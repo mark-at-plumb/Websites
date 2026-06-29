@@ -1,0 +1,42 @@
+---
+import Bolt from './Bolt.astro';
+---
+<section class="relative bg-brand-bg py-20 sm:py-28">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]">
+    <!-- Asymmetric: portrait column, overlapping accent -->
+    <div class="reveal-left relative" data-reveal>
+      <div class="overflow-hidden rounded-2xl shadow-xl shadow-slate-300/60">
+        <img src="/images/ab-electrical-team-member-portrait.webp" alt="Adam Bushell, founder and licensed electrician at AB Electricians" class="aspect-[4/5] w-full object-cover" loading="lazy" />
+      </div>
+      <!-- Overlapping badge breaking out of the container -->
+      <div class="absolute -right-4 -top-6 rotate-3 rounded-xl bg-brand-primary px-5 py-4 text-white shadow-xl sm:-right-8">
+        <div class="font-heading text-2xl font-extrabold leading-none text-brand-accent">10+</div>
+        <div class="mt-1 font-body text-[0.7rem] uppercase tracking-[0.14em] text-slate-300">Years experience</div>
+      </div>
+      <span class="absolute -bottom-5 left-6 grid h-12 w-12 place-items-center rounded-lg bg-brand-accent text-brand-primary shadow-lg">
+        <Bolt class="h-6 w-6" stroke="currentColor" />
+      </span>
+    </div>
+
+    <div class="reveal-right" data-reveal>
+      <p class="mb-3 flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">
+        <span class="h-px w-8 bg-brand-accent"></span>
+        Meet the founder
+      </p>
+      <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight tracking-[-0.02em] text-brand-text">
+        Adam Bushell
+      </h2>
+      <p class="mt-5 max-w-2xl font-body text-lg leading-relaxed text-slate-600">
+        I started AB Electricians to fix what's broken about the trades — sparkies who don't show up,
+        won't put a price in writing, and leave your place worse than they found it. After more than a
+        decade on the tools across Sydney's North Shore, I run it the way I'd want it done in my own home:
+        on time, priced upfront, and tidied up before we leave. We're locals, and we're not going anywhere.
+      </p>
+      <div class="mt-7 inline-flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-5 py-3 shadow-sm">
+        <span class="font-heading text-xl font-bold text-brand-primary italic">Adam Bushell</span>
+        <span class="h-6 w-px bg-slate-200"></span>
+        <span class="font-body text-sm text-brand-muted">Owner & Licensed Electrician</span>
+      </div>
+    </div>
+  </div>
+</section>

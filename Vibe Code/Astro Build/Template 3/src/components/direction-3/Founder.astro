@@ -1,0 +1,64 @@
+---
+import Eyebrow from './Eyebrow.astro';
+---
+<section class="relative overflow-hidden bg-brand-surface py-24 sm:py-32">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-16 px-5 sm:px-8 lg:grid-cols-[42fr_58fr]">
+    <!-- Image with floating caption -->
+    <div class="relative" data-reveal>
+      <div data-parallax class="cp-blob overflow-hidden shadow-[0_30px_60px_-30px_rgba(30,58,95,0.5)]">
+        <img src="/images/ab-electrical-team-member-portrait.webp" alt="Adam Bushell, founder of AB Electricians" class="h-[clamp(360px,48vw,520px)] w-full object-cover" loading="lazy" width="500" height="520" />
+      </div>
+      <!-- caption floating outside the boundary -->
+      <div class="absolute -bottom-6 right-2 rounded-2xl bg-brand-bg px-6 py-4 shadow-lg sm:-right-8">
+        <p class="font-heading text-lg font-semibold text-brand-primary" style="font-variation-settings:'opsz' 32;">Adam Bushell</p>
+        <div class="mt-1 flex items-center gap-2">
+          <span class="h-px w-6 bg-brand-secondary/60"></span>
+          <p class="font-body text-[0.72rem] uppercase tracking-[0.2em] text-brand-muted">Founder · Licensed Electrician</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div data-reveal>
+      <Eyebrow num="01" label="The Founder" />
+      <h2 class="mt-6 max-w-xl font-heading text-brand-primary" style="font-variation-settings:'opsz' 96; font-size:clamp(2rem,4vw,3rem); line-height:1.08; letter-spacing:-0.02em;">
+        I started AB to fix what's <span class="italic font-light text-brand-secondary">broken</span> about the trades.
+      </h2>
+      <div class="mt-7 max-w-xl space-y-5 font-body text-[1.04rem] leading-[1.7] text-brand-text/75">
+        <p>
+          For a decade I watched electricians turn up late, refuse to give a price upfront, and leave a mess behind. So I built the kind of business I'd want in my own home — one that shows up when it says, quotes in plain English, and treats your place like its own.
+        </p>
+        <p>
+          We're North Shore locals. We know these homes, these streets, and the standard our neighbours expect.
+        </p>
+      </div>
+      <div class="mt-9 flex flex-wrap gap-10">
+        <div>
+          <p class="font-heading text-3xl font-semibold text-brand-secondary" style="font-variation-settings:'opsz' 48;">10+</p>
+          <p class="mt-1 font-body text-[0.8rem] tracking-wide text-brand-muted">Years on the tools</p>
+        </div>
+        <div class="border-l border-brand-primary/10 pl-10">
+          <p class="font-heading text-3xl font-semibold text-brand-secondary" style="font-variation-settings:'opsz' 48;">Lifetime</p>
+          <p class="mt-1 font-body text-[0.8rem] tracking-wide text-brand-muted">Workmanship warranty</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-blob { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+</style>
+
+<script>
+  const img = document.querySelector('[data-parallax]') as HTMLElement | null;
+  if (img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const onScroll = () => {
+      const rect = img.getBoundingClientRect();
+      const offset = (rect.top - window.innerHeight / 2) * -0.06;
+      img.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>

@@ -1,0 +1,53 @@
+---
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#usps' },
+  { label: 'How We Work', href: '#process' },
+  { label: 'Credentials', href: '#credentials' },
+  { label: 'Areas', href: '#areas' },
+];
+---
+<header id="cp-nav" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
+  <nav class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-5 transition-all duration-500 sm:px-8" data-navbar>
+    <a href="#top" class="flex items-baseline gap-1.5 font-heading" aria-label="AB Electricians home" style="font-variation-settings: 'opsz' 40;">
+      <span class="text-2xl font-semibold tracking-[-0.01em] text-brand-primary">AB</span>
+      <span class="text-2xl font-light italic text-brand-secondary">Electricians</span>
+    </a>
+
+    <div class="hidden items-center gap-9 lg:flex">
+      {links.map((l) => (
+        <a href={l.href} class="group relative font-body text-[0.82rem] font-medium tracking-wide text-brand-text/70 transition-colors hover:text-brand-text">
+          {l.label}
+          <span class="absolute -bottom-1.5 left-0 h-px w-0 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a href="tel:+61280000000" class="hidden font-body text-[0.82rem] font-semibold text-brand-primary transition-colors hover:text-brand-secondary md:inline">(02) 8000 0000</a>
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-brand-primary px-5 py-2.5 font-body text-[0.82rem] font-semibold text-brand-bg transition-all duration-300 hover:bg-brand-secondary">
+        Book Now
+      </a>
+    </div>
+  </nav>
+  <span data-rule class="block h-px origin-left scale-x-0 bg-brand-primary/10 transition-transform duration-500"></span>
+</header>
+
+<script>
+  const nav = document.getElementById('cp-nav');
+  const onScroll = () => {
+    if (window.scrollY > 24) nav?.classList.add('cp-nav-scrolled');
+    else nav?.classList.remove('cp-nav-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+<style>
+  #cp-nav.cp-nav-scrolled {
+    background: rgba(250, 250, 248, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(30, 58, 95, 0.06), 0 8px 30px -18px rgba(30, 58, 95, 0.4);
+  }
+  #cp-nav.cp-nav-scrolled [data-rule] { transform: scaleX(1); }
+</style>

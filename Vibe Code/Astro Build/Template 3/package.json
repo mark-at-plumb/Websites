@@ -1,0 +1,30 @@
+{
+  "name": "ab-electricians",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
+    "@astrojs/react": "^5.0.0",
+    "@fontsource-variable/archivo": "*",
+    "@fontsource-variable/dm-sans": "*",
+    "@fontsource-variable/exo-2": "*",
+    "@fontsource-variable/fraunces": "*",
+    "@fontsource-variable/inter": "*",
+    "@fontsource-variable/source-sans-3": "*",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,25 @@
+---
+import Bolt from './Bolt.astro';
+---
+<section id="contact" class="relative isolate overflow-hidden bg-brand-accent py-20 sm:py-24">
+  <img src="/images/ab-electrical-team-sydney-harbour-bridge.webp" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-15 mix-blend-multiply" loading="lazy" />
+
+  <div class="reveal-up mx-auto max-w-3xl px-5 text-center sm:px-8" data-reveal>
+    <h2 class="font-heading text-[clamp(2.2rem,5vw,3.6rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-brand-primary">
+      Need an Electrician Now?
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl font-body text-lg text-brand-primary/80">
+      On-time service, upfront pricing and a Lifetime Workmanship Warranty — across the North Shore and Greater Sydney.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="tel:+61280000000" class="group inline-flex items-center gap-2 rounded-md bg-brand-primary px-8 py-4 font-heading text-base font-bold text-white transition-transform hover:scale-[1.03]">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (02) 8000 0000
+      </a>
+      <a href="#contact" class="group inline-flex items-center gap-2 rounded-md border-2 border-brand-primary px-8 py-4 font-heading text-base font-bold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white">
+        Book Now
+        <Bolt class="h-4 w-4" stroke="currentColor" />
+      </a>
+    </div>
+  </div>
+</section>

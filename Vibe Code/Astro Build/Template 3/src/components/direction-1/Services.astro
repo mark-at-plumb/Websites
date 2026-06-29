@@ -1,0 +1,61 @@
+---
+import Bolt from './Bolt.astro';
+
+const services = [
+  { title: 'Residential', desc: 'Switchboards, power points, lighting and safety upgrades for Sydney homes.', img: '/images/ab-electrician-arriving-at-job.webp', feature: true },
+  { title: 'Commercial', desc: 'Fit-outs, maintenance and compliance for North Shore businesses.', img: '/images/ab-electrical-van-sydney.webp' },
+  { title: 'Emergency', desc: '24/7 callouts. Power loss, faults and hazards sorted fast.', img: '/images/electrician-van-at-harbour-bridge.webp' },
+  { title: 'Level 2', desc: 'ASP-certified mains connections, metering and overhead/underground work.', img: '/images/electrician-testing-switchboard.webp' },
+  { title: 'Data & Communications', desc: 'Network cabling, data points and comms for home and office.', img: '/images/ab-electrical-communications-van-rear.webp' },
+  { title: 'Installations & Maintenance', desc: 'New installs and ongoing maintenance, done once and done right.', img: '/images/ab-electrical-electrician-with-trolley.webp' },
+];
+---
+<section id="services" class="relative bg-brand-bg py-20 sm:py-28">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal-up flex flex-col gap-6 md:flex-row md:items-end md:justify-between" data-reveal>
+      <div class="max-w-2xl">
+        <p class="mb-3 flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">
+          <span class="h-px w-8 bg-brand-accent"></span>
+          What we do
+        </p>
+        <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">
+          Electrical Services Sydney
+        </h2>
+      </div>
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-brand-accent px-5 py-3 font-heading text-sm font-bold text-brand-primary transition-all duration-200 hover:brightness-110 hover:shadow-lg hover:shadow-brand-accent/30 active:scale-95">
+        Get a free quote
+        <Bolt class="h-4 w-4" stroke="currentColor" />
+      </a>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((s, i) => (
+        <a
+          href="#contact"
+          class:list={[
+            'reveal-up group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-accent/50 hover:shadow-xl hover:shadow-slate-300/60',
+            s.feature && 'sm:col-span-2 lg:row-span-2',
+          ]}
+          data-reveal
+          style={`--rd:${i * 80}ms`}
+        >
+          <div class:list={['relative overflow-hidden', s.feature ? 'h-56 lg:h-[60%]' : 'h-44']}>
+            <img src={s.img} alt={`AB Electricians — ${s.title} services`} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/50 to-transparent"></div>
+            <span class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-lg bg-brand-accent text-brand-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <Bolt class="h-4 w-4" stroke="currentColor" />
+            </span>
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class:list={['font-heading font-extrabold tracking-[-0.01em] text-brand-text', s.feature ? 'text-2xl' : 'text-lg']}>{s.title}</h3>
+            <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{s.desc}</p>
+            <span class="mt-4 inline-flex items-center gap-1.5 font-heading text-sm font-bold text-brand-secondary transition-colors group-hover:text-brand-accent">
+              Learn more
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m0 0l-5-5m5 5l-5 5"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

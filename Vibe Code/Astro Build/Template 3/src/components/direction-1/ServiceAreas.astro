@@ -1,0 +1,60 @@
+---
+const suburbs = ['Mosman','Neutral Bay','Cremorne','Kirribilli','McMahons Point','Lavender Bay','Milsons Point','Crows Nest','St Leonards','Artarmon','Willoughby','Chatswood','Lane Cove','Longueville','Northwood','Hunters Hill','Gladesville','Ryde','Meadowbank','North Sydney','Waverton','Wollstonecraft','Naremburn','Cammeray','Balmoral','Seaforth','Manly','Dee Why','Brookvale','Pymble','Gordon','Killara','Lindfield','Roseville','East Lindfield','Turramurra','Wahroonga','Hornsby'];
+---
+
+<section id="areas" class="relative overflow-hidden py-20 sm:py-28" style="background:#0f1c2e;">
+  <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
+
+    <!-- Left: Map in bordered box with orange accent bar -->
+    <div class="reveal-left relative" data-reveal>
+      <div class="relative overflow-hidden rounded-xl" style="border: 1px solid #2a3f58;">
+        <img
+          src="/images/Sydney-map.webp"
+          alt="Map showing AB Electricians service areas across Sydney's North Shore"
+          class="w-full object-cover"
+          style="opacity: 0.8;"
+          loading="lazy"
+        />
+        <!-- Teal location pin positioned over Sydney -->
+        <div class="absolute" style="bottom: 38%; left: 57%;">
+          <svg width="26" height="34" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 0C6.268 0 0 6.268 0 14c0 9.333 14 22 14 22S28 23.333 28 14C28 6.268 21.732 0 14 0z" fill="#00a3b4"/>
+            <circle cx="14" cy="14" r="5" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Orange vertical accent bar at bottom-left -->
+      <span class="absolute rounded-full" style="bottom: -0.5rem; left: 0; width: 3px; height: 4rem; background: #00d082;"></span>
+    </div>
+
+    <!-- Right: Eyebrow, headline, description, suburb pills -->
+    <div class="reveal-right" data-reveal>
+      <!-- Eyebrow -->
+      <p class="mb-4 flex items-center gap-3 font-body text-[0.65rem] font-bold uppercase tracking-[0.2em]" style="color:#00d082;">
+        <span class="inline-block h-px w-8" style="background:#00d082;"></span>
+        Happy Customers Across Sydney
+      </p>
+
+      <!-- Headline: all white -->
+      <h2 class="font-heading font-extrabold leading-[1.05] tracking-[-0.02em] mb-5 text-white"
+        style="font-size: clamp(2rem, 4.5vw, 3.25rem);">
+        We Cover the North Shore &amp; Beyond
+      </h2>
+
+      <p class="font-body text-base leading-relaxed mb-8 max-w-md" style="color:#9090a8;">
+        From Mosman to Hornsby, our vans are never far away. Don't see your suburb? Give us a call — chances are we're already nearby.
+      </p>
+
+      <!-- Suburb pills — dark rounded badges matching screenshot -->
+      <ul class="flex flex-wrap gap-2">
+        {suburbs.map((s) => (
+          <li class="inline-flex items-center rounded-lg font-body text-sm font-medium cursor-default transition-colors"
+            style="padding: 0.375rem 0.875rem; background: #1a2535; border: 1px solid #2a3f58; color: #c8d4e0;">
+            {s}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>

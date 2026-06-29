@@ -1,0 +1,10 @@
+@import '@fontsource-variable/archivo';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/exo-2';
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/source-sans-3';
+
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";

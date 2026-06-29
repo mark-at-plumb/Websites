@@ -1,0 +1,41 @@
+---
+const steps = [
+  { n: '01', title: 'Upfront Written Pricing', body: 'You get a clear, written price before we start. No hourly guessing, no nasty bill at the end.' },
+  { n: '02', title: 'Friendly, Respectful Service', body: 'A polite, professional team who treat your home and your time with respect.' },
+  { n: '03', title: 'As Clean As You Left It', body: 'We tidy up every job. You won’t even know we were there — except the work’s done right.' },
+];
+---
+<section id="process" class="relative bg-brand-bg py-20 sm:py-28">
+  <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2">
+    <!-- Overlapping image breaking out of its container -->
+    <div class="reveal-left relative" data-reveal>
+      <div class="overflow-hidden rounded-2xl shadow-xl shadow-slate-300/60">
+        <img src="/images/electricians-discussing-job.webp" alt="AB Electricians discussing the scope of a job on site" class="aspect-[5/4] w-full object-cover" loading="lazy" />
+      </div>
+      <div class="absolute -right-5 -bottom-8 hidden max-w-[14rem] rounded-xl border border-brand-accent/30 bg-brand-primary p-5 text-white shadow-xl sm:block lg:-right-10">
+        <p class="font-heading text-sm font-bold text-brand-accent">Quoted = charged</p>
+        <p class="mt-1 font-body text-xs text-slate-300">The price we write down is the price you pay.</p>
+      </div>
+    </div>
+
+    <div class="reveal-right" data-reveal>
+      <p class="mb-3 flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">
+        <span class="h-px w-8 bg-brand-accent"></span>
+        How we work
+      </p>
+      <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">A straight, simple process</h2>
+
+      <ol class="mt-9 space-y-7">
+        {steps.map((s) => (
+          <li class="flex gap-5">
+            <span class="font-heading text-3xl font-extrabold leading-none text-brand-accent">{s.n}</span>
+            <div class="border-l border-slate-200 pl-5">
+              <h3 class="font-heading text-lg font-extrabold tracking-[-0.01em] text-brand-text">{s.title}</h3>
+              <p class="mt-1.5 font-body text-sm leading-relaxed text-brand-muted">{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

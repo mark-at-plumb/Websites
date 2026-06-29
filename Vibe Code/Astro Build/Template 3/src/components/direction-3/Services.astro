@@ -1,0 +1,57 @@
+---
+import Eyebrow from './Eyebrow.astro';
+
+const services = [
+  { title: 'Residential', desc: 'Switchboards, lighting, power points and rewiring for North Shore homes.', img: '/images/ab-electrician-arriving-at-job.webp' },
+  { title: 'Commercial', desc: 'Fit-outs, maintenance and compliance for Sydney businesses.', img: '/images/ab-electrical-van-sydney.webp' },
+  { title: 'Emergency', desc: 'Fast callouts when the power’s out and you need it back, day or night.', img: '/images/electrician-van-at-harbour-bridge.webp' },
+  { title: 'Level 2', desc: 'ASP-certified connections, metering and overhead and underground mains.', img: '/images/electrician-testing-switchboard.webp' },
+  { title: 'Data & Communications', desc: 'Structured cabling, networking and comms for home and office.', img: '/images/ab-electrical-communications-residential-north-shore.webp' },
+  { title: 'Installations & Maintenance', desc: 'New installs, upgrades and the ongoing care that keeps it all running.', img: '/images/ab-electrical-electrician-with-trolley.webp' },
+];
+---
+<section id="services" class="relative bg-brand-bg py-24 sm:py-32">
+  <div class="mx-auto max-w-[1200px] px-5 sm:px-8">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between" data-reveal>
+      <div>
+        <Eyebrow num="03" label="Electrical Services Sydney" />
+        <h2 class="mt-6 max-w-xl font-heading text-brand-primary" style="font-variation-settings:'opsz' 96; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-0.02em;">
+          Everything electrical, done <span class="italic font-light text-brand-secondary">properly</span>.
+        </h2>
+      </div>
+      <p class="max-w-xs font-body text-[0.95rem] leading-[1.7] text-brand-text/70">Six core services, one local team — each backed by upfront pricing and our Lifetime Workmanship Warranty.</p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((s, i) => (
+        <a
+          href="#contact"
+          data-reveal
+          class={`cp-card group relative flex flex-col overflow-hidden rounded-3xl border border-brand-primary/10 bg-brand-surface transition-colors duration-300 hover:border-brand-accent ${i === 0 ? 'lg:row-span-2' : ''}`}
+          style={`transition-delay:${(i % 3) * 100}ms`}
+        >
+          <div class="cp-zoom overflow-hidden">
+            <img src={s.img} alt={`AB Electricians — ${s.title} electrical service`} class={`w-full object-cover ${i === 0 ? 'h-64 lg:h-[26rem]' : 'h-48'}`} loading="lazy" />
+          </div>
+          <div class="flex flex-1 flex-col p-7">
+            <div class="flex items-center gap-2">
+              <span class="font-body text-[0.7rem] font-semibold tracking-[0.25em] text-brand-secondary">{String(i + 1).padStart(2, '0')}</span>
+              <span class="h-px w-6 bg-brand-accent/40"></span>
+            </div>
+            <h3 class="mt-3 font-heading text-xl font-semibold text-brand-primary" style="font-variation-settings:'opsz' 32;">{s.title}</h3>
+            <p class="mt-2 font-body text-[0.92rem] leading-[1.65] text-brand-text/70">{s.desc}</p>
+            <span class="mt-5 inline-flex items-center gap-1.5 font-body text-[0.82rem] font-semibold text-brand-accent">
+              Learn more
+              <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-zoom img { transform: scale(1.06); transition: transform 700ms cubic-bezier(0.16,1,0.3,1); }
+  .cp-card:hover .cp-zoom img { transform: scale(1); }
+</style>

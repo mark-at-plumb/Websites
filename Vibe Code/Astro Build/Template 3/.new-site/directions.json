@@ -1,0 +1,83 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "harbour-authority",
+      "name": "Harbour Authority",
+      "description": "Faithful to the existing AB Electricians brand — deep navy hero, editorial grid, clean card surfaces. Archivo at heavy weights commands authority while electric green CTAs signal action. Feels like the established, trusted brand it already is, elevated in craft.",
+      "rationale": "This direction preserves brand recognition for existing customers while giving the visual presentation the polish it deserves. Strong, direct, no-nonsense.",
+      "palette": {
+        "primary": "#011835",
+        "secondary": "#007cba",
+        "accent": "#00d082",
+        "bg": "#f8fafc",
+        "surface": "#edf2f7",
+        "text": "#0f172a",
+        "muted": "#64748b"
+      },
+      "fonts": {
+        "heading": { "family": "Archivo", "package": "archivo", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "balanced",
+        "typography": "heavy-sans + geometric-sans",
+        "hero": "full-bleed-image",
+        "visual_metaphor": "editorial"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "north-shore-bold",
+      "name": "North Shore Bold",
+      "description": "Dark-mode throughout — near-black backgrounds, electric amber headings, vivid orange accents. Angular geometry, overlapping image panels, and snappy transitions communicate urgency and energy. The go-to electrician when something's gone wrong at midnight.",
+      "rationale": "Leans into the emergency electrical angle. High contrast and energy signal fast response and professional competence. Stands out completely from the typical tradie site aesthetic.",
+      "palette": {
+        "primary": "#1a1a2e",
+        "secondary": "#e8b84b",
+        "accent": "#ff6b35",
+        "bg": "#0d0d1a",
+        "surface": "#1e1e30",
+        "text": "#f0f0f5",
+        "muted": "#9090a8"
+      },
+      "fonts": {
+        "heading": { "family": "Exo 2", "package": "exo-2", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "DM Sans", "package": "dm-sans", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "dense",
+        "typography": "geometric-bold + humanist-sans",
+        "hero": "split-screen",
+        "visual_metaphor": "spatial"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "coastal-precision",
+      "name": "Coastal Precision",
+      "description": "Warm white backgrounds, editorial Fraunces serif headings with optical sizing, generous whitespace, and asymmetric column splits. Burnt orange and coastal teal accents feel considered and premium. Organic image containers and rounded cards soften the technical subject matter.",
+      "rationale": "Positions AB Electricians as the premium, trusted craftspeople rather than a transactional trade service. Appeals to higher-value residential and commercial clients on the North Shore.",
+      "palette": {
+        "primary": "#1e3a5f",
+        "secondary": "#c45f1a",
+        "accent": "#00a3b4",
+        "bg": "#fafaf8",
+        "surface": "#f0ede8",
+        "text": "#1a1a1a",
+        "muted": "#7a7a7a"
+      },
+      "fonts": {
+        "heading": { "family": "Fraunces", "package": "fraunces", "fallback": "Georgia, serif" },
+        "body": { "family": "Source Sans 3", "package": "source-sans-3", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "spacious",
+        "typography": "optical-serif + humanist-sans",
+        "hero": "asymmetric-split",
+        "visual_metaphor": "editorial"
+      }
+    }
+  ],
+  "total": 3
+}

@@ -1,0 +1,40 @@
+---
+const steps = [
+  { n: '01', title: 'As Clean As You Left It', desc: "Drop sheets down, boots off, mess gone. We treat your home like our own — you won't know we were there, except the job's done." },
+  { n: '02', title: 'Friendly, Respectful Service', desc: "Real tradies who explain what's happening, answer your questions and treat you like a neighbour, not a number." },
+  { n: '03', title: 'Upfront Written Pricing', desc: "You get a written price before any work starts. What we quote is what you pay — no surprises on the invoice." },
+];
+---
+<section id="process" class="relative overflow-hidden bg-brand-bg py-24">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-8">
+    <div>
+      <div class="reveal mb-10 max-w-xl">
+        <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+          <span class="inline-block h-px w-10 bg-brand-accent"></span>
+          How we work
+        </p>
+        <h2 class="font-heading text-[clamp(1.9rem,4.5vw,3rem)] font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text">
+          Three promises,<br /> <span class="text-brand-secondary">every single job</span>
+        </h2>
+      </div>
+
+      <ol class="relative space-y-8 border-l border-brand-secondary/20 pl-8">
+        {steps.map((s, i) => (
+          <li class="reveal relative" style={`transition-delay: ${i * 110}ms;`}>
+            <span class="absolute -left-[42px] grid h-8 w-8 place-items-center font-heading text-xs font-black text-brand-bg" style="clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%); background: var(--color-brand-accent);">{s.n}</span>
+            <h3 class="font-heading text-xl font-black uppercase leading-tight tracking-tight text-brand-secondary">{s.title}</h3>
+            <p class="mt-2 max-w-md font-body text-base leading-relaxed text-brand-muted">{s.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="reveal relative" style="transition-delay: 120ms;">
+      <div class="relative overflow-hidden border-2 border-brand-secondary/25 shadow-2xl shadow-black/60" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 8%);">
+        <img src="/images/electricians-discussing-job.webp" alt="AB electricians discussing a job on site" class="h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-bg/50 to-transparent"></div>
+      </div>
+      <span class="absolute -bottom-4 -left-4 h-20 w-1.5 bg-brand-accent lg:h-28"></span>
+    </div>
+  </div>
+</section>

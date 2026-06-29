@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const directions = [
+  {
+    n: 1,
+    name: 'Harbour Authority',
+    slug: 'direction-1-harbour-authority',
+    palette: ['#011835', '#007cba', '#00d082'],
+    description: 'Faithful to the existing AB Electricians brand — deep navy hero, editorial grid, Archivo headings at heavy weight. Electric green CTAs signal action. Elevated in craft.',
+    vibe: 'Established · Authoritative · Local',
+  },
+  {
+    n: 2,
+    name: 'North Shore Bold',
+    slug: 'direction-2-north-shore-bold',
+    palette: ['#0d0d1a', '#e8b84b', '#ff6b35'],
+    description: 'Dark-mode throughout. Electric amber headings, vivid orange accents, angular geometry. The go-to electrician when something goes wrong at midnight.',
+    vibe: 'Urgent · High-contrast · Energy-forward',
+  },
+  {
+    n: 3,
+    name: 'Coastal Precision',
+    slug: 'direction-3-coastal-precision',
+    palette: ['#1e3a5f', '#c45f1a', '#00a3b4'],
+    description: 'Warm white, editorial Fraunces serif headings, generous whitespace, organic image shapes. Premium feel for high-value North Shore residential and commercial clients.',
+    vibe: 'Premium · Editorial · Refined',
+  },
+];
+---
+
+<Layout title="AB Electricians — Homepage Concepts">
+  <main style="max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem; font-family: 'Inter Variable', system-ui, sans-serif;">
+    <div style="margin-bottom: 3.5rem;">
+      <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 1rem;">AB Electricians · Sydney</div>
+      <h1 style="font-size: 2rem; font-weight: 800; margin: 0 0 0.75rem; color: #0f172a; line-height: 1.15;">Your Homepage Concepts</h1>
+      <p style="color: #64748b; font-size: 1rem; line-height: 1.6; margin: 0;">Three distinct visual directions — same layout, different personalities. Scroll through each one fully before deciding. Notice what you feel, not what you think.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+      {directions.map(d => (
+        <a href={`/${d.slug}`} style="display: block; padding: 1.75rem; border: 1.5px solid #e2e8f0; border-radius: 14px; text-decoration: none; color: inherit; background: #fff;">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.4rem;">Direction {d.n}</div>
+              <div style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 0.4rem;">{d.name}</div>
+              <div style="font-size: 0.78rem; font-weight: 600; color: #64748b; margin-bottom: 0.75rem; letter-spacing: 0.02em;">{d.vibe}</div>
+              <div style="color: #475569; font-size: 0.9rem; line-height: 1.6;">{d.description}</div>
+            </div>
+            <div style="display: flex; gap: 6px; flex-shrink: 0; padding-top: 0.25rem;">
+              {d.palette.map(color => (
+                <div style={`width: 20px; height: 20px; border-radius: 50%; background: ${color}; border: 1.5px solid rgba(0,0,0,0.1);`}></div>
+              ))}
+            </div>
+          </div>
+          <div style="margin-top: 1.25rem; font-size: 0.82rem; font-weight: 600; color: #007cba;">
+            View concept →
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div style="margin-top: 3rem; padding: 1.5rem; background: #f8fafc; border-radius: 10px; font-size: 0.875rem; color: #64748b; line-height: 1.6;">
+      <strong style="color: #0f172a; display: block; margin-bottom: 0.4rem;">What to look for</strong>
+      Scroll each one fully without analysing. Notice which one makes you lean forward. Which one looks like your brand? Which would you be proud to send a client?
+    </div>
+  </main>
+</Layout>

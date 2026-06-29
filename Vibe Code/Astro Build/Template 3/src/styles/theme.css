@@ -1,0 +1,20 @@
+/*
+  Token → Utility mapping:
+  --color-brand-*  → bg-brand-*, text-brand-*, border-brand-*, ring-brand-*
+  --font-*         → font-heading, font-body
+
+  Defaults from Direction 1 (Harbour Authority).
+  Each direction page overrides via <style is:global> on :root.
+*/
+@theme {
+  --color-brand-primary:   #011835;
+  --color-brand-secondary: #007cba;
+  --color-brand-accent:    #00d082;
+  --color-brand-bg:        #f8fafc;
+  --color-brand-surface:   #edf2f7;
+  --color-brand-text:      #0f172a;
+  --color-brand-muted:     #64748b;
+
+  --font-heading: 'Archivo Variable', system-ui, sans-serif;
+  --font-body:    'Inter Variable', system-ui, sans-serif;
+}

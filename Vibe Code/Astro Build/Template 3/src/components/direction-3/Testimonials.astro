@@ -1,0 +1,46 @@
+---
+import Eyebrow from './Eyebrow.astro';
+
+const reviews = [
+  { quote: 'at our place within the hour', body: 'Adam and his team were at our place within the hour. Switchboard done, mess cleaned up, and the price was exactly what they quoted. Couldn’t ask for more.', name: 'Sarah T.', suburb: 'Mosman' },
+  { quote: 'always on time, always tidy', body: 'We’ve used AB Electricians three times now. Always on time, always professional, always tidy. They’re the only electricians we call.', name: 'Michael R.', suburb: 'Neutral Bay' },
+  { quote: 'there by midnight', body: 'Had an emergency at 11pm — blown fuse, no power to half the house. AB were there by midnight. Fixed it fast, didn’t charge the earth.', name: 'Jenny K.', suburb: 'Chatswood' },
+];
+---
+<section class="relative overflow-hidden bg-brand-primary py-24 text-brand-bg sm:py-32">
+  <!-- decorative oversized quote mark overlapping the section top -->
+  <span aria-hidden="true" class="pointer-events-none absolute -top-10 left-4 select-none font-heading text-[16rem] leading-none text-brand-accent/10 sm:left-16">&ldquo;</span>
+  <!-- faint backdrop image -->
+  <img src="/images/ab-electrical-opera-house.webp" alt="" aria-hidden="true" class="pointer-events-none absolute bottom-0 right-0 h-64 w-auto opacity-[0.06]" loading="lazy" />
+
+  <div class="relative mx-auto max-w-[1200px] px-5 sm:px-8">
+    <div data-reveal>
+      <Eyebrow num="02" label="What Our Clients Say" tone="light" />
+      <h2 class="mt-6 max-w-2xl font-heading" style="font-variation-settings:'opsz' 96; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-0.02em;">
+        The North Shore's most <span class="italic font-light text-brand-accent">trusted</span> name in electrical.
+      </h2>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-3xl bg-white/10 md:grid-cols-3">
+      {reviews.map((r, i) => (
+        <figure data-reveal class="cp-quote flex flex-col bg-brand-primary p-8 sm:p-9" style={`transition-delay:${i * 120}ms`}>
+          <span aria-hidden="true" class="cp-mark font-heading text-5xl leading-none text-brand-accent">&ldquo;</span>
+          <blockquote class="mt-4 flex-1 font-heading text-[1.15rem] font-light italic leading-[1.5]" style="font-variation-settings:'opsz' 40;">
+            {r.body.split(r.quote)[0]}<span class="not-italic font-normal text-brand-secondary">{r.quote}</span>{r.body.split(r.quote)[1]}
+          </blockquote>
+          <figcaption class="mt-7">
+            <span class="block h-px w-10 bg-brand-accent/50"></span>
+            <p class="mt-3 font-body text-sm font-semibold">{r.name}</p>
+            <p class="font-body text-[0.78rem] tracking-wide text-brand-bg/60">{r.suburb}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-mark { display: inline-block; transform: rotate(-12deg) scale(0.7); opacity: 0; transition: transform 700ms cubic-bezier(0.34,1.56,0.64,1) 200ms, opacity 500ms ease 200ms; }
+  .cp-quote.cp-in .cp-mark { transform: rotate(0deg) scale(1); opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .cp-mark { opacity: 1; transform: none; } }
+</style>

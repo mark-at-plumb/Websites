@@ -1,0 +1,135 @@
+---
+import Bolt from './Bolt.astro';
+---
+<section id="top" class="relative min-h-[100svh] overflow-hidden bg-brand-bg pt-28 lg:pt-0">
+  <!-- low-opacity circuit grid -->
+  <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(var(--color-brand-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-secondary) 1px, transparent 1px); background-size: 48px 48px;"></div>
+
+  <div class="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:px-8">
+    <!-- LEFT: text -->
+    <div class="relative z-10 py-10 lg:py-0">
+      <p data-rise class="mb-5 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+        <span class="inline-block h-px w-10 bg-brand-accent"></span>
+        North Shore &amp; Greater Sydney
+      </p>
+      <h1 class="font-heading font-black uppercase leading-[0.92] tracking-[-0.02em] text-[clamp(2.6rem,8vw,5.6rem)]">
+        <span data-flash class="block text-brand-secondary">Highest</span>
+        <span data-flash class="block text-brand-secondary">Reviewed</span>
+        <span data-flash class="block text-brand-text">Electrician</span>
+        <span data-flash class="block text-brand-text">in <span class="text-brand-accent">Sydney</span></span>
+      </h1>
+      <p data-rise class="mt-7 max-w-md font-body text-base leading-relaxed text-brand-muted sm:text-lg">
+        Sydney based licensed electricians. On-time service. Upfront pricing. Quality guaranteed.
+      </p>
+      <div data-rise class="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <a href="#contact" class="sweep-btn group relative inline-flex items-center justify-center gap-2 overflow-hidden px-7 py-4 font-heading text-base font-bold text-brand-bg" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); background: var(--color-brand-accent);">
+          <span class="relative z-10">Book Now</span>
+          <Bolt class="relative z-10 h-4 w-4" />
+        </a>
+        <a href="tel:+61280000000" class="group inline-flex items-center justify-center gap-2 border border-brand-secondary/40 px-7 py-4 font-heading text-base font-bold text-brand-secondary transition-colors hover:bg-brand-secondary/10" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);">
+          Call (02) 8000 0000
+        </a>
+      </div>
+
+      <div data-rise class="mt-12 flex flex-wrap gap-x-9 gap-y-4">
+        <div>
+          <div class="font-heading text-3xl font-black tabular-nums text-brand-secondary" data-count data-target="10" data-suffix="+">0</div>
+          <div class="font-body text-xs uppercase tracking-wider text-brand-muted">Years on the tools</div>
+        </div>
+        <div>
+          <div class="font-heading text-3xl font-black tabular-nums text-brand-secondary" data-count data-target="500" data-suffix="+">0</div>
+          <div class="font-body text-xs uppercase tracking-wider text-brand-muted">5-star reviews</div>
+        </div>
+        <div>
+          <div class="font-heading text-3xl font-black tabular-nums text-brand-secondary" data-count data-target="100" data-suffix="%">0</div>
+          <div class="font-body text-xs uppercase tracking-wider text-brand-muted">Workmanship warranty</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: clipped image panel -->
+    <div data-panel class="relative hidden h-[78vh] self-stretch lg:block">
+      <div class="absolute inset-0" style="clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);">
+        <img src="/images/electrician-fleet-under-bridge.webp" alt="AB Electricians fleet of vans parked under the Sydney Harbour Bridge" class="h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/10 to-transparent"></div>
+      </div>
+      <!-- overlapping smaller panel -->
+      <div class="absolute -bottom-8 left-2 w-52 overflow-hidden border-2 border-brand-accent shadow-2xl shadow-black/60" style="clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);">
+        <img src="/images/ab-electrical-van-bridge.webp" alt="AB Electricians van on a Sydney street near the Harbour Bridge" class="h-40 w-full object-cover" />
+      </div>
+      <span class="pulse-glow absolute right-6 top-8 inline-flex items-center gap-2 bg-brand-accent px-4 py-2 font-heading text-sm font-bold text-brand-bg" style="clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);">
+        <Bolt class="h-4 w-4" /> 24/7 Emergency
+      </span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+
+  [data-flash] { opacity: 0; transform: translateY(0.4em); }
+  [data-rise] { opacity: 0; transform: translateY(18px); }
+  [data-panel] { opacity: 0; transform: translateX(40px); }
+
+  .nsb-flash { animation: flashIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+  .nsb-rise { animation: riseIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+  .nsb-panel { animation: panelIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+
+  @keyframes flashIn {
+    0% { opacity: 0; transform: translateY(0.4em); text-shadow: 0 0 0 transparent; }
+    55% { opacity: 1; text-shadow: 0 0 26px var(--color-brand-secondary); }
+    100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 0 transparent; }
+  }
+  @keyframes riseIn { to { opacity: 1; transform: translateY(0); } }
+  @keyframes panelIn { to { opacity: 1; transform: translateX(0); } }
+
+  .pulse-glow { animation: pulseGlow 2.6s ease-in-out infinite; }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.5); }
+    50% { box-shadow: 0 0 22px 4px rgba(255, 107, 53, 0.55); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-flash], [data-rise], [data-panel] { opacity: 1; transform: none; }
+    .pulse-glow { animation: none; }
+  }
+</style>
+
+<script>
+  const flashes = document.querySelectorAll<HTMLElement>('[data-flash]');
+  const rises = document.querySelectorAll<HTMLElement>('[data-rise]');
+  const panel = document.querySelector<HTMLElement>('[data-panel]');
+  flashes.forEach((el, i) => { el.style.animationDelay = `${0.15 + i * 0.13}s`; el.classList.add('nsb-flash'); });
+  rises.forEach((el, i) => { el.style.animationDelay = `${0.75 + i * 0.12}s`; el.classList.add('nsb-rise'); });
+  if (panel) { panel.style.animationDelay = '0.3s'; panel.classList.add('nsb-panel'); }
+
+  // count-up
+  const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+  const animate = (el: HTMLElement) => {
+    const target = Number(el.dataset.target || '0');
+    const suffix = el.dataset.suffix || '';
+    const dur = 1100;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { animate(e.target as HTMLElement); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach((c) => io.observe(c));
+</script>

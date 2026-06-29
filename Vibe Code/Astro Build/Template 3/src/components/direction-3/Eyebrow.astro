@@ -1,0 +1,17 @@
+---
+// Architectural annotation eyebrow — a section number + label with a hairline tick.
+interface Props {
+  num?: string;
+  label: string;
+  align?: 'left' | 'center';
+  tone?: 'dark' | 'light';
+}
+const { num, label, align = 'left', tone = 'dark' } = Astro.props;
+const lineColor = tone === 'light' ? 'bg-white/30' : 'bg-brand-accent/50';
+const textColor = tone === 'light' ? 'text-white/70' : 'text-brand-muted';
+---
+<div class={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
+  {num && <span class={`font-body text-[0.7rem] font-semibold tracking-[0.3em] ${tone === 'light' ? 'text-white/50' : 'text-brand-secondary'}`}>{num}</span>}
+  <span class={`h-px w-8 ${lineColor}`}></span>
+  <span class={`font-body text-[0.7rem] font-semibold uppercase tracking-[0.35em] ${textColor}`}>{label}</span>
+</div>

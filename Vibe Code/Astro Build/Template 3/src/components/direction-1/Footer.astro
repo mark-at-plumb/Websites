@@ -1,0 +1,86 @@
+---
+import Bolt from './Bolt.astro';
+
+const services = [
+  { label: 'Electrical Services', href: '/electrical-services' },
+  { label: 'Residential', href: '/residential-electrician' },
+  { label: 'Commercial', href: '/electrical-services' },
+  { label: 'Emergency', href: '/electrical-services' },
+  { label: 'Level 2', href: '/electrical-services' },
+  { label: 'Data & Comms', href: '/electrical-services' },
+];
+const pages = [
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Contact Us', href: '/contact-us' },
+  { label: 'Eastern Suburbs', href: '/electrician-eastern-suburbs' },
+];
+---
+<footer class="relative overflow-hidden bg-brand-primary pt-16 text-slate-300">
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+      <div>
+        <a href="/" class="flex items-center gap-2.5 text-white" aria-label="AB Electricians home">
+          <span class="grid h-9 w-9 place-items-center rounded-md bg-brand-accent text-brand-primary"><Bolt class="h-5 w-5" stroke="currentColor" /></span>
+          <span class="font-heading text-lg font-extrabold tracking-[-0.02em]">AB<span class="text-brand-accent">.</span>Electricians</span>
+        </a>
+        <p class="mt-4 max-w-xs font-body text-sm leading-relaxed text-slate-400">
+          The highest reviewed electrician in Sydney. On-time service, upfront pricing, and a Lifetime Workmanship Warranty.
+        </p>
+        <div class="mt-5 overflow-hidden rounded-xl border border-white/10">
+          <img src="/images/electrical-fleet-front-and-side.webp" alt="AB Electricians van fleet" class="h-28 w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-bold uppercase tracking-[0.14em] text-white">Services</h3>
+        <ul class="mt-4 space-y-2.5">
+          {services.map((s) => (
+            <li><a href={s.href} class="font-body text-sm text-slate-400 transition-colors hover:text-brand-accent">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-bold uppercase tracking-[0.14em] text-white">Company</h3>
+        <ul class="mt-4 space-y-2.5">
+          {pages.map((p) => (
+            <li><a href={p.href} class="font-body text-sm text-slate-400 transition-colors hover:text-brand-accent">{p.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-sm font-bold uppercase tracking-[0.14em] text-white">Get in touch</h3>
+        <ul class="mt-4 space-y-3 font-body text-sm">
+          <li><a href="tel:+61280000000" class="text-slate-300 transition-colors hover:text-brand-accent">(02) 8000 0000</a></li>
+          <li><a href="mailto:info@abelectricians.com.au" class="text-slate-300 transition-colors hover:text-brand-accent">info@abelectricians.com.au</a></li>
+          <li class="text-slate-400">North Shore & Greater Sydney</li>
+        </ul>
+        <div class="mt-5 flex gap-3">
+          {['Facebook','Instagram','Google'].map((s) => (
+            <a href="#" aria-label={s} class="grid h-9 w-9 place-items-center rounded-lg border border-white/15 text-slate-300 transition-colors hover:border-brand-accent hover:text-brand-accent">
+              <span class="font-heading text-xs font-bold">{s[0]}</span>
+            </a>
+          ))}
+        </div>
+        <a href="/contact-us" class="sweep-btn group relative mt-5 inline-flex items-center gap-2 overflow-hidden rounded-md bg-brand-accent px-5 py-2.5 font-heading text-sm font-bold text-brand-primary">
+          <span class="relative z-10">Book Now</span>
+          <Bolt class="relative z-10 h-3.5 w-3.5" stroke="currentColor" />
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-between gap-3 py-7 sm:flex-row">
+      <p class="font-body text-xs text-slate-500">© 2026 AB Electricians. NSW Fair Trading Licensed. All rights reserved.</p>
+      <p class="flex items-center gap-2 font-heading text-xs font-bold uppercase tracking-[0.16em] text-brand-accent">
+        <Bolt class="h-3.5 w-3.5" stroke="currentColor" />
+        Highest reviewed electrician in Sydney
+      </p>
+    </div>
+  </div>
+
+  <style>
+    .sweep-btn::before { content:''; position:absolute; inset:0; background:#00b06e; transform:scaleX(0); transform-origin:left; transition:transform .35s ease; }
+    .sweep-btn:hover::before { transform:scaleX(1); }
+  </style>
+</footer>

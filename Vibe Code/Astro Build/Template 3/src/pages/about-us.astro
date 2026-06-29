@@ -1,0 +1,331 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-1/NavInner.astro';
+import Footer from '../components/direction-1/Footer.astro';
+import Bolt from '../components/direction-1/Bolt.astro';
+import CTASection from '../components/direction-1/CTASection.astro';
+import ServiceAreas from '../components/direction-1/ServiceAreas.astro';
+
+const steps = [
+  { n: '01', title: 'Phone Brief', desc: 'Tell us what\'s going on and what you need. We ask the right questions up front so nothing gets missed on site.' },
+  { n: '02', title: 'Fixed Quote', desc: 'You get a clear, upfront price before any work begins. No hourly surprises, no hidden extras at the end.' },
+  { n: '03', title: 'The Work', desc: 'The same licensed team carries out the job to AS/NZS 3000 standards. We protect your home and work tidy.' },
+  { n: '04', title: 'Certificate & Cleanup', desc: 'We issue your certificate of compliance and leave the site clean. Your records are kept on file for next time.' },
+];
+
+const values = [
+  { label: 'Quality Built In', body: 'We hold ourselves to the highest standards on every job, from workmanship through to how we treat your home.' },
+  { label: 'Long-Term Relationships', body: 'Every caller is treated like a long-term relationship, not a one-off transaction.' },
+  { label: 'Licensed & Accountable', body: 'NSW licensed, fully insured, and every job backed by our Lifetime Workmanship Warranty.' },
+];
+
+const pillars = [
+  { label: 'Your North Shore Neighbours', body: 'A genuinely local team — we live and work across the same suburbs we service.' },
+  { label: 'Plain-English Communication', body: 'No jargon, no surprises. We explain what needs doing and why, in words that make sense.' },
+  { label: 'We Show Up When We Say', body: 'On-time, every time. Your day is busy enough without waiting on a sparky.' },
+  { label: 'Lifetime Workmanship Warranty', body: 'Every job is backed for life. If our work fails, we make it right.' },
+  { label: 'Built for Sydney Properties', body: 'From heritage North Shore terraces to new builds, we know local wiring.' },
+  { label: 'Quality Control Built In', body: 'Every job is checked against our own standard before we call it done.' },
+];
+
+const guarantees = [
+  { label: 'Lifetime Labour Warranty', body: 'We stand behind our workmanship for life. If anything we install or repair fails because of how we did it, we come back and make it right — no quibbles, no charge.' },
+  { label: 'Fixed Upfront Pricing', body: 'You get a firm price before we start, not a guess. No hourly surprises, no padded invoices. The number we quote is the number you pay.' },
+];
+
+const team = [
+  { name: 'Adam Bushell', role: 'Director & Founder' },
+  { name: 'Ben Harris', role: 'Senior Electrician' },
+  { name: 'Michael Gourley', role: 'Electrician' },
+  { name: 'Sam Pearce', role: 'Electrician' },
+  { name: 'Matt James', role: 'Electrician' },
+  { name: 'James Atwill', role: 'Electrician' },
+  { name: 'Jackson Erceg', role: 'Electrician' },
+  { name: 'Zach Bellis', role: 'Electrician' },
+];
+
+const initials = (n: string) => n.split(' ').map((p) => p[0]).join('');
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #011835;
+    --color-brand-secondary: #007cba;
+    --color-brand-accent:    #00d082;
+    --color-brand-bg:        #f8fafc;
+    --color-brand-surface:   #edf2f7;
+    --color-brand-text:      #0f172a;
+    --color-brand-muted:     #64748b;
+    --font-heading: 'Archivo Variable', system-ui, sans-serif;
+    --font-body:    'Inter Variable', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  /* Scroll-reveal system */
+  [data-reveal] {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--rd, 0ms);
+  }
+  .reveal-up   { transform: translateY(32px); }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-right{ transform: translateX(40px); }
+  [data-reveal].is-visible { opacity: 1; transform: none; }
+
+  :focus-visible { outline: 2px solid #00d082; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00b06e;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .sweep-btn:hover::before { transform: scaleX(1); }
+</style>
+
+<Layout title="About AB Electricians — Sydney's Highest Reviewed Electricians" description="Founded in 2018 by Adam Bushell, AB Electrical & Communications is a Sydney-based, NSW-licensed electrical team built on showing up, fixed pricing and a Lifetime Workmanship Warranty.">
+  <NavInner />
+  <main id="top">
+
+    <!-- 1. Page Hero -->
+    <section class="relative overflow-hidden bg-brand-primary text-white">
+      <div class="absolute inset-0">
+        <img src="/images/ab-electrical-team-sydney-harbour-bridge.webp" alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-primary/95 to-brand-primary/60"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40">
+        <nav aria-label="Breadcrumb" class="font-body text-sm text-slate-300" data-reveal>
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/" class="transition-colors hover:text-brand-accent">Home</a></li>
+            <li aria-hidden="true" class="text-slate-500">/</li>
+            <li class="text-white">About Us</li>
+          </ol>
+        </nav>
+
+        <div class="mt-8 max-w-3xl">
+          <p data-reveal class="reveal-up flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-accent">
+            <Bolt class="h-4 w-4" stroke="currentColor" /> About AB Electricians
+          </p>
+          <h1 data-reveal class="reveal-up mt-4 font-heading text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:text-6xl" style="--rd:80ms">
+            The electricians Sydney actually calls back
+          </h1>
+          <p data-reveal class="reveal-up mt-5 max-w-2xl font-body text-lg leading-relaxed text-slate-200" style="--rd:160ms">
+            We started AB Electrical in 2018 after 15 years in the industry. Simple reason: too many homeowners were getting let down.
+          </p>
+
+          <ul data-reveal class="reveal-up mt-7 flex flex-wrap gap-2.5" style="--rd:240ms">
+            {['5-Star Rated', 'Lifetime Warranty', 'Upfront Pricing', 'Licensed & Insured'].map((b) => (
+              <li class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 font-heading text-xs font-bold uppercase tracking-[0.08em] text-slate-100">
+                <Bolt class="h-3 w-3 text-brand-accent" stroke="currentColor" /> {b}
+              </li>
+            ))}
+          </ul>
+
+          <div data-reveal class="reveal-up mt-9 flex flex-col gap-3 sm:flex-row" style="--rd:320ms">
+            <a href="/contact-us" class="sweep-btn group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-md bg-brand-accent px-6 py-3.5 font-heading text-base font-bold text-brand-primary">
+              <span class="relative z-10">Get a Free Quote</span>
+              <Bolt class="relative z-10 h-4 w-4" stroke="currentColor" />
+            </a>
+            <a href="tel:+61280000000" class="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-6 py-3.5 font-heading text-base font-bold text-white transition-colors hover:border-brand-accent hover:text-brand-accent">
+              Call (02) 8000 0000
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Company Intro -->
+    <section class="bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2">
+        <div class="reveal-left" data-reveal>
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Who We Are</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">Sydney-Based Electricians Since 2018</h2>
+          <div class="mt-6 space-y-5 font-body text-base leading-relaxed text-brand-muted">
+            <p>AB Electrical &amp; Communications is a Sydney-based electrical service provider founded by Adam Bushell. From day one the goal was straightforward: do excellent electrical work and treat people the way you'd want a tradie to treat you.</p>
+            <p>We hold ourselves to a high standard — both in the quality of our workmanship and in how we treat our customers. That means tidy work, clear communication, and a finish we're happy to put our name to.</p>
+            <p>Every person who calls us is treated like the start of a long-term relationship, not a one-off transaction. A lot of our work comes from the same households and businesses calling us back, year after year.</p>
+          </div>
+        </div>
+        <div class="reveal-right overflow-hidden rounded-2xl border border-slate-200 shadow-xl shadow-slate-900/5" data-reveal>
+          <img src="/images/ab-electrical-fleet-sydney.webp" alt="The AB Electrical van fleet in Sydney" class="h-[24rem] w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Meet Adam Bushell -->
+    <section class="bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="reveal-left order-2 overflow-hidden rounded-2xl border border-slate-200 shadow-xl shadow-slate-900/5 lg:order-1" data-reveal>
+          <img src="/images/ab-electrical-team-member-portrait.webp" alt="Adam Bushell, Director and Founder of AB Electrical" class="h-[30rem] w-full object-cover" loading="lazy" />
+        </div>
+        <div class="reveal-right order-1 lg:order-2" data-reveal style="--rd:100ms">
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">The Founder</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">Meet Adam Bushell, Director and Founder</h2>
+          <blockquote class="relative mt-6 border-l-4 border-brand-accent pl-5 font-heading text-xl font-semibold italic leading-snug text-brand-text">
+            “I started AB Electrical in 2018 after 15 years in the industry…”
+          </blockquote>
+          <div class="mt-6 space-y-5 font-body text-base leading-relaxed text-brand-muted">
+            <p>After 15 years on the tools, Adam had seen the same story over and over — homeowners let down by unreliable tradies who didn't show up, wouldn't commit to a price, and left a mess behind.</p>
+            <p>So he built a business on the exact opposite. Show up on time. Give a fixed price before the work starts. Leave the site cleaner than we found it. It's not complicated — it's just rare.</p>
+            <p>Adam has been a licensed electrician for over 15 years and is a North Shore local. He still personally oversees the standard every job is held to.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Mission & Values -->
+    <section class="relative overflow-hidden bg-brand-surface py-20 sm:py-28">
+      <img src="/images/electricians-discussing-job.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-[0.05]" loading="lazy" />
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up mx-auto max-w-2xl text-center" data-reveal>
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">What Drives Us</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">Our Mission and Values</h2>
+        </div>
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          {values.map((v, i) => (
+            <div class="reveal-up group relative rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/5" data-reveal style={`--rd:${i * 90}ms`}>
+              <span class="grid h-12 w-12 place-items-center rounded-lg bg-brand-accent/12 text-brand-accent transition-colors group-hover:bg-brand-accent group-hover:text-brand-primary">
+                <Bolt class="h-6 w-6" stroke="currentColor" />
+              </span>
+              <h3 class="mt-5 font-heading text-xl font-extrabold tracking-[-0.01em] text-brand-text">{v.label}</h3>
+              <p class="mt-3 font-body text-sm leading-relaxed text-brand-muted">{v.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. What Sets Us Apart -->
+    <section class="relative overflow-hidden bg-brand-bg py-20 sm:py-28">
+      <img src="/images/ab-electrical-vans-harbour.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-[0.05]" loading="lazy" />
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up mx-auto max-w-2xl text-center" data-reveal>
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Why AB Electricians</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">What Sets Us Apart</h2>
+        </div>
+        <div class="mt-14 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-3">
+          {pillars.map((p, i) => (
+            <div class="reveal-up group relative bg-white p-7 transition-colors duration-300 hover:bg-brand-primary" data-reveal style={`--rd:${i * 70}ms`}>
+              <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-accent/12 text-brand-accent transition-colors group-hover:bg-brand-accent group-hover:text-brand-primary">
+                <Bolt class="h-5 w-5" stroke="currentColor" />
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-extrabold tracking-[-0.01em] text-brand-text transition-colors group-hover:text-white">{p.label}</h3>
+              <p class="mt-2 font-body text-sm font-normal leading-relaxed text-brand-muted transition-colors group-hover:text-slate-300">{p.body}</p>
+              <span class="absolute right-5 top-5 font-heading text-xs font-bold text-slate-200 transition-colors group-hover:text-white/20">0{i + 1}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Our Guarantees -->
+    <section class="relative overflow-hidden bg-brand-primary py-20 sm:py-28">
+      <img src="/images/ab-electrical-vans-harbour.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-[0.08]" loading="lazy" />
+      <div class="absolute inset-0 bg-brand-primary/70"></div>
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up mx-auto max-w-2xl text-center" data-reveal>
+          <p class="mb-3 flex items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
+            <Bolt class="h-4 w-4" stroke="currentColor" />
+            No Fine Print
+          </p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-white">Our Guarantees</h2>
+        </div>
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
+          {guarantees.map((g, i) => (
+            <div class="reveal-up group rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm transition-colors duration-300 hover:border-brand-accent/40" data-reveal style={`--rd:${i * 100}ms`}>
+              <span class="grid h-12 w-12 place-items-center rounded-lg bg-brand-accent text-brand-primary">
+                <Bolt class="h-6 w-6" stroke="currentColor" />
+              </span>
+              <h3 class="mt-5 font-heading text-2xl font-extrabold tracking-[-0.01em] text-white">{g.label}</h3>
+              <p class="mt-3 font-body text-base leading-relaxed text-slate-300">{g.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Meet the Team -->
+    <section class="bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up mx-auto max-w-2xl text-center" data-reveal>
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">The Crew</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">Meet the Team</h2>
+          <p class="mt-4 font-body text-base leading-relaxed text-brand-muted">A licensed, local crew who'll treat your home like their own.</p>
+        </div>
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {team.map((m, i) => (
+            <div class="reveal-up group relative overflow-hidden rounded-2xl bg-brand-primary p-7 text-center shadow-lg shadow-slate-900/10 transition-transform duration-300 hover:-translate-y-1" data-reveal style={`--rd:${(i % 4) * 70}ms`}>
+              <Bolt class="absolute -right-6 -top-6 h-24 w-24 text-white/[0.05]" />
+              <span class="relative mx-auto grid h-16 w-16 place-items-center rounded-full bg-brand-accent font-heading text-xl font-extrabold text-brand-primary">{initials(m.name)}</span>
+              <h3 class="relative mt-5 font-heading text-lg font-extrabold tracking-[-0.01em] text-white">{m.name}</h3>
+              <p class="relative mt-1 font-body text-sm font-medium text-brand-accent">{m.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="relative isolate overflow-hidden bg-brand-primary py-20 text-white sm:py-28">
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up max-w-2xl" data-reveal>
+          <p class="mb-3 flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
+            <span class="h-px w-8 bg-brand-accent"></span>
+            How We Work
+          </p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-white">
+            What Happens When You Call Us
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <div class="reveal-up relative rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-colors duration-300 hover:border-brand-accent/40 hover:bg-white/[0.07]" data-reveal style={`--rd:${i * 90}ms`}>
+              <span class="font-heading text-4xl font-extrabold tracking-[-0.03em] text-brand-accent/40">{s.n}</span>
+              <h3 class="mt-3 font-heading text-lg font-extrabold tracking-[-0.01em] text-white">{s.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-slate-300">{s.desc}</p>
+              {i < steps.length - 1 && (
+                <span class="absolute right-5 top-7 hidden text-white/15 lg:block">
+                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m0 0l-5-5m5 5l-5 5"/></svg>
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+    <Footer />
+</Layout>
+
+<script>
+  // Scroll-triggered reveals
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  }
+</script>

@@ -1,0 +1,73 @@
+---
+import Bolt from './Bolt.astro';
+
+const links = [
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#usps' },
+  { label: 'How We Work', href: '#process' },
+  { label: 'Credentials', href: '#credentials' },
+  { label: 'Areas', href: '#areas' },
+];
+---
+<header id="nsb-nav" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+  <span data-accent class="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-brand-secondary via-brand-accent to-brand-secondary transition-transform duration-500"></span>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 transition-all duration-300 sm:px-8" data-navbar>
+    <a href="#top" class="flex items-center gap-2.5" aria-label="AB Electricians home">
+      <span class="grid h-9 w-9 place-items-center text-brand-bg" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); background: var(--color-brand-secondary);">
+        <Bolt class="h-5 w-5" />
+      </span>
+      <span class="font-heading text-lg font-extrabold leading-none tracking-[-0.02em] text-brand-text">
+        AB<span class="text-brand-accent">/</span>Electricians
+      </span>
+    </a>
+
+    <div class="hidden items-center gap-8 lg:flex">
+      {links.map((l) => (
+        <a href={l.href} class="group relative font-body text-sm font-medium uppercase tracking-wide text-brand-muted transition-colors hover:text-brand-text">
+          {l.label}
+          <span class="absolute -bottom-1.5 left-0 h-[2px] w-0 -skew-x-[30deg] bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="tel:+61280000000" class="hidden font-heading text-sm font-bold text-brand-secondary transition-colors hover:text-brand-text sm:inline">(02) 8000 0000</a>
+      <a href="#contact" class="sweep-btn group relative inline-flex items-center gap-2 overflow-hidden px-4 py-2 font-heading text-sm font-bold text-brand-bg" style="clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%); background: var(--color-brand-accent);">
+        <span class="relative z-10">Book Now</span>
+        <Bolt class="relative z-10 h-3.5 w-3.5" />
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+</style>
+
+<script>
+  const nav = document.getElementById('nsb-nav');
+  const bar = nav?.querySelector('[data-navbar]') as HTMLElement | null;
+  const accent = nav?.querySelector('[data-accent]') as HTMLElement | null;
+  const onScroll = () => {
+    if (!nav || !bar || !accent) return;
+    if (window.scrollY > 40) {
+      nav.classList.add('bg-brand-bg/85', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/40');
+      bar.classList.replace('py-5', 'py-3');
+      accent.classList.replace('scale-x-0', 'scale-x-100');
+    } else {
+      nav.classList.remove('bg-brand-bg/85', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/40');
+      bar.classList.replace('py-3', 'py-5');
+      accent.classList.replace('scale-x-100', 'scale-x-0');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

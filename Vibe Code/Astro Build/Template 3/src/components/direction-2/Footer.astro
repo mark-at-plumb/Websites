@@ -1,0 +1,72 @@
+---
+import Bolt from './Bolt.astro';
+
+const nav = [
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#usps' },
+  { label: 'How We Work', href: '#process' },
+  { label: 'Credentials', href: '#credentials' },
+  { label: 'Service Areas', href: '#areas' },
+];
+---
+<footer class="relative overflow-hidden bg-brand-bg pt-16">
+  <span class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-secondary via-brand-accent to-brand-secondary"></span>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-8">
+    <div class="grid gap-10 border-b border-white/8 pb-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-1">
+        <a href="#top" class="flex items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center text-brand-bg" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); background: var(--color-brand-secondary);"><Bolt class="h-5 w-5" /></span>
+          <span class="font-heading text-lg font-extrabold tracking-tight text-brand-text">AB<span class="text-brand-accent">/</span>Electricians</span>
+        </a>
+        <p class="mt-4 max-w-xs font-body text-sm leading-relaxed text-brand-muted">Highest reviewed electrician in Sydney. On time, upfront, and backed by a Lifetime Workmanship Warranty.</p>
+      </div>
+
+      <div>
+        <h3 class="mb-4 font-heading text-xs font-bold uppercase tracking-widest text-brand-secondary">Explore</h3>
+        <ul class="space-y-2.5">
+          {nav.map((l) => (
+            <li><a href={l.href} class="font-body text-sm text-brand-muted transition-colors hover:text-brand-text">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-4 font-heading text-xs font-bold uppercase tracking-widest text-brand-secondary">Contact</h3>
+        <ul class="space-y-2.5 font-body text-sm text-brand-muted">
+          <li><a href="tel:+61280000000" class="transition-colors hover:text-brand-text">(02) 8000 0000</a></li>
+          <li><a href="mailto:info@abelectricians.com.au" class="transition-colors hover:text-brand-text">info@abelectricians.com.au</a></li>
+          <li>North Shore &amp; Greater Sydney</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-4 font-heading text-xs font-bold uppercase tracking-widest text-brand-secondary">Get started</h3>
+        <a href="#contact" class="sweep-btn group relative inline-flex items-center gap-2 overflow-hidden px-5 py-3 font-heading text-sm font-bold text-brand-bg" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); background: var(--color-brand-accent);">
+          <span class="relative z-10">Book Now</span><Bolt class="relative z-10 h-3.5 w-3.5" />
+        </a>
+        <div class="mt-5 flex gap-3">
+          {['Facebook','Instagram','Google'].map((s) => (
+            <a href="#" aria-label={s} class="grid h-9 w-9 place-items-center border border-white/10 font-heading text-xs font-bold text-brand-muted transition-colors hover:border-brand-accent hover:text-brand-secondary">{s[0]}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-between gap-3 py-6 sm:flex-row">
+      <p class="font-body text-xs text-brand-muted">© 2026 AB Electricians. NSW Fair Trading Licensed. All rights reserved.</p>
+      <p class="font-heading text-xs font-bold uppercase tracking-widest text-brand-secondary">Highest Reviewed Electrician in Sydney</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+</style>

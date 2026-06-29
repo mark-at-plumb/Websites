@@ -1,0 +1,36 @@
+---
+import Eyebrow from './Eyebrow.astro';
+
+const pillars = [
+  { title: 'Your North Shore Neighbours', desc: 'A local team that knows these homes, streets and the standard the area expects.' },
+  { title: 'Plain-English Communication', desc: 'No jargon, no runaround. We explain what’s happening and why, in words that make sense.' },
+  { title: 'We Show Up When We Say', desc: 'Booked for 9? We’re there at 9. On-time service you can actually plan your day around.' },
+  { title: 'Lifetime Workmanship Warranty', desc: 'Every job is backed for life. If our work isn’t right, we make it right.' },
+  { title: 'Built for Sydney Homes', desc: 'From heritage terraces to modern builds, we work to the way Sydney homes are wired.' },
+  { title: 'Licensed & NSW Certified', desc: 'Fully licensed, Level 2 ASP certified and insured — every box ticked, every time.' },
+];
+---
+<section id="usps" class="relative overflow-hidden bg-brand-surface py-24 sm:py-32">
+  <img src="/images/ab-electrical-vans-harbour.webp" alt="" aria-hidden="true" class="pointer-events-none absolute -right-20 top-16 hidden w-[28rem] rotate-3 rounded-3xl object-cover opacity-10 lg:block" loading="lazy" />
+  <div class="relative mx-auto max-w-[1100px] px-5 sm:px-8">
+    <div data-reveal class="max-w-xl">
+      <Eyebrow num="04" label="What Sets Us Apart" />
+      <h2 class="mt-6 font-heading text-brand-primary" style="font-variation-settings:'opsz' 96; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-0.02em;">
+        The difference is in the <span class="italic font-light text-brand-secondary">detail</span>.
+      </h2>
+    </div>
+
+    <div class="mt-16 flex flex-col gap-px">
+      {pillars.map((p, i) => (
+        <div data-reveal class={`group flex flex-col gap-3 border-t border-brand-primary/10 py-8 md:flex-row md:items-baseline md:gap-10 ${i % 2 === 1 ? 'md:pl-16 lg:pl-32' : ''}`}>
+          <div class="flex shrink-0 items-baseline gap-4 md:w-72">
+            <span class="font-body text-[0.72rem] font-semibold tracking-[0.25em] text-brand-secondary">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="font-heading text-[1.4rem] font-medium text-brand-primary" style="font-variation-settings:'opsz' 40;">{p.title}</h3>
+          </div>
+          <p class="font-body text-[1rem] leading-[1.7] text-brand-text/70 md:max-w-md">{p.desc}</p>
+        </div>
+      ))}
+      <span class="block h-px w-full bg-brand-primary/10"></span>
+    </div>
+  </div>
+</section>

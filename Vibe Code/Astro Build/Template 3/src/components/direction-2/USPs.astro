@@ -1,0 +1,44 @@
+---
+import Bolt from './Bolt.astro';
+
+const pillars = [
+  { n: '01', title: 'Your North Shore Neighbours', desc: "We live and work here. You'll spot our vans on your street — local accountability, not a faceless chain." },
+  { n: '02', title: 'Plain-English Communication', desc: "No jargon, no runaround. We explain the problem and the fix in words that actually make sense." },
+  { n: '03', title: 'We Show Up When We Say', desc: "Booked for 9am? We're there at 9am. Your time matters as much as ours." },
+  { n: '04', title: 'Lifetime Workmanship Warranty', desc: "Every job is backed for life. If our work fails, we make it right — no fine print." },
+  { n: '05', title: 'Built for Sydney Homes', desc: "From heritage terraces to harbourside builds, we know Sydney wiring inside out." },
+  { n: '06', title: 'Licensed & NSW Certified', desc: "Fully licensed, insured and Level 2 ASP certified. The credentials to back the claim." },
+];
+---
+<section id="usps" class="relative overflow-hidden bg-brand-surface py-24">
+  <!-- bleeding fleet image across the top boundary -->
+  <img src="/images/ab-electricians-north-sydney-fleet.webp" alt="AB Electricians fleet parked in North Sydney" class="reveal pointer-events-none absolute -top-16 right-0 hidden h-72 w-[42%] object-cover opacity-25 lg:block" style="clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);" />
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-surface/70 via-brand-surface to-brand-surface"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-8">
+    <div class="reveal mb-12 max-w-2xl">
+      <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+        <span class="inline-block h-px w-10 bg-brand-accent"></span>
+        What sets us apart
+      </p>
+      <h2 class="font-heading text-[clamp(1.9rem,4.5vw,3rem)] font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text">
+        Six reasons Sydney <span class="text-brand-secondary">keeps calling</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-px overflow-hidden border border-white/5 bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
+      {pillars.map((p, i) => (
+        <div class="reveal group relative bg-brand-bg p-7 transition-colors hover:bg-brand-surface" style={`transition-delay: ${(i % 3) * 90}ms;`}>
+          <div class="mb-4 flex items-center justify-between">
+            <span class="font-heading text-3xl font-black tabular-nums text-brand-secondary/30 transition-colors group-hover:text-brand-accent">{p.n}</span>
+            <span class="grid h-9 w-9 place-items-center text-brand-bg" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); background: var(--color-brand-secondary);">
+              <Bolt class="h-4 w-4" />
+            </span>
+          </div>
+          <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-brand-text">{p.title}</h3>
+          <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

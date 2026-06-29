@@ -1,0 +1,34 @@
+---
+import Bolt from './Bolt.astro';
+
+const pillars = [
+  { label: 'Your North Shore Neighbours', body: 'A genuinely local team — we live and work across the same suburbs we service.' },
+  { label: 'Plain-English Communication', body: 'No jargon, no surprises. We explain what needs doing and why, in words that make sense.' },
+  { label: 'We Show Up When We Say', body: 'On-time, every time. Your day is busy enough without waiting on a sparky.' },
+  { label: 'Lifetime Workmanship Warranty', body: 'Every job is backed for life. If our work fails, we make it right.' },
+  { label: 'Built for Sydney Homes', body: 'From heritage North Shore terraces to new builds, we know local wiring.' },
+  { label: 'Licensed & NSW Certified', body: 'Fully licensed, insured and certified — credentials you can verify.' },
+];
+---
+<section id="usps" class="relative overflow-hidden bg-brand-surface py-20 sm:py-28">
+  <img src="/images/ab-electrical-vans-harbour.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-[0.06]" loading="lazy" />
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal-up mx-auto max-w-2xl text-center" data-reveal>
+      <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Why AB Electricians</p>
+      <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-brand-text">What Sets Us Apart</h2>
+    </div>
+
+    <div class="mt-14 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-3">
+      {pillars.map((p, i) => (
+        <div class="reveal-up group relative bg-white p-7 transition-colors duration-300 hover:bg-brand-primary" data-reveal style={`--rd:${i * 70}ms`}>
+          <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-accent/12 text-brand-accent transition-colors group-hover:bg-brand-accent group-hover:text-brand-primary">
+            <Bolt class="h-5 w-5" stroke="currentColor" />
+          </span>
+          <h3 class="mt-5 font-heading text-lg font-extrabold tracking-[-0.01em] text-brand-text transition-colors group-hover:text-white">{p.label}</h3>
+          <p class="mt-2 font-body text-sm font-normal leading-relaxed text-brand-muted transition-colors group-hover:text-slate-300">{p.body}</p>
+          <span class="absolute right-5 top-5 font-heading text-xs font-bold text-slate-200 transition-colors group-hover:text-white/20">0{i + 1}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

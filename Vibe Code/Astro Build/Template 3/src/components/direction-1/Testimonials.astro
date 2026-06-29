@@ -1,0 +1,42 @@
+---
+import Bolt from './Bolt.astro';
+
+const reviews = [
+  { quote: "Adam and his team were at our place within the hour. Switchboard done, mess cleaned up, and the price was exactly what they quoted. Couldn't ask for more.", name: 'Sarah T.', suburb: 'Mosman' },
+  { quote: "We've used AB Electricians three times now. Always on time, always professional, always tidy. They're the only electricians we call.", name: 'Michael R.', suburb: 'Neutral Bay' },
+  { quote: "Had an emergency at 11pm — blown fuse, no power to half the house. AB were there by midnight. Fixed it fast, didn't charge the earth.", name: 'Jenny K.', suburb: 'Chatswood' },
+];
+---
+<section class="relative bg-brand-primary py-20 sm:py-28">
+  <Bolt class="absolute left-6 top-10 h-20 w-20 text-white/5" />
+  <Bolt class="absolute bottom-10 right-8 h-28 w-28 text-white/5" />
+
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal-up mx-auto max-w-2xl text-center" data-reveal>
+      <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">What our clients say</p>
+      <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-white">
+        Sydney's highest reviewed sparkies
+      </h2>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {reviews.map((r, i) => (
+        <figure class="reveal-up group relative rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-accent/40 hover:bg-white/[0.07]" data-reveal style={`--rd:${i * 110}ms`}>
+          <div class="flex items-center gap-0.5 text-brand-accent" aria-label="5 out of 5 stars">
+            {Array.from({ length: 5 }).map(() => (
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 15l-5.3 2.6 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 font-body text-base leading-relaxed text-slate-200">"{r.quote}"</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-brand-accent/15 font-heading text-sm font-bold text-brand-accent">{r.name[0]}</span>
+            <span>
+              <span class="block font-heading text-sm font-bold text-white">{r.name}</span>
+              <span class="block font-body text-xs text-slate-400">{r.suburb}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

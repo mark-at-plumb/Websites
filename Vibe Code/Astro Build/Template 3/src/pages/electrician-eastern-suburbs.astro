@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-1/NavInner.astro';
+import Footer from '../components/direction-1/Footer.astro';
+import Bolt from '../components/direction-1/Bolt.astro';
+import CTASection from '../components/direction-1/CTASection.astro';
+import ServiceAreas from '../components/direction-1/ServiceAreas.astro';
+
+const badges = ['NSW Licensed', '600+ 5-Star Reviews', 'Lifetime Warranty', 'Level 2 ASP Certified'];
+
+const steps = [
+  { n: '01', title: 'Phone Brief', desc: 'Tell us what\'s going on and what you need. We ask the right questions up front so nothing gets missed on site.' },
+  { n: '02', title: 'Fixed Quote', desc: 'You get a clear, upfront price before any work begins. No hourly surprises, no hidden extras at the end.' },
+  { n: '03', title: 'The Work', desc: 'The same licensed team carries out the job to AS/NZS 3000 standards. We protect your home and work tidy.' },
+  { n: '04', title: 'Certificate & Cleanup', desc: 'We issue your certificate of compliance and leave the site clean. Your records are kept on file for next time.' },
+];
+
+const trustCards = [
+  { title: 'Free On-Site Quote, No Call-Out Fee', body: 'We come to your property, assess the work, and give you a fixed written quote before any work begins.' },
+  { title: 'Master Electricians Member and Level 2 ASP Certified', body: 'Our certifications are current, verified, and relevant to every job type in the Eastern Suburbs.' },
+  { title: 'Lifetime Workmanship Guarantee', body: 'If a fault occurs due to our workmanship, we return and fix it at no cost. That\'s our promise on every job.' },
+  { title: '600+ Five-Star Google Reviews', body: 'Hundreds of Eastern Suburbs and Sydney homeowners have reviewed us. The reviews speak for themselves.' },
+];
+
+const services = [
+  { title: 'Security Lighting & Data Cabling', img: '/images/ab-electrical-communications-van-rear.webp', body: 'Outdoor sensor lights, CCTV wiring, and structured data cabling for Eastern Suburbs homes and businesses.' },
+  { title: 'Electrical Repairs', img: '/images/ab-electrician-securing-equipment.webp', body: 'Fault finding and repairs for anything electrical. We find the cause, not just the symptom.' },
+  { title: 'Home Rewiring', img: '/images/electrician-handling-ladder.webp', body: 'Partial and full rewires for older Eastern Suburbs properties, especially Victorian and Edwardian homes.' },
+  { title: 'Shop & Office Fit-Outs', img: '/images/ab-electrical-van-sydney.webp', body: 'Commercial electrical fit-outs for retail and office tenancies across Oxford Street, Double Bay and beyond.' },
+  { title: 'Communications', img: '/images/ab-electrical-communications-van-signage.webp', body: 'Phone lines, NBN connections, TV antenna points and intercom systems.' },
+  { title: 'Electrical Fault Finding', img: '/images/electrician-testing-switchboard.webp', body: 'Systematic diagnostics for intermittent faults, tripping circuits, and power failures.' },
+];
+
+const propertyTypes = [
+  { title: 'Victorian and Edwardian Terrace Homes (Paddington, Woollahra, Randwick)', body: 'Narrow cable runs, old wiring systems, and heritage constraints require an electrician who has worked in these homes before. We have.' },
+  { title: 'High-Density Apartment Buildings (Bondi, Bondi Junction, Randwick, Coogee)', body: 'Strata compliance, common area maintenance, and apartment rewires handled with Body Corporate coordination.' },
+  { title: 'Prestige Residential Properties (Bellevue Hill, Vaucluse, Double Bay, Rose Bay)', body: 'High-spec lighting systems, home automation integration, and discreet service for premium properties.' },
+  { title: 'Commercial and Retail Strips (Oxford Street, Bay Street Double Bay, Kings Cross)', body: 'Fast turnarounds on fit-outs and repairs to minimise business disruption.' },
+];
+
+const suburbs = ['Bondi','Bondi Beach','Bondi Junction','Bronte','Clovelly','Coogee','Randwick','Maroubra','Kingsford','Kensington','Paddington','Woollahra','Edgecliff','Double Bay','Rose Bay','Vaucluse','Bellevue Hill','Point Piper','Dover Heights','Watsons Bay','Tamarama','South Coogee','Little Bay','Malabar','La Perouse','Daceyville','Eastlakes','Rosebery','Zetland','Beaconsfield'];
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #011835;
+    --color-brand-secondary: #007cba;
+    --color-brand-accent:    #00d082;
+    --color-brand-bg:        #f8fafc;
+    --color-brand-surface:   #edf2f7;
+    --color-brand-text:      #0f172a;
+    --color-brand-muted:     #64748b;
+    --font-heading: 'Archivo Variable', system-ui, sans-serif;
+    --font-body:    'Inter Variable', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  /* Scroll-reveal system */
+  [data-reveal] {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--rd, 0ms);
+  }
+  .reveal-up   { transform: translateY(32px); }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-right{ transform: translateX(40px); }
+  [data-reveal].is-visible { opacity: 1; transform: none; }
+
+  :focus-visible { outline: 2px solid #00d082; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00b06e;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .sweep-btn:hover::before { transform: scaleX(1); }
+</style>
+
+<Layout
+  title="Electrician Eastern Suburbs | AB Electrical & Communications"
+  description="Licensed electricians serving the Eastern Suburbs from our Crows Nest base since 2018. On-time service, fixed quote, Lifetime Workmanship Warranty. Call (02) 8000 0000."
+>
+  <NavInner />
+  <main id="top">
+
+    <!-- 1. Page Hero -->
+    <section class="relative overflow-hidden bg-brand-primary text-white">
+      <div class="absolute inset-0">
+        <img src="/images/electrician-van-at-opera-house.webp" alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-primary/95 to-brand-primary/60"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40">
+        <nav aria-label="Breadcrumb" class="font-body text-sm text-slate-300" data-reveal>
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/" class="transition-colors hover:text-brand-accent">Home</a></li>
+            <li aria-hidden="true" class="text-slate-500">/</li>
+            <li><a href="/electrical-services" class="transition-colors hover:text-brand-accent">Locations</a></li>
+            <li aria-hidden="true" class="text-slate-500">/</li>
+            <li class="text-white">Eastern Suburbs</li>
+          </ol>
+        </nav>
+
+        <div class="mt-8 max-w-3xl">
+          <p data-reveal class="reveal-up flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-accent">
+            <Bolt class="h-4 w-4" stroke="currentColor" /> Eastern Suburbs
+          </p>
+          <h1 data-reveal class="reveal-up mt-4 font-heading text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:text-6xl" style="--rd:80ms">
+            Electrician Eastern Suburbs
+          </h1>
+          <p data-reveal class="reveal-up mt-5 max-w-2xl font-body text-lg leading-relaxed text-slate-200" style="--rd:160ms">
+            Licensed electricians serving the Eastern Suburbs from our Crows Nest base since 2018. On-time service, fixed quote, Lifetime Workmanship Warranty.
+          </p>
+
+          <ul data-reveal class="reveal-up mt-7 flex flex-wrap gap-2.5" style="--rd:240ms">
+            {['5-Star Rated', 'Lifetime Warranty', 'Upfront Pricing', 'Licensed & Insured'].map((b) => (
+              <li class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 font-heading text-xs font-bold uppercase tracking-[0.08em] text-slate-100">
+                <Bolt class="h-3 w-3 text-brand-accent" stroke="currentColor" /> {b}
+              </li>
+            ))}
+          </ul>
+
+          <div data-reveal class="reveal-up mt-9 flex flex-col gap-3 sm:flex-row" style="--rd:320ms">
+            <a href="/contact-us" class="sweep-btn group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-md bg-brand-accent px-6 py-3.5 font-heading text-base font-bold text-brand-primary">
+              <span class="relative z-10">Get a Free Quote</span>
+              <Bolt class="relative z-10 h-4 w-4" stroke="currentColor" />
+            </a>
+            <a href="tel:+61280000000" class="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-6 py-3.5 font-heading text-base font-bold text-white transition-colors hover:border-brand-accent hover:text-brand-accent">
+              Call (02) 8000 0000
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Intro / Local credibility -->
+    <section class="bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2">
+        <div class="reveal-left" data-reveal>
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Local Credibility</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-brand-text">
+            Licensed Electricians Serving the Eastern Suburbs From Crows Nest Since 2018
+          </h2>
+          <p class="mt-6 font-body text-base leading-relaxed text-brand-muted">
+            AB Electrical &amp; Communications delivers licensed electrical services across the Eastern Suburbs, servicing Bondi, Bondi Junction, Paddington, Woollahra, Randwick, Coogee, Bronte, Double Bay, Rose Bay, Vaucluse, Bellevue Hill, Clovelly, Maroubra, and surrounding streets. NSW Electrical Contractor Licence #452529C, verified through Service NSW.
+          </p>
+        </div>
+        <div class="reveal-right overflow-hidden rounded-2xl border border-slate-200 shadow-xl shadow-slate-900/5" data-reveal style="--rd:100ms">
+          <img src="/images/electrician-van-by-water.webp" alt="AB Electrical van by the water in Sydney" class="h-[24rem] w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Why Eastern Suburbs Clients Choose AB Electrical -->
+    <section class="bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up mb-12 max-w-3xl" data-reveal>
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Why Choose Us</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-brand-text">
+            Why Eastern Suburbs Clients Choose AB Electrical &amp; Communications
+          </h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2">
+          {trustCards.map((c, i) => (
+            <div class="reveal-up group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-lg" data-reveal style={`--rd:${i * 80}ms`}>
+              <span class="mb-5 grid h-11 w-11 place-items-center rounded-lg bg-brand-accent/10 text-brand-accent">
+                <Bolt class="h-5 w-5" stroke="currentColor" />
+              </span>
+              <h3 class="font-heading text-lg font-bold leading-snug tracking-[-0.01em] text-brand-text">{c.title}</h3>
+              <p class="mt-3 font-body text-sm leading-relaxed text-brand-muted">{c.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Our Electrical Services Across the Eastern Suburbs -->
+    <section class="bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up mb-12 max-w-3xl" data-reveal>
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Our Services</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-brand-text">
+            Our Electrical Services Across the Eastern Suburbs
+          </h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <article class="reveal-up group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-lg" data-reveal style={`--rd:${(i % 3) * 80}ms`}>
+              <div class="relative overflow-hidden">
+                <img src={s.img} alt={s.title} class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-md bg-brand-accent text-brand-primary shadow-lg">
+                  <Bolt class="h-4 w-4" stroke="currentColor" />
+                </span>
+              </div>
+              <div class="p-6">
+                <h3 class="font-heading text-lg font-bold tracking-[-0.01em] text-brand-text">{s.title}</h3>
+                <p class="mt-3 font-body text-sm leading-relaxed text-brand-muted">{s.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. What Makes Eastern Suburbs Electrical Work Different -->
+    <section class="bg-brand-primary py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up mb-12 max-w-3xl" data-reveal>
+          <p class="mb-3 flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
+            <Bolt class="h-4 w-4" stroke="currentColor" />
+            Local Knowledge
+          </p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-white">
+            What Makes Eastern Suburbs Electrical Work Different From the Rest of Sydney
+          </h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2">
+          {propertyTypes.map((p, i) => (
+            <div class="reveal-up rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-colors hover:border-brand-accent/40" data-reveal style={`--rd:${(i % 2) * 100}ms`}>
+              <span class="mb-5 grid h-11 w-11 place-items-center rounded-lg bg-brand-accent/15 text-brand-accent">
+                <Bolt class="h-5 w-5" stroke="currentColor" />
+              </span>
+              <h3 class="font-heading text-lg font-bold leading-snug tracking-[-0.01em] text-white">{p.title}</h3>
+              <p class="mt-3 font-body text-sm leading-relaxed text-slate-400">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Strata & Apartment Section -->
+    <section class="bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2">
+        <div class="reveal-left overflow-hidden rounded-2xl border border-slate-200 shadow-xl shadow-slate-900/5 lg:order-2" data-reveal>
+          <img src="/images/ab-electricians-north-sydney-fleet.webp" alt="AB Electrical fleet servicing apartment buildings" class="h-[24rem] w-full object-cover" loading="lazy" />
+        </div>
+        <div class="reveal-right lg:order-1" data-reveal style="--rd:100ms">
+          <p class="mb-3 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Strata &amp; Apartments</p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-brand-text">
+            Strata and Apartment Electrical Services, Eastern Suburbs
+          </h2>
+          <div class="mt-6 space-y-5 font-body text-base leading-relaxed text-brand-muted">
+            <p>With years of strata work across Bondi, Randwick and Coogee, we understand the demands of high-density buildings — from common area lighting and switchboard upgrades to full apartment rewires that need to pass without disrupting neighbours.</p>
+            <p>Every job is backed by the compliance certificates strata managers need, lodged correctly the first time. We coordinate directly with body corporates and property managers so approvals, access and scheduling all run smoothly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Suburb coverage list -->
+    <section class="relative overflow-hidden bg-white py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
+
+        <!-- Left: Map in bordered box -->
+        <div class="reveal-left relative" data-reveal>
+          <div class="relative overflow-hidden rounded-xl border border-slate-200 shadow-md">
+            <img
+              src="/images/Sydney-map.webp"
+              alt="Map showing AB Electricians service areas across Sydney's Eastern Suburbs"
+              class="w-full object-cover"
+              style="opacity: 0.85;"
+              loading="lazy"
+            />
+            <!-- Teal location pin positioned over Sydney Eastern Suburbs -->
+            <div class="absolute" style="bottom: 35%; left: 62%;">
+              <svg width="26" height="34" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 0C6.268 0 0 6.268 0 14c0 9.333 14 22 14 22S28 23.333 28 14C28 6.268 21.732 0 14 0z" fill="#00a3b4"/>
+                <circle cx="14" cy="14" r="5" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Green vertical accent bar at bottom-left -->
+          <span class="absolute rounded-full" style="bottom: -0.5rem; left: 0; width: 3px; height: 4rem; background: #00d082;"></span>
+        </div>
+
+        <!-- Right: Eyebrow, headline, description, suburb pills -->
+        <div class="reveal-right" data-reveal>
+          <p class="mb-4 flex items-center gap-3 font-body text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-accent">
+            <span class="inline-block h-px w-8 bg-brand-accent"></span>
+            Happy Customers Across the Eastern Suburbs
+          </p>
+
+          <h2 class="font-heading font-extrabold leading-[1.05] tracking-[-0.02em] mb-5 text-brand-text"
+            style="font-size: clamp(2rem, 4.5vw, 3.25rem);">
+            Eastern Suburbs Suburbs We Service
+          </h2>
+
+          <p class="font-body text-base leading-relaxed mb-8 max-w-md text-brand-muted">
+            From Bondi to Vaucluse, our vans cover the Eastern Suburbs daily. Don't see your suburb? Give us a call — chances are we're already nearby.
+          </p>
+
+          <ul class="flex flex-wrap gap-2">
+            {suburbs.map((s) => (
+              <li class="inline-flex items-center rounded-lg font-body text-sm font-medium cursor-default transition-colors border border-slate-200 bg-brand-surface text-brand-text hover:border-brand-accent hover:text-brand-secondary"
+                style="padding: 0.375rem 0.875rem;">
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="relative isolate overflow-hidden bg-brand-primary py-20 text-white sm:py-28">
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up max-w-2xl" data-reveal>
+          <p class="mb-3 flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
+            <span class="h-px w-8 bg-brand-accent"></span>
+            How We Work
+          </p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-white">
+            Our Eastern Suburbs Electrical Process
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <div class="reveal-up relative rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-colors duration-300 hover:border-brand-accent/40 hover:bg-white/[0.07]" data-reveal style={`--rd:${i * 90}ms`}>
+              <span class="font-heading text-4xl font-extrabold tracking-[-0.03em] text-brand-accent/40">{s.n}</span>
+              <h3 class="mt-3 font-heading text-lg font-extrabold tracking-[-0.01em] text-white">{s.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-slate-300">{s.desc}</p>
+              {i < steps.length - 1 && (
+                <span class="absolute right-5 top-7 hidden text-white/15 lg:block">
+                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m0 0l-5-5m5 5l-5 5"/></svg>
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+    <Footer />
+</Layout>
+
+<script>
+  // Scroll-triggered reveals
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  }
+</script>

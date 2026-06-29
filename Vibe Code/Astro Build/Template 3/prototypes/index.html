@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AB Electricians — Homepage Prototypes</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #0f172a; padding: 3rem 1.5rem; }
+    .container { max-width: 680px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .sub { color: #64748b; margin-bottom: 2.5rem; font-size: 0.95rem; line-height: 1.6; }
+    .notice { background: #fef9c3; border: 1px solid #fde047; border-radius: 8px; padding: 0.875rem 1rem; font-size: 0.85rem; color: #713f12; margin-bottom: 2.5rem; }
+    .card { display: block; padding: 1.5rem; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; background: white; margin-bottom: 1rem; transition: border-color 0.2s; }
+    .card:hover { border-color: #007cba; }
+    .eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.35rem; }
+    .card-title { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .card-vibe { font-size: 0.78rem; color: #64748b; font-weight: 600; margin-bottom: 0.6rem; }
+    .card-desc { font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 1rem; }
+    .rationale { font-size: 0.82rem; color: #64748b; font-style: italic; border-left: 3px solid #e2e8f0; padding-left: 0.75rem; margin-bottom: 1rem; }
+    .palette { display: flex; gap: 6px; margin-bottom: 1rem; }
+    .swatch { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.1); }
+    .link { font-size: 0.82rem; font-weight: 700; color: #007cba; }
+    .tip { margin-top: 2.5rem; padding: 1.25rem; background: #f1f5f9; border-radius: 10px; font-size: 0.85rem; color: #475569; line-height: 1.7; }
+    .tip strong { color: #0f172a; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">AB Electricians · Sydney</div>
+    <h1>Homepage Prototypes</h1>
+    <p class="sub">Three directions. Same layout. Different personalities. Start the dev server first, then click each one.</p>
+
+    <div class="notice">
+      ⚡ <strong>Start the server first:</strong> Open a terminal in the project folder and run <code>npm run dev</code>, then click the links below.
+    </div>
+
+    <a class="card" href="http://localhost:4321/direction-1-harbour-authority">
+      <div class="eyebrow">Direction 1</div>
+      <div class="card-title">Harbour Authority</div>
+      <div class="card-vibe">Established · Authoritative · Local</div>
+      <div class="palette">
+        <div class="swatch" style="background:#011835"></div>
+        <div class="swatch" style="background:#007cba"></div>
+        <div class="swatch" style="background:#00d082"></div>
+        <div class="swatch" style="background:#f8fafc; border-color:#cbd5e1"></div>
+      </div>
+      <div class="card-desc">Faithful to the existing AB Electricians brand — deep navy hero, editorial grid, Archivo headings at heavy weight. Electric green CTAs signal action. Elevated in craft.</div>
+      <div class="rationale">For clients who want brand recognition and trust preserved, with a polished upgrade.</div>
+      <div class="link">View concept →</div>
+    </a>
+
+    <a class="card" href="http://localhost:4321/direction-2-north-shore-bold">
+      <div class="eyebrow">Direction 2</div>
+      <div class="card-title">North Shore Bold</div>
+      <div class="card-vibe">Urgent · High-contrast · Energy-forward</div>
+      <div class="palette">
+        <div class="swatch" style="background:#0d0d1a"></div>
+        <div class="swatch" style="background:#e8b84b"></div>
+        <div class="swatch" style="background:#ff6b35"></div>
+        <div class="swatch" style="background:#1e1e30"></div>
+      </div>
+      <div class="card-desc">Dark-mode throughout. Electric amber headings, vivid orange accents, angular geometry and clip-paths. The go-to electrician when something goes wrong at midnight.</div>
+      <div class="rationale">Leans into the emergency angle. Stands out from every other tradie site in Sydney.</div>
+      <div class="link">View concept →</div>
+    </a>
+
+    <a class="card" href="http://localhost:4321/direction-3-coastal-precision">
+      <div class="eyebrow">Direction 3</div>
+      <div class="card-title">Coastal Precision</div>
+      <div class="card-vibe">Premium · Editorial · Refined</div>
+      <div class="palette">
+        <div class="swatch" style="background:#1e3a5f"></div>
+        <div class="swatch" style="background:#c45f1a"></div>
+        <div class="swatch" style="background:#00a3b4"></div>
+        <div class="swatch" style="background:#fafaf8; border-color:#cbd5e1"></div>
+      </div>
+      <div class="card-desc">Warm white, editorial Fraunces serif headings with optical sizing, generous whitespace, organic image shapes. Premium feel for high-value North Shore clients.</div>
+      <div class="rationale">Positions AB Electricians as the premium, trusted craftspeople — not a transactional trade service.</div>
+      <div class="link">View concept →</div>
+    </a>
+
+    <div class="tip">
+      <strong>What to look for:</strong> Scroll each one fully without analysing. Notice which one makes you lean forward. Which one looks like your brand? Which would you be proud to send a client?<br><br>
+      Take notes — something like: "I love the hero from #1, the typography from #3, the energy from #2."
+    </div>
+  </div>
+</body>
+</html>

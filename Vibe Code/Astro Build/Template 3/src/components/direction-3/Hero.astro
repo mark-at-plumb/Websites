@@ -1,0 +1,68 @@
+---
+import Eyebrow from './Eyebrow.astro';
+---
+<section id="top" class="relative overflow-hidden bg-brand-bg pt-32 pb-20 sm:pt-40 sm:pb-28">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[55fr_45fr] lg:gap-16">
+    <!-- Text column -->
+    <div class="cp-hero-text">
+      <div data-reveal class="cp-stagger" style="--d:0ms">
+        <Eyebrow label="Sydney · North Shore" />
+      </div>
+      <h1 data-reveal class="cp-stagger mt-7 font-heading text-brand-primary" style="--d:120ms; font-variation-settings:'opsz' 144; font-size:clamp(2.6rem,6vw,4.6rem); line-height:1.02; letter-spacing:-0.02em;">
+        Highest <span class="italic font-light text-brand-secondary">Reviewed</span> Electrician in Sydney
+      </h1>
+      <p data-reveal class="cp-stagger mt-7 max-w-md font-body text-[1.06rem] leading-[1.7] text-brand-text/75" style="--d:260ms">
+        Sydney based licensed electricians. On-time service, upfront pricing, and quality guaranteed — backed by a Lifetime Workmanship Warranty.
+      </p>
+      <div data-reveal class="cp-stagger mt-9 flex flex-wrap items-center gap-4" style="--d:400ms">
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-brand-secondary px-7 py-3.5 font-body text-[0.95rem] font-semibold text-brand-bg shadow-[0_12px_30px_-12px_rgba(196,95,26,0.6)] transition-all duration-300 hover:bg-brand-primary">
+          Book Now
+        </a>
+        <a href="tel:+61280000000" class="inline-flex items-center gap-2 rounded-full border border-brand-primary/20 px-7 py-3.5 font-body text-[0.95rem] font-semibold text-brand-primary transition-all duration-300 hover:border-brand-accent hover:text-brand-accent">
+          Call Now
+        </a>
+      </div>
+      <div data-reveal class="cp-stagger mt-10 flex items-center gap-4" style="--d:540ms">
+        <span class="h-px w-12 bg-brand-accent/50"></span>
+        <p class="font-body text-[0.78rem] tracking-wide text-brand-muted">NSW Fair Trading Licensed · Level 2 ASP Certified · Fully Insured</p>
+      </div>
+    </div>
+
+    <!-- Image column -->
+    <div data-reveal class="cp-stagger relative" style="--d:300ms">
+      <div class="cp-zoom overflow-hidden" style="border-radius: 3rem 0.75rem 3rem 0.75rem;">
+        <img src="/images/ab-electrical-team-sydney-harbour-bridge.webp" alt="AB Electricians team in front of the Sydney Harbour Bridge" class="h-[clamp(340px,52vw,560px)] w-full object-cover" loading="eager" width="600" height="560" />
+      </div>
+      <!-- Secondary float -->
+      <div class="cp-float absolute -bottom-8 -left-6 w-40 overflow-hidden border-4 border-brand-bg shadow-xl sm:w-52" style="border-radius: 1.25rem 0.4rem 1.25rem 0.4rem;">
+        <img src="/images/electrician-van-at-opera-house.webp" alt="AB Electricians van near the Sydney Opera House" class="h-28 w-full object-cover sm:h-36" loading="eager" width="208" height="144" />
+      </div>
+      <!-- Floating review badge -->
+      <div class="absolute -right-3 top-6 rounded-2xl bg-brand-primary px-5 py-4 text-center shadow-lg sm:-right-6">
+        <p class="font-heading text-2xl font-semibold text-brand-bg" style="font-variation-settings:'opsz' 40;">5.0</p>
+        <p class="mt-0.5 font-body text-[0.62rem] uppercase tracking-[0.2em] text-brand-accent">Top Rated</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+  .cp-stagger { opacity: 0; transform: translateY(24px); }
+  .cp-stagger.cp-in {
+    opacity: 1; transform: translateY(0);
+    transition: opacity 800ms cubic-bezier(0.16,1,0.3,1) var(--d), transform 800ms cubic-bezier(0.16,1,0.3,1) var(--d);
+  }
+  .cp-zoom img { transform: scale(1.08); transition: transform 1400ms cubic-bezier(0.16,1,0.3,1); }
+  .cp-zoom.cp-in img { transform: scale(1); }
+  @media (prefers-reduced-motion: reduce) {
+    .cp-stagger, .cp-zoom img { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('cp-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('#top [data-reveal]').forEach((el) => io.observe(el));
+</script>

@@ -1,0 +1,42 @@
+---
+import Eyebrow from './Eyebrow.astro';
+
+const steps = [
+  { n: '01', title: 'Upfront Written Pricing', desc: 'You get a clear, written price before any work begins. No surprises, no sneaky extras when the job’s done.' },
+  { n: '02', title: 'Friendly, Respectful Service', desc: 'We’re polite, careful, and easy to have around — in your home or your workplace.' },
+  { n: '03', title: 'As Clean As You Left It', desc: 'We tidy up properly when we’re finished. You’d never know we’d been there, except the work’s done right.' },
+];
+---
+<section id="process" class="relative bg-brand-bg py-24 sm:py-32">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-16 px-5 sm:px-8 lg:grid-cols-[45fr_55fr]">
+    <div data-reveal class="cp-zoom order-2 overflow-hidden lg:order-1" style="border-radius: 0.75rem 3rem 0.75rem 3rem;">
+      <img src="/images/electricians-discussing-job.webp" alt="AB Electricians discussing a job on site" class="h-[clamp(320px,42vw,500px)] w-full object-cover" loading="lazy" />
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <div data-reveal>
+        <Eyebrow num="05" label="How We Work" />
+        <h2 class="mt-6 max-w-md font-heading text-brand-primary" style="font-variation-settings:'opsz' 96; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-0.02em;">
+          A simple promise, kept <span class="italic font-light text-brand-secondary">every time</span>.
+        </h2>
+      </div>
+      <div class="mt-10 flex flex-col">
+        {steps.map((s) => (
+          <div data-reveal class="flex gap-6 border-t border-brand-primary/10 py-7">
+            <span class="font-heading text-2xl font-light text-brand-accent" style="font-variation-settings:'opsz' 40;">{s.n}</span>
+            <div>
+              <h3 class="font-heading text-xl font-medium text-brand-primary" style="font-variation-settings:'opsz' 32;">{s.title}</h3>
+              <p class="mt-2 font-body text-[0.96rem] leading-[1.7] text-brand-text/70">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-zoom img { transform: scale(1.07); transition: transform 1200ms cubic-bezier(0.16,1,0.3,1); }
+  .cp-zoom.cp-in img { transform: scale(1); }
+  @media (prefers-reduced-motion: reduce) { .cp-zoom img { transform: none; } }
+</style>

@@ -1,0 +1,37 @@
+---
+import Eyebrow from './Eyebrow.astro';
+
+const suburbs = ['Mosman','Neutral Bay','Cremorne','Kirribilli','McMahons Point','Lavender Bay','Milsons Point','Crows Nest','St Leonards','Artarmon','Willoughby','Chatswood','Lane Cove','Longueville','Northwood','Hunters Hill','Gladesville','Ryde','Meadowbank','North Sydney','Waverton','Wollstonecraft','Naremburn','Cammeray','Balmoral','Seaforth','Manly','Dee Why','Brookvale','Pymble','Gordon','Killara','Lindfield','Roseville','East Lindfield','Turramurra','Wahroonga','Hornsby'];
+---
+<section id="areas" class="relative bg-brand-bg py-24 sm:py-32">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-16 px-5 sm:px-8 lg:grid-cols-[48fr_52fr]">
+    <div>
+      <div data-reveal>
+        <Eyebrow num="07" label="Service Areas" />
+        <h2 class="mt-6 max-w-md font-heading text-brand-primary" style="font-variation-settings:'opsz' 96; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-0.02em;">
+          Happy customers across <span class="italic font-light text-brand-secondary">Sydney</span>.
+        </h2>
+        <p class="mt-5 max-w-md font-body text-[1rem] leading-[1.7] text-brand-text/70">
+          Based on the North Shore and serving Greater Sydney. If your suburb's on the list — or near it — we'll be there.
+        </p>
+      </div>
+      <ul data-reveal class="mt-10 flex flex-wrap gap-x-2.5 gap-y-3">
+        {suburbs.map((s) => (
+          <li class="inline-flex items-center gap-2 rounded-full border border-brand-primary/12 bg-brand-surface px-3.5 py-1.5 font-body text-[0.82rem] text-brand-text/80 transition-colors duration-200 hover:border-brand-accent hover:text-brand-primary">
+            <span class="h-1.5 w-1.5 rounded-full bg-brand-accent"></span>{s}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div data-reveal class="cp-zoom overflow-hidden shadow-[0_30px_60px_-30px_rgba(30,58,95,0.4)]" style="border-radius: 3rem 0.75rem 3rem 0.75rem;">
+      <img src="/images/Sydney-map.webp" alt="Map of AB Electricians service areas across Sydney's North Shore" class="h-full min-h-[360px] w-full object-cover" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-zoom img { transform: scale(1.06); transition: transform 1200ms cubic-bezier(0.16,1,0.3,1); }
+  .cp-zoom.cp-in img { transform: scale(1); }
+  @media (prefers-reduced-motion: reduce) { .cp-zoom img { transform: none; } }
+</style>

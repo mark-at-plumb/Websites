@@ -1,0 +1,38 @@
+---
+---
+<section class="relative bg-brand-bg pb-24 pt-0">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:px-8">
+    <!-- portrait overlaps upward into hero space -->
+    <div class="reveal relative -mt-16 lg:-mt-32">
+      <div class="relative overflow-hidden border-2 border-brand-secondary/30 shadow-2xl shadow-black/60" style="clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);">
+        <img src="/images/ab-electrical-team-member-portrait.webp" alt="Adam Bushell, licensed electrician and owner of AB Electricians" class="h-full w-full object-cover" />
+      </div>
+      <div class="absolute -bottom-5 -right-3 bg-brand-secondary px-5 py-3 font-heading font-black uppercase text-brand-bg" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);">
+        Adam Bushell
+        <span class="block text-xs font-semibold tracking-wide opacity-80">Founder &amp; Licensed Electrician</span>
+      </div>
+      <!-- angular accent slash -->
+      <span class="absolute -left-4 top-10 h-24 w-1.5 -skew-y-12 bg-brand-accent"></span>
+    </div>
+
+    <div class="reveal" style="transition-delay: 120ms;">
+      <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+        <span class="inline-block h-px w-10 bg-brand-accent"></span>
+        Meet the founder
+      </p>
+      <h2 class="font-heading text-[clamp(1.9rem,4.5vw,3rem)] font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text">
+        I started AB to fix what's<br class="hidden sm:block" /> <span class="text-brand-secondary">broken about the trades</span>
+      </h2>
+      <p class="mt-6 max-w-xl font-body text-lg leading-relaxed text-brand-muted">
+        Too many sparkies don't show up, won't give you a price upfront, and leave your place a mess. I've spent a decade on the tools across the North Shore, and I built AB Electricians to do the opposite — turn up when we say, hand you a written price before we lift a tool, and leave your home exactly as we found it. We're locals. You'll see our vans around your street.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        {['On time, every time', 'Written upfront pricing', 'Lifetime workmanship warranty'].map((t) => (
+          <span class="inline-flex items-center gap-2 border border-brand-secondary/25 bg-brand-surface px-4 py-2 font-body text-sm font-medium text-brand-text">
+            <span class="h-1.5 w-1.5 rotate-45 bg-brand-accent"></span>{t}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

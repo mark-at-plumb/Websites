@@ -1,0 +1,323 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-1/NavInner.astro';
+import Footer from '../components/direction-1/Footer.astro';
+import Bolt from '../components/direction-1/Bolt.astro';
+import CTASection from '../components/direction-1/CTASection.astro';
+import ServiceAreas from '../components/direction-1/ServiceAreas.astro';
+
+const PHONE = '(02) 8000 0000';
+const PHONE_HREF = 'tel:+61280000000';
+
+const trustBadges = ['5-Star Rated', 'Lifetime Warranty', 'Upfront Pricing', 'Licensed & Insured'];
+
+const services = [
+  { title: 'Switchboard Upgrades', img: '/images/electrician-testing-switchboard.webp', body: 'Old fuse boards and overloaded switchboards replaced with modern safety switches, RCBOs, and premium Clipsal components. Fully compliant.' },
+  { title: 'Home Rewiring', img: '/images/electrician-handling-ladder.webp', body: 'Full and partial home rewires for older properties. We work around your schedule and keep the home live wherever possible.' },
+  { title: 'Lighting Installation', img: '/images/electrician-loading-tools.webp', body: 'Downlights, pendants, oyster lights, outdoor lighting and smart lighting. Positioned right the first time.' },
+  { title: 'Power Point Installation', img: '/images/ab-electrician-securing-equipment.webp', body: 'New GPOs, USB outlets, and dedicated circuits for appliances. Neat, flush, and properly earthed.' },
+  { title: 'Safety Switches', img: '/images/ab-electrician-arriving-at-job.webp', body: 'RCD and RCBO installation and testing. Required by NSW law for all new work and rental properties.' },
+  { title: 'Smoke Alarm Installation', img: '/images/ab-electrical-electrician-with-trolley.webp', body: 'Interconnected and photoelectric alarms installed to current NSW standards. Certificates of compliance issued.' },
+  { title: 'Ceiling Fan Installation', img: '/images/electrician-van-skyline.webp', body: 'Fans wired and mounted correctly, including speed controllers and remote options.' },
+  { title: 'Electrical Fault Finding', img: '/images/ab-electrical-van-sydney.webp', body: 'Systematic diagnostics for tripping circuits, intermittent faults, and power failures. We find it, we fix it.' },
+  { title: 'Data & Phone Cabling', img: '/images/ab-electrical-communications-van-rear.webp', body: 'Ethernet, phone lines, and TV antenna points run neatly through walls. No exposed conduit unless you want it.' },
+  { title: 'Hot Water & Appliance Connections', img: '/images/ab-electrical-communications-van-signage.webp', body: 'Hardwired connections for ovens, hot water systems, dishwashers and air conditioners.' },
+];
+
+const risks = [
+  { title: 'Electric Shock Risk', body: 'Unlicensed wiring errors are the leading cause of DIY electrical fatalities. The work looks fine until it’s not.' },
+  { title: 'House Fire Risk', body: 'Incorrect connections and overloaded circuits cause fires years after the original work. Insurance investigators always check the wiring.' },
+  { title: 'Insurance Voided', body: 'Most home insurance policies explicitly exclude damage caused by unlicensed electrical work. One claim denied is enough.' },
+  { title: 'Failed Compliance on Sale', body: 'Building inspectors flag unlicensed work. It delays or kills property sales and costs far more to rectify than it saved.' },
+];
+
+const steps = [
+  { title: 'Free Fixed Quote', body: 'We assess the property, quote the job in full. You know the total cost before we touch a wire.' },
+  { title: 'Scheduled Arrival', body: 'We arrive in the booked window. If anything changes, we call ahead.' },
+  { title: 'The Work', body: 'Done to AS/NZS 3000. Your home treated with the same care we’d give our own.' },
+  { title: 'Certificate & Cleanup', body: 'Compliance certificate issued. Site left exactly as we found it — or cleaner.' },
+];
+
+const credentials = ['NSW Fair Trading Licensed', 'Master Electricians Australia', 'Level 2 ASP Certified', 'Registered Electrical Contractor', 'Fully Insured'];
+
+const credentialImages = [
+  { src: '/images/electricians-fleet-by-the-harbour.webp', alt: 'AB Electricians fleet by Sydney Harbour' },
+  { src: '/images/ab-electrical-side-branding.webp', alt: 'AB Electrical van side branding' },
+  { src: '/images/electrical-team-with-vans.webp', alt: 'AB Electrical team with vans' },
+];
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #011835;
+    --color-brand-secondary: #007cba;
+    --color-brand-accent:    #00d082;
+    --color-brand-bg:        #f8fafc;
+    --color-brand-surface:   #edf2f7;
+    --color-brand-text:      #0f172a;
+    --color-brand-muted:     #64748b;
+    --font-heading: 'Archivo Variable', system-ui, sans-serif;
+    --font-body:    'Inter Variable', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  [data-reveal] {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--rd, 0ms);
+  }
+  .reveal-up   { transform: translateY(32px); }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-right{ transform: translateX(40px); }
+  [data-reveal].is-visible { opacity: 1; transform: none; }
+
+  :focus-visible { outline: 2px solid #00d082; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00b06e;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .sweep-btn:hover::before { transform: scaleX(1); }
+</style>
+
+<Layout title="Residential Electrician Sydney — AB Electricians" description="Licensed residential electricians in Sydney. Fixed quote before we start, Lifetime Workmanship Warranty on every job. Switchboards, rewiring, lighting and more.">
+  <NavInner />
+  <main id="top">
+
+    <!-- 1. PAGE HERO -->
+    <section class="relative overflow-hidden bg-brand-primary text-white">
+      <div class="absolute inset-0">
+        <img src="/images/ab-electrician-arriving-at-job.webp" alt="AB electrician arriving at a Sydney home job" class="h-full w-full object-cover opacity-30" loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-primary/95 to-brand-primary/60"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40">
+        <nav aria-label="Breadcrumb" class="font-body text-sm text-slate-300" data-reveal>
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/" class="transition-colors hover:text-brand-accent">Home</a></li>
+            <li aria-hidden="true" class="text-slate-500">/</li>
+            <li><a href="/electrical-services" class="transition-colors hover:text-brand-accent">Services</a></li>
+            <li aria-hidden="true" class="text-slate-500">/</li>
+            <li class="text-white">Residential Electrical</li>
+          </ol>
+        </nav>
+
+        <div class="mt-8 max-w-3xl">
+          <p data-reveal class="reveal-up flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-accent">
+            <Bolt class="h-4 w-4" stroke="currentColor" /> Residential Electrical
+          </p>
+          <h1 data-reveal class="reveal-up mt-4 font-heading text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:text-6xl" style="--rd:80ms">
+            Residential Electrician Sydney
+          </h1>
+          <p data-reveal class="reveal-up mt-5 max-w-2xl font-body text-lg leading-relaxed text-slate-200" style="--rd:160ms">
+            Every residential electrical job done once, done right. Fixed quote before we start. Lifetime Workmanship Warranty on every job.
+          </p>
+
+          <ul data-reveal class="reveal-up mt-7 flex flex-wrap gap-2.5" style="--rd:240ms">
+            {trustBadges.map((b) => (
+              <li class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 font-heading text-xs font-bold uppercase tracking-[0.08em] text-slate-100">
+                <Bolt class="h-3 w-3 text-brand-accent" stroke="currentColor" /> {b}
+              </li>
+            ))}
+          </ul>
+
+          <div data-reveal class="reveal-up mt-9 flex flex-col gap-3 sm:flex-row" style="--rd:320ms">
+            <a href="/contact-us" class="sweep-btn group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-md bg-brand-accent px-6 py-3.5 font-heading text-base font-bold text-brand-primary">
+              <span class="relative z-10">Get a Free Quote</span>
+              <Bolt class="relative z-10 h-4 w-4" stroke="currentColor" />
+            </a>
+            <a href={PHONE_HREF} class="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-6 py-3.5 font-heading text-base font-bold text-white transition-colors hover:border-brand-accent hover:text-brand-accent">
+              Call {PHONE}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTRO / WHAT'S COVERED -->
+    <section class="bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+        <div data-reveal class="reveal-left">
+          <p class="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-secondary">
+            <Bolt class="h-4 w-4" stroke="currentColor" /> What's Covered
+          </p>
+          <h2 class="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-[-0.02em] text-brand-text sm:text-4xl">
+            What's Covered When You Book a Sydney Home Electrician
+          </h2>
+          <p class="mt-6 font-body text-lg leading-relaxed text-brand-muted">
+            Each residential electrical job — whether it's a safety switch trip, a full switchboard upgrade, or a complete home rewire — gets the same approach. We assess the property first, give you a fixed written quote before any work starts, and back every job with our Lifetime Workmanship Warranty. No hourly rates. No surprises at invoice time.
+          </p>
+          <a href="/contact-us" class="sweep-btn group relative mt-8 inline-flex items-center gap-2 overflow-hidden rounded-md bg-brand-accent px-6 py-3 font-heading text-base font-bold text-brand-primary">
+            <span class="relative z-10">Get a Free Quote</span>
+            <Bolt class="relative z-10 h-4 w-4" stroke="currentColor" />
+          </a>
+        </div>
+        <div data-reveal class="reveal-right overflow-hidden rounded-2xl border border-slate-200 shadow-xl shadow-slate-900/10">
+          <img src="/images/electrician-testing-switchboard.webp" alt="AB electrician testing a residential switchboard" class="h-full w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SERVICES WE HANDLE -->
+    <section class="bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-secondary">
+            <Bolt class="h-4 w-4" stroke="currentColor" /> Services
+          </p>
+          <h2 class="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-[-0.02em] text-brand-text sm:text-4xl">
+            Repairs, Installs and Upgrades We Handle for Sydney Homes
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <article data-reveal class="reveal-up group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-lg" style={`--rd:${(i % 3) * 80}ms`}>
+              <div class="relative overflow-hidden">
+                <img src={s.img} alt={s.title} class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <span class="absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-md bg-brand-accent text-brand-primary shadow-lg">
+                  <Bolt class="h-4 w-4" stroke="currentColor" />
+                </span>
+              </div>
+              <div class="p-6">
+                <h3 class="font-heading text-lg font-bold tracking-[-0.01em] text-brand-text">{s.title}</h3>
+                <p class="mt-3 font-body text-sm leading-relaxed text-brand-muted">{s.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHY A LICENSED ELECTRICIAN MATTERS -->
+    <section class="relative overflow-hidden bg-white py-20 sm:py-28">
+      <!-- Subtle background image -->
+      <div class="absolute inset-0 pointer-events-none">
+        <img src="/images/electricians-fleet-by-the-harbour.webp" alt="" aria-hidden="true" class="h-full w-full object-cover" style="opacity:0.05;" loading="lazy" />
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(248,250,252,0.9) 100%);"></div>
+      </div>
+      <!-- Circuit bolt watermarks -->
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-accent">
+            <Bolt class="h-4 w-4" stroke="currentColor" /> The Risk
+          </p>
+          <h2 class="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-[-0.02em] text-brand-text sm:text-4xl">
+            What Goes Wrong When Sydney Homeowners Skip the Licensed Electrician Step
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2">
+          {risks.map((r, i) => (
+            <article data-reveal class="reveal-up rounded-xl border border-slate-200 bg-brand-surface p-6 transition-colors hover:border-brand-accent/50" style={`--rd:${(i % 2) * 100}ms`}>
+              <div class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-accent/15 text-brand-accent">
+                  <Bolt class="h-5 w-5" stroke="currentColor" />
+                </span>
+                <div>
+                  <h3 class="font-heading text-lg font-bold tracking-[-0.01em] text-brand-text">{r.title}</h3>
+                  <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{r.body}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. HOW A JOB ACTUALLY RUNS -->
+    <section class="relative isolate overflow-hidden bg-brand-primary py-20 text-white sm:py-28">
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal-up max-w-2xl" data-reveal>
+          <p class="mb-3 flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
+            <span class="h-px w-8 bg-brand-accent"></span>
+            How We Work
+          </p>
+          <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] text-white">
+            How a Sydney Home Electrical Job Actually Runs
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <div class="reveal-up relative rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition-colors duration-300 hover:border-brand-accent/40 hover:bg-white/[0.07]" data-reveal style={`--rd:${i * 90}ms`}>
+              <span class="font-heading text-4xl font-extrabold tracking-[-0.03em] text-brand-accent/40">0{i + 1}</span>
+              <h3 class="mt-3 font-heading text-lg font-extrabold tracking-[-0.01em] text-white">{s.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-slate-300">{s.body}</p>
+              {i < steps.length - 1 && (
+                <span class="absolute right-5 top-7 hidden text-white/15 lg:block">
+                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m0 0l-5-5m5 5l-5 5"/></svg>
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. TRUST / CREDENTIALS STRIP -->
+    <section class="bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.18em] text-brand-secondary">
+            <Bolt class="h-4 w-4" stroke="currentColor" /> Credentials
+          </p>
+          <h2 class="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-[-0.02em] text-brand-text sm:text-4xl">
+            Licensed, Certified and Fully Insured
+          </h2>
+        </div>
+
+        <ul class="mt-10 flex flex-wrap gap-3" data-reveal>
+          {credentials.map((c) => (
+            <li class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 font-heading text-sm font-bold text-brand-text">
+              <Bolt class="h-4 w-4 text-brand-accent" stroke="currentColor" /> {c}
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-3">
+          {credentialImages.map((img, i) => (
+            <div data-reveal class="reveal-up overflow-hidden rounded-xl border border-slate-200 shadow-sm" style={`--rd:${i * 90}ms`}>
+              <img src={img.src} alt={img.alt} class="h-56 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ServiceAreas />
+    <CTASection />
+    <Footer />
+</Layout>
+
+<script>
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  }
+</script>
