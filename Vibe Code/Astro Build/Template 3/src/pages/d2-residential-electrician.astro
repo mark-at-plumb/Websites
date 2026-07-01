@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-2/NavInner.astro';
+import Footer from '../components/direction-2/Footer.astro';
+import Bolt from '../components/direction-2/Bolt.astro';
+import CTASection from '../components/direction-2/CTASection.astro';
+
+const services = [
+  { title: 'Safety switch installation', desc: 'Required for all NSW homes. We test, install and certify RCDs to protect your family.' },
+  { title: 'Lighting upgrades', desc: 'LED downlights, outdoor lighting, pendants and sensor lights — all installed by licensed electricians.' },
+  { title: 'Powerpoint & USB outlets', desc: 'Add powerpoints where you need them. USB-A and USB-C outlets available for modern homes.' },
+  { title: 'Ceiling fans', desc: 'Supply and install, or just install your own. We wire it right and test it before we leave.' },
+  { title: 'Home rewires', desc: 'Older North Shore homes often need rewiring for safety and insurance compliance. We handle the full job.' },
+  { title: 'Switchboard upgrades', desc: 'Old ceramic fuses replaced with modern circuit breakers and safety switches. Compliant and documented.' },
+];
+
+const risks = [
+  { title: 'Unlicensed work voids your insurance', desc: 'If an unlicensed electrician worked on your home and a fire starts, your insurer can refuse to pay. It\'s not a technicality — it happens.' },
+  { title: 'NSW law requires a licensed sparky', desc: 'Any electrical work beyond changing a light globe must be done by a licensed electrician under NSW Fair Trading rules. No exceptions.' },
+  { title: 'Certificate of compliance protects you', desc: 'For notifiable work, we issue a certificate of compliance. This protects you when you sell and proves the work was done properly.' },
+  { title: 'Faulty wiring is a fire hazard', desc: 'Old or poorly done wiring is one of the most common causes of house fires. Don\'t risk it to save a few dollars on the job.' },
+];
+
+const credentialImages = [
+  { src: '/images/electricians-fleet-by-the-harbour.webp', alt: 'AB Electricians fleet near Sydney Harbour' },
+  { src: '/images/ab-electrical-side-branding.webp', alt: 'AB Electrical van branding' },
+  { src: '/images/electrical-team-with-vans.webp', alt: 'AB Electrical team with vans' },
+];
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #1a1a2e;
+    --color-brand-secondary: #e8b84b;
+    --color-brand-accent:    #ff6b35;
+    --color-brand-bg:        #0d0d1a;
+    --color-brand-surface:   #1e1e30;
+    --color-brand-text:      #f0f0f5;
+    --color-brand-muted:     #9090a8;
+    --font-heading: 'Exo 2 Variable', system-ui, sans-serif;
+    --font-body:    'DM Sans Variable', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-brand-bg); color: var(--color-brand-text); font-family: var(--font-body); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s cubic-bezier(0.2,0.8,0.2,1), transform 0.6s cubic-bezier(0.2,0.8,0.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+</style>
+
+<Layout title="Residential Electrician North Shore Sydney — AB Electricians" noindex={true}>
+  <NavInner />
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-brand-bg pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(var(--color-brand-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-secondary) 1px, transparent 1px); background-size: 48px 48px;"></div>
+      <img src="/images/ab-electrician-arriving-at-job.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-20" />
+      <div class="absolute inset-0" style="background: linear-gradient(to right, var(--color-brand-bg) 40%, transparent 100%);"></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <nav aria-label="Breadcrumb" class="reveal mb-6 font-body text-sm text-brand-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/direction-2-north-shore-bold" class="transition-colors hover:text-brand-secondary">Home</a></li>
+            <li aria-hidden="true" class="text-brand-muted/40">/</li>
+            <li><a href="/d2-electrical-services" class="transition-colors hover:text-brand-secondary">Services</a></li>
+            <li aria-hidden="true" class="text-brand-muted/40">/</li>
+            <li class="text-brand-text">Residential</li>
+          </ol>
+        </nav>
+        <p class="reveal mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted" style="transition-delay:80ms;">
+          <span class="inline-block h-px w-10 bg-brand-accent"></span> Residential electrical
+        </p>
+        <h1 class="reveal font-heading text-4xl font-black uppercase leading-[1.0] tracking-[-0.02em] text-brand-text sm:text-5xl lg:text-6xl" style="transition-delay:160ms;">
+          Residential electrician <span class="text-brand-secondary">North Shore</span>
+        </h1>
+        <p class="reveal mt-6 max-w-2xl font-body text-lg leading-relaxed text-brand-muted" style="transition-delay:240ms;">
+          Licensed residential electricians based on the North Shore. Safety switches, lighting, rewires, switchboard upgrades and everything in between — done right the first time.
+        </p>
+        <div class="reveal mt-8 flex flex-wrap gap-3" style="transition-delay:320ms;">
+          {['Licensed & insured', 'Upfront fixed pricing', 'Lifetime warranty', 'Same-day available'].map((b) => (
+            <span class="inline-flex items-center gap-2 border border-brand-secondary/30 bg-brand-surface/40 px-4 py-2 font-heading text-xs font-bold uppercase tracking-wide text-brand-text">
+              <Bolt class="h-3 w-3 text-brand-accent" /> {b}
+            </span>
+          ))}
+        </div>
+        <div class="reveal mt-9 flex flex-col gap-4 sm:flex-row" style="transition-delay:400ms;">
+          <a href="tel:+61280000000" class="sweep-btn group relative inline-flex items-center justify-center gap-2 overflow-hidden px-7 py-4 font-heading text-base font-bold text-brand-bg" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); background: var(--color-brand-accent);">
+            <span class="relative z-10">Call (02) 8000 0000</span>
+            <Bolt class="relative z-10 h-4 w-4" />
+          </a>
+          <a href="/d2-contact-us" class="inline-flex items-center justify-center gap-2 border border-brand-secondary/40 px-7 py-4 font-heading text-base font-bold text-brand-secondary transition-colors hover:bg-brand-secondary/10" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);">
+            Get a Free Quote
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES WE OFFER -->
+    <section class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Residential work
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            What we do in <span class="text-brand-secondary">your home</span>
+          </h2>
+          <p class="mt-4 font-body text-base leading-relaxed text-brand-muted">
+            From small repairs to full rewires, we've worked in hundreds of North Shore homes. We know the older wiring, the heritage builds, the narrow roof cavities.
+          </p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <article class="reveal border border-white/8 bg-brand-bg p-6 transition-colors hover:border-brand-accent/50" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${(i % 3) * 70}ms`}>
+              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <Bolt class="h-5 w-5" />
+              </span>
+              <h3 class="font-heading text-lg font-black uppercase tracking-[-0.01em] text-brand-text">{s.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- THE RISK / WHY LICENSED -->
+    <section class="relative bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> The risk
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            Why it has to be <span class="text-brand-secondary">a licensed sparky</span>
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          {risks.map((r, i) => (
+            <article class="reveal border border-white/8 bg-brand-surface p-6 transition-colors hover:border-brand-accent/50" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${(i % 2) * 80}ms`}>
+              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <Bolt class="h-5 w-5" />
+              </span>
+              <h3 class="font-heading text-lg font-black uppercase tracking-[-0.01em] text-brand-text">{r.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{r.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-10 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Credentials
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            Licensed, certified and <span class="text-brand-secondary">fully insured</span>
+          </h2>
+        </div>
+        <div class="reveal flex flex-wrap gap-3">
+          {['NSW Fair Trading Licensed', 'Master Electricians Australia', 'Level 2 ASP Certified', 'Registered Electrical Contractor', 'Fully Insured'].map((c) => (
+            <span class="inline-flex items-center gap-2 border border-brand-secondary/25 bg-brand-bg px-4 py-2 font-heading text-sm font-bold uppercase tracking-wide text-brand-text">
+              <Bolt class="h-4 w-4 text-brand-accent" /> {c}
+            </span>
+          ))}
+        </div>
+        <div class="mt-10 grid gap-5 sm:grid-cols-3">
+          {credentialImages.map((img, i) => (
+            <div class="reveal overflow-hidden border border-white/8 shadow-xl shadow-black/40" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${i * 90}ms`}>
+              <img src={img.src} alt={img.alt} class="h-56 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

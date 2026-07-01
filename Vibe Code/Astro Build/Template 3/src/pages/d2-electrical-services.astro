@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-2/NavInner.astro';
+import Footer from '../components/direction-2/Footer.astro';
+import Bolt from '../components/direction-2/Bolt.astro';
+import CTASection from '../components/direction-2/CTASection.astro';
+
+const services = [
+  { title: 'Residential Electrical', href: '/d2-residential-electrician', img: '/images/ab-electrician-arriving-at-job.webp', desc: 'Safety switches, lighting, rewires and everything in between for homes across the North Shore.' },
+  { title: 'Commercial Electrical', href: '#', img: '/images/ab-electrical-van-sydney.webp', desc: 'Fit-outs, maintenance and compliance for North Shore and Sydney businesses.' },
+  { title: 'Emergency Electrical', href: '#', img: '/images/electrician-van-at-harbour-bridge.webp', desc: '24/7 callouts. Power loss, faults and hazards sorted fast — any time, any day.' },
+  { title: 'Switchboard Upgrades', href: '#', img: '/images/electrician-testing-switchboard.webp', desc: 'Old fuse boards replaced with modern safety switches and RCBOs. Compliant and safe.' },
+  { title: 'Electrical Repairs', href: '#', img: '/images/ab-electrician-securing-equipment.webp', desc: 'Fault finding and repairs for anything electrical in your home or business.' },
+  { title: 'Lighting Installation', href: '#', img: '/images/electrician-loading-tools.webp', desc: 'Downlights, pendants, outdoor lighting and smart lighting solutions installed properly.' },
+  { title: 'Data & Communications', href: '#', img: '/images/ab-electrical-communications-van-rear.webp', desc: 'Network cabling, data points, NBN and comms for home and office.' },
+  { title: 'Strata Maintenance', href: '#', img: '/images/ab-electricians-north-sydney-fleet.webp', desc: 'Ongoing electrical maintenance for strata buildings, common areas and compliance.' },
+  { title: 'Smoke Alarm Compliance', href: '#', img: '/images/electrical-team-with-vans.webp', desc: 'NSW smoke alarm compliance assessments and installations for homes and rentals.' },
+  { title: 'Level 2 ASP Work', href: '#', img: '/images/electrician-van-skyline.webp', desc: 'ASP-certified mains connections, metering and overhead/underground work.' },
+];
+
+const reasons = [
+  { title: 'Insurance and compliance', desc: 'Unlicensed work voids home insurance and can block property sales. Every AB Electrical job is documented and compliant.' },
+  { title: 'One team, consistent quality', desc: 'The same licensed team handles every job. No subcontractors, no variable quality.' },
+  { title: 'NSW compliance built in', desc: 'Every job meets AS/NZS 3000 standards. We issue certificates of compliance for all notifiable work.' },
+  { title: 'Emergency response built in', desc: 'A licensed team that knows your home can respond faster in an emergency. We keep records of every job we\'ve done for you.' },
+];
+
+const steps = [
+  { n: '01', title: 'Call or book online', desc: 'Tell us what you need. We\'ll confirm a time that suits you — no vague windows.' },
+  { n: '02', title: 'Upfront quote', desc: 'Before we lift a tool, we hand you a written fixed price. No surprises on the invoice.' },
+  { n: '03', title: 'We do the work', desc: 'Licensed, insured, on time. We work cleanly and efficiently — and we keep you in the loop.' },
+  { n: '04', title: 'Clean up and sign off', desc: 'We leave your home exactly as we found it, issue any certificates of compliance, and follow up to make sure you\'re happy.' },
+];
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #1a1a2e;
+    --color-brand-secondary: #e8b84b;
+    --color-brand-accent:    #ff6b35;
+    --color-brand-bg:        #0d0d1a;
+    --color-brand-surface:   #1e1e30;
+    --color-brand-text:      #f0f0f5;
+    --color-brand-muted:     #9090a8;
+    --font-heading: 'Exo 2 Variable', system-ui, sans-serif;
+    --font-body:    'DM Sans Variable', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-brand-bg); color: var(--color-brand-text); font-family: var(--font-body); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s cubic-bezier(0.2,0.8,0.2,1), transform 0.6s cubic-bezier(0.2,0.8,0.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+</style>
+
+<Layout title="Electrical Services Sydney — AB Electricians" noindex={true}>
+  <NavInner />
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-brand-bg pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(var(--color-brand-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-secondary) 1px, transparent 1px); background-size: 48px 48px;"></div>
+      <img src="/images/electricians-fleet-by-the-harbour.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-15" />
+      <div class="absolute inset-0" style="background: linear-gradient(to right, var(--color-brand-bg) 40%, transparent 100%);"></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <nav aria-label="Breadcrumb" class="reveal mb-6 font-body text-sm text-brand-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/direction-2-north-shore-bold" class="transition-colors hover:text-brand-secondary">Home</a></li>
+            <li aria-hidden="true" class="text-brand-muted/40">/</li>
+            <li class="text-brand-text">Services</li>
+          </ol>
+        </nav>
+        <p class="reveal mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted" style="transition-delay:80ms;">
+          <span class="inline-block h-px w-10 bg-brand-accent"></span> What we do
+        </p>
+        <h1 class="reveal font-heading text-4xl font-black uppercase leading-[1.0] tracking-[-0.02em] text-brand-text sm:text-5xl lg:text-6xl" style="transition-delay:160ms;">
+          Electrical services <span class="text-brand-secondary">Sydney</span>
+        </h1>
+        <p class="reveal mt-6 max-w-2xl font-body text-lg leading-relaxed text-brand-muted" style="transition-delay:240ms;">
+          Licensed, insured, and backed by 500+ five-star reviews. From a single powerpoint to a full home rewire, we do it right the first time.
+        </p>
+        <div class="reveal mt-8 flex flex-wrap gap-3" style="transition-delay:320ms;">
+          {['24/7 Emergency', 'Upfront Pricing', 'Lifetime Warranty', 'Licensed & Insured'].map((b) => (
+            <span class="inline-flex items-center gap-2 border border-brand-secondary/30 bg-brand-surface/40 px-4 py-2 font-heading text-xs font-bold uppercase tracking-wide text-brand-text">
+              <Bolt class="h-3 w-3 text-brand-accent" /> {b}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES GRID -->
+    <section id="services" class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Full-service electrical
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            Every job, done <span class="text-brand-secondary">properly</span>
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {services.map((s, i) => (
+            <a href={s.href} class="reveal group block overflow-hidden border border-white/8 bg-brand-bg transition-colors hover:border-brand-accent/50" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${(i % 4) * 60}ms`}>
+              <div class="overflow-hidden">
+                <img src={s.img} alt={s.title} class="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading text-base font-black uppercase tracking-[-0.01em] text-brand-text group-hover:text-brand-secondary">{s.title}</h3>
+                <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{s.desc}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY LICENSED -->
+    <section class="relative bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Why it matters
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            Why licensed electrical services <span class="text-brand-secondary">actually matter</span>
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          {reasons.map((r, i) => (
+            <article class="reveal border border-white/8 bg-brand-surface p-6 transition-colors hover:border-brand-accent/50" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${(i % 2) * 80}ms`}>
+              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <Bolt class="h-5 w-5" />
+              </span>
+              <h3 class="font-heading text-lg font-black uppercase tracking-[-0.01em] text-brand-text">{r.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{r.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> How we work
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            Simple, <span class="text-brand-secondary">no-nonsense</span> process
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <div class="reveal relative border border-white/8 bg-brand-bg p-7 transition-colors hover:border-brand-accent/40" style={`clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%); transition-delay:${i * 80}ms`}>
+              <span class="font-heading text-4xl font-black tracking-[-0.03em] text-brand-secondary/30">{s.n}</span>
+              <h3 class="mt-3 font-heading text-lg font-black uppercase tracking-[-0.01em] text-brand-text">{s.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{s.desc}</p>
+              {i < steps.length - 1 && (
+                <span class="absolute -right-3 top-7 hidden text-brand-secondary/30 lg:block" aria-hidden="true" style="font-size:1.5rem;">›</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

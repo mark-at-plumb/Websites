@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-2/NavInner.astro';
+import Footer from '../components/direction-2/Footer.astro';
+import Bolt from '../components/direction-2/Bolt.astro';
+import CTASection from '../components/direction-2/CTASection.astro';
+
+const values = [
+  { title: 'We show up when we say', desc: 'No vague arrival windows. We give you a time and we stick to it. If anything changes, we call ahead — always.' },
+  { title: 'Upfront pricing, no surprises', desc: 'You get a written price before we lift a tool. What we quote is what you pay. No hidden call-out fees, no after-the-fact extras.' },
+  { title: 'Lifetime workmanship warranty', desc: 'Every job we do is backed by our Lifetime Workmanship Warranty. If something we installed fails, we fix it. Full stop.' },
+  { title: 'Licensed and fully insured', desc: 'NSW Fair Trading licensed, Master Electricians member, Level 2 ASP certified. Every job documented and compliant.' },
+  { title: 'We leave your home as we found it', desc: 'Dust sheets down, rubbish out, everything cleaned up before we leave. You shouldn\'t have to clean up after your tradie.' },
+  { title: 'Local to the North Shore', desc: 'Our vans are based on the North Shore. We\'re neighbours, not a call centre — and we genuinely care about the quality of work going into local homes.' },
+];
+
+const team = [
+  { name: 'Adam Bushell', role: 'Founder & Master Electrician', img: '/images/ab-electrical-team-member-portrait.webp' },
+  { name: 'Electrical Team', role: 'Licensed Electricians', img: '/images/electrical-team-with-vans.webp' },
+  { name: 'Our Fleet', role: 'North Shore & Greater Sydney', img: '/images/ab-electricians-north-sydney-fleet.webp' },
+];
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #1a1a2e;
+    --color-brand-secondary: #e8b84b;
+    --color-brand-accent:    #ff6b35;
+    --color-brand-bg:        #0d0d1a;
+    --color-brand-surface:   #1e1e30;
+    --color-brand-text:      #f0f0f5;
+    --color-brand-muted:     #9090a8;
+    --font-heading: 'Exo 2 Variable', system-ui, sans-serif;
+    --font-body:    'DM Sans Variable', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-brand-bg); color: var(--color-brand-text); font-family: var(--font-body); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s cubic-bezier(0.2,0.8,0.2,1), transform 0.6s cubic-bezier(0.2,0.8,0.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+</style>
+
+<Layout title="About AB Electricians — North Shore & Greater Sydney" noindex={true}>
+  <NavInner />
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-brand-bg pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(var(--color-brand-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-secondary) 1px, transparent 1px); background-size: 48px 48px;"></div>
+      <img src="/images/ab-electrical-vans-north-shore.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-15" />
+      <div class="absolute inset-0" style="background: linear-gradient(to right, var(--color-brand-bg) 40%, transparent 100%);"></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <nav aria-label="Breadcrumb" class="reveal mb-6 font-body text-sm text-brand-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/direction-2-north-shore-bold" class="transition-colors hover:text-brand-secondary">Home</a></li>
+            <li aria-hidden="true" class="text-brand-muted/40">/</li>
+            <li class="text-brand-text">About Us</li>
+          </ol>
+        </nav>
+        <p class="reveal mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted" style="transition-delay:80ms;">
+          <span class="inline-block h-px w-10 bg-brand-accent"></span> Our Story
+        </p>
+        <h1 class="reveal font-heading text-4xl font-black uppercase leading-[1.0] tracking-[-0.02em] text-brand-text sm:text-5xl lg:text-6xl" style="transition-delay:160ms;">
+          Built to fix what's <span class="text-brand-secondary">broken</span><br />about the trades
+        </h1>
+        <p class="reveal mt-6 max-w-2xl font-body text-lg leading-relaxed text-brand-muted" style="transition-delay:240ms;">
+          Too many sparkies don't show up, won't give you a price upfront, and leave your place a mess. We built AB Electricians to do the opposite.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="relative bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div class="reveal relative">
+          <div class="relative overflow-hidden border-2 border-brand-secondary/30 shadow-2xl shadow-black/60" style="clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);">
+            <img src="/images/ab-electrical-team-member-portrait.webp" alt="Adam Bushell, licensed electrician and owner of AB Electricians" class="h-full w-full object-cover" />
+          </div>
+          <div class="absolute -bottom-5 -right-3 bg-brand-secondary px-5 py-3 font-heading font-black uppercase text-brand-bg" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);">
+            Adam Bushell
+            <span class="block text-xs font-semibold tracking-wide opacity-80">Founder & Licensed Electrician</span>
+          </div>
+          <span class="absolute -left-4 top-10 h-24 w-1.5 -skew-y-12 bg-brand-accent"></span>
+        </div>
+
+        <div class="reveal" style="transition-delay:120ms;">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Meet the founder
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            A decade on the tools.<br /><span class="text-brand-secondary">A business built on trust.</span>
+          </h2>
+          <p class="mt-6 font-body text-lg leading-relaxed text-brand-muted">
+            I started AB Electricians after spending ten years working for other outfits across the North Shore. The same problems kept coming up — tradies who didn't show, quotes that blew out, homes left in a mess. I knew there was a better way.
+          </p>
+          <p class="mt-4 font-body text-base leading-relaxed text-brand-muted">
+            Every job we take, I put my name behind it. That means turning up when we say, handing you a written price before we start, and leaving your home exactly as we found it. We're locals. You'll see our vans around your street.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            {['On time, every time', 'Written upfront pricing', 'Lifetime workmanship warranty'].map((t) => (
+              <span class="inline-flex items-center gap-2 border border-brand-secondary/25 bg-brand-surface px-4 py-2 font-body text-sm font-medium text-brand-text">
+                <span class="h-1.5 w-1.5 rotate-45 bg-brand-accent"></span>{t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> How we operate
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            The AB standard — <span class="text-brand-secondary">non-negotiable</span>
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {values.map((v, i) => (
+            <article class="reveal border border-white/8 bg-brand-bg p-6 transition-colors hover:border-brand-accent/50" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${i * 60}ms`}>
+              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <Bolt class="h-5 w-5" />
+              </span>
+              <h3 class="font-heading text-lg font-black uppercase tracking-[-0.01em] text-brand-text">{v.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{v.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM / FLEET IMAGES -->
+    <section class="relative bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> The team
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            Licensed electricians, <span class="text-brand-secondary">local faces</span>
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-3">
+          {team.map((t, i) => (
+            <div class="reveal overflow-hidden border border-white/8 shadow-xl shadow-black/40" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${i * 90}ms`}>
+              <div class="overflow-hidden">
+                <img src={t.img} alt={t.name} class="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+              </div>
+              <div class="border-t border-white/8 bg-brand-surface px-5 py-4">
+                <p class="font-heading text-base font-black uppercase text-brand-text">{t.name}</p>
+                <p class="font-body text-sm text-brand-secondary">{t.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

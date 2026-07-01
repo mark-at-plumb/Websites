@@ -1,7 +1,7 @@
 ---
 import Bolt from './Bolt.astro';
 ---
-<section id="top" class="relative min-h-[100svh] overflow-hidden bg-brand-bg pt-28 lg:pt-0">
+<section id="top" class="relative min-h-[100svh] overflow-hidden bg-brand-bg pt-28 lg:pt-24">
   <!-- low-opacity circuit grid -->
   <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(var(--color-brand-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-secondary) 1px, transparent 1px); background-size: 48px 48px;"></div>
 
@@ -31,16 +31,16 @@ import Bolt from './Bolt.astro';
         </a>
       </div>
 
-      <div data-rise class="mt-12 flex flex-wrap gap-x-9 gap-y-4">
-        <div>
+      <div data-rise class="mt-12 flex flex-wrap items-stretch divide-x divide-brand-secondary/20 border border-brand-secondary/25 bg-brand-surface/60 backdrop-blur-sm" style="clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);">
+        <div class="flex flex-col justify-center px-6 py-5">
           <div class="font-heading text-3xl font-black tabular-nums text-brand-secondary" data-count data-target="10" data-suffix="+">0</div>
           <div class="font-body text-xs uppercase tracking-wider text-brand-muted">Years on the tools</div>
         </div>
-        <div>
+        <div class="flex flex-col justify-center px-6 py-5">
           <div class="font-heading text-3xl font-black tabular-nums text-brand-secondary" data-count data-target="500" data-suffix="+">0</div>
           <div class="font-body text-xs uppercase tracking-wider text-brand-muted">5-star reviews</div>
         </div>
-        <div>
+        <div class="flex flex-col justify-center px-6 py-5">
           <div class="font-heading text-3xl font-black tabular-nums text-brand-secondary" data-count data-target="100" data-suffix="%">0</div>
           <div class="font-body text-xs uppercase tracking-wider text-brand-muted">Workmanship warranty</div>
         </div>

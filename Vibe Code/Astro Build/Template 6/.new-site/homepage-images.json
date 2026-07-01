@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "filename": "image-01.png",
+      "astro_path": "/images/redesign/image-01.png",
+      "alt": "",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2025/01/best-plumber-award-20251.png"
+    },
+    {
+      "filename": "image-02.jpg",
+      "astro_path": "/images/redesign/image-02.jpg",
+      "alt": "Excellence in Customer Service(1)",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2025/03/Excellence-in-Customer-Service1-1024x1024.jpg"
+    },
+    {
+      "filename": "image-03.png",
+      "astro_path": "/images/redesign/image-03.png",
+      "alt": "MPA",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2023/04/MPA.png"
+    },
+    {
+      "filename": "image-04.png",
+      "astro_path": "/images/redesign/image-04.png",
+      "alt": "three-best-rated",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2023/04/three-best-rated.png"
+    },
+    {
+      "filename": "image-05.png",
+      "astro_path": "/images/redesign/image-05.png",
+      "alt": "",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2023/04/hilton-van-576.png"
+    },
+    {
+      "filename": "image-06.jpg",
+      "astro_path": "/images/redesign/image-06.jpg",
+      "alt": "Bosch",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2023/04/Bosch-300x86.jpg"
+    },
+    {
+      "filename": "image-07.png",
+      "astro_path": "/images/redesign/image-07.png",
+      "alt": "index",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2023/04/index-300x48.png"
+    },
+    {
+      "filename": "image-08.png",
+      "astro_path": "/images/redesign/image-08.png",
+      "alt": "",
+      "original_url": "https://www.hiltonplumbing.com.au/wp-content/uploads/2023/04/img-cta_compressed.png"
+    }
+  ],
+  "total": 8,
+  "source_url": "https://www.hiltonplumbing.com.au/"
+}

@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-2/NavInner.astro';
+import Footer from '../components/direction-2/Footer.astro';
+import Bolt from '../components/direction-2/Bolt.astro';
+import CTASection from '../components/direction-2/CTASection.astro';
+
+const suburbs = ['Bondi', 'Bondi Junction', 'Double Bay', 'Edgecliff', 'Elizabeth Bay', 'Potts Point', 'Kings Cross', 'Darlinghurst', 'Paddington', 'Woollahra', 'Rose Bay', 'Bellevue Hill', 'Vaucluse', 'Watsons Bay', 'Dover Heights', 'Bronte', 'Coogee', 'Randwick', 'Kensington', 'Maroubra'];
+
+const services = [
+  { title: 'Safety switch installation', desc: 'Mandatory for all NSW homes sold or rented. We install, test and certify RCDs on the day.' },
+  { title: 'Lighting upgrades', desc: 'LED downlights, feature lighting and outdoor security lights — fully installed by a licensed sparky.' },
+  { title: 'Switchboard upgrades', desc: 'Replace old ceramic fuses with modern circuit breakers and safety switches. Compliant and documented.' },
+  { title: 'Emergency electrical', desc: 'Power out, sparks from a powerpoint, switchboard tripped and won\'t reset? We come out fast, any time.' },
+  { title: 'Electrical repairs', desc: 'Fault finding and repairs for anything electrical in your Eastern Suburbs home or business.' },
+  { title: 'Data & communications', desc: 'NBN connections, network cabling, data points and TV antenna work for apartments and houses.' },
+];
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #1a1a2e;
+    --color-brand-secondary: #e8b84b;
+    --color-brand-accent:    #ff6b35;
+    --color-brand-bg:        #0d0d1a;
+    --color-brand-surface:   #1e1e30;
+    --color-brand-text:      #f0f0f5;
+    --color-brand-muted:     #9090a8;
+    --font-heading: 'Exo 2 Variable', system-ui, sans-serif;
+    --font-body:    'DM Sans Variable', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-brand-bg); color: var(--color-brand-text); font-family: var(--font-body); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s cubic-bezier(0.2,0.8,0.2,1), transform 0.6s cubic-bezier(0.2,0.8,0.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+</style>
+
+<Layout title="Electrician Eastern Suburbs Sydney — AB Electricians" noindex={true}>
+  <NavInner />
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-brand-bg pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(var(--color-brand-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-secondary) 1px, transparent 1px); background-size: 48px 48px;"></div>
+      <img src="/images/electrician-van-at-opera-house.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-20" />
+      <div class="absolute inset-0" style="background: linear-gradient(to right, var(--color-brand-bg) 40%, transparent 100%);"></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <nav aria-label="Breadcrumb" class="reveal mb-6 font-body text-sm text-brand-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/direction-2-north-shore-bold" class="transition-colors hover:text-brand-secondary">Home</a></li>
+            <li aria-hidden="true" class="text-brand-muted/40">/</li>
+            <li><a href="/d2-electrical-services" class="transition-colors hover:text-brand-secondary">Services</a></li>
+            <li aria-hidden="true" class="text-brand-muted/40">/</li>
+            <li class="text-brand-text">Eastern Suburbs</li>
+          </ol>
+        </nav>
+        <p class="reveal mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted" style="transition-delay:80ms;">
+          <span class="inline-block h-px w-10 bg-brand-accent"></span> Local electricians
+        </p>
+        <h1 class="reveal font-heading text-4xl font-black uppercase leading-[1.0] tracking-[-0.02em] text-brand-text sm:text-5xl lg:text-6xl" style="transition-delay:160ms;">
+          Electrician <span class="text-brand-secondary">Eastern Suburbs</span>
+        </h1>
+        <p class="reveal mt-6 max-w-2xl font-body text-lg leading-relaxed text-brand-muted" style="transition-delay:240ms;">
+          Licensed electricians serving Bondi, Paddington, Double Bay, Randwick and the wider Eastern Suburbs. On-time, upfront pricing, backed by 500+ five-star reviews.
+        </p>
+        <div class="reveal mt-8 flex flex-wrap gap-3" style="transition-delay:320ms;">
+          {['24/7 Emergency', 'Upfront Pricing', 'Lifetime Warranty', 'Local Electricians'].map((b) => (
+            <span class="inline-flex items-center gap-2 border border-brand-secondary/30 bg-brand-surface/40 px-4 py-2 font-heading text-xs font-bold uppercase tracking-wide text-brand-text">
+              <Bolt class="h-3 w-3 text-brand-accent" /> {b}
+            </span>
+          ))}
+        </div>
+        <div class="reveal mt-9 flex flex-col gap-4 sm:flex-row" style="transition-delay:400ms;">
+          <a href="tel:+61280000000" class="sweep-btn group relative inline-flex items-center justify-center gap-2 overflow-hidden px-7 py-4 font-heading text-base font-bold text-brand-bg" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); background: var(--color-brand-accent);">
+            <span class="relative z-10">Call (02) 8000 0000</span>
+            <Bolt class="relative z-10 h-4 w-4" />
+          </a>
+          <a href="/d2-contact-us" class="inline-flex items-center justify-center gap-2 border border-brand-secondary/40 px-7 py-4 font-heading text-base font-bold text-brand-secondary transition-colors hover:bg-brand-secondary/10" style="clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);">
+            Get a Free Quote
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL INTRO -->
+    <section class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal overflow-hidden border-2 border-brand-secondary/25 shadow-2xl shadow-black/50" style="clip-path: polygon(0 0, 100% 0, 100% 90%, 92% 100%, 0 100%);">
+          <img src="/images/ab-electrical-vans-harbour.webp" alt="AB Electricians vans in Sydney Eastern Suburbs" class="h-80 w-full object-cover" loading="lazy" />
+        </div>
+        <div class="reveal" style="transition-delay:100ms;">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Why AB Electricians
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            We know <span class="text-brand-secondary">Eastern Suburbs</span> homes
+          </h2>
+          <p class="mt-5 font-body text-base leading-relaxed text-brand-muted">
+            From heritage terraces in Paddington to modern apartments in Bondi Junction, the Eastern Suburbs has a mix of old and new wiring. We've worked across it all. We know the tight ceiling spaces, the older switchboards, the high density of apartment strata work.
+          </p>
+          <p class="mt-4 font-body text-base leading-relaxed text-brand-muted">
+            Every job is done by a licensed electrician — not a subcontractor. We give you a written price upfront and leave your home cleaner than we found it.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            {['500+ five-star reviews', 'Lifetime workmanship warranty', 'NSW Fair Trading licensed'].map((t) => (
+              <span class="inline-flex items-center gap-2 border border-brand-secondary/25 bg-brand-bg px-4 py-2 font-body text-sm font-medium text-brand-text">
+                <span class="h-1.5 w-1.5 rotate-45 bg-brand-accent"></span>{t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="relative bg-brand-bg py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Services in Eastern Suburbs
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            Everything electrical, <span class="text-brand-secondary">done right</span>
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <article class="reveal border border-white/8 bg-brand-surface p-6 transition-colors hover:border-brand-accent/50" style={`clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%); transition-delay:${(i % 3) * 70}ms`}>
+              <span class="mb-4 inline-flex h-9 w-9 items-center justify-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <Bolt class="h-5 w-5" />
+              </span>
+              <h3 class="font-heading text-lg font-black uppercase tracking-[-0.01em] text-brand-text">{s.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-brand-muted">{s.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBURBS WE SERVICE -->
+    <section class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div class="reveal relative">
+          <div class="overflow-hidden border-2 border-brand-secondary/25 shadow-2xl shadow-black/50" style="clip-path: polygon(0 0, 100% 0, 100% 90%, 92% 100%, 0 100%);">
+            <img src="/images/Sydney-map.webp" alt="Map of Sydney Eastern Suburbs service area" class="h-full w-full object-cover" loading="lazy" />
+          </div>
+          <span class="absolute -bottom-4 left-6 h-20 w-1.5 bg-brand-accent"></span>
+        </div>
+        <div>
+          <div class="reveal mb-8 max-w-xl" style="transition-delay:100ms;">
+            <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+              <span class="inline-block h-px w-10 bg-brand-accent"></span> Suburbs we service
+            </p>
+            <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+              Eastern Suburbs <span class="text-brand-secondary">coverage</span>
+            </h2>
+            <p class="mt-4 font-body text-base leading-relaxed text-brand-muted">Our vans cover the full Eastern Suburbs. Don't see your suburb? Call us — chances are we're already nearby.</p>
+          </div>
+          <ul class="reveal flex flex-wrap gap-2" style="transition-delay:180ms;">
+            {suburbs.map((s) => (
+              <li class="border border-white/8 bg-brand-bg px-3 py-1.5 font-body text-sm text-brand-text transition-colors hover:border-brand-accent/60 hover:text-brand-secondary">{s}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

@@ -1,0 +1,250 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavInner from '../components/direction-2/NavInner.astro';
+import Footer from '../components/direction-2/Footer.astro';
+import Bolt from '../components/direction-2/Bolt.astro';
+
+const areas = ['North Shore', 'Eastern Suburbs', 'Inner West', 'Northern Beaches', 'Hills District', 'Lower North Shore'];
+---
+
+<style is:global>
+  :root {
+    --color-brand-primary:   #1a1a2e;
+    --color-brand-secondary: #e8b84b;
+    --color-brand-accent:    #ff6b35;
+    --color-brand-bg:        #0d0d1a;
+    --color-brand-surface:   #1e1e30;
+    --color-brand-text:      #f0f0f5;
+    --color-brand-muted:     #9090a8;
+    --font-heading: 'Exo 2 Variable', system-ui, sans-serif;
+    --font-body:    'DM Sans Variable', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-brand-bg); color: var(--color-brand-text); font-family: var(--font-body); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s cubic-bezier(0.2,0.8,0.2,1), transform 0.6s cubic-bezier(0.2,0.8,0.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  .sweep-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px -20%;
+    background: var(--color-brand-secondary);
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sweep-btn:hover::before { transform: translateX(0) skewX(-20deg); }
+
+  .nsb-input {
+    width: 100%;
+    background: var(--color-brand-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--color-brand-text);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+  }
+  .nsb-input:focus { border-color: var(--color-brand-secondary); }
+  .nsb-input::placeholder { color: var(--color-brand-muted); }
+  .nsb-label { display: block; font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-brand-muted); margin-bottom: 0.5rem; }
+</style>
+
+<Layout title="Contact AB Electricians — Sydney's Highest Reviewed Electricians" noindex={true}>
+  <NavInner />
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-brand-bg pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(var(--color-brand-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--color-brand-secondary) 1px, transparent 1px); background-size: 48px 48px;"></div>
+      <img src="/images/ab-electrical-team-sydney-harbour-bridge.webp" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-15" />
+      <div class="absolute inset-0" style="background: linear-gradient(to right, var(--color-brand-bg) 40%, transparent 100%);"></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <nav aria-label="Breadcrumb" class="reveal mb-6 font-body text-sm text-brand-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/direction-2-north-shore-bold" class="transition-colors hover:text-brand-secondary">Home</a></li>
+            <li aria-hidden="true" class="text-brand-muted/40">/</li>
+            <li class="text-brand-text">Contact Us</li>
+          </ol>
+        </nav>
+        <p class="reveal mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted" style="transition-delay:80ms;">
+          <span class="inline-block h-px w-10 bg-brand-accent"></span> Get in touch
+        </p>
+        <h1 class="reveal font-heading text-4xl font-black uppercase leading-[1.0] tracking-[-0.02em] text-brand-text sm:text-5xl lg:text-6xl" style="transition-delay:160ms;">
+          We answer the <span class="text-brand-secondary">phone</span>
+        </h1>
+        <p class="reveal mt-6 max-w-2xl font-body text-lg leading-relaxed text-brand-muted" style="transition-delay:240ms;">
+          Fill in the form and we'll come back to you within the hour — or call us now for emergency callouts and same-day bookings.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="relative bg-brand-surface py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+
+        <!-- LEFT: info panel -->
+        <div class="reveal space-y-8">
+          <div>
+            <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+              <span class="inline-block h-px w-10 bg-brand-accent"></span> Contact details
+            </p>
+            <h2 class="font-heading text-2xl font-black uppercase leading-[1.05] text-brand-text sm:text-3xl">
+              Reach us <span class="text-brand-secondary">directly</span>
+            </h2>
+          </div>
+
+          <div class="space-y-5">
+            <a href="tel:+61280000000" class="flex items-center gap-4 border border-white/8 bg-brand-bg p-5 transition-colors hover:border-brand-accent/50" style="clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);">
+              <span class="grid h-11 w-11 shrink-0 place-items-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-brand-muted">Phone</p>
+                <p class="font-heading text-lg font-black text-brand-secondary">(02) 8000 0000</p>
+              </div>
+            </a>
+
+            <a href="mailto:info@abelectricians.com.au" class="flex items-center gap-4 border border-white/8 bg-brand-bg p-5 transition-colors hover:border-brand-accent/50" style="clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);">
+              <span class="grid h-11 w-11 shrink-0 place-items-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-brand-muted">Email</p>
+                <p class="font-heading text-base font-black text-brand-secondary">info@abelectricians.com.au</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 border border-white/8 bg-brand-bg p-5" style="clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);">
+              <span class="grid h-11 w-11 shrink-0 place-items-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg>
+              </span>
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-brand-muted">Service area</p>
+                <p class="font-heading text-base font-black text-brand-text">North Shore & Greater Sydney</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 border border-white/8 bg-brand-bg p-5" style="clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);">
+              <span class="grid h-11 w-11 shrink-0 place-items-center bg-brand-accent/15 text-brand-accent" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);">
+                <Bolt class="h-5 w-5" />
+              </span>
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-brand-muted">Emergency callouts</p>
+                <p class="font-heading text-base font-black text-brand-secondary">24/7 — we answer the phone</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="mb-3 font-heading text-xs font-bold uppercase tracking-widest text-brand-muted">Areas we cover</p>
+            <div class="flex flex-wrap gap-2">
+              {areas.map((a) => (
+                <span class="border border-white/10 bg-brand-bg px-3 py-1.5 font-body text-sm text-brand-muted">{a}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: form -->
+        <div class="reveal" style="transition-delay:120ms;">
+          <div class="border border-white/8 bg-brand-bg p-7 sm:p-10" style="clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);">
+            <p class="mb-6 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+              <span class="inline-block h-px w-10 bg-brand-accent"></span> Free quote
+            </p>
+            <h2 class="mb-8 font-heading text-2xl font-black uppercase leading-[1.05] text-brand-text">
+              Tell us what you <span class="text-brand-secondary">need</span>
+            </h2>
+            <form class="space-y-5" action="#" method="POST" novalidate>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label class="nsb-label" for="name">Your name</label>
+                  <input id="name" type="text" name="name" autocomplete="name" placeholder="Jane Smith" class="nsb-input" required />
+                </div>
+                <div>
+                  <label class="nsb-label" for="phone">Phone number</label>
+                  <input id="phone" type="tel" name="phone" autocomplete="tel" placeholder="04XX XXX XXX" class="nsb-input" required />
+                </div>
+              </div>
+              <div>
+                <label class="nsb-label" for="email">Email address</label>
+                <input id="email" type="email" name="email" autocomplete="email" placeholder="jane@email.com" class="nsb-input" />
+              </div>
+              <div>
+                <label class="nsb-label" for="suburb">Your suburb</label>
+                <input id="suburb" type="text" name="suburb" placeholder="e.g. Mosman, Chatswood, Neutral Bay" class="nsb-input" />
+              </div>
+              <div>
+                <label class="nsb-label" for="service">Service needed</label>
+                <select id="service" name="service" class="nsb-input" style="appearance: none;">
+                  <option value="">Select a service</option>
+                  <option>Residential electrical</option>
+                  <option>Commercial electrical</option>
+                  <option>Emergency callout</option>
+                  <option>Switchboard upgrade</option>
+                  <option>Lighting installation</option>
+                  <option>Safety switch / RCD</option>
+                  <option>Data & communications</option>
+                  <option>Level 2 ASP work</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="nsb-label" for="message">Tell us more</label>
+                <textarea id="message" name="message" rows="4" placeholder="Describe the job, any urgency, and the best time to reach you." class="nsb-input" style="resize: vertical;"></textarea>
+              </div>
+              <button type="submit" class="sweep-btn group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden px-7 py-4 font-heading text-base font-bold text-brand-bg" style="clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%); background: var(--color-brand-accent);">
+                <span class="relative z-10">Send Enquiry</span>
+                <Bolt class="relative z-10 h-4 w-4" />
+              </button>
+              <p class="font-body text-xs text-brand-muted">We respond within the hour during business hours. For emergencies, call us directly.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="relative overflow-hidden bg-brand-primary py-20 sm:py-28">
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal overflow-hidden border-2 border-brand-secondary/25 shadow-2xl shadow-black/50" style="clip-path: polygon(0 0, 100% 0, 100% 90%, 92% 100%, 0 100%);">
+          <img src="/images/Sydney-map.webp" alt="Map showing AB Electricians service area across Sydney" class="h-[24rem] w-full object-cover" loading="lazy" />
+        </div>
+        <div class="reveal" style="transition-delay:100ms;">
+          <p class="mb-4 flex items-center gap-3 font-body text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+            <span class="inline-block h-px w-10 bg-brand-accent"></span> Service area
+          </p>
+          <h2 class="font-heading text-3xl font-black uppercase leading-[1.02] tracking-[-0.01em] text-brand-text sm:text-4xl">
+            We cover <span class="text-brand-secondary">Greater Sydney</span>
+          </h2>
+          <p class="mt-4 max-w-lg font-body text-base leading-relaxed text-brand-muted">
+            From the harbour to the hills, our licensed team is never far away. Based on the North Shore with fast response across Greater Sydney.
+          </p>
+          <ul class="mt-7 grid gap-3 sm:grid-cols-2">
+            {areas.map((a) => (
+              <li class="flex items-center gap-3 border border-white/8 bg-brand-surface px-4 py-3 font-heading text-sm font-bold text-brand-text">
+                <Bolt class="h-4 w-4 text-brand-accent" /> {a}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

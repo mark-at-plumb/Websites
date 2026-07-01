@@ -1,0 +1,243 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { usps, services, emergencyPoints, process, comparison, credentials, faqs, adjoiningSuburbs, phone, phoneHref, email } from '../data/content';
+---
+
+<Layout title="Direction 1 — Classic Trust | Plumber [Suburb]">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-brand-primary text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-block rounded-[0_0_10px_0] bg-brand-accent px-3 py-1 text-xs font-bold uppercase tracking-wide mb-5">
+            24/7 Emergency Response
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] mb-6">
+            24/7 Emergency Plumber in [Suburb]
+          </h1>
+          <p class="text-lg text-white/85 leading-relaxed mb-8 max-w-xl">
+            Plumber [Suburb] is your local 24/7 plumber for [Suburb] and the surrounding suburbs,
+            backed by our Lifetime Labour Warranty and Fixed Upfront Pricing on every job.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="inline-flex items-center justify-center rounded-[0_0_10px_0] bg-brand-accent px-7 py-3.5 text-sm font-bold hover:bg-orange-700 transition-colors">
+              Book Now
+            </a>
+            <a href={phoneHref} class="inline-flex items-center justify-center rounded-[0_0_10px_0] border border-white/30 px-7 py-3.5 text-sm font-bold hover:bg-white/10 transition-colors">
+              Call {phone}
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <img src="/images/stock/pexels-6419128.jpg" alt="Licensed plumber fixing a pipe under a sink" class="w-full h-80 lg:h-[26rem] object-cover rounded-[0_0_10px_0]" />
+        </div>
+      </div>
+    </section>
+
+    <!-- USP hero strip -->
+    <section class="bg-brand-surface">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {usps.map((u) => (
+          <div class="bg-white rounded-[0_0_10px_0] p-6 shadow-sm">
+            <Icon name={u.icon} class="w-7 h-7 text-brand-accent mb-3" />
+            <h3 class="text-base font-bold text-brand-primary mb-2">{u.title}</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">{u.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-brand-primary mb-4">[Suburb]'s Trusted Local Plumbers</h2>
+        <p class="text-brand-text leading-relaxed">
+          We're a family-owned plumbing business serving [Suburb] homes, backed by a decade of
+          hands-on work across Adelaide and Lic. #333997 with Master Plumber South Australia. Every
+          job is completed by our licensed local team, fully insured and quoted upfront, with the
+          same standards across 500+ 5-star reviews from Adelaide homeowners.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        {credentials.slice(0, 4).map((c) => (
+          <div class="bg-brand-surface rounded-[0_0_10px_0] p-5">
+            <span class="block text-sm font-semibold text-brand-primary leading-snug">{c}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="bg-brand-surface">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div class="max-w-2xl mb-10">
+          <h2 class="text-3xl font-bold text-brand-primary mb-4">Our Plumbing Services in [Suburb]</h2>
+          <p class="text-brand-text leading-relaxed">
+            One licensed team behind every job, backed by Fixed Upfront Pricing and our Lifetime
+            Labour Warranty. Here's the full range of plumbing work we cover for [Suburb] homes.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s) => (
+            <div class="bg-white rounded-[0_0_10px_0] p-6">
+              <Icon name={s.icon} class="w-6 h-6 text-brand-accent mb-3" />
+              <h3 class="text-base font-bold text-brand-primary mb-2">{s.name}</h3>
+              <p class="text-sm text-brand-muted leading-relaxed">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency -->
+    <section id="emergency" class="bg-brand-secondary text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold mb-4">When Emergency Plumbing Strikes in [Suburb], We Respond Fast</h2>
+          <p class="text-white/75 leading-relaxed mb-6">
+            Where availability allows, we aim to be at your door within the hour, 24/7, including
+            weekends and public holidays. While you wait, turn off the mains and, if you smell gas,
+            open windows and leave the house.
+          </p>
+          <a href={phoneHref} class="inline-flex items-center justify-center rounded-[0_0_10px_0] bg-brand-accent px-7 py-3.5 text-sm font-bold hover:bg-orange-700 transition-colors">
+            Call Now: {phone}
+          </a>
+        </div>
+        <ul class="space-y-3">
+          {emergencyPoints.map((p) => (
+            <li class="flex items-start gap-3 bg-white/5 rounded-[0_0_10px_0] px-4 py-3">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-accent"></span>
+              <span class="text-sm text-white/90">{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <h2 class="text-3xl font-bold text-brand-primary mb-10 text-center">How We Work in [Suburb]</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {process.map((p) => (
+          <div>
+            <span class="text-sm font-bold text-brand-accent">{p.step}</span>
+            <h3 class="text-base font-bold text-brand-primary mt-1 mb-2">{p.title}</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="bg-brand-surface">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div class="max-w-2xl mb-10">
+          <h2 class="text-3xl font-bold text-brand-primary mb-4">How We Compare to Other Plumbers in [Suburb]</h2>
+          <p class="text-brand-text leading-relaxed">
+            Choosing a plumber matters. Here's how our service compares to what you'll typically
+            find from other plumbers across [Suburb] and the wider Adelaide area.
+          </p>
+        </div>
+        <div class="overflow-x-auto bg-white rounded-[0_0_10px_0]">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-brand-surface text-left">
+                <th class="px-5 py-4 font-bold text-brand-primary">Feature</th>
+                <th class="px-5 py-4 font-bold text-brand-primary">Plumber [Suburb]</th>
+                <th class="px-5 py-4 font-bold text-brand-muted">Typical Plumbers</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparison.map((row) => (
+                <tr class="border-b border-brand-surface last:border-0">
+                  <td class="px-5 py-4 font-semibold text-brand-text">{row.feature}</td>
+                  <td class="px-5 py-4 text-brand-primary font-semibold">{row.us}</td>
+                  <td class="px-5 py-4 text-brand-muted">{row.them}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credentials -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div class="max-w-2xl mb-8">
+        <h2 class="text-3xl font-bold text-brand-primary mb-3">Our Credentials and Standards</h2>
+        <p class="text-brand-text">Every job is backed by real, verified credentials, not just a promise.</p>
+      </div>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
+        {credentials.map((c) => (
+          <li class="flex items-start gap-3">
+            <Icon name="check" class="w-4 h-4 mt-1 text-brand-accent shrink-0" />
+            <span class="text-sm text-brand-text">{c}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Service areas -->
+    <section class="bg-brand-surface">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <h2 class="text-3xl font-bold text-brand-primary mb-4">Servicing [Suburb] and Surrounding Areas</h2>
+        <p class="text-brand-text leading-relaxed max-w-2xl mb-6">
+          We're based locally and service [Suburb] plus the neighbouring suburbs as part of our
+          greater Adelaide coverage area.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          {adjoiningSuburbs.map((s) => (
+            <span class="rounded-[0_0_10px_0] bg-white px-4 py-2 text-sm font-semibold text-brand-primary">{s}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="contact" class="relative overflow-hidden bg-brand-primary text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Need a Plumber in [Suburb]? Call Plumber [Suburb] Today</h2>
+          <p class="text-white/85 leading-relaxed mb-8 max-w-md">
+            Call {phone} any time, day or night. New customers get $50 off their first
+            service, backed by our Lifetime Labour Warranty on every job.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href={phoneHref} class="inline-flex items-center justify-center rounded-[0_0_10px_0] bg-brand-accent px-7 py-3.5 text-sm font-bold hover:bg-orange-700 transition-colors">
+              Call {phone}
+            </a>
+            <a href={`mailto:${email}`} class="inline-flex items-center justify-center rounded-[0_0_10px_0] border border-white/30 px-7 py-3.5 text-sm font-bold hover:bg-white/10 transition-colors">
+              Email Us
+            </a>
+          </div>
+        </div>
+        <img src="/images/stock/pexels-8486978.jpg" alt="Plumber [Suburb] technician ready for a job" class="w-full h-80 lg:h-[26rem] object-cover rounded-[0_0_10px_0]" />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div class="max-w-2xl mb-10">
+        <h2 class="text-3xl font-bold text-brand-primary mb-4">Plumber FAQs</h2>
+        <p class="text-brand-text leading-relaxed">
+          The questions we hear most often from [Suburb] homeowners, answered straight.
+        </p>
+      </div>
+      <div class="space-y-6 max-w-3xl">
+        {faqs.map((f) => (
+          <div class="border-b border-brand-surface pb-6">
+            <h3 class="text-base font-bold text-brand-primary mb-2">{f.q}</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
