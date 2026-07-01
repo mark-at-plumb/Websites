@@ -1,0 +1,29 @@
+---
+import Drip from './Drip.astro';
+
+const steps = [
+  { n: '01', title: 'Give us a call', img: '/images/Process-Step-1.webp', desc: 'Tell us what is going on. We listen, give honest advice and lock in a time that suits you.' },
+  { n: '02', title: 'We arrive on time', img: '/images/Process-Step-2.webp', desc: 'Same-day service where possible. We turn up when we say, quote upfront, then get to work.' },
+  { n: '03', title: 'Sorted, guaranteed', img: '/images/Process-Step-3.webp', desc: 'The job is done right, the site left tidy, and backed by our 100% satisfaction guarantee.' },
+];
+---
+<section class="bg-brand-surface">
+  <div class="mx-auto max-w-7xl px-5 py-16 md:px-6 md:py-20">
+    <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+      <Drip label="How It Works" align="center" />
+      <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Three steps to sorted</h2>
+    </div>
+    <div class="relative grid gap-8 md:grid-cols-3">
+      {steps.map((s) => (
+        <div class="reveal relative text-center">
+          <div class="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-brand-bg p-3 shadow-[0_18px_45px_-24px_rgba(11,40,71,0.45)]">
+            <img src={s.img} alt={s.title} loading="lazy" class="h-full w-full object-contain" />
+          </div>
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 grid size-11 place-items-center rounded-full bg-brand-primary font-heading text-sm font-extrabold text-white shadow-lg ring-4 ring-brand-surface">{s.n}</span>
+          <h3 class="mt-5 font-heading text-lg font-bold text-brand-secondary">{s.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-brand-muted">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

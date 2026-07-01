@@ -1,0 +1,25 @@
+---
+// Plumb-bob mark — recurring visual motif.
+// A thin vertical level line ending in a small diamond (a plumb bob),
+// reading as precision, straight lines, and work done level.
+interface Props {
+  size?: number;
+  class?: string;
+  color?: string;
+}
+const { size = 20, class: cls = '', color = 'var(--color-brand-accent)' } = Astro.props;
+const h = size;
+const w = Math.round(size * 0.6);
+---
+<svg
+  width={w}
+  height={h}
+  viewBox="0 0 12 20"
+  fill="none"
+  class={cls}
+  aria-hidden="true"
+  style={`--mark:${color}`}
+>
+  <line x1="6" y1="0" x2="6" y2="12" stroke="var(--mark)" stroke-width="1.25" />
+  <rect x="6" y="11.5" width="4.6" height="4.6" transform="rotate(45 6 11.5)" stroke="var(--mark)" stroke-width="1.25" fill="none" />
+</svg>

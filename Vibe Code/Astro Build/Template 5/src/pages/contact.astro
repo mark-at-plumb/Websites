@@ -1,0 +1,182 @@
+---
+import Direction1Layout from '../layouts/Direction1Layout.astro';
+import Drip from '../components/direction-1/Drip.astro';
+import CouponStrip from '../components/direction-1/CouponStrip.astro';
+import ProcessSection from '../components/direction-1/ProcessSection.astro';
+import { PHONE, PHONE_HREF, LICENCE, ABN } from '../data/site';
+---
+<Direction1Layout title="Contact — Aptec Plumbing" description="Get in touch with Aptec Plumbing — call, message or request a free quote. Servicing Happy Valley & southern Adelaide, 24/7.">
+  <div id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="relative overflow-hidden bg-brand-secondary">
+      <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(135deg, #0B2847 0%, #0d3260 40%, #156ECE 100%); opacity: 0.95;"></div>
+      <div class="pointer-events-none absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
+        <div class="hero-stagger">
+          <div class="inline-flex items-center gap-2 rounded-lg border border-brand-accent/40 bg-brand-accent/20 px-3.5 py-1.5 text-xs font-bold text-brand-accent">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.8l1.2-6.6L2.5 9l6.6-.9L12 2Z"/></svg>
+            5.0 Rating · We Reply Fast
+          </div>
+
+          <h1 class="mt-5 font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Need a plumber?
+            <span class="relative inline-block text-brand-accent">
+              Let's talk.
+              <svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M2 5c40-5 60 3 100-1s56-4 96 1" stroke="#FF7A1B" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+            Tell us about your job and we'll get back to you fast — usually within the hour during business hours. For anything urgent, just call us directly.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={PHONE_HREF} class="group inline-flex items-center justify-center gap-2.5 skew-btn rounded-lg bg-brand-accent px-7 py-3.5 text-base font-bold text-white shadow-[0_14px_34px_-12px_rgba(255,122,27,0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-accent/90">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.6c.6 0 1.1.4 1.3 1l1 3a1.4 1.4 0 0 1-.4 1.5L8.3 9.6a13 13 0 0 0 6.1 6.1l1.1-1.7c.3-.5.9-.7 1.5-.5l3 1c.6.2 1 .7 1 1.3v1.6c0 1.4-1.1 2.5-2.5 2.5C10.5 21 3 13.5 3 5.5Z"/></svg>
+              Call {PHONE}
+            </a>
+            <a href="#quote-form" class="skew-border-btn inline-flex items-center justify-center border-2 border-white/25 bg-white/10 px-7 py-3.5 text-base font-bold text-white backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/20">
+              <span class="btn-inner">Get a Free Quote</span>
+            </a>
+          </div>
+
+          <div class="mt-10 grid grid-cols-1 gap-3 border-t border-white/15 pt-8 sm:grid-cols-3">
+            <div class="flex items-center gap-3.5 rounded-lg bg-white/8 p-4 backdrop-blur">
+              <span class="grid size-11 shrink-0 place-items-center skew-btn rounded-lg bg-brand-accent/20 text-brand-accent">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+              <div>
+                <p class="font-heading text-sm font-extrabold text-white">$0 Call Out Fee</p>
+                <p class="text-xs text-white/60">Clear. Fair. Simple.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3.5 rounded-lg bg-white/8 p-4 backdrop-blur">
+              <span class="stat-icon stat-icon-clock grid size-11 shrink-0 place-items-center skew-btn rounded-lg bg-brand-primary/30 text-white">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path class="stat-icon-hand" d="M12 7v5l3.5 2"/></svg>
+              </span>
+              <div>
+                <p class="font-heading text-sm font-extrabold text-white">Same-Day Service</p>
+                <p class="text-xs text-white/60">Fast. Reliable. Today.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3.5 rounded-lg bg-white/8 p-4 backdrop-blur">
+              <span class="grid size-11 shrink-0 place-items-center rounded-lg bg-green-400/20 text-green-400">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 8.7-7 10C8.5 20.7 5 17 5 12V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <div>
+                <p class="font-heading text-sm font-extrabold text-white">Labour Warranty</p>
+                <p class="text-xs text-white/60">T&amp;C may apply.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-img relative">
+          <div class="skew-img overflow-hidden shadow-[0_30px_70px_-25px_rgba(0,0,0,0.5)]">
+            <img src="/images/Aptec-Hero-Section.webp" alt="Aptec Plumbing team — contact us" class="aspect-[4/5] w-full object-cover sm:aspect-[5/5]" width="640" height="800" />
+          </div>
+          <div class="absolute -left-3 bottom-6 flex items-center gap-3 rounded-xl bg-brand-bg p-3.5 pr-5 shadow-[0_20px_45px_-18px_rgba(0,0,0,0.5)] ring-1 ring-white/10 sm:-left-6">
+            <span class="grid size-11 place-items-center skew-btn rounded-lg bg-brand-accent text-white">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>
+            </span>
+            <div>
+              <p class="font-heading text-sm font-extrabold leading-tight text-brand-secondary">We reply within 1 hour</p>
+              <p class="text-xs text-brand-muted">During business hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT OPTIONS + FORM ============ -->
+    <section class="bg-brand-bg">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:px-6 md:py-16 lg:grid-cols-[0.8fr_1.2fr]">
+
+        <!-- contact options -->
+        <div class="reveal space-y-4">
+          <a href={PHONE_HREF} class="flex items-center gap-4 rounded-2xl border border-brand-secondary/8 bg-brand-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary/30">
+            <span class="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-primary/10 text-brand-primary">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.6c.6 0 1.1.4 1.3 1l1 3a1.4 1.4 0 0 1-.4 1.5L8.3 9.6a13 13 0 0 0 6.1 6.1l1.1-1.7c.3-.5.9-.7 1.5-.5l3 1c.6.2 1 .7 1 1.3v1.6c0 1.4-1.1 2.5-2.5 2.5C10.5 21 3 13.5 3 5.5Z"/></svg>
+            </span>
+            <div>
+              <p class="font-heading text-base font-bold text-brand-secondary">Call us now</p>
+              <p class="text-sm text-brand-muted">{PHONE} — 24/7 emergency line</p>
+            </div>
+          </a>
+          <a href="https://wa.me/61880005050" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 rounded-2xl border border-brand-secondary/8 bg-brand-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary/30">
+            <span class="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-accent/10 text-brand-accent">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a14.6 14.6 0 0 1-5.3-3.2A12 12 0 0 1 6 10.3c-.1-.8.5-1.6 1-2 .3-.3.7-.4 1-.4h.7c.2 0 .5 0 .7.5l1 2.4c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .6.5.8 1.1 1.5 1.8 2 .3.3.6.4.9.2l.6-.6c.2-.2.4-.2.6-.1l2.3 1.1c.3.1.5.2.6.4.1.2.1.7-.1 1.4Z"/></svg>
+            </span>
+            <div>
+              <p class="font-heading text-base font-bold text-brand-secondary">WhatsApp us</p>
+              <p class="text-sm text-brand-muted">Quick questions, quotes &amp; photos</p>
+            </div>
+          </a>
+          <div class="rounded-2xl border border-brand-secondary/8 bg-brand-surface p-5">
+            <p class="font-heading text-base font-bold text-brand-secondary">Follow us</p>
+            <div class="mt-3 flex gap-3">
+              <a href="#" aria-label="Facebook" class="grid size-10 place-items-center rounded-full bg-brand-bg text-brand-secondary transition-colors hover:bg-brand-primary hover:text-white"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 22v-9h3l.5-4H13V6.5c0-1.2.3-2 2-2h2V1.1A28 28 0 0 0 13.8 1C11 1 9 2.7 9 5.8V9H6v4h3v9h4Z"/></svg></a>
+              <a href="#" aria-label="Instagram" class="grid size-10 place-items-center rounded-full bg-brand-bg text-brand-secondary transition-colors hover:bg-brand-primary hover:text-white"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+              <a href={PHONE_HREF} aria-label="Phone" class="grid size-10 place-items-center rounded-full bg-brand-bg text-brand-secondary transition-colors hover:bg-brand-primary hover:text-white"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.6c.6 0 1.1.4 1.3 1l1 3a1.4 1.4 0 0 1-.4 1.5L8.3 9.6a13 13 0 0 0 6.1 6.1l1.1-1.7c.3-.5.9-.7 1.5-.5l3 1c.6.2 1 .7 1 1.3v1.6c0 1.4-1.1 2.5-2.5 2.5C10.5 21 3 13.5 3 5.5Z"/></svg></a>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-brand-secondary p-5 text-white/80">
+            <p class="font-heading text-sm font-bold uppercase tracking-wider text-white">Business Details</p>
+            <p class="mt-3 text-sm">{LICENCE}</p>
+            <p class="text-sm">{ABN}</p>
+            <p class="mt-3 text-sm">Servicing Happy Valley &amp; southern Adelaide, 24/7.</p>
+          </div>
+        </div>
+
+        <!-- contact form -->
+        <form id="quote-form" class="reveal rounded-2xl border border-brand-secondary/8 bg-brand-surface p-6 shadow-[0_20px_50px_-30px_rgba(11,40,71,0.3)] md:p-8">
+          <Drip label="Get In Touch" />
+          <h2 class="mt-3 font-heading text-2xl font-extrabold tracking-tight text-brand-secondary">Get your free quote</h2>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-sm font-semibold text-brand-secondary" for="c-name">Name</label>
+              <input id="c-name" name="name" type="text" required class="mt-1.5 w-full rounded-lg border border-brand-secondary/15 bg-brand-bg px-4 py-2.5 text-sm text-brand-text focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20" />
+            </div>
+            <div>
+              <label class="text-sm font-semibold text-brand-secondary" for="c-phone">Phone</label>
+              <input id="c-phone" name="phone" type="tel" required class="mt-1.5 w-full rounded-lg border border-brand-secondary/15 bg-brand-bg px-4 py-2.5 text-sm text-brand-text focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="text-sm font-semibold text-brand-secondary" for="c-email">Email</label>
+              <input id="c-email" name="email" type="email" required class="mt-1.5 w-full rounded-lg border border-brand-secondary/15 bg-brand-bg px-4 py-2.5 text-sm text-brand-text focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20" />
+            </div>
+            <div>
+              <label class="text-sm font-semibold text-brand-secondary" for="c-suburb">Suburb</label>
+              <input id="c-suburb" name="suburb" type="text" required class="mt-1.5 w-full rounded-lg border border-brand-secondary/15 bg-brand-bg px-4 py-2.5 text-sm text-brand-text focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20" />
+            </div>
+            <div>
+              <label class="text-sm font-semibold text-brand-secondary" for="c-service">Service Needed</label>
+              <select id="c-service" name="service" class="mt-1.5 w-full rounded-lg border border-brand-secondary/15 bg-brand-bg px-4 py-2.5 text-sm text-brand-text focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20">
+                <option>Blocked Drains</option>
+                <option>Hot Water Systems</option>
+                <option>Leaking Taps</option>
+                <option>Burst Pipes</option>
+                <option>Toilet Plumbing</option>
+                <option>Gas Fitting</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="text-sm font-semibold text-brand-secondary" for="c-message">Tell us about the job</label>
+              <textarea id="c-message" name="message" rows="4" required class="mt-1.5 w-full rounded-lg border border-brand-secondary/15 bg-brand-bg px-4 py-2.5 text-sm text-brand-text focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 skew-btn rounded-lg bg-brand-accent px-7 py-3.5 text-base font-bold text-white shadow-[0_14px_34px_-12px_rgba(255,122,27,0.6)] transition-all duration-200 hover:-translate-y-0.5">
+            Get My Free Quote
+          </button>
+          <p class="mt-4 text-center text-xs text-brand-muted">$0 call-out fee applies to calls made during standard business hours.</p>
+        </form>
+      </div>
+    </section>
+
+  </div>
+</Direction1Layout>

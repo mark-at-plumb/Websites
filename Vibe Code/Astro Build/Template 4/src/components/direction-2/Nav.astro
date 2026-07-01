@@ -1,0 +1,100 @@
+---
+import PingRing from './PingRing.astro';
+interface Props { phone: string; phoneHref: string; }
+const { phone, phoneHref } = Astro.props;
+---
+<header id="d2-nav" class="d2-nav">
+  <div class="mx-auto max-w-6xl px-5 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 font-heading font-bold text-brand-secondary">
+      <PingRing size={16} color="var(--color-brand-primary)" />
+      <span class="d2-nav__name tracking-tight">Plumber Happy Valley</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-brand-secondary">
+      <a href="#services" class="d2-nav__link">Services</a>
+      <a href="#why-choose" class="d2-nav__link">Why us</a>
+      <a href="#areas" class="d2-nav__link">Areas</a>
+      <a href="#faq" class="d2-nav__link">FAQs</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href={phoneHref} class="hidden sm:inline-flex items-center gap-2 font-heading font-bold text-brand-secondary text-sm">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-primary/10 text-brand-primary px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.14em]">
+          <PingRing size={9} />24/7
+        </span>
+        {phone}
+      </a>
+      <a href={phoneHref} class="d2-pill d2-pill--accent text-sm">Call now</a>
+      <button id="d2-burger" class="md:hidden grid place-items-center w-10 h-10 rounded-full border border-brand-secondary/15 text-brand-secondary" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile sheet -->
+  <div id="d2-mobile" class="d2-mobile md:hidden">
+    <nav class="flex flex-col gap-1 px-5 py-4">
+      <a href="#services" class="d2-mobile__link">Services</a>
+      <a href="#why-choose" class="d2-mobile__link">Why us</a>
+      <a href="#areas" class="d2-mobile__link">Service areas</a>
+      <a href="#faq" class="d2-mobile__link">FAQs</a>
+      <a href={phoneHref} class="d2-pill d2-pill--accent mt-2 justify-center">Call {phone}</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  @reference "../../styles/global.css";
+  .d2-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--color-brand-bg) 82%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-secondary) 8%, transparent);
+    padding-block: 1.1rem;
+    transition: padding-block .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, background .35s ease;
+  }
+  .d2-nav.is-shrunk {
+    padding-block: 0.55rem;
+    background: color-mix(in srgb, var(--color-brand-bg) 94%, transparent);
+    box-shadow: 0 10px 30px -18px rgba(16,42,67,.45);
+  }
+  .d2-nav__name { font-size: 1.05rem; }
+  .d2-nav__link { position: relative; transition: color .2s ease; }
+  .d2-nav__link::after {
+    content: ''; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+    background: var(--color-brand-accent); transition: width .3s cubic-bezier(.22,1,.36,1);
+  }
+  .d2-nav__link:hover { color: var(--color-brand-primary); }
+  .d2-nav__link:hover::after { width: 100%; }
+
+  .d2-mobile {
+    overflow: hidden; max-height: 0;
+    border-top: 1px solid transparent;
+    transition: max-height .4s cubic-bezier(.22,1,.36,1);
+    background: var(--color-brand-bg);
+  }
+  .d2-mobile.is-open { max-height: 380px; border-top-color: color-mix(in srgb, var(--color-brand-secondary) 8%, transparent); }
+  .d2-mobile__link {
+    @apply font-heading font-semibold text-brand-secondary py-2.5 border-b border-brand-secondary/5;
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('d2-nav');
+  const onScroll = () => nav?.classList.toggle('is-shrunk', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const burger = document.getElementById('d2-burger');
+  const sheet = document.getElementById('d2-mobile');
+  burger?.addEventListener('click', () => {
+    const open = sheet?.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(!!open));
+  });
+  sheet?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      sheet.classList.remove('is-open');
+      burger?.setAttribute('aria-expanded', 'false');
+    })
+  );
+</script>

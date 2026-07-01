@@ -1,0 +1,832 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-2/Nav.astro';
+import PingRing from '../components/direction-2/PingRing.astro';
+
+const phone = '(08) 8000 5050'; // PLACEHOLDER — replace with the real Plumber Happy Valley tracking number
+const phoneHref = 'tel:0880005050';
+
+const usps = [
+  { title: '24/7 Emergency Service', desc: 'We answer day and night, weekends included, whenever Happy Valley needs us.' },
+  { title: 'Lifetime Labour Warranty', desc: 'If our workmanship ever fails, we come back and fix it free.' },
+  { title: 'Fixed Upfront Pricing', desc: 'You get a fixed price before we start, never a surprise bill.' },
+  { title: 'Local, Family-Owned', desc: 'A family-run Adelaide team, not a call centre, not a franchise.' },
+];
+
+const services = [
+  { name: 'General Plumbing', slug: 'general-plumbing', desc: 'Leaking taps, running toilets, and everyday plumbing repairs around your Happy Valley home, handled properly the first time with a fixed price before we start.' },
+  { name: 'Emergency Plumbing', slug: 'emergency-plumbing', desc: "Burst pipes and major leaks don't wait for business hours, so neither do we. Call any time and we'll get to your Happy Valley home fast." },
+  { name: 'Blocked Drains', slug: 'blocked-drains', desc: 'Older homes nearby often have tree root intrusion in the pipes. We clear blocked drains with CCTV cameras and high-pressure hydrojetting to fix the real cause.' },
+  { name: 'Hot Water', slug: 'hot-water', desc: 'No hot water on a cold morning is no fun. We repair and replace gas, electric, and solar hot water systems across Happy Valley quickly.' },
+  { name: 'Gas Fitting', slug: 'gas-fitting', desc: 'Licensed gas fitting for appliance installs, leak detection, and cooktop connections, carried out to AS/NZS 3500 standards with safety checked every time.' },
+  { name: 'Pipe Relining', slug: 'pipe-relining', desc: 'Pipe relining repairs damaged pipes without digging up your yard, a faster and tidier fix than full replacement for most Happy Valley properties.' },
+  { name: 'Leak Detection', slug: 'leak-detection', desc: 'Hidden leaks waste water and damage your home quietly. Our team finds the source fast and fixes it before it becomes a bigger problem.' },
+  { name: 'Taps & Toilets', slug: 'taps-toilets', desc: 'Dripping taps, faulty cisterns, and toilet repairs are some of the most common calls we get from Happy Valley homeowners every single week.' },
+  { name: 'Burst Pipes', slug: 'burst-pipes', desc: 'A burst pipe can flood a home in minutes. Our 24/7 team responds fast to stop the damage and get your water running properly again.' },
+];
+
+const emergencyItems = [
+  'Burst pipes flooding floors, walls, or ceilings',
+  'Major leaks with no obvious source',
+  'Blocked sewer lines backing up wastewater',
+  'No hot water with young children or elderly residents at home',
+  'Suspected gas leaks (immediate safety risk)',
+  'Overflowing toilets a plunger will not fix',
+];
+
+const processSteps = [
+  { title: 'Speak to Our Team', desc: 'Call us any time, day or night, and talk to a real local plumber who understands the issue and what needs to happen next.' },
+  { title: 'Onsite Assessment & Quote', desc: "We arrive on time, assess the job properly, and give you a fixed price before any work begins, so there's never a surprise bill." },
+  { title: 'Work Completed Cleanly', desc: 'Our licensed team gets the job done properly the first time, working cleanly and treating your home with the respect it deserves.' },
+  { title: 'Testing & Handover', desc: 'Every job is tested before we leave, and we walk you through what was done, backed by our Lifetime Labour Warranty.' },
+];
+
+const whyChoose = [
+  { title: '24/7 Emergency Service', desc: "Burst pipes don't keep business hours and neither do we. Call any time, including weekends and public holidays, and our local team responds fast." },
+  { title: 'Lifetime Labour Warranty', desc: 'If a fault ever occurs because of our workmanship, we come back and fix it at no cost to you, for as long as you own the home.' },
+  { title: 'Fixed Upfront Pricing', desc: 'We quote the job before we start, not after. No hourly rates, no surprise call-out add-ons, just one fixed price you agree to first.' },
+  { title: 'Local, Family-Owned', desc: "We're a family-run Adelaide plumbing business, not a national franchise. The same licensed team backs every Happy Valley job we take on." },
+];
+
+const compareRows = [
+  ['Response time', 'Within the hour, where available', 'Variable, often next day'],
+  ['Pricing model', 'Fixed Upfront Pricing', 'Hourly with surprises'],
+  ['Workmanship warranty', 'Lifetime Labour Warranty', 'Limited or none'],
+  ['Emergency response', '24/7 across Happy Valley', 'Limited hours only'],
+  ['Licensed & insured', 'Lic. #333997, fully insured', 'Not always verified'],
+  ['Local knowledge', 'A decade across Adelaide', 'Often outside the area'],
+  ['Family-owned', 'Yes, locally run', 'Often national franchises'],
+  ['New customer offer', '$50 off your first service', 'Variable or none'],
+];
+
+const safety = [
+  { title: 'Licensed Adelaide Plumbers', desc: 'Every job is carried out by our licensed team, Lic. #333997 with Master Plumber South Australia, so the work is done properly.' },
+  { title: 'Fully Insured', desc: "We're fully insured on every job we take on, giving you peace of mind that your home and our work are properly covered." },
+  { title: 'AS/NZS 3500 Compliance', desc: 'All plumbing and gas work meets AS/NZS 3500 standards, the benchmark for safe, compliant work across South Australia.' },
+  { title: 'Lifetime Labour Warranty', desc: 'Every job is backed by our Lifetime Labour Warranty, so if our workmanship ever fails, we come back and fix it at no cost.' },
+];
+
+const credentials = [
+  'Lic. #333997, Master Plumber South Australia',
+  'ABN 52 668 135 886',
+  'Fully insured on every job',
+  'AS/NZS 3500 compliant on all work',
+  'A decade operating across Adelaide',
+  'Family-owned and locally led',
+  'Lifetime Labour Warranty on all workmanship',
+  '500+ 5-star reviews from Adelaide homeowners',
+];
+
+const adjoiningSuburbs = ['Aberfoyle Park', 'Reynella', 'Flagstaff Hill', 'Chandlers Hill', 'Trott Park', 'Old Reynella', 'Morphett Vale'];
+
+const faqs = [
+  { q: 'How quickly can a plumber arrive in Happy Valley?', a: 'We aim to respond within the hour where availability allows, with 24/7 emergency cover across Happy Valley and the surrounding suburbs.' },
+  { q: 'Do you offer 24/7 emergency plumbing?', a: "Yes. We're available around the clock, including weekends and public holidays, for burst pipes, gas leaks, and other urgent issues." },
+  { q: 'What plumbing services do you offer?', a: 'We cover general plumbing, blocked drains, hot water, gas fitting, pipe relining, leak detection, taps and toilets, and emergency repairs.' },
+  { q: 'How does plumbing pricing work?', a: 'You get a fixed price before any work starts. There are no hourly rates and no surprise call-out add-ons once we begin.' },
+  { q: 'Are your plumbers licensed and insured in South Australia?', a: 'Yes. Our team holds Lic. #333997 with Master Plumber South Australia and is fully insured on every job we complete.' },
+  { q: 'What suburbs do you service around Happy Valley?', a: 'Alongside Happy Valley, we service Aberfoyle Park, Reynella, Flagstaff Hill, Chandlers Hill, Trott Park, Old Reynella, and Morphett Vale.' },
+];
+
+// Count-up stats fired on scroll
+const stats = [
+  { value: 5.0, decimals: 1, suffix: '★', label: 'Average review rating' },
+  { value: 500, decimals: 0, suffix: '+', label: '5-star Adelaide reviews' },
+  { value: 24, decimals: 0, suffix: '/7', label: 'Emergency availability' },
+  { value: 50, decimals: 0, prefix: '$', suffix: ' off', label: 'Your first service' },
+];
+// double the marquee list for a seamless loop
+const marquee = [...adjoiningSuburbs, ...adjoiningSuburbs];
+---
+<Layout title="Happy Valley, Right Now — Plumber Happy Valley" description="24/7 emergency plumber in Happy Valley. Family-owned, licensed, fixed upfront pricing and a Lifetime Labour Warranty on every job.">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #0E7C7B;
+      --color-brand-secondary: #102A43;
+      --color-brand-accent:    #F4A300;
+      --color-brand-bg:        #ffffff;
+      --color-brand-surface:   #F0F7F6;
+      --color-brand-text:      #102A43;
+      --color-brand-muted:     #52606D;
+      --font-heading: 'Space Grotesk Variable', system-ui, sans-serif;
+      --font-body:    'Inter Variable', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--color-brand-bg); font-family: var(--font-body); }
+
+    /* shared pill buttons — spring/overshoot hover */
+    .d2-pill {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border-radius: 9999px; font-family: var(--font-heading); font-weight: 700;
+      padding: .7rem 1.4rem; line-height: 1; white-space: nowrap;
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease, background .25s ease, color .25s ease;
+    }
+    .d2-pill--accent { background: var(--color-brand-accent); color: #3a2600; box-shadow: 0 12px 28px -12px rgba(244,163,0,.7); }
+    .d2-pill--accent:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 18px 36px -12px rgba(244,163,0,.85); }
+    .d2-pill--ghost { background: transparent; color: var(--color-brand-secondary); border: 2px solid color-mix(in srgb, var(--color-brand-secondary) 18%, transparent); }
+    .d2-pill--ghost:hover { transform: translateY(-2px) scale(1.04); border-color: var(--color-brand-primary); color: var(--color-brand-primary); }
+    .d2-pill--light { background: #fff; color: var(--color-brand-secondary); }
+    .d2-pill--light:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 16px 32px -14px rgba(16,42,67,.5); }
+
+    .d2-eyebrow {
+      display: inline-flex; align-items: center; gap: .55rem;
+      font-family: var(--font-heading); font-weight: 700; font-size: .72rem;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--color-brand-primary);
+    }
+
+    /* scroll reveal + stagger */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .stagger > * { opacity: 0; transform: translateY(22px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+    .stagger.in > * { opacity: 1; transform: none; }
+    .stagger.in > *:nth-child(2) { transition-delay: .07s; }
+    .stagger.in > *:nth-child(3) { transition-delay: .14s; }
+    .stagger.in > *:nth-child(4) { transition-delay: .21s; }
+    .stagger.in > *:nth-child(5) { transition-delay: .28s; }
+    .stagger.in > *:nth-child(6) { transition-delay: .35s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+
+  <div id="top"></div>
+  <Nav phone={phone} phoneHref={phoneHref} />
+
+  <!-- ============ HERO (full-bleed, dark, overlapping stat card) ============ -->
+  <section class="d2-hero">
+    <div class="d2-hero__bgmark" aria-hidden="true"></div>
+    <div class="mx-auto max-w-6xl px-5 pt-16 pb-28 md:pt-20 md:pb-36 relative grid lg:grid-cols-[1.05fr_.95fr] gap-12 items-center">
+      <div class="d2-hero__copy">
+        <span class="d2-eyebrow d2-hero__line" style="color:var(--color-brand-accent)">
+          <PingRing size={12} /> Available now in Happy Valley
+        </span>
+        <h1 class="d2-hero__title d2-hero__line">
+          24/7 emergency<br />plumber in<br /><span class="d2-hero__hl">Happy Valley</span>
+        </h1>
+        <p class="d2-hero__sub d2-hero__line">
+          Plumber Happy Valley is your local 24/7 plumber for Happy Valley,
+          <a href="#areas" class="d2-hero__inline">Aberfoyle Park</a>,
+          <a href="#areas" class="d2-hero__inline">Reynella</a>,
+          <a href="#areas" class="d2-hero__inline">Flagstaff Hill</a>, and
+          <a href="#areas" class="d2-hero__inline">Chandlers Hill</a>,
+          backed by our Lifetime Labour Warranty. Family-owned, licensed, and ready when you need us.
+        </p>
+        <div class="d2-hero__cta d2-hero__line">
+          <a href={phoneHref} class="d2-pill d2-pill--accent">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.6c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" fill="currentColor"/></svg>
+            Call {phone}
+          </a>
+          <a href="#services" class="d2-pill d2-hero__ghost">View our services</a>
+        </div>
+      </div>
+
+      <!-- overlapping image + floating proof card -->
+      <div class="d2-hero__media d2-hero__line">
+        <div class="d2-hero__frame">
+          <img src="/images/aptec/Cistern-Replacement.webp" alt="Licensed plumber replacing a toilet cistern" loading="eager" />
+        </div>
+        <div class="d2-hero__badge">
+          <PingRing size={13} />
+          <div>
+            <p class="font-heading font-bold text-sm leading-tight" style="color:var(--color-brand-secondary)">Responding now</p>
+            <p class="text-xs" style="color:var(--color-brand-muted)">within the hour, where available</p>
+          </div>
+        </div>
+        <div class="d2-hero__rating">
+          <p class="font-heading font-extrabold text-2xl" style="color:var(--color-brand-secondary)">5.0★</p>
+          <p class="text-[0.7rem]" style="color:var(--color-brand-muted)">500+ Adelaide reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- count-up stat band overlapping the hero base -->
+    <div class="mx-auto max-w-6xl px-5 relative">
+      <div id="d2-stats" class="d2-stats stagger">
+        {stats.map((s) => (
+          <div class="d2-stat">
+            <p class="d2-stat__num font-heading"
+               data-count={s.value}
+               data-decimals={s.decimals}
+               data-prefix={s.prefix ?? ''}
+               data-suffix={s.suffix ?? ''}>{s.prefix ?? ''}0{s.suffix ?? ''}</p>
+            <p class="d2-stat__label">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USP STRIP ============ -->
+  <section class="mx-auto max-w-6xl px-5 pt-20 pb-6">
+    <div class="stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {usps.map((u) => (
+        <div class="d2-card d2-card--usp">
+          <span class="d2-card__mark"><PingRing size={12} color="var(--color-brand-primary)" /></span>
+          <p class="font-heading font-bold text-brand-secondary text-[0.95rem] mb-1.5">{u.title}</p>
+          <p class="text-brand-muted text-sm leading-relaxed">{u.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="mx-auto max-w-5xl px-5 py-20">
+    <div class="reveal grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
+      <span class="d2-eyebrow"><PingRing size={11} color="var(--color-brand-primary)" /> Local. Right now.</span>
+      <div>
+        <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.05] tracking-tight mb-5">
+          Happy Valley&rsquo;s trusted local plumbers
+        </h2>
+        <p class="text-brand-muted text-lg leading-relaxed">
+          We&rsquo;re a family-owned plumbing business serving Happy Valley homes, backed by a decade of hands-on work
+          across Adelaide and Lic. #333997 with Master Plumber South Australia. Every job is completed by our licensed
+          local team, fully insured and quoted upfront, with the same standards across 500+ 5-star reviews from Adelaide
+          homeowners. We show up on time, do the job properly, and treat your home with respect. That&rsquo;s the whole
+          promise behind Plumber Happy Valley.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES (dense asymmetric grid) ============ -->
+  <section id="services" class="d2-services">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10">
+        <div>
+          <span class="d2-eyebrow mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> What we fix</span>
+          <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.8rem,3.6vw,2.7rem)] leading-[1.04] tracking-tight max-w-xl">
+            Our complete range of plumbing services in Happy Valley
+          </h2>
+        </div>
+        <p class="text-brand-muted leading-relaxed max-w-sm">
+          From a dripping tap to a 2am burst pipe, our licensed team covers the full range of residential plumbing
+          Happy Valley homes need. Every job comes with Fixed Upfront Pricing and our Lifetime Labour Warranty.
+        </p>
+      </div>
+
+      <div class="stagger grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {services.map((s, i) => (
+          <a href={`#${s.slug}`} class={`d2-svc ${i === 1 ? 'd2-svc--feature' : ''}`}>
+            <div class="d2-svc__top">
+              <span class="d2-svc__mark"><PingRing size={12} color={i === 1 ? 'var(--color-brand-accent)' : 'var(--color-brand-primary)'} /></span>
+              <span class="d2-svc__no font-heading">{String(i + 1).padStart(2, '0')}</span>
+            </div>
+            <h3 class="font-heading font-bold text-lg mb-2">{s.name}</h3>
+            <p class="d2-svc__desc text-sm leading-relaxed">{s.desc}</p>
+            <span class="d2-svc__go font-heading font-bold text-sm">Read more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCAL CONTEXT (overlapping image + text) ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="reveal d2-local-media">
+        <div class="d2-local-frame">
+          <img src="/images/aptec/Worn-Fill.webp" alt="Plumber repairing an ageing toilet cistern fill valve" loading="lazy" />
+        </div>
+        <div class="d2-local-tag">
+          <span class="font-heading font-extrabold text-brand-accent text-3xl leading-none">20km</span>
+          <span class="text-xs text-brand-muted leading-tight">south of the<br />Adelaide CBD</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="d2-eyebrow mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> On your street</span>
+        <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.6rem,3.2vw,2.3rem)] leading-[1.06] tracking-tight mb-5">
+          What Happy Valley homes and businesses need from their local plumber
+        </h2>
+        <div class="text-brand-muted leading-relaxed space-y-4">
+          <p>Happy Valley sits in the City of Onkaparinga, about 20 kilometres south of the Adelaide CBD, wrapped around the Happy Valley Reservoir. Much of the suburb was built from the 1970s onward, so a lot of homes are reaching the age where original pipework, hot water systems, and fittings start to show their years. Properties on the sloped land near the reservoir can also see drainage issues during heavy rain, with stormwater needing somewhere to go.</p>
+          <p>We see the same patterns again and again around streets like Happy Valley Drive and Surf Drive: ageing copper and clay pipework prone to corrosion and root intrusion, hot water systems well past their realistic working life, and older toilet cisterns that run constantly and waste water. Newer homes on slab foundations bring a different set of plumbing needs, particularly around drainage and gas fitting for kitchen renovations.</p>
+          <p>Whatever era your Happy Valley home was built in, our local team has seen the plumbing that comes with it. We carry the right gear for clay pipe and modern PVC alike, and we know which fixes actually last on the hilly blocks around the reservoir rather than just patching the problem for a few months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EMERGENCY BAND (dark inverted, angled) ============ -->
+  <section class="d2-emergency">
+    <div class="mx-auto max-w-5xl px-5 py-24">
+      <div class="reveal text-center max-w-2xl mx-auto mb-10">
+        <span class="d2-eyebrow justify-center mb-3" style="color:var(--color-brand-accent)">
+          <PingRing size={12} /> When it can&rsquo;t wait
+        </span>
+        <h2 class="font-heading font-bold text-white text-[clamp(1.8rem,3.8vw,2.8rem)] leading-[1.05] tracking-tight">
+          When emergency plumbing strikes in Happy Valley, we respond fast
+        </h2>
+      </div>
+      <div class="stagger grid sm:grid-cols-2 gap-4 mb-10">
+        {emergencyItems.map((item) => (
+          <div class="d2-emg-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="shrink-0 mt-0.5"><path d="M12 2 2 21h20L12 2Z" stroke="var(--color-brand-accent)" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5M12 17h.01" stroke="var(--color-brand-accent)" stroke-width="2" stroke-linecap="round"/></svg>
+            <span class="text-sm text-white/90 leading-relaxed">{item}</span>
+          </div>
+        ))}
+      </div>
+      <div class="reveal text-center">
+        <p class="text-white/70 max-w-2xl mx-auto text-sm mb-7 leading-relaxed">
+          We&rsquo;re available 24/7, including weekends and public holidays, and aim to respond within the hour
+          where availability allows. While you wait, turn off the water at the mains.
+        </p>
+        <a href={phoneHref} class="d2-pill d2-pill--accent">Call {phone} now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS (numbered sequence) ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <div class="reveal text-center mb-12">
+      <span class="d2-eyebrow justify-center mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> Start to finish</span>
+      <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.8rem,3.6vw,2.7rem)] leading-[1.04] tracking-tight">How we work in Happy Valley</h2>
+    </div>
+    <div class="stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {processSteps.map((step, i) => (
+        <div class="d2-step">
+          <span class="d2-step__no font-heading">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="font-heading font-bold text-brand-secondary text-lg mb-2 mt-3">{step.title}</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ WHY CHOOSE ============ -->
+  <section id="why-choose" class="d2-services">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <div class="reveal text-center max-w-2xl mx-auto mb-12">
+        <span class="d2-eyebrow justify-center mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> The four things</span>
+        <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.8rem,3.6vw,2.7rem)] leading-[1.04] tracking-tight mb-4">
+          Why Happy Valley locals choose Plumber Happy Valley
+        </h2>
+        <p class="text-brand-muted leading-relaxed">
+          Choosing a plumber comes down to trust. These are the four things Happy Valley homeowners tell us matter
+          most when they call, and they&rsquo;re the same four things we build every job around.
+        </p>
+      </div>
+      <div class="stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {whyChoose.map((w) => (
+          <div class="d2-card d2-card--why">
+            <span class="d2-card__mark"><PingRing size={12} color="var(--color-brand-accent)" /></span>
+            <h3 class="font-heading font-bold text-brand-secondary mb-2">{w.title}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{w.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARISON TABLE ============ -->
+  <section class="mx-auto max-w-4xl px-5 py-20">
+    <div class="reveal text-center mb-8">
+      <span class="d2-eyebrow justify-center mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> Side by side</span>
+      <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.05] tracking-tight mb-4">
+        How we compare to other plumbers in Happy Valley
+      </h2>
+      <p class="text-brand-muted leading-relaxed max-w-2xl mx-auto">
+        Choosing a plumber matters. Here&rsquo;s how our service compares to what you&rsquo;ll typically find from
+        other plumbers across Happy Valley and the wider southern Adelaide region:
+      </p>
+    </div>
+    <div class="reveal d2-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th><span class="inline-flex items-center gap-1.5"><PingRing size={10} color="var(--color-brand-accent)" /> Plumber Happy Valley</span></th>
+            <th>Typical plumbers</th>
+          </tr>
+        </thead>
+        <tbody>
+          {compareRows.map((row) => (
+            <tr>
+              <td class="d2-table__feat">{row[0]}</td>
+              <td class="d2-table__us">{row[1]}</td>
+              <td class="d2-table__them">{row[2]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ SAFETY & COMPLIANCE ============ -->
+  <section class="d2-services">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <div class="reveal text-center mb-12">
+        <span class="d2-eyebrow justify-center mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> Done by the book</span>
+        <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.8rem,3.6vw,2.7rem)] leading-[1.04] tracking-tight">Safe, compliant plumbing work in Happy Valley</h2>
+      </div>
+      <div class="stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {safety.map((s) => (
+          <div class="d2-card d2-card--why">
+            <span class="d2-card__mark"><PingRing size={12} color="var(--color-brand-primary)" /></span>
+            <h3 class="font-heading font-bold text-brand-secondary text-[0.95rem] mb-2">{s.title}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CREDENTIALS ============ -->
+  <section class="mx-auto max-w-4xl px-5 py-20">
+    <div class="reveal text-center mb-8">
+      <span class="d2-eyebrow justify-center mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> The standard</span>
+      <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.7rem,3.4vw,2.5rem)] leading-[1.05] tracking-tight mb-3">Our credentials and standards</h2>
+      <p class="text-brand-muted leading-relaxed">These are the standards behind every job we do, the same ones across every Plumber Happy Valley visit.</p>
+    </div>
+    <ul class="stagger grid sm:grid-cols-2 gap-3">
+      {credentials.map((c) => (
+        <li class="d2-cred">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="shrink-0"><path d="M5 13l4 4L19 7" stroke="var(--color-brand-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="text-sm font-medium text-brand-secondary">{c}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ============ SERVICE AREAS (marquee) ============ -->
+  <section id="areas" class="d2-areas">
+    <div class="mx-auto max-w-3xl px-5 text-center pt-20 pb-12">
+      <span class="d2-eyebrow justify-center mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> Where we work</span>
+      <h2 class="reveal font-heading font-bold text-brand-secondary text-[clamp(1.8rem,3.6vw,2.7rem)] leading-[1.04] tracking-tight mb-4">
+        Servicing Happy Valley and surrounding areas
+      </h2>
+      <p class="reveal text-brand-muted leading-relaxed">
+        We service Happy Valley and the neighbouring suburbs across southern Adelaide, with the same licensed
+        team, fixed pricing, and Lifetime Labour Warranty on every job.
+      </p>
+    </div>
+    <div class="d2-marquee" aria-hidden="false">
+      <div class="d2-marquee__track">
+        {marquee.map((sub) => (
+          <span class="d2-chip"><PingRing size={10} color="var(--color-brand-primary)" /> {sub}</span>
+        ))}
+      </div>
+    </div>
+    <p class="sr-only">We service Aberfoyle Park, Reynella, Flagstaff Hill, Chandlers Hill, Trott Park, Old Reynella, and Morphett Vale.</p>
+  </section>
+
+  <!-- ============ FINAL CTA (full-bleed amber) ============ -->
+  <section class="d2-finalcta">
+    <div class="d2-finalcta__mark" aria-hidden="true"></div>
+    <div class="mx-auto max-w-3xl px-5 py-24 text-center relative">
+      <span class="d2-eyebrow justify-center mb-4" style="color:#3a2600">
+        <PingRing size={12} color="#3a2600" /> Open 24/7
+      </span>
+      <h2 class="reveal font-heading font-extrabold text-[clamp(2rem,4.6vw,3.2rem)] leading-[1.02] tracking-tight mb-5" style="color:#3a2600">
+        Need an emergency plumber in Happy Valley? Call now
+      </h2>
+      <p class="reveal mb-8 text-[1.05rem] leading-relaxed" style="color:#5a3e00">
+        Call {phone} any time, day or night. New customers get $50 off their first service, and every job is
+        backed by our Lifetime Labour Warranty.
+      </p>
+      <a href={phoneHref} class="d2-pill d2-pill--light text-lg px-8 py-4" style="color:var(--color-brand-secondary)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.6c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" fill="currentColor"/></svg>
+        Call {phone}
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="mx-auto max-w-3xl px-5 py-20">
+    <div class="reveal text-center mb-10">
+      <span class="d2-eyebrow justify-center mb-3"><PingRing size={11} color="var(--color-brand-primary)" /> Good to know</span>
+      <h2 class="font-heading font-bold text-brand-secondary text-[clamp(1.8rem,3.6vw,2.7rem)] leading-[1.04] tracking-tight mb-3">Happy Valley plumber FAQs</h2>
+      <p class="text-brand-muted leading-relaxed">
+        These are the questions we hear most often from Happy Valley homeowners, covering pricing, response times,
+        and the range of plumbing work our licensed team handles.
+      </p>
+    </div>
+    <div class="stagger space-y-3">
+      {faqs.map((f) => (
+        <details class="d2-faq">
+          <summary>
+            <span class="font-heading font-bold text-brand-secondary">{f.q}</span>
+            <span class="d2-faq__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </span>
+          </summary>
+          <p class="text-brand-muted text-sm leading-relaxed">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="d2-footer">
+    <div class="mx-auto max-w-6xl px-5 pt-16 pb-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <p class="flex items-center gap-2.5 font-heading font-bold text-white text-lg mb-4">
+            <PingRing size={15} /> Plumber Happy Valley
+          </p>
+          <p class="text-sm leading-relaxed text-white/70">
+            Local, family-owned plumbing serving Happy Valley and the surrounding suburbs. Fixed Upfront Pricing,
+            Lifetime Labour Warranty, 24/7 emergency response.
+          </p>
+        </div>
+        <div>
+          <p class="font-heading font-bold text-white text-sm mb-4">Quick links</p>
+          <ul class="text-sm space-y-2.5 text-white/70">
+            <li><a href="#services" class="d2-foot-link">Services</a></li>
+            <li><a href="#why-choose" class="d2-foot-link">Why choose us</a></li>
+            <li><a href="#areas" class="d2-foot-link">Service areas</a></li>
+            <li><a href="#faq" class="d2-foot-link">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-heading font-bold text-white text-sm mb-4">Our services</p>
+          <ul class="text-sm space-y-2.5 text-white/70">
+            {services.slice(0, 5).map((s) => (
+              <li><a href={`#${s.slug}`} class="d2-foot-link">{s.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="font-heading font-bold text-white text-sm mb-4">Get in touch</p>
+          <a href={phoneHref} class="d2-pill d2-pill--accent text-sm mb-4">Call {phone}</a>
+          <p class="text-sm text-white/70 mt-3">Servicing Happy Valley &amp; southern Adelaide, 24/7</p>
+        </div>
+      </div>
+      <div class="d2-footer__sign">
+        <p>Lic. #333997. ABN 52 668 135 886.</p>
+        <p>&copy; 2026 Plumber Happy Valley. Show up on time. Do the job properly. Treat the home with respect.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style is:global>
+    /* ---------- HERO ---------- */
+    .d2-hero {
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(120% 90% at 85% 0%, color-mix(in srgb, var(--color-brand-primary) 38%, transparent), transparent 55%),
+        linear-gradient(165deg, var(--color-brand-secondary) 0%, #0b2236 65%, #0a1f31 100%);
+    }
+    .d2-hero__bgmark {
+      position: absolute; inset: 0; pointer-events: none; opacity: .5;
+      background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1.4px);
+      background-size: 26px 26px;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 80%);
+      mask-image: linear-gradient(180deg, #000 0%, transparent 80%);
+    }
+    .d2-hero__title {
+      font-family: var(--font-heading); font-weight: 700; color: #fff;
+      font-size: clamp(2.6rem, 7vw, 4.7rem); line-height: .98; letter-spacing: -0.03em;
+      margin: 1.1rem 0 1.4rem;
+    }
+    .d2-hero__hl {
+      background: linear-gradient(100deg, var(--color-brand-accent), #ffd277);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .d2-hero__sub { color: rgba(255,255,255,.82); font-size: 1.12rem; line-height: 1.65; max-width: 34rem; }
+    .d2-hero__inline { color: #fff; font-weight: 600; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--color-brand-accent) 70%, transparent); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+    .d2-hero__inline:hover { text-decoration-color: var(--color-brand-accent); }
+    .d2-hero__cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2rem; }
+    .d2-hero__ghost { background: rgba(255,255,255,.06); color: #fff; border: 2px solid rgba(255,255,255,.22); }
+    .d2-hero__ghost:hover { transform: translateY(-2px) scale(1.04); border-color: var(--color-brand-accent); color: #fff; }
+
+    .d2-hero__media { position: relative; }
+    .d2-hero__frame {
+      border-radius: 1.6rem; overflow: hidden; transform: rotate(1.5deg);
+      box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.12);
+    }
+    .d2-hero__frame img { width: 100%; height: clamp(320px, 42vw, 440px); object-fit: cover; display: block; }
+    .d2-hero__badge {
+      position: absolute; top: 1.2rem; left: -1rem; display: flex; align-items: center; gap: .65rem;
+      background: #fff; border-radius: 9999px; padding: .6rem 1rem .6rem .8rem; box-shadow: 0 18px 40px -16px rgba(0,0,0,.5);
+    }
+    .d2-hero__rating {
+      position: absolute; bottom: -1.1rem; right: -.6rem; background: #fff; border-radius: 1rem;
+      padding: .7rem 1.1rem; text-align: right; box-shadow: 0 18px 40px -16px rgba(0,0,0,.5);
+    }
+
+    /* count-up stat band — overlaps hero bottom */
+    .d2-stats {
+      position: relative; bottom: -2.5rem; z-index: 5;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+      background: color-mix(in srgb, var(--color-brand-secondary) 8%, transparent);
+      border-radius: 1.4rem; overflow: hidden;
+      box-shadow: 0 30px 60px -28px rgba(16,42,67,.5); border: 1px solid color-mix(in srgb, var(--color-brand-secondary) 8%, transparent);
+    }
+    @media (min-width: 768px) { .d2-stats { grid-template-columns: repeat(4, 1fr); } }
+    .d2-stat { background: #fff; padding: 1.5rem 1.4rem; text-align: center; }
+    .d2-stat__num { font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing: -.02em; color: var(--color-brand-secondary); line-height: 1; }
+    .d2-stat:nth-child(4) .d2-stat__num { color: var(--color-brand-accent); }
+    .d2-stat__label { margin-top: .5rem; font-size: .8rem; color: var(--color-brand-muted); }
+
+    /* ---------- CARDS ---------- */
+    .d2-card {
+      position: relative; background: #fff; border-radius: 1.2rem; padding: 1.5rem 1.4rem;
+      border: 1px solid color-mix(in srgb, var(--color-brand-secondary) 8%, transparent);
+      box-shadow: 0 10px 30px -22px rgba(16,42,67,.4);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease;
+    }
+    .d2-card:hover { transform: translateY(-6px); box-shadow: 0 26px 48px -24px rgba(16,42,67,.5); }
+    .d2-card__mark { position: absolute; top: 1.4rem; right: 1.4rem; }
+    .d2-card--why { background: var(--color-brand-bg); }
+
+    /* ---------- SERVICES ---------- */
+    .d2-services { background: var(--color-brand-surface); }
+    .d2-svc {
+      display: flex; flex-direction: column; background: #fff; border-radius: 1.2rem; padding: 1.6rem 1.5rem;
+      border: 1px solid color-mix(in srgb, var(--color-brand-secondary) 7%, transparent);
+      box-shadow: 0 10px 30px -24px rgba(16,42,67,.4); color: var(--color-brand-secondary);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease, border-color .25s;
+    }
+    .d2-svc:hover { transform: translateY(-6px); box-shadow: 0 28px 50px -26px rgba(16,42,67,.55); border-color: color-mix(in srgb, var(--color-brand-primary) 35%, transparent); }
+    .d2-svc__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .d2-svc__no { font-weight: 700; font-size: 1.05rem; color: color-mix(in srgb, var(--color-brand-secondary) 35%, transparent); letter-spacing: .04em; }
+    .d2-svc__desc { color: var(--color-brand-muted); }
+    .d2-svc__go { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.1rem; color: var(--color-brand-primary); }
+    .d2-svc__go svg { transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .d2-svc:hover .d2-svc__go svg { transform: translateX(5px); }
+    .d2-svc--feature {
+      background: linear-gradient(160deg, var(--color-brand-secondary), #0b2236); color: #fff;
+      border-color: transparent; box-shadow: 0 24px 50px -22px rgba(16,42,67,.6);
+    }
+    @media (min-width: 1024px) { .d2-svc--feature { grid-row: span 1; } }
+    .d2-svc--feature .d2-svc__no { color: rgba(255,255,255,.4); }
+    .d2-svc--feature .d2-svc__desc { color: rgba(255,255,255,.8); }
+    .d2-svc--feature .d2-svc__go { color: var(--color-brand-accent); }
+
+    /* ---------- LOCAL CONTEXT ---------- */
+    .d2-local-media { position: relative; }
+    .d2-local-frame { border-radius: 1.6rem; overflow: hidden; transform: rotate(-1.5deg); box-shadow: 0 36px 70px -34px rgba(16,42,67,.5); }
+    .d2-local-frame img { width: 100%; height: clamp(300px, 38vw, 420px); object-fit: cover; display: block; }
+    .d2-local-tag {
+      position: absolute; bottom: -1.2rem; right: -.6rem; background: #fff; border-radius: 1.1rem;
+      padding: 1rem 1.2rem; display: flex; align-items: center; gap: .7rem;
+      box-shadow: 0 22px 44px -20px rgba(16,42,67,.5); border: 1px solid color-mix(in srgb, var(--color-brand-secondary) 7%, transparent);
+    }
+
+    /* ---------- EMERGENCY (dark, angled) ---------- */
+    .d2-emergency {
+      position: relative;
+      background:
+        radial-gradient(100% 80% at 15% 0%, color-mix(in srgb, var(--color-brand-primary) 32%, transparent), transparent 50%),
+        linear-gradient(160deg, var(--color-brand-secondary), #0a1f31);
+      clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 calc(100% - 3vw));
+      margin-block: -1px;
+    }
+    .d2-emg-item {
+      display: flex; gap: .8rem; align-items: flex-start;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 1rem; padding: 1rem 1.1rem; transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .25s;
+    }
+    .d2-emg-item:hover { transform: translateY(-3px); background: rgba(255,255,255,.08); }
+
+    /* ---------- PROCESS ---------- */
+    .d2-step {
+      position: relative; background: var(--color-brand-surface); border-radius: 1.2rem; padding: 1.6rem 1.5rem;
+      border-top: 3px solid var(--color-brand-primary);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease;
+    }
+    .d2-step:hover { transform: translateY(-5px); box-shadow: 0 24px 44px -26px rgba(16,42,67,.5); }
+    .d2-step__no { font-weight: 700; font-size: 2.4rem; line-height: 1; letter-spacing: -.03em; color: var(--color-brand-primary); }
+
+    /* ---------- TABLE ---------- */
+    .d2-table { border-radius: 1.2rem; overflow: hidden; box-shadow: 0 18px 44px -28px rgba(16,42,67,.45); border: 1px solid color-mix(in srgb, var(--color-brand-secondary) 8%, transparent); }
+    .d2-table table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    .d2-table thead { background: var(--color-brand-secondary); }
+    .d2-table th { text-align: left; font-family: var(--font-heading); font-weight: 700; color: #fff; padding: .9rem 1rem; }
+    .d2-table th:nth-child(2) { background: color-mix(in srgb, var(--color-brand-primary) 30%, var(--color-brand-secondary)); }
+    .d2-table tbody tr { border-top: 1px solid color-mix(in srgb, var(--color-brand-secondary) 7%, transparent); }
+    .d2-table tbody tr:nth-child(odd) { background: #fff; }
+    .d2-table tbody tr:nth-child(even) { background: var(--color-brand-surface); }
+    .d2-table td { padding: .85rem 1rem; vertical-align: top; }
+    .d2-table__feat { font-weight: 600; color: var(--color-brand-secondary); }
+    .d2-table__us { color: var(--color-brand-primary); font-weight: 600; }
+    .d2-table__them { color: var(--color-brand-muted); }
+
+    /* ---------- CREDENTIALS ---------- */
+    .d2-cred {
+      display: flex; align-items: center; gap: .7rem; background: var(--color-brand-surface);
+      border-radius: 9999px; padding: .85rem 1.2rem; border: 1px solid color-mix(in srgb, var(--color-brand-primary) 14%, transparent);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .25s;
+    }
+    .d2-cred:hover { transform: translateX(4px); background: color-mix(in srgb, var(--color-brand-primary) 8%, var(--color-brand-surface)); }
+
+    /* ---------- SERVICE AREAS MARQUEE ---------- */
+    .d2-areas { background: linear-gradient(180deg, #fff, var(--color-brand-surface)); overflow: hidden; padding-bottom: 5rem; }
+    .d2-marquee {
+      position: relative;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .d2-marquee__track { display: flex; gap: 1rem; width: max-content; animation: d2-scroll 26s linear infinite; }
+    .d2-marquee:hover .d2-marquee__track { animation-play-state: paused; }
+    @keyframes d2-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .d2-chip {
+      display: inline-flex; align-items: center; gap: .55rem; white-space: nowrap;
+      font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; color: var(--color-brand-secondary);
+      background: #fff; border: 1px solid color-mix(in srgb, var(--color-brand-primary) 18%, transparent);
+      border-radius: 9999px; padding: .8rem 1.5rem; box-shadow: 0 8px 24px -18px rgba(16,42,67,.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .d2-marquee__track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+    }
+
+    /* ---------- FINAL CTA ---------- */
+    .d2-finalcta { position: relative; overflow: hidden; background: linear-gradient(120deg, var(--color-brand-accent), #ffbf3d); }
+    .d2-finalcta__mark {
+      position: absolute; inset: 0; pointer-events: none; opacity: .5;
+      background-image: radial-gradient(circle, rgba(58,38,0,.1) 1px, transparent 1.6px);
+      background-size: 24px 24px;
+      -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000, transparent 75%);
+      mask-image: radial-gradient(120% 100% at 50% 0%, #000, transparent 75%);
+    }
+
+    /* ---------- FAQ ---------- */
+    .d2-faq {
+      background: var(--color-brand-surface); border-radius: 1rem; padding: 1.1rem 1.3rem;
+      border: 1px solid color-mix(in srgb, var(--color-brand-secondary) 6%, transparent);
+      transition: background .25s, box-shadow .25s;
+    }
+    .d2-faq[open] { background: #fff; box-shadow: 0 16px 36px -26px rgba(16,42,67,.5); }
+    .d2-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none; }
+    .d2-faq summary::-webkit-details-marker { display: none; }
+    .d2-faq__icon {
+      flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9999px;
+      background: color-mix(in srgb, var(--color-brand-primary) 12%, transparent); color: var(--color-brand-primary);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .25s;
+    }
+    .d2-faq[open] .d2-faq__icon { transform: rotate(45deg); background: var(--color-brand-accent); color: #3a2600; }
+    .d2-faq p { margin-top: .9rem; }
+
+    /* ---------- FOOTER ---------- */
+    .d2-footer { background: linear-gradient(180deg, #0b2236, var(--color-brand-secondary)); }
+    .d2-foot-link { transition: color .2s; }
+    .d2-foot-link:hover { color: #fff; }
+    .d2-footer__sign {
+      border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.5rem;
+      display: flex; flex-direction: column; gap: .6rem; font-size: .78rem; color: rgba(255,255,255,.55);
+    }
+    @media (min-width: 640px) { .d2-footer__sign { flex-direction: row; align-items: center; justify-content: space-between; } }
+
+    /* hero stagger entrance */
+    .d2-hero__line { opacity: 0; transform: translateY(20px); animation: d2-hero-in .8s cubic-bezier(.22,1,.36,1) forwards; }
+    .d2-hero__copy .d2-hero__line:nth-child(1) { animation-delay: .05s; }
+    .d2-hero__copy .d2-hero__line:nth-child(2) { animation-delay: .15s; }
+    .d2-hero__copy .d2-hero__line:nth-child(3) { animation-delay: .25s; }
+    .d2-hero__copy .d2-hero__line:nth-child(4) { animation-delay: .35s; }
+    .d2-hero__media.d2-hero__line { animation-delay: .3s; }
+    @keyframes d2-hero-in { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .d2-hero__line { opacity: 1 !important; transform: none !important; animation: none !important; } }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    :focus-visible { outline: 3px solid var(--color-brand-accent); outline-offset: 2px; border-radius: 4px; }
+  </style>
+
+  <script>
+    // Scroll reveal (single + staggered groups)
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .stagger').forEach((el) => io.observe(el));
+
+    // rAF eased count-up — fires when the stat band scrolls into view
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    function runCount(el) {
+      const target = parseFloat(el.dataset.count || '0');
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const dur = 1500;
+      const start = performance.now();
+      function frame(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const val = target * easeOut(p);
+        el.textContent = prefix + val.toFixed(decimals) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+        else el.textContent = prefix + target.toFixed(decimals) + suffix;
+      }
+      requestAnimationFrame(frame);
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const statBand = document.getElementById('d2-stats');
+    if (statBand) {
+      const nums = statBand.querySelectorAll('.d2-stat__num');
+      if (reduce) {
+        nums.forEach((n) => { n.textContent = (n.dataset.prefix || '') + parseFloat(n.dataset.count || '0').toFixed(parseInt(n.dataset.decimals || '0', 10)) + (n.dataset.suffix || ''); });
+      } else {
+        const so = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { nums.forEach(runCount); so.disconnect(); }
+          }
+        }, { threshold: 0.4 });
+        so.observe(statBand);
+      }
+    }
+  </script>
+</Layout>

@@ -1,0 +1,35 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { Image } from 'astro:assets';
+const team = [
+  { img: '/images/team-01.webp', name: 'Mark R.', role: 'Lead Plumber & Owner' },
+  { img: '/images/team-02.webp', name: 'Jason P.', role: 'Drainage Specialist' },
+  { img: '/images/team-03.webp', name: 'Liam C.', role: 'Hot Water & Gas' },
+  { img: '/images/team-04.webp', name: 'Sophie W.', role: 'Service Coordinator' },
+];
+---
+<section class="bg-brand-bg reveal">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="max-w-2xl mb-12">
+      <Eyebrow index="14" label="The People" />
+      <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.8rem,4vw,2.7rem)] leading-tight tracking-tight">
+        Our Expert Plumbing Team
+      </h2>
+      <p class="mt-4 text-brand-muted leading-relaxed">Qualified, friendly and police-checked — the same trusted faces you’ll see at your door every time.</p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-sm overflow-hidden">
+      {team.map((m) => (
+        <div class="group relative bg-brand-bg">
+          <div class="relative overflow-hidden aspect-[4/5]">
+            <Image src={m.img} alt={m.name} width={400} height={500} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-brand-secondary/85 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-4">
+              <div class="font-heading font-bold text-white">{m.name}</div>
+              <div class="text-[12px] uppercase tracking-[0.14em] text-brand-accent">{m.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

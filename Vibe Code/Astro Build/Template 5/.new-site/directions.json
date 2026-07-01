@@ -1,0 +1,92 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "trade-blue",
+      "name": "Trade Blue",
+      "description": "Classic plumbing-trade blue on white, closest to the reference site. Rounded cards with soft shadows, confident bold headlines, generous use of the green '$0 Call Out' badge as an accent pop.",
+      "rationale": "Matches the reference site's look almost exactly — safe, recognizable, no risk of feeling 'off-brand' to anyone who knows the original.",
+      "palette": {
+        "primary": "#0B5FFF",
+        "secondary": "#0B2847",
+        "accent": "#11B76B",
+        "bg": "#FFFFFF",
+        "surface": "#F4F7FB",
+        "text": "#0F1B2D",
+        "muted": "#5B6B7C"
+      },
+      "fonts": {
+        "heading": { "family": "Manrope", "package": "manrope", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "balanced",
+        "typography": "subtle-hierarchy",
+        "hero": "split-screen-team-photo",
+        "visual_metaphor": "studio",
+        "shape_language": "rounded-corners",
+        "elevation": "subtle-shadows",
+        "proof_style": "testimonials-forward"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "site-authority",
+      "name": "Site Authority",
+      "description": "Deeper navy and steel tones with a warm safety-orange CTA accent, flat elevation, sharper card edges, and uppercase section labels. Reads slightly more rugged/industrial while keeping the exact same section order and hero layout as the reference site.",
+      "rationale": "Leans into the licensed-tradesman authority angle (NSW-style trade trust) with a navy + orange combination common in trusted trade brands, without changing any layout structure.",
+      "palette": {
+        "primary": "#0B2847",
+        "secondary": "#1B3C5C",
+        "accent": "#FF7A1A",
+        "bg": "#FBFBFA",
+        "surface": "#EFF2F5",
+        "text": "#10202E",
+        "muted": "#5E6B76"
+      },
+      "fonts": {
+        "heading": { "family": "Sora", "package": "sora", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "IBM Plex Sans", "package": "ibm-plex-sans", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "dense",
+        "typography": "uppercase-labels",
+        "hero": "split-screen-team-photo",
+        "visual_metaphor": "studio",
+        "shape_language": "sharp-edges",
+        "elevation": "flat",
+        "proof_style": "statistics-forward"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "bright-service",
+      "name": "Bright Service",
+      "description": "Lighter sky-blue and lime-green palette pulled from the $0 call-out and seniors-discount badge colors already in the supplied images. Pill-shaped buttons, dramatic soft shadows on cards, and slightly more whitespace for a friendlier, more modern service-app feel — same exact section order and hero layout.",
+      "rationale": "Pulls accent colors directly from the existing promo badge assets in Aptec Images, giving a friendlier, more 'book-online' digital-native feel while staying unmistakably the same brand and layout.",
+      "palette": {
+        "primary": "#167EE6",
+        "secondary": "#0B2847",
+        "accent": "#00D084",
+        "bg": "#FFFFFF",
+        "surface": "#EAF4FF",
+        "text": "#0F1B2D",
+        "muted": "#62748A"
+      },
+      "fonts": {
+        "heading": { "family": "Plus Jakarta Sans", "package": "plus-jakarta-sans", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "DM Sans", "package": "dm-sans", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": {
+        "density": "spacious",
+        "typography": "subtle-hierarchy",
+        "hero": "split-screen-team-photo",
+        "visual_metaphor": "minimal",
+        "shape_language": "pill-shapes",
+        "elevation": "dramatic-shadows",
+        "proof_style": "testimonials-forward"
+      }
+    }
+  ],
+  "total": 3
+}

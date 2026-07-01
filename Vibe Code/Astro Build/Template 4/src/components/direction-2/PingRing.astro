@@ -1,0 +1,50 @@
+---
+// Recurring visual motif — a "live availability" ping ring.
+// A solid dot wrapped in an expanding ring, signalling "we're on, right now".
+interface Props {
+  size?: number;
+  color?: string;
+  class?: string;
+}
+const { size = 14, color = 'var(--color-brand-accent)', class: cls = '' } = Astro.props;
+---
+<span
+  class={`ping-ring ${cls}`}
+  style={`--ring-size:${size}px; --ring-color:${color};`}
+  aria-hidden="true"
+>
+  <span class="ping-ring__wave"></span>
+  <span class="ping-ring__dot"></span>
+</span>
+
+<style>
+  .ping-ring {
+    position: relative;
+    display: inline-flex;
+    width: var(--ring-size);
+    height: var(--ring-size);
+    flex: none;
+  }
+  .ping-ring__dot {
+    position: absolute;
+    inset: 22%;
+    border-radius: 9999px;
+    background: var(--ring-color);
+  }
+  .ping-ring__wave {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 2px solid var(--ring-color);
+    opacity: 0.9;
+    animation: ping-ring-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes ping-ring-pulse {
+    0%   { transform: scale(0.55); opacity: 0.9; }
+    70%  { transform: scale(1.6);  opacity: 0; }
+    100% { transform: scale(1.6);  opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ping-ring__wave { animation: none; opacity: 0.4; transform: scale(1); }
+  }
+</style>

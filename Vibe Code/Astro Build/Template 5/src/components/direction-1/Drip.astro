@@ -1,0 +1,24 @@
+---
+// Recurring "water drip" motif — small eyebrow accent used across sections.
+interface Props {
+  label: string;
+  align?: 'left' | 'center';
+  class?: string;
+}
+const { label, align = 'left', class: cls = '' } = Astro.props;
+---
+<span
+  class:list={[
+    'inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-primary',
+    align === 'center' && 'justify-center',
+    cls,
+  ]}
+>
+  <svg width="12" height="16" viewBox="0 0 12 16" fill="none" aria-hidden="true" class="text-brand-accent">
+    <path
+      d="M6 0C6 0 1 6.2 1 10a5 5 0 0 0 10 0C11 6.2 6 0 6 0Z"
+      fill="currentColor"
+    />
+  </svg>
+  {label}
+</span>

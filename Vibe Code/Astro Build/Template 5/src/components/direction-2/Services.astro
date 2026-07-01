@@ -1,0 +1,46 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { Image } from 'astro:assets';
+
+const services = [
+  { title: 'Emergency Plumbing', img: '/images/Burst-Pipe-Repair.webp', desc: '24/7 rapid response for any plumbing crisis.' },
+  { title: 'Blocked Drains', img: '/images/Blocked-Drains.webp', desc: 'Jetting & rodding to clear the toughest blockages.' },
+  { title: 'Leaking Tap Repair', img: '/images/Leaking-Tap-Repair.webp', desc: 'Stop the drip and the wasted water bill.' },
+  { title: 'Hot Water Systems', img: '/images/Hot-Water-Replacement.webp', desc: 'Repair & same-day replacement, gas or electric.' },
+  { title: 'Burst Pipe Repairs', img: '/images/Burst-Pipe-Repair.webp', desc: 'Fast isolation and permanent fixes.' },
+  { title: 'Toilet Plumbing', img: '/images/Toilet-Cistern.webp', desc: 'Cistern repairs, running toilets & replacements.' },
+  { title: 'Leak Detection', img: '/images/Pipe-Inspection.webp', desc: 'Non-invasive detection before damage spreads.' },
+  { title: 'Relining & Gas', img: '/images/Gas-Fitting-Service.webp', desc: 'No-dig pipe relining and licensed gas fitting.' },
+];
+---
+<section id="services" class="bg-brand-bg reveal scroll-mt-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+      <div>
+        <Eyebrow index="06" label="What We Do" />
+        <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.8rem,4vw,2.8rem)] leading-tight tracking-tight">
+          Full-Service Plumbing,<br class="hidden sm:block" /> One Local Team
+        </h2>
+      </div>
+      <p class="max-w-sm text-brand-muted text-sm leading-relaxed">From a dripping tap to a full hot-water replacement, we handle the lot — licensed, insured and quoted upfront.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-sm overflow-hidden">
+      {services.map((s) => (
+        <a href="#contact" class="group relative bg-brand-bg overflow-hidden">
+          <div class="relative h-40 overflow-hidden">
+            <Image src={s.img} alt={s.title} width={420} height={300} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-secondary/70 to-transparent"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-heading font-bold text-brand-secondary text-base flex items-center justify-between">
+              {s.title}
+              <span class="text-brand-accent translate-x-0 group-hover:translate-x-1 transition-transform">→</span>
+            </h3>
+            <p class="mt-1.5 text-[13px] text-brand-muted leading-relaxed">{s.desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

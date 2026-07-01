@@ -1,0 +1,33 @@
+---
+import Eyebrow from './Eyebrow.astro';
+---
+<section class="bg-brand-surface reveal">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-14 items-start">
+      <div>
+        <Eyebrow index="05" label="Why Aptec" />
+        <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.7rem,3.6vw,2.6rem)] leading-[1.05] tracking-tight">
+          The Plumber Happy Valley Trusts for Fast, No-Fuss Service
+        </h2>
+      </div>
+      <div class="lg:pt-2">
+        <p class="text-lg leading-relaxed text-brand-muted">
+          For over 15 years our family-owned team has kept southern Adelaide’s
+          homes running — from middle-of-the-night burst pipes to the slow drain
+          you’ve been putting off. We charge a <strong class="text-brand-secondary font-semibold">$0 call-out fee</strong> in
+          standard hours, quote every job upfront before we start, and back our
+          workmanship with a labour warranty. No vague estimates, no upselling,
+          no mess left behind — just a licensed plumber who treats your home like
+          their own.
+        </p>
+        <div class="mt-7 grid sm:grid-cols-2 gap-3">
+          {['Upfront, fixed quotes','Same-day availability','Fully licensed & insured','Labour warranty on all work'].map((p) => (
+            <div class="flex items-center gap-3 border-l-2 border-brand-accent pl-3 py-1">
+              <span class="text-sm font-semibold text-brand-secondary">{p}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,563 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FaqAccordion from '../components/direction-3/FaqAccordion.tsx';
+
+const phone = '(08) 8000 5050';
+const phoneHref = 'tel:+61880005050';
+
+const nav = [
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'Areas', href: '#areas' },
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Contact', href: '#contact' },
+];
+
+const coupons = [
+  { tag: 'New customers', title: '15% Off Your First Service', sub: 'A friendly welcome to the Aptec family — first-time customers save on any standard job.', icon: 'spark' },
+  { tag: 'Drains special', title: '$99 Blocked Drain Clear', sub: 'Flat-rate clearing for a single accessible blocked drain. Quick, clean, sorted.', icon: 'drop' },
+  { tag: 'Included free', title: 'Free CCTV Drain Inspection', sub: 'See exactly what is going on underground — no charge with any drain service.', icon: 'eye' },
+  { tag: 'Seniors', title: '10% Seniors Discount', sub: 'A genuine thank-you to our senior community across southern Adelaide.', icon: 'heart', img: '/images/Seniors-1.svg' },
+];
+
+const testimonials = [
+  { quote: 'Burst pipe at 11pm and Aptec had someone here within the hour. Calm, tidy, and the price was exactly what they quoted. Lifesavers.', name: 'Sarah M.', suburb: 'Happy Valley', },
+  { quote: 'Booked online in the morning, hot water back on by lunch. No call-out fee and no upselling — just an honest, friendly plumber.', name: 'David R.', suburb: 'Aberfoyle Park', },
+  { quote: 'They relined our old drain without digging up the yard. Explained everything in plain English. Cannot fault them.', name: 'Priya & Tom', suburb: 'Hallett Cove', },
+];
+
+const services = [
+  { title: 'Emergency Plumbing', desc: '24/7 rapid response when things go wrong fast.', img: '/images/Burst-Pipe-Repair.webp' },
+  { title: 'Blocked Drains', desc: 'Cleared properly with jetting and CCTV.', img: '/images/Blocked-Drains.webp' },
+  { title: 'Leaking Tap Repair', desc: 'Stop the drip, stop the waste, today.', img: '/images/Leaking-Tap-Repair.webp' },
+  { title: 'Hot Water Systems', desc: 'Repairs, replacements and upgrades.', img: '/images/Hot-Water-Replacement.webp' },
+  { title: 'Toilet Plumbing', desc: 'Running, blocked or leaking cisterns fixed.', img: '/images/Toilet-Cistern.webp' },
+  { title: 'Leak Detection', desc: 'Pinpoint hidden leaks without the guesswork.', img: '/images/Pipe-Inspection.webp' },
+  { title: 'Pipe Relining', desc: 'No-dig pipe repair that lasts decades.', img: '/images/Pipe-Relining.webp' },
+  { title: 'Gas Fitting', desc: 'Licensed, safe gas installs and repairs.', img: '/images/Gas-Fitting-Service.webp' },
+];
+
+const pillars = [
+  { title: 'Family Owned', sub: '15+ years serving southern Adelaide as locals you can trust.', icon: 'home' },
+  { title: '24/7 Available', sub: 'Day, night or weekend — a real plumber answers the phone.', icon: 'clock' },
+  { title: '100% Satisfaction', sub: 'Backed by our labour warranty and a make-it-right promise.', icon: 'shield' },
+  { title: 'Fast & Efficient', sub: 'Typical 30–60 minute response on urgent call-outs.', icon: 'bolt' },
+  { title: 'Upfront Pricing', sub: 'Fixed quotes approved before we lift a tool. No surprises.', icon: 'tag' },
+];
+
+const steps = [
+  { n: '01', title: 'Give us a call', desc: 'Tell us what is going on. We will book you in fast and give you a clear idea of cost up front.', img: '/images/Process-Step-1.webp' },
+  { n: '02', title: 'We arrive on time', desc: 'A licensed plumber turns up when we say — often same-day — ready to get to work.', img: '/images/Process-Step-2.webp' },
+  { n: '03', title: '100% satisfaction', desc: 'We finish the job properly, clean up, and back it with our satisfaction guarantee.', img: '/images/Process-Step-3.webp' },
+];
+
+const areas = ['Happy Valley', 'Reynella', 'Morphett Vale', 'Hallett Cove', 'Aberfoyle Park', "O'Halloran Hill", 'Flagstaff Hill', 'Christie Downs', 'Noarlunga', 'Seaford'];
+
+const team = [
+  { img: '/images/team-01.webp', name: 'Jordan Pike', role: 'Founder & Master Plumber' },
+  { img: '/images/team-02.webp', name: 'Marcus Hale', role: 'Drainage Specialist' },
+  { img: '/images/team-03.webp', name: 'Tom Reyes', role: 'Gas & Hot Water Tech' },
+  { img: '/images/team-04.webp', name: 'Ash Connell', role: 'Emergency Response' },
+];
+
+const footerServices = ['Emergency Plumbing', 'Blocked Drains', 'Hot Water Systems', 'Leak Detection', 'Pipe Relining', 'Gas Fitting'];
+---
+
+<Layout title="Bright Service — Aptec Plumbing">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #156ECE;
+      --color-brand-secondary: #0B2847;
+      --color-brand-accent:    #FF7A1B;
+      --color-brand-bg:        #FFFFFF;
+      --color-brand-surface:   #EAF4FF;
+      --color-brand-text:      #0F1B2D;
+      --color-brand-muted:     #62748A;
+      --font-heading: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+      --font-body:    'DM Sans Variable', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .hero-anim { opacity: 1 !important; transform: none !important; animation: none !important; }
+    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .hero-anim { opacity: 0; transform: translateY(20px); animation: heroIn .8s cubic-bezier(.2,.8,.2,1) forwards; }
+    @keyframes heroIn { to { opacity: 1; transform: none; } }
+    @keyframes blobFloat { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(0,-14px) scale(1.04); } }
+    .spring { transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease; }
+    .spring:hover { transform: translateY(-8px); }
+  </style>
+
+  <!-- ======================= 1. STICKY HEADER ======================= -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+      <a href="#top" class="flex items-center gap-2.5">
+        <img src="/images/logo.webp" alt="Aptec Plumbing" width="150" height="44" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden items-center gap-1 lg:flex">
+        {nav.map((n) => (
+          <a href={n.href} class="rounded-full px-4 py-2 text-sm font-semibold text-brand-secondary/80 transition-colors hover:bg-brand-surface hover:text-brand-primary">{n.label}</a>
+        ))}
+      </nav>
+      <div class="flex items-center gap-2.5">
+        <a href={phoneHref} class="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-brand-secondary transition-colors hover:text-brand-primary sm:flex">
+          <span class="grid size-8 place-items-center rounded-full bg-brand-accent/15 text-brand-accent">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.7c.6 0 1.1.4 1.3 1l.9 3a1.4 1.4 0 0 1-.4 1.4l-1.2 1a13 13 0 0 0 5.6 5.6l1-1.2a1.4 1.4 0 0 1 1.4-.4l3 .9c.6.2 1 .7 1 1.3v1.7c0 1.4-1.1 2.5-2.5 2.5C10.6 21 3 13.4 3 5.5Z" fill="currentColor"/></svg>
+          </span>
+          {phone}
+        </a>
+        <a href="#" class="rounded-full bg-brand-primary px-5 py-2.5 text-sm font-bold text-white shadow-[0_12px_30px_-10px_rgba(22,126,230,.7)] transition-all hover:bg-brand-primary/90 hover:shadow-[0_16px_36px_-10px_rgba(22,126,230,.85)]">Book Online</a>
+        <button id="nav-toggle" aria-label="Open menu" class="grid size-10 place-items-center rounded-full bg-brand-surface text-brand-secondary lg:hidden">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="hidden border-t border-brand-primary/10 bg-white/95 px-5 pb-5 pt-2 backdrop-blur-xl lg:hidden">
+      {nav.map((n) => (
+        <a href={n.href} class="block rounded-2xl px-4 py-3 font-semibold text-brand-secondary hover:bg-brand-surface">{n.label}</a>
+      ))}
+      <a href={phoneHref} class="mt-2 block rounded-full bg-brand-accent px-4 py-3 text-center font-bold text-brand-secondary">Call {phone}</a>
+    </div>
+  </header>
+
+  <main id="top" class="overflow-x-clip">
+
+    <!-- ======================= 2. HERO ======================= -->
+    <section class="relative isolate overflow-hidden bg-brand-surface pt-28 pb-16 sm:pt-32 lg:pb-24">
+      <!-- ambient blobs -->
+      <div class="pointer-events-none absolute -left-24 top-10 -z-10 size-80 rounded-full bg-brand-primary/15 blur-3xl" style="animation: blobFloat 9s ease-in-out infinite"></div>
+      <div class="pointer-events-none absolute -right-16 bottom-0 -z-10 size-72 rounded-full bg-brand-accent/20 blur-3xl" style="animation: blobFloat 11s ease-in-out infinite reverse"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[1.05fr_1fr] lg:px-8">
+        <div>
+          <span class="hero-anim inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-brand-secondary shadow-[0_10px_30px_-12px_rgba(11,40,71,.35)]" style="animation-delay:.05s">
+            <span class="flex text-brand-accent">★★★★★</span>
+            <span class="text-brand-muted">Rated by southern Adelaide locals</span>
+          </span>
+          <h1 class="hero-anim mt-6 font-heading text-[2.7rem] font-extrabold leading-[1.05] tracking-tight text-brand-secondary sm:text-6xl" style="animation-delay:.15s">
+            5★ Rated.<br/><span class="text-brand-primary">$0 Call-Out</span> Fee.
+          </h1>
+          <p class="hero-anim mt-5 max-w-xl text-lg leading-relaxed text-brand-muted" style="animation-delay:.25s">
+            Fast, professional, genuinely affordable plumbing for Happy Valley & southern Adelaide. Honest upfront pricing, same-day service, and a friendly local plumber who turns up on time.
+          </p>
+          <div class="hero-anim mt-8 flex flex-col gap-3 sm:flex-row" style="animation-delay:.35s">
+            <a href={phoneHref} class="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-primary px-7 py-4 font-bold text-white shadow-[0_18px_40px_-12px_rgba(22,126,230,.7)] transition-all hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-12px_rgba(22,126,230,.85)]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.7c.6 0 1.1.4 1.3 1l.9 3a1.4 1.4 0 0 1-.4 1.4l-1.2 1a13 13 0 0 0 5.6 5.6l1-1.2a1.4 1.4 0 0 1 1.4-.4l3 .9c.6.2 1 .7 1 1.3v1.7c0 1.4-1.1 2.5-2.5 2.5C10.6 21 3 13.4 3 5.5Z" fill="currentColor"/></svg>
+              {phone}
+            </a>
+            <a href="#" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-secondary/10 bg-white px-7 py-4 font-bold text-brand-secondary transition-all hover:-translate-y-0.5 hover:border-brand-primary/30 hover:text-brand-primary">
+              Book Online
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="hero-anim mt-8 flex flex-wrap gap-x-6 gap-y-2" style="animation-delay:.45s">
+            {['Same-day service','Upfront pricing','Labour warranty'].map((t) => (
+              <span class="flex items-center gap-2 text-sm font-semibold text-brand-secondary/80">
+                <span class="grid size-5 place-items-center rounded-full bg-brand-accent text-white"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- hero image with floating 24/7 badge -->
+        <div class="hero-anim relative" style="animation-delay:.3s">
+          <div class="relative overflow-hidden rounded-[2.5rem] shadow-[0_40px_80px_-30px_rgba(11,40,71,.55)]">
+            <img src="/images/Aptec-Hero-Section.webp" alt="Aptec plumber at work in southern Adelaide" class="aspect-[4/5] w-full object-cover sm:aspect-[5/5]" width="640" height="700" />
+          </div>
+          <div class="absolute -left-3 top-8 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_24px_50px_-20px_rgba(11,40,71,.5)] sm:-left-6">
+            <span class="relative grid size-11 place-items-center rounded-full bg-brand-accent/15 text-brand-accent">
+              <span class="absolute inline-flex size-3 animate-ping rounded-full bg-brand-accent opacity-70"></span>
+              <span class="relative size-3 rounded-full bg-brand-accent"></span>
+            </span>
+            <div class="leading-tight">
+              <p class="font-heading text-sm font-extrabold text-brand-secondary">Available 24/7</p>
+              <p class="text-xs text-brand-muted">Emergency response now</p>
+            </div>
+          </div>
+          <div class="absolute -bottom-4 right-2 flex items-center gap-2 rounded-2xl bg-brand-secondary px-4 py-3 text-white shadow-[0_24px_50px_-20px_rgba(11,40,71,.6)] sm:right-6">
+            <span class="font-heading text-2xl font-extrabold">15+</span>
+            <span class="text-xs leading-tight text-white/80">years local<br/>family owned</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 3. PROMO COUPON STRIP ======================= -->
+    <section class="relative z-10 bg-brand-bg">
+      <div class="mx-auto -mt-8 max-w-7xl px-5 lg:px-8">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {coupons.map((c) => (
+            <div class="reveal spring group relative overflow-hidden rounded-[1.75rem] border border-brand-primary/10 bg-white p-6 shadow-[0_24px_60px_-30px_rgba(11,40,71,.4)]">
+              <div class="absolute -right-6 -top-6 size-20 rounded-full bg-brand-surface transition-transform group-hover:scale-125"></div>
+              <div class="relative">
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-primary">{c.tag}</span>
+                <h3 class="mt-2 font-heading text-lg font-extrabold leading-snug text-brand-secondary">{c.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-brand-muted">{c.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 4. TESTIMONIALS ======================= -->
+    <section class="bg-brand-bg py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">Real reviews</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">What our customers are saying</h2>
+        </div>
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <figure class="reveal spring flex flex-col rounded-[2rem] bg-white p-7 shadow-[0_30px_70px_-35px_rgba(11,40,71,.45)] ring-1 ring-brand-primary/5">
+              <div class="flex text-brand-accent">★★★★★</div>
+              <blockquote class="mt-4 flex-1 text-lg leading-relaxed text-brand-secondary/90">“{t.quote}”</blockquote>
+              <figcaption class="mt-6 flex items-center gap-3">
+                <span class="grid size-11 place-items-center rounded-full bg-brand-primary/10 font-heading font-extrabold text-brand-primary">{t.name.charAt(0)}</span>
+                <span><span class="block font-heading font-bold text-brand-secondary">{t.name}</span><span class="block text-sm text-brand-muted">{t.suburb}</span></span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 5. VALUE PROPOSITION ======================= -->
+    <section class="bg-brand-surface py-20 lg:py-28">
+      <div class="mx-auto max-w-4xl px-5 text-center lg:px-8">
+        <span class="reveal inline-block text-sm font-bold uppercase tracking-wider text-brand-primary">No-fuss service</span>
+        <h2 class="reveal mt-4 font-heading text-3xl font-extrabold leading-tight tracking-tight text-brand-secondary sm:text-[2.75rem]">
+          The plumber Happy Valley trusts for fast, no-fuss service.
+        </h2>
+        <p class="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
+          We keep plumbing simple: pick up the phone or book online, get a clear upfront price, and have a licensed local plumber sort it properly — often the same day. No jargon, no pressure, no nasty surprises on the invoice. Just honest work, done well, by people who live and work where you do.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================= 6. SERVICES GRID ======================= -->
+    <section id="services" class="scroll-mt-24 bg-brand-bg py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+          <div class="max-w-xl">
+            <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">What we do</span>
+            <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Plumbing services, sorted properly</h2>
+          </div>
+          <a href="#" class="rounded-full bg-brand-surface px-5 py-3 text-sm font-bold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white">Book a service</a>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s) => (
+            <a href="#" class="reveal spring group overflow-hidden rounded-[1.75rem] bg-white shadow-[0_24px_60px_-34px_rgba(11,40,71,.5)] ring-1 ring-brand-primary/5">
+              <div class="relative overflow-hidden">
+                <img src={s.img} alt={s.title} class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" width="320" height="240" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-secondary/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading text-lg font-extrabold text-brand-secondary">{s.title}</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-brand-muted">{s.desc}</p>
+                <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand-primary">Learn more
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 7. BLOCKED DRAINS DEEP-DIVE ======================= -->
+    <section class="bg-brand-surface py-20 lg:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+        <div class="reveal relative">
+          <img src="/images/Tree-Root-Removal.webp" alt="Tree root removal from a blocked drain" class="w-full rounded-[2.5rem] object-cover shadow-[0_40px_80px_-34px_rgba(11,40,71,.55)]" width="600" height="500" loading="lazy" />
+          <img src="/images/Drain-Camera-Inspection.webp" alt="CCTV drain camera inspection" class="absolute -bottom-8 -right-4 hidden w-44 rounded-3xl border-4 border-white object-cover shadow-2xl sm:block" width="180" height="180" loading="lazy" />
+        </div>
+        <div class="reveal">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">Blocked drains</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">We find the cause, not just the symptom</h2>
+          <p class="mt-5 text-lg leading-relaxed text-brand-muted">A slow or blocked drain is usually a sign of something specific. We clear it fast and show you exactly what was going on with our drain camera.</p>
+          <ul class="mt-7 space-y-4">
+            {[
+              ['Tree root intrusion','Roots creep into old pipe joints. We cut them out and reline so they cannot come back.'],
+              ['Grease & fat build-up','Years of kitchen waste narrows pipes. High-pressure jetting scours them clean.'],
+              ['CCTV pipe inspection','A camera survey pinpoints the blockage, cracks or sags — no digging, no guessing.'],
+            ].map(([h,d]) => (
+              <li class="flex gap-4">
+                <span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-brand-accent text-white"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><span class="font-heading font-bold text-brand-secondary">{h}</span><span class="mt-0.5 block text-brand-muted">{d}</span></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 8. TOILET REPAIR DEEP-DIVE ======================= -->
+    <section class="bg-brand-bg py-20 lg:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+        <div class="reveal order-2 lg:order-1">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">Toilet plumbing</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Running, leaking or blocked? Fixed today.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-brand-muted">A faulty cistern can waste thousands of litres a week. We repair the common culprits or replace the unit entirely — your call, with a clear price either way.</p>
+          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+            {[
+              ['/images/Constantly-Running-Cistern.webp','Constantly running cistern'],
+              ['/images/Worn-Fill.webp','Worn fill & flush valves'],
+              ['/images/Toilet-Cistern-Repair-1.webp','Cistern repair'],
+              ['/images/Cistern-Replacement.webp','Full cistern replacement'],
+            ].map(([img,label]) => (
+              <div class="spring overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-30px_rgba(11,40,71,.45)] ring-1 ring-brand-primary/5">
+                <img src={img} alt={label} class="aspect-[5/3] w-full object-cover" width="260" height="156" loading="lazy" />
+                <p class="px-4 py-3 font-heading text-sm font-bold text-brand-secondary">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="reveal order-1 lg:order-2">
+          <img src="/images/Blocked-Toilet-Aptec-Plumbing.webp" alt="Toilet repair by Aptec Plumbing" class="w-full rounded-[2.5rem] object-cover shadow-[0_40px_80px_-34px_rgba(11,40,71,.55)]" width="600" height="560" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 9. PIPE RELINING DEEP-DIVE ======================= -->
+    <section class="relative overflow-hidden bg-brand-secondary py-20 text-white lg:py-28">
+      <div class="pointer-events-none absolute -right-20 top-10 size-80 rounded-full bg-brand-primary/30 blur-3xl"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+        <div class="reveal">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-accent">Pipe relining</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">No-dig pipe repair, no torn-up yard</h2>
+          <p class="mt-5 text-lg leading-relaxed text-white/75">Relining repairs your damaged pipe from the inside. We insert a resin liner that cures into a tough new pipe within the old one — no excavation, minimal mess, and a result built to last decades.</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            {[['No digging','Driveways & gardens stay intact'],['~50 yr life','Seamless, jointless new pipe'],['Fast cure','Most jobs done in a day']].map(([h,d]) => (
+              <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur">
+                <p class="font-heading text-lg font-extrabold text-brand-accent">{h}</p>
+                <p class="mt-1 text-sm text-white/70">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="reveal">
+          <img src="/images/Pipe-Relining (1).webp" alt="No-dig pipe relining technology" class="w-full rounded-[2.5rem] object-cover shadow-[0_40px_90px_-30px_rgba(0,0,0,.6)]" width="600" height="500" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 10. WHY CHOOSE APTEC ======================= -->
+    <section id="why-us" class="scroll-mt-24 bg-brand-bg py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">Why choose us</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Why southern Adelaide picks Aptec</h2>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {pillars.map((p) => (
+            <div class="reveal spring rounded-[1.75rem] bg-white p-6 text-center shadow-[0_24px_60px_-34px_rgba(11,40,71,.5)] ring-1 ring-brand-primary/5">
+              <span class="mx-auto grid size-14 place-items-center rounded-2xl bg-brand-surface text-brand-primary">
+                <Fragment set:html={{
+                  home:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 11 12 4l9 7M5 10v9h14v-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                  clock:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                  shield:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                  bolt:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M13 3 5 13h5l-1 8 8-10h-5l1-8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
+                  tag:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12V5a2 2 0 0 1 2-2h7l9 9-9 9-9-9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.4" fill="currentColor"/></svg>',
+                }[p.icon]} />
+              </span>
+              <h3 class="mt-4 font-heading text-lg font-extrabold text-brand-secondary">{p.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-brand-muted">{p.sub}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 11. PROCESS ======================= -->
+    <section class="bg-brand-surface py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">How it works</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Three simple steps to sorted</h2>
+        </div>
+        <div class="relative mt-14 grid gap-8 lg:grid-cols-3">
+          {steps.map((s) => (
+            <div class="reveal relative">
+              <div class="overflow-hidden rounded-[2rem] bg-brand-bg shadow-[0_30px_70px_-36px_rgba(11,40,71,.5)]">
+                <img src={s.img} alt={s.title} class="aspect-[4/3] w-full object-contain" width="380" height="285" loading="lazy" />
+              </div>
+              <span class="absolute -top-5 left-6 grid size-12 place-items-center rounded-full bg-brand-primary font-heading text-lg font-extrabold text-white shadow-[0_14px_30px_-10px_rgba(22,126,230,.8)]">{s.n}</span>
+              <h3 class="mt-6 font-heading text-xl font-extrabold text-brand-secondary">{s.title}</h3>
+              <p class="mt-2 leading-relaxed text-brand-muted">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 12. FAQ ======================= -->
+    <section id="faq" class="scroll-mt-24 bg-brand-bg py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">Good to know</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Frequently asked questions</h2>
+        </div>
+        <div class="reveal mt-12">
+          <FaqAccordion client:visible />
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 13. SERVICE AREAS ======================= -->
+    <section id="areas" class="scroll-mt-24 bg-brand-surface py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">Where we work</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Servicing Happy Valley & southern Adelaide, 24/7</h2>
+          <p class="mt-4 text-lg text-brand-muted">Local plumbers, just around the corner. Here are some of the suburbs we cover every day.</p>
+        </div>
+        <div class="reveal mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
+          {areas.map((a) => (
+            <span class="spring inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 font-heading text-sm font-bold text-brand-secondary shadow-[0_16px_40px_-28px_rgba(11,40,71,.5)] ring-1 ring-brand-primary/5">
+              <span class="size-2 rounded-full bg-brand-accent"></span>{a}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 14. TEAM ======================= -->
+    <section class="bg-brand-bg py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-sm font-bold uppercase tracking-wider text-brand-primary">The crew</span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Our expert plumbing team</h2>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {team.map((m) => (
+            <div class="reveal spring group overflow-hidden rounded-[1.75rem] bg-white shadow-[0_24px_60px_-34px_rgba(11,40,71,.5)] ring-1 ring-brand-primary/5">
+              <div class="overflow-hidden">
+                <img src={m.img} alt={m.name} class="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105" width="300" height="300" loading="lazy" />
+              </div>
+              <div class="p-5 text-center">
+                <h3 class="font-heading text-lg font-extrabold text-brand-secondary">{m.name}</h3>
+                <p class="mt-1 text-sm font-semibold text-brand-primary">{m.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 15. CTA BANNER ======================= -->
+    <section id="contact" class="scroll-mt-24 bg-brand-bg pb-20 lg:pb-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="reveal relative overflow-hidden rounded-[2.5rem] bg-brand-primary px-6 py-12 text-white shadow-[0_50px_100px_-40px_rgba(22,126,230,.8)] sm:px-12 lg:py-16">
+          <div class="pointer-events-none absolute -left-16 -top-16 size-72 rounded-full bg-white/10 blur-2xl"></div>
+          <div class="pointer-events-none absolute -bottom-20 -right-10 size-80 rounded-full bg-brand-accent/30 blur-3xl"></div>
+          <div class="relative grid items-center gap-8 lg:grid-cols-[1.2fr_1fr]">
+            <div>
+              <span class="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-bold backdrop-blur">
+                <span class="relative flex size-2.5"><span class="absolute inline-flex size-full animate-ping rounded-full bg-brand-accent opacity-75"></span><span class="relative size-2.5 rounded-full bg-brand-accent"></span></span>
+                We're available now
+              </span>
+              <h2 class="mt-5 font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-[2.6rem]">Got a plumbing problem? Let's sort it.</h2>
+              <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+                {['$0 call-out fee','Upfront pricing','Same-day service','Licensed & insured'].map((t) => (
+                  <span class="flex items-center gap-2 text-sm font-semibold text-white/90"><span class="grid size-5 place-items-center rounded-full bg-white/20"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>{t}</span>
+                ))}
+              </div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <a href={phoneHref} class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-extrabold text-brand-primary shadow-lg transition-transform hover:-translate-y-0.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.7c.6 0 1.1.4 1.3 1l.9 3a1.4 1.4 0 0 1-.4 1.4l-1.2 1a13 13 0 0 0 5.6 5.6l1-1.2a1.4 1.4 0 0 1 1.4-.4l3 .9c.6.2 1 .7 1 1.3v1.7c0 1.4-1.1 2.5-2.5 2.5C10.6 21 3 13.4 3 5.5Z" fill="currentColor"/></svg>
+                {phone}
+              </a>
+              <a href="#" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-secondary px-7 py-4 font-extrabold text-white shadow-lg ring-1 ring-white/20 transition-transform hover:-translate-y-0.5">Book Online</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= 16. FOOTER ======================= -->
+  <footer class="bg-brand-secondary text-white">
+    <div class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div>
+          <img src="/images/logo.webp" alt="Aptec Plumbing" width="160" height="46" class="h-11 w-auto brightness-0 invert" />
+          <p class="mt-4 max-w-xs text-sm leading-relaxed text-white/65">Fast, friendly, family-owned plumbing for Happy Valley & southern Adelaide. Available 24/7 with $0 call-out and upfront pricing.</p>
+          <a href={phoneHref} class="mt-5 inline-flex items-center gap-2 font-heading text-lg font-extrabold text-white"><span class="grid size-9 place-items-center rounded-full bg-brand-accent/20 text-brand-accent"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.7c.6 0 1.1.4 1.3 1l.9 3a1.4 1.4 0 0 1-.4 1.4l-1.2 1a13 13 0 0 0 5.6 5.6l1-1.2a1.4 1.4 0 0 1 1.4-.4l3 .9c.6.2 1 .7 1 1.3v1.7c0 1.4-1.1 2.5-2.5 2.5C10.6 21 3 13.4 3 5.5Z" fill="currentColor"/></svg></span>{phone}</a>
+        </div>
+        <div>
+          <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-white/50">Quick links</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-white/75">
+            {nav.map((n) => (<li><a href={n.href} class="transition-colors hover:text-brand-accent">{n.label}</a></li>))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-white/50">Services</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-white/75">
+            {footerServices.map((s) => (<li><a href="#services" class="transition-colors hover:text-brand-accent">{s}</a></li>))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-white/50">Service areas</h3>
+          <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm text-white/75">
+            {areas.map((a) => (<li>{a}</li>))}
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-7 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <p>© 2026 Aptec Plumbing. All rights reserved.</p>
+        <p class="flex flex-wrap gap-x-5 gap-y-1"><span>Lic. #333997</span><span>ABN 52 668 135 886</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav blur/shadow on scroll
+    const header = document.getElementById('site-header');
+    const onScroll = () => {
+      if (window.scrollY > 12) header?.classList.add('is-scrolled');
+      else header?.classList.remove('is-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Mobile menu
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+    menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            const el = e.target as HTMLElement;
+            const sibs = Array.from(el.parentElement?.children || []).filter((c) => c.classList.contains('reveal'));
+            el.style.transitionDelay = `${Math.min(sibs.indexOf(el), 5) * 80}ms`;
+            el.classList.add('is-visible');
+            io.unobserve(el);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach((r) => io.observe(r));
+    } else {
+      reveals.forEach((r) => r.classList.add('is-visible'));
+    }
+  </script>
+
+  <style>
+    #site-header.is-scrolled {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: saturate(160%) blur(14px);
+      box-shadow: 0 10px 30px -18px rgba(11, 40, 71, 0.45);
+    }
+  </style>
+</Layout>

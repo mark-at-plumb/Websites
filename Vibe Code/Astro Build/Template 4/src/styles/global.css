@@ -1,0 +1,9 @@
+/* Self-hosted variable fonts — union of all 3 direction font pairs. */
+@import '@fontsource-variable/plus-jakarta-sans';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/fraunces';
+
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";

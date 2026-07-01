@@ -1,0 +1,58 @@
+---
+const quick = [['Services','#services'],['Why Us','#why-us'],['Areas','#areas'],['FAQ','#faq'],['Contact','#contact']];
+const cats = ['Emergency Plumbing','Blocked Drains','Hot Water Systems','Burst Pipe Repairs','Leak Detection','Pipe Relining','Gas Fitting'];
+const areas = ['Happy Valley','Reynella','Morphett Vale','Hallett Cove','Aberfoyle Park','Flagstaff Hill','Noarlunga','Seaford'];
+const year = new Date().getFullYear();
+---
+<footer class="bg-brand-secondary text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      <div>
+        <img src="/images/logo.webp" alt="Aptec Plumbing" class="h-11 w-auto brightness-0 invert mb-5" width="180" height="44" />
+        <p class="text-sm text-white/60 leading-relaxed max-w-xs">
+          Licensed, family-owned plumbers servicing Happy Valley and southern
+          Adelaide 24/7. Fast, no-fuss service with upfront pricing.
+        </p>
+        <a href="tel:0880005050" class="mt-5 inline-flex items-center gap-2 font-heading font-extrabold text-xl tabular-nums hover:text-brand-accent transition-colors">
+          (08) 8000 5050
+        </a>
+      </div>
+
+      <div>
+        <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-accent mb-4">Quick Links</h3>
+        <ul class="space-y-2.5">
+          {quick.map(([l, h]) => (
+            <li><a href={h} class="text-sm text-white/65 hover:text-white transition-colors">{l}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-accent mb-4">Services</h3>
+        <ul class="space-y-2.5">
+          {cats.map((c) => (
+            <li><a href="#services" class="text-sm text-white/65 hover:text-white transition-colors">{c}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-accent mb-4">Service Areas</h3>
+        <ul class="grid grid-cols-2 gap-x-4 gap-y-2.5">
+          {areas.map((a) => (
+            <li><a href="#areas" class="text-sm text-white/65 hover:text-white transition-colors">{a}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-7 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-1 text-[12px] uppercase tracking-[0.14em] text-white/50">
+        <span>Lic. #333997</span>
+        <span class="hidden sm:inline text-white/20">|</span>
+        <span>ABN 52 668 135 886</span>
+      </div>
+      <p class="text-[12px] text-white/40">© {year} Aptec Plumbing. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

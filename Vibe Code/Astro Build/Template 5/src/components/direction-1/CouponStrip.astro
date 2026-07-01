@@ -1,0 +1,23 @@
+---
+const coupons = [
+  { img: '/images/First-Service-1.svg', alt: '15% off your first plumbing service coupon' },
+  { img: '/images/Blocked-Drains-1.svg', alt: 'From $99 blocked drains fixed price coupon' },
+  { img: '/images/CCTV-Pipe-Inspection-1.svg', alt: 'Free CCTV pipe inspection with any drain clear coupon' },
+  { img: '/images/Seniors-1.svg', alt: '10% seniors & concession card discount coupon' },
+];
+---
+<section class="bg-brand-secondary">
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-14">
+    <div class="reveal mb-7 flex flex-wrap items-end justify-between gap-3">
+      <h2 class="font-heading text-2xl font-extrabold text-white sm:text-3xl">Save with our current offers</h2>
+      <p class="text-sm text-white/60">Mention the offer when you book.</p>
+    </div>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {coupons.map((c) => (
+        <a href="/contact" class="reveal group block overflow-hidden rounded-2xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.6)] ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1.5">
+          <img src={c.img} alt={c.alt} loading="lazy" class="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105" width="600" height="400" />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

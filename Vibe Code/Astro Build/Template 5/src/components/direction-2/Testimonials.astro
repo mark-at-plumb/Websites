@@ -1,0 +1,52 @@
+---
+import Eyebrow from './Eyebrow.astro';
+const reviews = [
+  {
+    quote: 'Burst pipe at 11pm and Aptec had someone at our door in under 40 minutes. Fixed, cleaned up, and the price was exactly what they quoted on the phone. Couldn’t fault them.',
+    name: 'Rebecca M.',
+    suburb: 'Happy Valley',
+  },
+  {
+    quote: 'Booked a blocked drain and they threw in the CCTV inspection for free. Found a tree root issue I had no idea about and sorted it without digging up the yard. Proper professionals.',
+    name: 'Daniel K.',
+    suburb: 'Aberfoyle Park',
+  },
+  {
+    quote: 'Replaced our hot water system same day. Friendly, tidy, and explained everything in plain English. As a pensioner the seniors discount was a lovely touch too.',
+    name: 'Marg T.',
+    suburb: 'Hallett Cove',
+  },
+];
+---
+<section class="bg-brand-bg reveal">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+      <div>
+        <Eyebrow index="04" label="Trusted Locally" />
+        <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.8rem,4vw,2.8rem)] leading-tight tracking-tight">
+          What Our Customers<br class="hidden sm:block" /> Are Saying
+        </h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex text-brand-accent text-xl">★★★★★</div>
+        <span class="text-sm text-brand-muted">Rated 5.0 across 300+ local jobs</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-sm overflow-hidden">
+      {reviews.map((r) => (
+        <figure class="bg-brand-bg p-7 flex flex-col">
+          <div class="text-brand-accent text-lg mb-4 tracking-widest">★★★★★</div>
+          <blockquote class="text-brand-text leading-relaxed flex-1">“{r.quote}”</blockquote>
+          <figcaption class="mt-6 pt-5 border-t border-brand-secondary/10 flex items-center gap-3">
+            <span class="grid place-items-center h-10 w-10 rounded-sm bg-brand-secondary text-white font-bold text-sm">{r.name.charAt(0)}</span>
+            <div>
+              <div class="font-bold text-brand-secondary text-sm">{r.name}</div>
+              <div class="text-[12px] uppercase tracking-[0.14em] text-brand-muted">{r.suburb}</div>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

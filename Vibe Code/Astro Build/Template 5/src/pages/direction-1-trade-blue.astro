@@ -1,0 +1,491 @@
+---
+import Direction1Layout from '../layouts/Direction1Layout.astro';
+import Drip from '../components/direction-1/Drip.astro';
+import FaqAccordion from '../components/direction-1/FaqAccordion.tsx';
+import ProcessSection from '../components/direction-1/ProcessSection.astro';
+import ServiceAreaSection from '../components/direction-1/ServiceAreaSection.astro';
+import { PHONE, PHONE_HREF } from '../data/site';
+
+const coupons = [
+  { tag: 'New Customers', title: '15% Off', sub: 'Your first plumbing service with Aptec', icon: 'first', img: '/images/First-Service-1.svg', alt: '$50 off your first service coupon' },
+  { tag: 'Blocked Drains', title: '$99 Special', sub: 'Standard blocked drain clear, fixed price', icon: 'drain', img: '/images/Blocked-Drains-1.svg', alt: 'From $99 blocked drains coupon' },
+  { tag: 'Free Add-On', title: 'Free CCTV', sub: 'Drain camera inspection with any clear', icon: 'cctv', img: '/images/CCTV-Pipe-Inspection-1.svg', alt: 'Free CCTV pipe inspection coupon' },
+  { tag: 'Pensioners', title: '10% Off', sub: 'Seniors & concession card discount', icon: 'seniors', img: '/images/Seniors-1.svg', alt: '10% seniors discount coupon' },
+];
+
+const testimonials = [
+  {
+    quote: 'Burst pipe at 6am before work — Aptec had someone out within the hour and sorted it before I even left the house. Tidy, honest and no nasty surprise on the bill.',
+    name: 'Rebecca M.',
+    suburb: 'Happy Valley',
+  },
+  {
+    quote: 'Quoted me a fixed price for a blocked drain over the phone and stuck to it exactly. The plumber was friendly and even showed me the camera footage. Genuinely the best tradie experience we have had.',
+    name: 'Daniel K.',
+    suburb: 'Aberfoyle Park',
+  },
+  {
+    quote: 'Replaced our dead hot water system same day. No call-out fee, clear pricing, and they cleaned up after themselves. We have already recommended them to the whole street.',
+    name: 'Sophie T.',
+    suburb: 'Hallett Cove',
+  },
+];
+
+const services = [
+  { title: 'Emergency Plumbing', img: '/images/Burst-Pipe-Repair.webp', desc: '24/7 rapid response when things go wrong fast.' },
+  { title: 'Blocked Drains', img: '/images/Blocked-Drains.webp', desc: 'Cleared properly with high-pressure jetting.' },
+  { title: 'Leaking Tap Repair', img: '/images/Leaking-Tap-Repair.webp', desc: 'Stop the drip and the wasted water bill.' },
+  { title: 'Hot Water Systems', img: '/images/Hot-Water-Replacement.webp', desc: 'Repairs, swaps and same-day replacements.' },
+  { title: 'Burst Pipe Repairs', img: '/images/Burst-Pipe-Repair.webp', desc: 'Fast isolation and lasting pipe repairs.' },
+  { title: 'Toilet Plumbing', img: '/images/Toilet-Cistern.webp', desc: 'Running, blocked or leaking — all fixed.' },
+  { title: 'Leak Detection', img: '/images/Pipe-Inspection.webp', desc: 'Find hidden leaks without tearing up floors.' },
+  { title: 'Relining & Gas Fitting', img: '/images/Pipe-Relining.webp', desc: 'No-dig pipe relining and licensed gas work.' },
+];
+
+const pillars = [
+  { title: 'Family Owned', stat: '15+ years', sub: 'Locally owned and run — you deal with the people who do the work.', icon: 'home' },
+  { title: '24/7 Available', stat: 'Every day', sub: 'Genuine round-the-clock cover for emergencies, weekends and holidays.', icon: 'clock' },
+  { title: '100% Satisfaction', stat: 'Guaranteed', sub: 'We don’t leave until the job’s done right and you’re happy with it.', icon: 'star' },
+  { title: 'Fast & Efficient', stat: '30–60 min', sub: 'Typical response times across Happy Valley and southern Adelaide.', icon: 'bolt' },
+  { title: 'Upfront Pricing', stat: '$0 call-out', sub: 'Fixed quotes before we start. No hidden fees, no nasty surprises.', icon: 'tag' },
+];
+
+const steps = [
+  { n: '01', title: 'Give us a call', img: '/images/Process-Step-1.webp', desc: 'Tell us what is going on. We listen, give honest advice and lock in a time that suits you.' },
+  { n: '02', title: 'We arrive on time', img: '/images/Process-Step-2.webp', desc: 'Same-day service where possible. We turn up when we say, quote upfront, then get to work.' },
+  { n: '03', title: 'Sorted, guaranteed', img: '/images/Process-Step-3.webp', desc: 'The job is done right, the site left tidy, and backed by our 100% satisfaction guarantee.' },
+];
+
+const team = [
+  { img: '/images/team-01.webp', name: 'Jake Mercer', role: 'Lead Plumber' },
+  { img: '/images/team-02.webp', name: 'Tom Whitlock', role: 'Drainage Specialist' },
+  { img: '/images/team-03.webp', name: 'Liam Carter', role: 'Hot Water & Gas' },
+  { img: '/images/team-04.webp', name: 'Noah Bennett', role: 'Emergency Tech' },
+];
+---
+
+<Direction1Layout title="Trade Blue — Aptec Plumbing">
+  <div id="top">
+
+    <!-- ============ 2. HERO ============ -->
+    <section class="relative overflow-hidden bg-brand-secondary">
+      <!-- diagonal gradient background matching live site -->
+      <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(135deg, #0B2847 0%, #0d3260 40%, #156ECE 100%); opacity: 0.95;"></div>
+      <!-- subtle dot grid -->
+      <div class="pointer-events-none absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
+        <div class="hero-stagger">
+          <!-- rating badge -->
+          <div class="inline-flex items-center gap-2 rounded-lg border border-brand-accent/40 bg-brand-accent/20 px-3.5 py-1.5 text-xs font-bold text-brand-accent">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.8l1.2-6.6L2.5 9l6.6-.9L12 2Z"/></svg>
+            5.0 Rating · 236 Reviews
+          </div>
+
+          <h1 class="mt-5 font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Trusted Local
+            <span class="relative inline-block text-brand-accent">
+              Plumber.
+              <svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M2 5c40-5 60 3 100-1s56-4 96 1" stroke="#FF7A1B" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+            Fast, professional and genuinely affordable plumbing for Happy Valley and southern Adelaide. Honest upfront pricing, same-day service, and a licensed plumber at your door — usually within the hour.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={PHONE_HREF} class="group inline-flex items-center justify-center gap-2.5 skew-btn rounded-lg bg-brand-accent px-7 py-3.5 text-base font-bold text-white shadow-[0_14px_34px_-12px_rgba(255,122,27,0.6)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-accent/90">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.6c.6 0 1.1.4 1.3 1l1 3a1.4 1.4 0 0 1-.4 1.5L8.3 9.6a13 13 0 0 0 6.1 6.1l1.1-1.7c.3-.5.9-.7 1.5-.5l3 1c.6.2 1 .7 1 1.3v1.6c0 1.4-1.1 2.5-2.5 2.5C10.5 21 3 13.5 3 5.5Z" fill="currentColor"/></svg>
+              Call {PHONE}
+            </a>
+            <a href="/contact" class="skew-border-btn inline-flex items-center justify-center border-2 border-white/25 bg-white/10 px-7 py-3.5 text-base font-bold text-white backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/20">
+              <span class="btn-inner">Book Online</span>
+            </a>
+          </div>
+
+          <!-- trust badges — $0 Call Out, Same-Day, Labour Warranty -->
+          <div class="mt-10 grid grid-cols-1 gap-3 border-t border-white/15 pt-8 sm:grid-cols-3">
+            <!-- $0 Call Out Fee -->
+            <div class="flex items-center gap-3.5 rounded-lg bg-white/8 p-4 backdrop-blur">
+              <span class="grid size-11 shrink-0 place-items-center skew-btn rounded-lg bg-brand-accent/20 text-brand-accent">
+                <!-- dollar / tag icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </span>
+              <div>
+                <p class="font-heading text-sm font-extrabold text-white">$0 Call Out Fee</p>
+                <p class="text-xs text-white/60">Clear. Fair. Simple.</p>
+              </div>
+            </div>
+            <!-- Same-Day Service -->
+            <div class="flex items-center gap-3.5 rounded-lg bg-white/8 p-4 backdrop-blur">
+              <span class="stat-icon stat-icon-clock grid size-11 shrink-0 place-items-center skew-btn rounded-lg bg-brand-primary/30 text-white">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path class="stat-icon-hand" d="M12 7v5l3.5 2"/>
+                </svg>
+              </span>
+              <div>
+                <p class="font-heading text-sm font-extrabold text-white">Same-Day Service</p>
+                <p class="text-xs text-white/60">Fast. Reliable. Today.</p>
+              </div>
+            </div>
+            <!-- Labour Warranty -->
+            <div class="flex items-center gap-3.5 rounded-lg bg-white/8 p-4 backdrop-blur">
+              <span class="grid size-11 shrink-0 place-items-center rounded-lg bg-green-400/20 text-green-400">
+                <!-- shield-check icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2l7 4v6c0 5-3.5 8.7-7 10C8.5 20.7 5 17 5 12V6l7-4z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </span>
+              <div>
+                <p class="font-heading text-sm font-extrabold text-white">Labour Warranty</p>
+                <p class="text-xs text-white/60">T&amp;C may apply.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- hero image -->
+        <div class="hero-img relative">
+          <div class="skew-img overflow-hidden shadow-[0_30px_70px_-20px_rgba(0,0,0,0.5)]">
+            <img src="/images/Aptec-Hero-Section.webp" alt="Aptec Plumbing team — Happy Valley & southern Adelaide" class="aspect-[4/5] w-full object-cover sm:aspect-[5/5]" width="640" height="800" />
+          </div>
+          <!-- floating rating badge -->
+          <div class="absolute -left-3 bottom-6 flex items-center gap-3 rounded-xl bg-brand-bg p-3.5 pr-5 shadow-[0_20px_45px_-18px_rgba(0,0,0,0.5)] ring-1 ring-white/10 sm:-left-6">
+            <span class="grid size-11 place-items-center skew-btn rounded-lg bg-brand-accent text-white">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.8l1.2-6.6L2.5 9l6.6-.9L12 2Z"/></svg>
+            </span>
+            <div>
+              <p class="font-heading text-sm font-extrabold leading-tight text-brand-secondary">5.0 ★ · 236 Reviews</p>
+              <p class="text-xs text-brand-muted">Google verified</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. PROMO COUPON STRIP ============ -->
+    <section class="bg-brand-secondary">
+      <div class="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-14">
+        <div class="reveal mb-7 flex flex-wrap items-end justify-between gap-3">
+          <h2 class="font-heading text-2xl font-extrabold text-white sm:text-3xl">Save with our current offers</h2>
+          <p class="text-sm text-white/60">Mention the offer when you book.</p>
+        </div>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {coupons.map((c) => (
+            <a href="#" class="reveal group block overflow-hidden rounded-2xl shadow-[0_18px_40px_-22px_rgba(0,0,0,0.6)] ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1.5">
+              <img src={c.img} alt={c.alt} loading="lazy" class="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105" width="600" height="400" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. TESTIMONIALS ============ -->
+    <section class="bg-brand-bg">
+      <div class="mx-auto max-w-7xl px-5 py-16 md:px-6 md:py-20">
+        <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+          <Drip label="5-Star Rated" align="center" />
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">What our customers are saying</h2>
+          <p class="mt-3 text-brand-muted">Real reviews from neighbours across Happy Valley and the south.</p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <figure class="reveal flex flex-col rounded-2xl border border-brand-secondary/8 bg-brand-surface p-7 shadow-[0_12px_40px_-22px_rgba(11,40,71,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_50px_-22px_rgba(11,40,71,0.5)]">
+              <div class="flex gap-0.5 text-brand-accent">
+                {[0,1,2,3,4].map((n) => (<svg key={n} width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.8l1.2-6.6L2.5 9l6.6-.9L12 2Z"/></svg>))}
+              </div>
+              <blockquote class="mt-4 flex-1 text-[15px] leading-relaxed text-brand-text">“{t.quote}”</blockquote>
+              <figcaption class="mt-5 flex items-center gap-3 border-t border-brand-secondary/10 pt-4">
+                <span class="grid size-10 place-items-center rounded-full bg-brand-primary/10 font-heading text-sm font-bold text-brand-primary">{t.name.charAt(0)}</span>
+                <span><span class="block font-heading text-sm font-bold text-brand-secondary">{t.name}</span><span class="block text-xs text-brand-muted">{t.suburb}</span></span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. VALUE PROPOSITION ============ -->
+    <section class="relative overflow-hidden">
+      <!-- rich layered background -->
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, #0B2847 0%, #0f3570 45%, #156ECE 100%);"></div>
+      <!-- large blurred orbs for depth -->
+      <div class="pointer-events-none absolute -left-32 -top-32 size-[500px] rounded-full blur-[120px]" style="background: rgba(21,110,206,0.5);"></div>
+      <div class="pointer-events-none absolute -bottom-20 -right-20 size-[400px] rounded-full blur-[100px]" style="background: rgba(255,122,27,0.15);"></div>
+      <!-- subtle grid -->
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+      <!-- diagonal accent stripe -->
+      <div class="pointer-events-none absolute inset-0 opacity-[0.04]" style="background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,1) 40px, rgba(255,255,255,1) 41px);"></div>
+
+      <div class="reveal relative mx-auto max-w-4xl px-5 py-20 text-center md:px-6 md:py-28">
+        <!-- eyebrow -->
+        <span class="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-white/80 backdrop-blur">
+          <span class="size-1.5 rounded-full bg-brand-accent"></span>
+          Trusted locally for 15+ years
+        </span>
+        <h2 class="mt-5 font-heading text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+          The plumber Happy Valley trusts<br class="hidden sm:block" /> for fast, no-fuss service.
+        </h2>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/75">
+          No hold music, no vague quotes, no mess left behind. Just a friendly local plumber who turns up on time, tells you the price upfront, and gets the job done right the first time — backed by a labour warranty and 15 years of doing it properly.
+        </p>
+        <!-- icon trio -->
+        <div class="mx-auto mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-semibold text-white/80">
+          <span class="flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Upfront fixed pricing</span>
+          <span class="flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>No call-out fee</span>
+          <span class="flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Labour warranty included</span>
+        </div>
+        <a href={PHONE_HREF} class="mt-9 inline-flex items-center gap-2.5 skew-btn rounded-lg bg-brand-accent px-8 py-4 text-base font-bold text-white shadow-[0_14px_40px_-10px_rgba(255,122,27,0.55)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.6c.6 0 1.1.4 1.3 1l1 3a1.4 1.4 0 0 1-.4 1.5L8.3 9.6a13 13 0 0 0 6.1 6.1l1.1-1.7c.3-.5.9-.7 1.5-.5l3 1c.6.2 1 .7 1 1.3v1.6c0 1.4-1.1 2.5-2.5 2.5C10.5 21 3 13.5 3 5.5Z" fill="currentColor"/></svg>
+          Talk to a plumber now
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 6. SERVICES GRID ============ -->
+    <section id="services" class="scroll-mt-24 bg-brand-surface">
+      <div class="mx-auto max-w-7xl px-5 py-16 md:px-6 md:py-20">
+        <div class="reveal mb-10 max-w-2xl">
+          <Drip label="Our Services" />
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Plumbing done properly, the first time</h2>
+          <p class="mt-3 text-brand-muted">From a dripping tap to a full hot water replacement — one local team handles it all.</p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s) => (
+            <a href="#contact" class="reveal group relative flex flex-col overflow-hidden rounded-2xl bg-brand-bg shadow-[0_12px_40px_-24px_rgba(11,40,71,0.45)] ring-1 ring-brand-secondary/6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(11,40,71,0.55)]">
+              <div class="flex aspect-[16/11] items-center justify-center overflow-hidden bg-brand-surface p-2">
+                <img src={s.img} alt={s.title} loading="lazy" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-1 flex-col p-5 text-center">
+                <h3 class="font-heading text-base font-bold text-brand-secondary">{s.title}</h3>
+                <p class="mt-1.5 flex-1 text-sm leading-snug text-brand-muted">{s.desc}</p>
+                <span class="mt-4 inline-flex items-center justify-center gap-1.5 text-sm font-bold text-brand-primary">
+                  Learn more
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. BLOCKED DRAINS DEEP-DIVE ============ -->
+    <section class="bg-brand-bg">
+      <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 md:px-6 md:py-20 lg:grid-cols-2">
+        <div class="reveal relative order-2 lg:order-1">
+          <div class="skew-img overflow-hidden shadow-[0_28px_60px_-28px_rgba(11,40,71,0.5)]">
+            <img src="/images/Drain-Camera-Inspection.webp" alt="CCTV drain camera inspection" loading="lazy" class="aspect-[5/4] w-full object-cover" />
+          </div>
+          <div class="absolute -bottom-5 -right-3 rounded-2xl bg-brand-accent px-5 py-3 text-white shadow-xl sm:-right-5">
+            <p class="font-heading text-xl font-extrabold leading-none">$99</p>
+            <p class="text-xs">blocked drain special</p>
+          </div>
+        </div>
+        <div class="reveal order-1 lg:order-2">
+          <Drip label="Blocked Drains" />
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Cleared at the source — not just shifted along</h2>
+          <p class="mt-4 leading-relaxed text-brand-muted">Slow gurgle or a full backup, we find the real cause and clear it for good with high-pressure water jetting and a camera to prove it is gone.</p>
+          <ul class="mt-6 space-y-3.5">
+            {[
+              { t: 'Tree root invasion', d: 'Roots cut out and cleared, with relining offered to stop them returning.' },
+              { t: 'Grease & fat build-up', d: 'Jetted clean through kitchen and laundry lines — not just poked open.' },
+              { t: 'CCTV camera inspection', d: 'We show you exactly what was wrong and confirm the line is clear.' },
+            ].map((i) => (
+              <li class="flex gap-3.5">
+                <span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-brand-accent/15 text-brand-accent"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span><span class="font-heading text-sm font-bold text-brand-secondary">{i.t}</span><span class="block text-sm text-brand-muted">{i.d}</span></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. TOILET REPAIR DEEP-DIVE ============ -->
+    <section class="bg-brand-surface">
+      <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 md:px-6 md:py-20 lg:grid-cols-2">
+        <div class="reveal">
+          <Drip label="Toilet Plumbing" />
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Running, leaking or blocked? Sorted today.</h2>
+          <p class="mt-4 leading-relaxed text-brand-muted">A constantly running cistern can quietly waste thousands of litres. We repair what we can and replace what we can't — with quality parts and a fixed price before we start.</p>
+          <div class="mt-6 grid gap-3 sm:grid-cols-2">
+            {[
+              { t: 'Constantly running', d: 'Worn valves and seals replaced fast.', icon: 'drop' },
+              { t: 'Cistern repair', d: 'Internals rebuilt to stop the leak.', icon: 'wrench' },
+              { t: 'Full replacement', d: 'New cistern or suite fitted same day.', icon: 'refresh' },
+              { t: 'Worn fill valves', d: 'Upgraded to reliable modern parts.', icon: 'valve' },
+            ].map((i) => (
+              <div class="rounded-xl border border-brand-secondary/8 bg-brand-bg p-4">
+                <span class="grid size-9 place-items-center skew-btn rounded-lg bg-brand-primary/10 text-brand-primary">
+                  {i.icon === 'drop' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7s6.5 7.4 6.5 12a6.5 6.5 0 1 1-13 0c0-4.6 6.5-12 6.5-12Z"/></svg>}
+                  {i.icon === 'wrench' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4l-3-3-3 3 3 3 3-3-3-3Z"/></svg>}
+                  {i.icon === 'refresh' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/></svg>}
+                  {i.icon === 'valve' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/></svg>}
+                </span>
+                <p class="mt-3 font-heading text-sm font-bold text-brand-secondary">{i.t}</p>
+                <p class="mt-1 text-sm text-brand-muted">{i.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="reveal grid grid-cols-2 gap-4">
+          <img src="/images/Toilet-Cistern-Repair-1.webp" alt="Toilet cistern repair" loading="lazy" class="skew-img aspect-[3/4] w-full object-cover shadow-lg" />
+          <div class="grid gap-4">
+            <img src="/images/Constantly-Running-Cistern.webp" alt="Constantly running cistern" loading="lazy" class="skew-img aspect-square w-full object-cover shadow-lg" />
+            <img src="/images/Cistern-Replacement.webp" alt="Cistern replacement" loading="lazy" class="skew-img aspect-square w-full object-cover shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. PIPE RELINING DEEP-DIVE ============ -->
+    <section class="relative overflow-hidden bg-brand-secondary">
+      <div class="absolute -left-20 top-10 size-72 rounded-full bg-brand-primary/20 blur-3xl"></div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 md:px-6 md:py-20 lg:grid-cols-2">
+        <div class="reveal relative">
+          <div class="skew-img overflow-hidden shadow-2xl">
+            <img src="/images/Pipe-Relining (1).webp" alt="No-dig pipe relining technology" loading="lazy" class="aspect-[5/4] w-full object-cover" />
+          </div>
+        </div>
+        <div class="reveal text-white">
+          <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-accent">
+            <svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor" aria-hidden="true"><path d="M6 0C6 0 1 6.2 1 10a5 5 0 0 0 10 0C11 6.2 6 0 6 0Z"/></svg>
+            Pipe Relining
+          </span>
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Fix broken pipes without digging up your yard</h2>
+          <p class="mt-4 leading-relaxed text-white/80">Our no-dig relining technology repairs cracked and root-damaged pipes from the inside. A new structural liner is cured in place — leaving your lawn, driveway and paving untouched.</p>
+          <div class="mt-7 grid gap-4 sm:grid-cols-3">
+            {[
+              { n: 'No digging', d: 'No torn-up gardens or concrete', icon: 'shovel' },
+              { n: '50-yr life', d: 'Stronger than the original pipe', icon: 'shield' },
+              { n: 'Fast cure', d: 'Often done in a single visit', icon: 'bolt' },
+            ].map((i) => (
+              <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+                <span class="grid size-9 place-items-center skew-btn rounded-lg bg-brand-accent/15 text-brand-accent">
+                  {i.icon === 'shovel' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22v-5l5-5 5 5-5 5z"/><path d="M9.5 14.5 16 8"/><path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0 3.53 3.53 0 0 1 0-5L17 2"/></svg>}
+                  {i.icon === 'shield' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>}
+                  {i.icon === 'bolt' && <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 11-13h-7l0-7Z"/></svg>}
+                </span>
+                <p class="mt-3 font-heading text-base font-extrabold text-brand-accent">{i.n}</p>
+                <p class="mt-1 text-sm text-white/70">{i.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. WHY CHOOSE APTEC ============ -->
+    <section id="why-us" class="scroll-mt-24 bg-brand-bg">
+      <div class="mx-auto max-w-7xl px-5 py-16 md:px-6 md:py-20">
+        <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+          <Drip label="Why Choose Us" align="center" />
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Why southern Adelaide chooses Aptec</h2>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-sm border border-brand-secondary/10 bg-brand-secondary/10 sm:grid-cols-2 lg:grid-cols-5">
+          {pillars.map((p) => (
+            <div class="group bg-brand-bg p-6 transition-colors duration-300 hover:bg-brand-secondary">
+              <span class="mb-5 grid size-12 place-items-center rounded-sm bg-brand-secondary/5 text-brand-primary transition-colors group-hover:bg-brand-accent group-hover:text-white">
+                {p.icon === 'home' && <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v9h5v-5h4v5h5v-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>}
+                {p.icon === 'clock' && <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>}
+                {p.icon === 'star' && <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>}
+                {p.icon === 'bolt' && <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>}
+                {p.icon === 'tag' && <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>}
+              </span>
+              <div class="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-accent">{p.stat}</div>
+              <h3 class="mt-1 font-heading text-lg font-bold text-brand-secondary transition-colors group-hover:text-white">{p.title}</h3>
+              <p class="mt-2 text-[13px] leading-relaxed text-brand-muted transition-colors group-hover:text-white/70">{p.sub}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. PROCESS ============ -->
+    <ProcessSection />
+
+    <!-- ============ 12. FAQ ============ -->
+    <section id="faq" class="scroll-mt-24 bg-brand-bg">
+      <div class="mx-auto max-w-7xl px-5 py-16 md:px-6 md:py-20">
+        <div class="reveal mx-auto mb-10 max-w-2xl text-center">
+          <Drip label="Good to Know" align="center" />
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Frequently asked questions</h2>
+          <p class="mt-3 text-brand-muted">Straight answers, no fine print.</p>
+        </div>
+        <div class="reveal">
+          <FaqAccordion client:visible />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 13. SERVICE AREAS ============ -->
+    <div id="areas" class="scroll-mt-24">
+      <ServiceAreaSection />
+    </div>
+
+    <!-- ============ 14. TEAM ============ -->
+    <section class="bg-brand-bg">
+      <div class="mx-auto max-w-7xl px-5 py-16 md:px-6 md:py-20">
+        <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+          <Drip label="Meet the Crew" align="center" />
+          <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-brand-secondary sm:text-4xl">Our expert plumbing team</h2>
+          <p class="mt-3 text-brand-muted">Fully licensed, police-checked, and genuinely good to have around the house.</p>
+        </div>
+        <div class="reveal grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-brand-secondary/10 bg-brand-secondary/10 lg:grid-cols-4">
+          {team.map((m) => (
+            <div class="group relative bg-brand-bg">
+              <div class="relative aspect-[4/5] overflow-hidden">
+                <img src={m.img} alt={m.name} loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-brand-secondary/85 to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-0 p-4">
+                  <p class="font-heading text-base font-bold text-white">{m.name}</p>
+                  <p class="mt-0.5 text-[12px] uppercase tracking-[0.14em] text-brand-accent">{m.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 15. CTA BANNER ============ -->
+    <section id="contact" class="scroll-mt-24 relative overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="/images/Aptec-Plumbing-1920.webp" alt="" aria-hidden="true" class="h-full w-full object-cover object-center" />
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(11,40,71,0.93) 0%, rgba(13,50,96,0.88) 50%, rgba(21,110,206,0.82) 100%);"></div>
+      </div>
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+      <div class="relative mx-auto max-w-7xl px-5 py-20 md:px-6 md:py-24">
+        <div class="reveal grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div class="text-white">
+            <p class="inline-flex items-center gap-2 rounded-lg border border-brand-accent/40 bg-brand-accent/20 px-3.5 py-1.5 text-xs font-bold text-brand-accent"><span class="inline-block size-2 animate-pulse rounded-full bg-brand-accent"></span> We're available now</p>
+            <h2 class="mt-5 font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">Need a plumber?<br />Let's get it sorted.</h2>
+            <p class="mt-4 max-w-lg text-base leading-relaxed text-white/75">Fast, upfront service across Happy Valley and southern Adelaide. Same-day available — no call-out fee during standard hours.</p>
+            <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-white/85">
+              {['$0 call-out (standard hours)', 'Upfront fixed pricing', 'Same-day service', 'Fully licensed #333997'].map((b) => (
+                <span class="flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="text-brand-accent"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{b}</span>
+              ))}
+            </div>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href={PHONE_HREF} class="inline-flex items-center justify-center gap-2.5 skew-btn rounded-lg bg-brand-accent px-7 py-4 text-lg font-extrabold text-white shadow-[0_14px_34px_-12px_rgba(255,122,27,0.65)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-accent/90">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.6c.6 0 1.1.4 1.3 1l1 3a1.4 1.4 0 0 1-.4 1.5L8.3 9.6a13 13 0 0 0 6.1 6.1l1.1-1.7c.3-.5.9-.7 1.5-.5l3 1c.6.2 1 .7 1 1.3v1.6c0 1.4-1.1 2.5-2.5 2.5C10.5 21 3 13.5 3 5.5Z"/></svg>
+              {PHONE}
+            </a>
+            <a href="/contact" class="skew-border-btn inline-flex items-center justify-center border-2 border-white/30 bg-white/10 px-7 py-4 text-lg font-bold text-white backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/20">
+              <span class="btn-inner">Book Online</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Direction1Layout>

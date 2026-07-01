@@ -1,0 +1,555 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/direction-3/Nav.astro';
+import Hero from '../components/direction-3/Hero.astro';
+import Eyebrow from '../components/direction-3/Eyebrow.astro';
+import Divider from '../components/direction-3/Divider.astro';
+import Motif from '../components/direction-3/Motif.astro';
+
+const phone = '(08) 8000 5050'; // PLACEHOLDER — replace with the real Plumber Happy Valley tracking number
+const phoneHref = 'tel:0880005050';
+
+const usps = [
+  { title: '24/7 Emergency Service', desc: 'We answer day and night, weekends included, whenever Happy Valley needs us.' },
+  { title: 'Lifetime Labour Warranty', desc: 'If our workmanship ever fails, we come back and fix it free.' },
+  { title: 'Fixed Upfront Pricing', desc: 'You get a fixed price before we start, never a surprise bill.' },
+  { title: 'Local, Family-Owned', desc: 'A family-run Adelaide team, not a call centre, not a franchise.' },
+];
+
+const services = [
+  { name: 'General Plumbing', slug: 'general-plumbing', desc: 'Leaking taps, running toilets, and everyday plumbing repairs around your Happy Valley home, handled properly the first time with a fixed price before we start.' },
+  { name: 'Emergency Plumbing', slug: 'emergency-plumbing', desc: "Burst pipes and major leaks don't wait for business hours, so neither do we. Call any time and we'll get to your Happy Valley home fast." },
+  { name: 'Blocked Drains', slug: 'blocked-drains', desc: 'Older homes nearby often have tree root intrusion in the pipes. We clear blocked drains with CCTV cameras and high-pressure hydrojetting to fix the real cause.' },
+  { name: 'Hot Water', slug: 'hot-water', desc: 'No hot water on a cold morning is no fun. We repair and replace gas, electric, and solar hot water systems across Happy Valley quickly.' },
+  { name: 'Gas Fitting', slug: 'gas-fitting', desc: 'Licensed gas fitting for appliance installs, leak detection, and cooktop connections, carried out to AS/NZS 3500 standards with safety checked every time.' },
+  { name: 'Pipe Relining', slug: 'pipe-relining', desc: 'Pipe relining repairs damaged pipes without digging up your yard, a faster and tidier fix than full replacement for most Happy Valley properties.' },
+  { name: 'Leak Detection', slug: 'leak-detection', desc: 'Hidden leaks waste water and damage your home quietly. Our team finds the source fast and fixes it before it becomes a bigger problem.' },
+  { name: 'Taps & Toilets', slug: 'taps-toilets', desc: 'Dripping taps, faulty cisterns, and toilet repairs are some of the most common calls we get from Happy Valley homeowners every single week.' },
+  { name: 'Burst Pipes', slug: 'burst-pipes', desc: 'A burst pipe can flood a home in minutes. Our 24/7 team responds fast to stop the damage and get your water running properly again.' },
+];
+
+const emergencyItems = [
+  'Burst pipes flooding floors, walls, or ceilings',
+  'Major leaks with no obvious source',
+  'Blocked sewer lines backing up wastewater',
+  'No hot water with young children or elderly residents at home',
+  'Suspected gas leaks (immediate safety risk)',
+  'Overflowing toilets a plunger will not fix',
+];
+
+const processSteps = [
+  { title: 'Speak to Our Team', desc: 'Call us any time, day or night, and talk to a real local plumber who understands the issue and what needs to happen next.' },
+  { title: 'Onsite Assessment & Quote', desc: "We arrive on time, assess the job properly, and give you a fixed price before any work begins, so there's never a surprise bill." },
+  { title: 'Work Completed Cleanly', desc: 'Our licensed team gets the job done properly the first time, working cleanly and treating your home with the respect it deserves.' },
+  { title: 'Testing & Handover', desc: 'Every job is tested before we leave, and we walk you through what was done, backed by our Lifetime Labour Warranty.' },
+];
+
+const whyChoose = [
+  { title: '24/7 Emergency Service', desc: "Burst pipes don't keep business hours and neither do we. Call any time, including weekends and public holidays, and our local team responds fast." },
+  { title: 'Lifetime Labour Warranty', desc: 'If a fault ever occurs because of our workmanship, we come back and fix it at no cost to you, for as long as you own the home.' },
+  { title: 'Fixed Upfront Pricing', desc: 'We quote the job before we start, not after. No hourly rates, no surprise call-out add-ons, just one fixed price you agree to first.' },
+  { title: 'Local, Family-Owned', desc: "We're a family-run Adelaide plumbing business, not a national franchise. The same licensed team backs every Happy Valley job we take on." },
+];
+
+const compareRows = [
+  ['Response time', 'Within the hour, where available', 'Variable, often next day'],
+  ['Pricing model', 'Fixed Upfront Pricing', 'Hourly with surprises'],
+  ['Workmanship warranty', 'Lifetime Labour Warranty', 'Limited or none'],
+  ['Emergency response', '24/7 across Happy Valley', 'Limited hours only'],
+  ['Licensed & insured', 'Lic. #333997, fully insured', 'Not always verified'],
+  ['Local knowledge', 'A decade across Adelaide', 'Often outside the area'],
+  ['Family-owned', 'Yes, locally run', 'Often national franchises'],
+  ['New customer offer', '$50 off your first service', 'Variable or none'],
+];
+
+const safety = [
+  { title: 'Licensed Adelaide Plumbers', desc: 'Every job is carried out by our licensed team, Lic. #333997 with Master Plumber South Australia, so the work is done properly.' },
+  { title: 'Fully Insured', desc: "We're fully insured on every job we take on, giving you peace of mind that your home and our work are properly covered." },
+  { title: 'AS/NZS 3500 Compliance', desc: 'All plumbing and gas work meets AS/NZS 3500 standards, the benchmark for safe, compliant work across South Australia.' },
+  { title: 'Lifetime Labour Warranty', desc: 'Every job is backed by our Lifetime Labour Warranty, so if our workmanship ever fails, we come back and fix it at no cost.' },
+];
+
+const credentials = [
+  'Lic. #333997, Master Plumber South Australia',
+  'ABN 52 668 135 886',
+  'Fully insured on every job',
+  'AS/NZS 3500 compliant on all work',
+  'A decade operating across Adelaide',
+  'Family-owned and locally led',
+  'Lifetime Labour Warranty on all workmanship',
+  '500+ 5-star reviews from Adelaide homeowners',
+];
+
+const stats = [
+  { value: 500, suffix: '+', label: '5-star Adelaide reviews' },
+  { value: 10, suffix: ' yrs', label: 'Across Adelaide homes' },
+  { value: 24, suffix: '/7', label: 'Emergency availability', raw: '24/7' },
+  { value: 50, prefix: '$', label: 'Off your first service' },
+];
+
+const adjoiningSuburbs = ['Aberfoyle Park', 'Reynella', 'Flagstaff Hill', 'Chandlers Hill', 'Trott Park', 'Old Reynella', 'Morphett Vale'];
+
+const faqs = [
+  { q: 'How quickly can a plumber arrive in Happy Valley?', a: 'We aim to respond within the hour where availability allows, with 24/7 emergency cover across Happy Valley and the surrounding suburbs.' },
+  { q: 'Do you offer 24/7 emergency plumbing?', a: "Yes. We're available around the clock, including weekends and public holidays, for burst pipes, gas leaks, and other urgent issues." },
+  { q: 'What plumbing services do you offer?', a: 'We cover general plumbing, blocked drains, hot water, gas fitting, pipe relining, leak detection, taps and toilets, and emergency repairs.' },
+  { q: 'How does plumbing pricing work?', a: 'You get a fixed price before any work starts. There are no hourly rates and no surprise call-out add-ons once we begin.' },
+  { q: 'Are your plumbers licensed and insured in South Australia?', a: 'Yes. Our team holds Lic. #333997 with Master Plumber South Australia and is fully insured on every job we complete.' },
+  { q: 'What suburbs do you service around Happy Valley?', a: 'Alongside Happy Valley, we service Aberfoyle Park, Reynella, Flagstaff Hill, Chandlers Hill, Trott Park, Old Reynella, and Morphett Vale.' },
+];
+---
+<Layout title="Clear, Fair, Simple — Plumber Happy Valley" description="The local, family-owned plumber for Happy Valley. Fixed upfront pricing, a Lifetime Labour Warranty, and 24/7 emergency response.">
+  <style is:global>
+    :root {
+      --color-brand-primary:   #3A6EA5;
+      --color-brand-secondary: #233044;
+      --color-brand-accent:    #C97B4A;
+      --color-brand-bg:        #FAF9F6;
+      --color-brand-surface:   #F1EFE9;
+      --color-brand-text:      #233044;
+      --color-brand-muted:     #5B6472;
+      --font-heading: 'Fraunces Variable', Georgia, serif;
+      --font-body:    'Inter Variable', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--color-brand-bg); }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s cubic-bezier(.22,1,.36,1), transform 0.8s cubic-bezier(.22,1,.36,1); }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .d3-stagger > * { transition-delay: calc(var(--i, 0) * 90ms); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+
+  <Nav phone={phone} phoneHref={phoneHref} />
+  <Hero phone={phone} phoneHref={phoneHref} />
+
+  <!-- USP STRIP — understated, hairline-separated row -->
+  <section class="bg-brand-bg">
+    <div class="max-w-6xl mx-auto px-6 pb-20">
+      <div class="d3-stagger grid sm:grid-cols-2 lg:grid-cols-4 border-t border-brand-secondary/12">
+        {usps.map((u, i) => (
+          <div class="reveal py-7 lg:px-6 border-b lg:border-b-0 lg:border-r last:border-r-0 first:lg:pl-0 border-brand-secondary/12" style={`--i:${i}`}>
+            <Motif size={18} class="mb-4" />
+            <p class="font-heading text-brand-secondary text-[1.05rem] mb-2" style="font-weight:560">{u.title}</p>
+            <p class="text-brand-muted text-sm leading-relaxed">{u.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT — editorial split, asymmetric -->
+  <section class="bg-brand-surface py-24 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+      <div class="md:col-span-5">
+        <Eyebrow text="Who we are" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.08] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+          Happy Valley&rsquo;s trusted <span class="italic text-brand-primary">local</span> plumbers.
+        </h2>
+      </div>
+      <div class="md:col-span-7">
+        <p class="reveal text-brand-text/90 leading-[1.85] text-[1.08rem]">
+          We&rsquo;re a family-owned plumbing business serving Happy Valley homes, backed by a decade of hands-on work
+          across Adelaide and Lic. #333997 with Master Plumber South Australia. Every job is completed by our licensed
+          local team, fully insured and quoted upfront, with the same standards across 500+ 5-star reviews from Adelaide
+          homeowners. We show up on time, do the job properly, and treat your home with respect. That&rsquo;s the whole
+          promise behind Plumber Happy Valley.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES — clean consistent grid -->
+  <section id="services" class="bg-brand-bg py-24 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-14">
+        <Eyebrow text="What we do" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+          Our complete range of plumbing services in Happy Valley
+        </h2>
+        <p class="reveal mt-5 text-brand-muted leading-relaxed">
+          From a dripping tap to a 2am burst pipe, our licensed team covers the full range of residential plumbing
+          Happy Valley homes need. Every job comes with Fixed Upfront Pricing and our Lifetime Labour Warranty.
+        </p>
+      </div>
+      <div class="d3-stagger grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-lg overflow-hidden">
+        {services.map((s, i) => (
+          <a href={`#${s.slug}`} class="reveal group bg-brand-bg p-7 transition-colors duration-500 hover:bg-brand-surface block" style={`--i:${i % 3}`}>
+            <div class="flex items-center justify-between mb-4">
+              <Motif size={18} color="var(--color-brand-primary)" />
+              <span class="text-brand-secondary/25 transition-transform duration-500 group-hover:translate-x-1">&rarr;</span>
+            </div>
+            <h3 class="font-heading text-brand-secondary text-[1.15rem] mb-2.5" style="font-weight:560">{s.name}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Divider class="py-2" />
+
+  <!-- LOCAL CONTEXT — editorial alternating, image overlaps boundary -->
+  <section class="bg-brand-bg py-24 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+      <div class="md:col-span-6 relative">
+        <div class="reveal relative rounded-lg overflow-hidden">
+          <img src="/images/aptec/Worn-Fill.webp" alt="Our plumber repairing an ageing toilet cistern fill valve" class="w-full h-[360px] md:h-[460px] object-cover" loading="lazy" />
+        </div>
+        <!-- chip overlapping the image edge -->
+        <div class="reveal hidden md:flex items-center gap-3 absolute -right-6 bottom-10 bg-brand-secondary text-brand-bg rounded-md px-5 py-4 max-w-[14rem]">
+          <Motif size={20} color="var(--color-brand-accent)" />
+          <p class="text-sm leading-snug">Fixes that last on the hilly blocks near the reservoir.</p>
+        </div>
+      </div>
+      <div class="md:col-span-6">
+        <Eyebrow text="Local knowledge" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.12] tracking-[-0.015em]" style="font-size:clamp(1.7rem,3vw,2.3rem);font-weight:380">
+          What Happy Valley homes and businesses need from their local plumber
+        </h2>
+        <div class="reveal mt-6 text-brand-muted text-[0.97rem] leading-[1.8] space-y-4">
+          <p>Happy Valley sits in the City of Onkaparinga, about 20 kilometres south of the Adelaide CBD, wrapped around the Happy Valley Reservoir. Much of the suburb was built from the 1970s onward, so a lot of homes are reaching the age where original pipework, hot water systems, and fittings start to show their years. Properties on the sloped land near the reservoir can also see drainage issues during heavy rain, with stormwater needing somewhere to go.</p>
+          <p>We see the same patterns again and again around streets like Happy Valley Drive and Surf Drive: ageing copper and clay pipework prone to corrosion and root intrusion, hot water systems well past their realistic working life, and older toilet cisterns that run constantly and waste water. Newer homes on slab foundations bring a different set of plumbing needs, particularly around drainage and gas fitting for kitchen renovations.</p>
+          <p>Whatever era your Happy Valley home was built in, our local team has seen the plumbing that comes with it. We carry the right gear for clay pipe and modern PVC alike, and we know which fixes actually last on the hilly blocks around the reservoir rather than just patching the problem for a few months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY — calm dark inverted section -->
+  <section class="bg-brand-secondary text-brand-bg py-24 md:py-28">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto">
+        <Eyebrow text="When it can't wait" align="center" color="var(--color-brand-accent)" />
+        <h2 class="reveal mt-5 font-heading leading-[1.12] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+          When emergency plumbing strikes in Happy Valley, we respond fast
+        </h2>
+      </div>
+      <div class="d3-stagger mt-12 grid sm:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-lg overflow-hidden">
+        {emergencyItems.map((item, i) => (
+          <div class="reveal flex items-start gap-3.5 bg-brand-secondary px-6 py-5" style={`--i:${i % 2}`}>
+            <span class="mt-0.5 shrink-0"><Motif size={18} color="var(--color-brand-accent)" /></span>
+            <span class="text-[0.97rem] text-brand-bg/90 leading-snug">{item}</span>
+          </div>
+        ))}
+      </div>
+      <p class="reveal mt-10 text-center text-brand-bg/70 max-w-2xl mx-auto leading-relaxed">
+        We&rsquo;re available 24/7, including weekends and public holidays, and aim to respond within the hour
+        where availability allows. While you wait, turn off the water at the mains.
+      </p>
+      <div class="reveal mt-8 text-center">
+        <a href={phoneHref} class="inline-block rounded-md bg-brand-accent text-brand-secondary px-7 py-3.5 transition-all duration-500 hover:brightness-105" style="font-weight:560">Call {phone} now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS count-up -->
+  <section class="bg-brand-bg py-20">
+    <div id="d3-stats" class="d3-stagger max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-px bg-brand-secondary/10 border-y border-brand-secondary/10">
+      {stats.map((s, i) => (
+        <div class="reveal bg-brand-bg px-6 py-8 text-center" style={`--i:${i}`}>
+          <p class="font-heading text-brand-secondary tracking-[-0.02em]" style="font-size:clamp(2.2rem,4vw,3rem);font-weight:420">
+            <span class="d3-count" data-target={s.value} data-prefix={s.prefix || ''} data-suffix={s.suffix || ''} data-raw={s.raw || ''}>{s.prefix || ''}0{s.suffix || ''}</span>
+          </p>
+          <p class="mt-2 text-sm text-brand-muted">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROCESS — 4 ordered steps (sequence: numbering carries real order) -->
+  <section class="bg-brand-surface py-24 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-14">
+        <Eyebrow text="How we work" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+          From your first call to a clean handover
+        </h2>
+      </div>
+      <div class="d3-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+        {processSteps.map((step, i) => (
+          <div class="reveal relative" style={`--i:${i}`}>
+            <div class="flex items-baseline gap-3 mb-4">
+              <span class="font-heading text-brand-accent text-3xl tracking-tight" style="font-weight:380">{String(i + 1).padStart(2, '0')}</span>
+              <span class="h-px flex-1 bg-brand-secondary/15 translate-y-[-4px]"></span>
+            </div>
+            <h3 class="font-heading text-brand-secondary text-[1.1rem] mb-2.5" style="font-weight:560">{step.title}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section id="why-choose" class="bg-brand-bg py-24 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-14">
+        <Eyebrow text="Why us" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+          Why Happy Valley locals choose us
+        </h2>
+        <p class="reveal mt-5 text-brand-muted leading-relaxed">
+          Choosing a plumber comes down to trust. These are the four things Happy Valley homeowners tell us matter
+          most when they call, and they&rsquo;re the same four things we build every job around.
+        </p>
+      </div>
+      <div class="d3-stagger grid sm:grid-cols-2 gap-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-lg overflow-hidden">
+        {whyChoose.map((w, i) => (
+          <div class="reveal bg-brand-bg p-8" style={`--i:${i % 2}`}>
+            <Motif size={20} color="var(--color-brand-primary)" class="mb-4" />
+            <h3 class="font-heading text-brand-secondary text-[1.2rem] mb-2.5" style="font-weight:560">{w.title}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{w.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="bg-brand-surface py-24 md:py-28">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="max-w-2xl mb-12">
+        <Eyebrow text="A fair comparison" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:380">
+          How we compare to other plumbers in Happy Valley
+        </h2>
+        <p class="reveal mt-5 text-brand-muted leading-relaxed">
+          Choosing a plumber matters. Here&rsquo;s how our service compares to what you&rsquo;ll typically find from
+          other plumbers across Happy Valley and the wider southern Adelaide region.
+        </p>
+      </div>
+      <div class="reveal overflow-x-auto rounded-lg border border-brand-secondary/12 bg-brand-bg">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-brand-secondary/12">
+              <th class="text-left font-heading text-brand-secondary px-5 py-4" style="font-weight:520">&nbsp;</th>
+              <th class="text-left font-heading text-brand-primary px-5 py-4 whitespace-nowrap" style="font-weight:560">
+                <span class="inline-flex items-center gap-2"><Motif size={15} color="var(--color-brand-primary)" />Plumber Happy Valley</span>
+              </th>
+              <th class="text-left font-heading text-brand-muted px-5 py-4" style="font-weight:480">Typical plumbers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr class="border-b border-brand-secondary/8 last:border-0">
+                <td class="px-5 py-4 text-brand-secondary" style="font-weight:520">{row[0]}</td>
+                <td class="px-5 py-4 text-brand-secondary">{row[1]}</td>
+                <td class="px-5 py-4 text-brand-muted">{row[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY & COMPLIANCE -->
+  <section class="bg-brand-bg py-24 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-14">
+        <Eyebrow text="Safe &amp; compliant" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+          Safe, compliant plumbing work in Happy Valley
+        </h2>
+      </div>
+      <div class="d3-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {safety.map((s, i) => (
+          <div class="reveal" style={`--i:${i}`}>
+            <Motif size={18} class="mb-4" />
+            <h3 class="font-heading text-brand-secondary text-[1.02rem] mb-2.5" style="font-weight:560">{s.title}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="bg-brand-surface py-24 md:py-28">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <Eyebrow text="The standards behind every job" align="center" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:380">
+          Our credentials and standards
+        </h2>
+      </div>
+      <ul class="d3-stagger grid sm:grid-cols-2 gap-x-10 gap-y-px">
+        {credentials.map((c, i) => (
+          <li class="reveal flex items-center gap-3 py-4 border-b border-brand-secondary/12 text-brand-secondary text-[0.97rem]" style={`--i:${i % 2}`}>
+            <Motif size={16} color="var(--color-brand-primary)" />
+            {c}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section id="areas" class="bg-brand-bg py-24 md:py-28">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <Eyebrow text="Where we work" align="center" />
+      <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+        Servicing Happy Valley and surrounding areas
+      </h2>
+      <p class="reveal mt-5 text-brand-muted leading-relaxed">
+        We service Happy Valley and the neighbouring suburbs across southern Adelaide, with the same licensed
+        team, fixed pricing, and Lifetime Labour Warranty on every job.
+      </p>
+      <div class="d3-stagger reveal mt-10 flex flex-wrap justify-center gap-2.5">
+        {adjoiningSuburbs.map((sub) => (
+          <span class="inline-flex items-center gap-2 bg-brand-surface border border-brand-secondary/10 text-brand-secondary text-sm px-4 py-2.5 rounded-md" style="font-weight:480">
+            <Motif size={13} color="var(--color-brand-accent)" />{sub}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA — calm, brand-primary -->
+  <section class="bg-brand-primary text-brand-bg py-24 md:py-28">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <Eyebrow text="Ready when you are" align="center" color="rgba(250,249,246,0.9)" />
+      <h2 class="reveal mt-5 font-heading leading-[1.12] tracking-[-0.015em]" style="font-size:clamp(2rem,4vw,2.9rem);font-weight:380">
+        Need a plumber in Happy Valley? <span class="italic">Call now.</span>
+      </h2>
+      <p class="reveal mt-6 text-brand-bg/85 leading-relaxed">
+        Call {phone} any time, day or night. New customers get $50 off their first service, and every job is
+        backed by our Lifetime Labour Warranty.
+      </p>
+      <a href={phoneHref} class="reveal mt-9 inline-block rounded-md bg-brand-bg text-brand-secondary px-8 py-4 transition-all duration-500 hover:bg-brand-secondary hover:text-brand-bg" style="font-weight:560">Call {phone}</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-brand-bg py-24 md:py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="max-w-xl mb-12">
+        <Eyebrow text="Questions, answered" />
+        <h2 class="reveal mt-5 font-heading text-brand-secondary leading-[1.1] tracking-[-0.015em]" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:380">
+          Happy Valley plumber FAQs
+        </h2>
+        <p class="reveal mt-5 text-brand-muted leading-relaxed">
+          These are the questions we hear most often from Happy Valley homeowners, covering pricing, response times,
+          and the range of plumbing work our licensed team handles.
+        </p>
+      </div>
+      <div class="d3-stagger divide-y divide-brand-secondary/12 border-y border-brand-secondary/12">
+        {faqs.map((f, i) => (
+          <details class="group reveal" style={`--i:${i % 3}`}>
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 font-heading text-brand-secondary text-[1.05rem]" style="font-weight:520">
+              <span class="flex items-center gap-3">
+                <Motif size={16} color="var(--color-brand-accent)" />
+                {f.q}
+              </span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="shrink-0 transition-transform duration-500 group-open:rotate-45"><path d="M12 5v14M5 12h14" stroke="var(--color-brand-primary)" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
+            <p class="text-brand-muted leading-relaxed pb-5 pl-7 -mt-1">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-secondary text-brand-bg/75 pt-20 pb-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-12 gap-10 mb-14">
+        <div class="md:col-span-5">
+          <a href="#top" class="flex items-center gap-2.5 mb-5">
+            <Motif size={22} color="var(--color-brand-accent)" />
+            <span class="font-heading text-brand-bg text-[1.15rem] tracking-tight" style="font-weight:560">Plumber Happy Valley</span>
+          </a>
+          <p class="text-sm leading-relaxed max-w-sm">
+            Local, family-owned plumbing serving Happy Valley and the surrounding suburbs. Fixed Upfront Pricing,
+            Lifetime Labour Warranty, 24/7 emergency response.
+          </p>
+        </div>
+        <div class="md:col-span-2">
+          <p class="font-heading text-brand-bg text-sm mb-4" style="font-weight:520">Explore</p>
+          <ul class="text-sm space-y-2.5">
+            <li><a href="#services" class="d3-foot hover:text-brand-bg transition-colors duration-300">Services</a></li>
+            <li><a href="#why-choose" class="d3-foot hover:text-brand-bg transition-colors duration-300">Why us</a></li>
+            <li><a href="#areas" class="d3-foot hover:text-brand-bg transition-colors duration-300">Service areas</a></li>
+            <li><a href="#faq" class="d3-foot hover:text-brand-bg transition-colors duration-300">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-2">
+          <p class="font-heading text-brand-bg text-sm mb-4" style="font-weight:520">Services</p>
+          <ul class="text-sm space-y-2.5">
+            {services.slice(0, 5).map((s) => (
+              <li><a href={`#${s.slug}`} class="d3-foot hover:text-brand-bg transition-colors duration-300">{s.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <p class="font-heading text-brand-bg text-sm mb-4" style="font-weight:520">Get in touch</p>
+          <p class="text-sm mb-2"><a href={phoneHref} class="text-brand-bg hover:text-brand-accent transition-colors duration-300" style="font-weight:520">{phone}</a></p>
+          <p class="text-sm">Servicing Happy Valley &amp; southern Adelaide, 24/7</p>
+        </div>
+      </div>
+
+      <!-- crafted minimal sign-off -->
+      <div class="flex items-center gap-4 mb-8" aria-hidden="true">
+        <span class="h-px flex-1 bg-brand-bg/12"></span>
+        <span class="flex items-center gap-2.5 text-brand-bg/55 text-xs uppercase" style="letter-spacing:0.22em">
+          <Motif size={14} color="rgba(250,249,246,0.5)" /> On time. Properly. With respect.
+        </span>
+        <span class="h-px flex-1 bg-brand-bg/12"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brand-bg/55">
+        <p>Lic. #333997. ABN 52 668 135 886.</p>
+        <p>&copy; 2026 Plumber Happy Valley.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.12 });
+    els.forEach((el) => io.observe(el));
+
+    // Count-up, fires once when stats become visible
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const statsWrap = document.getElementById('d3-stats');
+    if (statsWrap) {
+      const counts = statsWrap.querySelectorAll('.d3-count');
+      const run = () => {
+        counts.forEach((el) => {
+          const target = Number(el.dataset.target || '0');
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          const raw = el.dataset.raw || '';
+          if (raw) { el.textContent = raw; return; }
+          if (reduce) { el.textContent = prefix + target + suffix; return; }
+          const dur = 1400; const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = prefix + Math.round(target * eased) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      };
+      const sio = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { run(); sio.disconnect(); }
+        }
+      }, { threshold: 0.4 });
+      sio.observe(statsWrap);
+    }
+  </script>
+</Layout>

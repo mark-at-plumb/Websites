@@ -1,0 +1,44 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "trusted-local-authority",
+      "name": "Trusted Local Authority",
+      "description": "The faithful build, closest to Aptec's original section rhythm: split hero, USP strip, services grid, alternating feature sections, dark emergency band, process steps, comparison table, FAQ. Blue/navy/orange palette, Plus Jakarta Sans + Inter, gentle scroll-fade and hover-lift animation.",
+      "rationale": "The safe, professional-trust direction. Already built and live at the homepage.",
+      "palette": { "primary": "#156ECE", "secondary": "#1b3c5c", "accent": "#FF5700", "bg": "#ffffff", "surface": "#eef3f8", "text": "#1b3c5c", "muted": "#4a4a4a" },
+      "fonts": {
+        "heading": { "family": "Plus Jakarta Sans", "package": "plus-jakarta-sans", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": { "density": "balanced", "visual_metaphor": "studio", "hero": "split-screen", "shape_language": "rounded-corners", "elevation": "subtle-shadows" }
+    },
+    {
+      "id": 2,
+      "slug": "happy-valley-right-now",
+      "name": "Happy Valley, Right Now",
+      "description": "Bold and urgent, built for the 24/7 emergency-call mindset. Full-bleed hero, pulsing availability badge, count-up stats, pill CTAs, overlapping cards, dense asymmetric layout. Teal/charcoal/amber palette, Space Grotesk + Inter.",
+      "rationale": "Leads with speed and availability, the network's biggest trust signal, instead of burying it in body copy.",
+      "palette": { "primary": "#0E7C7B", "secondary": "#102A43", "accent": "#F4A300", "bg": "#ffffff", "surface": "#F0F7F6", "text": "#102A43", "muted": "#52606D" },
+      "fonts": {
+        "heading": { "family": "Space Grotesk", "package": "space-grotesk", "fallback": "system-ui, sans-serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": { "density": "dense", "visual_metaphor": "spatial", "hero": "full-bleed", "shape_language": "pill-shapes", "elevation": "dramatic-shadows + overlap" }
+    },
+    {
+      "id": 3,
+      "slug": "clear-fair-simple",
+      "name": "Clear, Fair, Simple",
+      "description": "Premium-calm, built around the brand's own tagline. Generous whitespace, typographic hero, flat surfaces, consistent grid, quiet scroll-reveal. Steel-blue/charcoal/terracotta palette, Fraunces serif headings + Inter body.",
+      "rationale": "Sells trust through restraint and transparency (Fixed Upfront Pricing) rather than urgency.",
+      "palette": { "primary": "#3A6EA5", "secondary": "#233044", "accent": "#C97B4A", "bg": "#FAF9F6", "surface": "#F1EFE9", "text": "#233044", "muted": "#5B6472" },
+      "fonts": {
+        "heading": { "family": "Fraunces", "package": "fraunces", "fallback": "Georgia, serif" },
+        "body": { "family": "Inter", "package": "inter", "fallback": "system-ui, sans-serif" }
+      },
+      "contrast_axes": { "density": "spacious", "visual_metaphor": "minimal", "hero": "typographic", "shape_language": "sharp-edges, slightly rounded", "elevation": "flat" }
+    }
+  ],
+  "total": 3
+}

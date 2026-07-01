@@ -1,0 +1,53 @@
+---
+import { PHONE, PHONE_HREF, LICENCE, ABN, nav, suburbs, footerServices } from '../../data/site';
+---
+<footer class="bg-brand-secondary text-white/75">
+  <div class="mx-auto max-w-7xl px-5 py-14 md:px-6">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <a href="/direction-1-trade-blue" class="flex items-center gap-2.5">
+          <img src="/images/logo.webp" alt="Aptec Plumbing" width="44" height="44" class="size-11 rounded-lg object-contain" />
+          <span class="font-heading text-lg font-extrabold text-white">Aptec Plumbing</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed">Licensed, family-owned plumbers servicing Happy Valley and southern Adelaide 24/7 for over 15 years.</p>
+        <a href={PHONE_HREF} class="mt-5 inline-flex items-center gap-2 font-heading text-xl font-extrabold text-white transition-colors hover:text-brand-accent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5C3 4.1 4.1 3 5.5 3h1.6c.6 0 1.1.4 1.3 1l1 3a1.4 1.4 0 0 1-.4 1.5L8.3 9.6a13 13 0 0 0 6.1 6.1l1.1-1.7c.3-.5.9-.7 1.5-.5l3 1c.6.2 1 .7 1 1.3v1.6c0 1.4-1.1 2.5-2.5 2.5C10.5 21 3 13.5 3 5.5Z"/></svg>
+          {PHONE}
+        </a>
+      </div>
+      <div>
+        <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-white">Quick Links</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {nav.map((n) => (
+            <li><a href={n.href} class="transition-colors hover:text-brand-accent">{n.label}</a></li>
+          ))}
+          <li><a href="#" class="transition-colors hover:text-brand-accent">Book Online</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-white">Services</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {footerServices.map((s) => (
+            <li><a href="/plumbing-services" class="transition-colors hover:text-brand-accent">{s}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-heading text-sm font-bold uppercase tracking-wider text-white">Service Areas</h3>
+        <ul class="mt-4 grid grid-cols-1 gap-2.5 text-sm">
+          {suburbs.slice(0, 8).map((s) => (
+            <li><a href="/service-areas" class="transition-colors hover:text-brand-accent">{s}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/55 md:flex-row md:items-center md:justify-between">
+      <p>© 2026 Aptec Plumbing. All rights reserved.</p>
+      <p class="flex flex-wrap gap-x-4 gap-y-1">
+        <span>{LICENCE}</span>
+        <span class="hidden text-white/25 md:inline">|</span>
+        <span>{ABN}</span>
+      </p>
+    </div>
+  </div>
+</footer>
