@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import BookingForm from '../components/BookingForm.astro';
+import BrandPartners from '../components/BrandPartners.astro';
+import ServiceTiles from '../components/ServiceTiles.astro';
+import Ratings from '../components/Ratings.astro';
+---
+
+<Layout title="About Us | Hilton Plumbing Adelaide">
+
+<!-- NAV -->
+<Nav />
+
+<!-- HERO -->
+<section style="background:#0E151B; overflow:hidden;">
+  <div class="hero-grid" style="max-width:1260px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; min-height:480px;">
+    <div style="display:flex; flex-direction:column; justify-content:center; padding:80px 40px 80px 20px;">
+      <p style="color:#E86000; font-family:var(--font-heading); font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; margin:0 0 16px;">Who We Are</p>
+      <h1 style="font-family:var(--font-heading); font-size:clamp(2rem,4vw,3.2rem); font-weight:800; color:#fff; line-height:1.1; margin:0 0 16px;">Your Mate in<br/>the Trade&reg;</h1>
+      <p style="font-size:16px; color:rgba(255,255,255,0.75); line-height:1.7; margin:0 0 32px; max-width:480px;">Family-owned and locally operated, Hilton Plumbing has been serving Adelaide homeowners with honest advice, fixed pricing, and quality workmanship for over a decade.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="/contact/" style="display:inline-block; background:#E86000; color:#fff; text-decoration:none; padding:14px 32px; border-radius:5px; font-family:var(--font-heading); font-size:16px; font-weight:700;">Book Now</a>
+        <a href="tel:1300872343" style="display:inline-flex; align-items:center; gap:8px; border:2px solid rgba(255,255,255,0.35); color:#fff; text-decoration:none; padding:12px 24px; border-radius:5px; font-family:var(--font-heading); font-size:15px; font-weight:600;">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          1300 872 343
+        </a>
+      </div>
+    </div>
+    <div class="hero-img-col" style="position:relative; overflow:hidden;">
+      <img
+        src="https://www.hiltonplumbing.com.au/wp-content/uploads/2023/05/img-hero-banner01.png.webp"
+        alt="Hilton Plumbing Adelaide team"
+        style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"
+      />
+    </div>
+  </div>
+</section>
+
+<ServiceTiles />
+
+<Ratings />
+
+<!-- ABOUT STORY -->
+<section style="background:#F3F3F3; padding:64px 20px;">
+  <div class="about-grid" style="max-width:1260px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+    <div>
+      <p style="color:#E86000; font-family:var(--font-heading); font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 12px;">Our Story</p>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; color:#0E151B; margin:0 0 20px; line-height:1.2;">Adelaide's Most Trusted Plumber</h2>
+      <p style="font-size:16px; color:#4a4a4a; line-height:1.8; margin:0 0 16px;">At Hilton our whole business philosophy is built around being your mate in the trade®. We won't rip you off, we don't upsell you things you don't need, and we always give honest advice.</p>
+      <p style="font-size:16px; color:#4a4a4a; line-height:1.8; margin:0 0 16px;">Family-owned and locally operated, backed by Lic.&nbsp;#333997 (Master Plumber South Australia), a decade of experience, and 2,500+ 5-star reviews from Adelaide homeowners.</p>
+      <p style="font-size:16px; color:#4a4a4a; line-height:1.8; margin:0 0 32px;">We cover everything from emergency burst pipes to hot water system replacements, blocked drains, gas fitting, and commercial maintenance — all with fixed upfront pricing and our Lifetime Labour Warranty.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+        <img src="/images/MPA.png.webp" alt="Master Plumbers Australia" style="height:52px; width:auto; object-fit:contain;" />
+        <img src="/images/best-plumber-award-20251-600x225.png.webp" alt="Best Plumber Award 2025" style="height:40px; width:auto; object-fit:contain;" />
+        <img src="/images/Excellence-in-Customer-Service-1024x1024.jpg.webp" alt="Excellence in Customer Service" style="height:52px; width:auto; object-fit:contain;" />
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+      <div style="width:100%; max-width:440px; aspect-ratio:1/1; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.12);">
+        <img
+          src="https://www.hiltonplumbing.com.au/wp-content/uploads/2023/08/hilton-plumber-600x600.png.webp"
+          alt="Hilton Plumbing licensed plumber Adelaide"
+          style="width:100%; height:100%; object-fit:cover; object-position:center top;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VALUES accordion -->
+<section style="background:#012D5E; padding:56px 20px;">
+  <div style="max-width:1260px; margin:0 auto; display:grid; grid-template-columns:1fr 2fr; gap:60px; align-items:start;">
+    <div>
+      <p style="color:#E86000; font-family:var(--font-heading); font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 12px;">Our Promise</p>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; color:#fff; margin:0 0 16px; line-height:1.2;">What We Stand For</h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.65); line-height:1.7; margin:0;">Five reasons Adelaide homeowners trust us with every job.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:0; border-top:1px solid rgba(255,255,255,0.12);">
+      {[
+        { title: 'Upfront Pricing',                          body: 'You get a fixed quote before we lift a single tool. The price we quote is the price you pay — every time.', icon: 'M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z' },
+        { title: 'No Call Out Fees',                         body: 'We come to your Adelaide home at no extra charge. Our pricing covers the job, not the travel.', icon: 'M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z' },
+        { title: 'All Workmanship Guaranteed',               body: 'Every job is backed by our Lifetime Labour Warranty. If a fault occurs because of our workmanship, we return and fix it at no cost.', icon: 'M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z' },
+        { title: 'Reasonable Pricing and Top Quality Service', body: 'Fair pricing does not mean cutting corners. Quality parts, proven methods, backed by over a decade of Adelaide experience.', icon: 'M21 6.5C21 8.43 19.43 10 17.5 10S14 8.43 14 6.5 15.57 3 17.5 3 21 4.57 21 6.5zM5 6h7v2H5V6zM3 13h18v2H3v-2zm0 5h18v2H3v-2z' },
+        { title: 'Genuine Cost Effective Solutions',          body: 'We fix the real problem, not just the symptom. We never upsell and always give honest advice on the best path forward.', icon: 'M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z' },
+      ].map(item => (
+        <details class="accord" style="border-bottom:1px solid rgba(255,255,255,0.12);">
+          <summary style="display:flex; align-items:center; justify-content:space-between; padding:20px 4px; gap:16px; user-select:none;">
+            <span style="display:flex; align-items:center; gap:14px;">
+              <span style="flex-shrink:0; width:34px; height:34px; border-radius:8px; background:rgba(232,96,0,0.15); border:1px solid rgba(232,96,0,0.25); display:flex; align-items:center; justify-content:center;">
+                <svg width="18" height="18" fill="#E86000" viewBox="0 0 24 24"><path d={item.icon}/></svg>
+              </span>
+              <span class="accord-title" style="font-family:var(--font-heading); font-size:16px; font-weight:700; color:#fff; transition:color 0.2s;">{item.title}</span>
+            </span>
+            <span class="accord-icon" style="flex-shrink:0; width:28px; height:28px; border:1.5px solid rgba(255,255,255,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:300; color:#E86000; line-height:1;"></span>
+          </summary>
+          <p style="padding:0 4px 20px 62px; margin:0; font-size:15px; color:rgba(255,255,255,0.72); line-height:1.75;">{item.body}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:#0E151B; padding:64px 20px;">
+  <div style="max-width:1260px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:48px;">
+      <p style="color:#E86000; font-family:var(--font-heading); font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 10px;">What Our Customers Say</p>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; color:#fff; margin:0 0 8px;">Our Happy Customers</h2>
+      <p style="color:rgba(255,255,255,0.55); font-size:15px; margin:0;">4.9 out of 5 &nbsp;&middot;&nbsp; 2,500+ verified reviews</p>
+    </div>
+    <div class="testi-row" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      {[
+        { name:'Sarah M.', initials:'SM', date:'2 weeks ago', text:'Fantastic service. The plumber arrived exactly on time, gave us a fixed price upfront, and sorted the blocked drain within the hour. Will definitely use again.' },
+        { name:'James T.', initials:'JT', date:'1 month ago', text:'Professional, friendly, and knew exactly what was wrong with our hot water system. Price was fair and the work was done properly. Best plumber we have used in Adelaide.' },
+        { name:'Karen L.', initials:'KL', date:'3 weeks ago', text:'Called at 7am about a burst pipe. The team was at our door within the hour. The whole job was quoted before they started and came in on budget. Outstanding service.' },
+      ].map(t => (
+        <div class="testi-card" style="background:#fff; border-radius:10px; padding:32px 28px; box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+          <div style="font-family:Georgia,serif; font-size:64px; color:#E86000; line-height:0.7; margin-bottom:16px; opacity:0.9;">&ldquo;</div>
+          <div style="display:flex; gap:2px; margin-bottom:14px;">{[1,2,3,4,5].map(() => <span style="color:#F5A623; font-size:14px;">&#9733;</span>)}</div>
+          <p style="font-size:15px; color:#4a4a4a; line-height:1.75; margin:0 0 24px;">{t.text}</p>
+          <div style="display:flex; align-items:center; gap:12px; border-top:1px solid #f0f0f0; padding-top:20px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:#0E151B; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <span style="font-family:var(--font-heading); font-size:13px; font-weight:700; color:#fff;">{t.initials}</span>
+            </div>
+            <div>
+              <div style="font-family:var(--font-heading); font-weight:700; font-size:14px; color:#0E151B;">{t.name}</div>
+              <div style="font-size:12px; color:#6d6d6d;">Google &middot; {t.date}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- STATS — By the Numbers -->
+<section style="background:#012D5E; padding:64px 20px; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; opacity:0.04; background-image:repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.5) 39px, rgba(255,255,255,0.5) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.5) 39px, rgba(255,255,255,0.5) 40px);"></div>
+  <div style="position:relative; z-index:1; max-width:1260px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:52px;">
+      <p style="color:#E86000; font-family:var(--font-heading); font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 10px;">By the Numbers</p>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; color:#fff; margin:0;">We're reaching new milestones</h2>
+    </div>
+    <div class="stats-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08); border-radius:10px; overflow:hidden;">
+      {[
+        { num:'67,000+', target:67000, label:'Adelaide Homes Served',       svg:'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z' },
+        { num:'12,000+', target:12000, label:'Hot Water Systems Installed',  svg:'M12 2a5 5 0 0 1 5 5c0 2.7-1.6 5-4 6.3V20a1 1 0 0 1-2 0v-6.7C8.6 12 7 9.7 7 7a5 5 0 0 1 5-5z' },
+        { num:'8,400+',  target:8400,  label:'Blocked Drains Cleared',       svg:'M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 17.93V18h-2v1.93C7.06 19.44 4.56 16.94 4.07 14H6v-2H4.07C4.56 9.06 7.06 6.56 10 6.07V8h2V6.07c2.94.49 5.44 2.99 5.93 5.93H16v2h1.93c-.49 2.94-2.99 5.44-5.93 5.93z' },
+      ].map(s => (
+        <div style="background:#012D5E; padding:44px 32px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;">
+          <div style="width:52px; height:52px; border-radius:50%; background:rgba(232,96,0,0.15); border:1px solid rgba(232,96,0,0.35); display:flex; align-items:center; justify-content:center;">
+            <svg width="24" height="24" fill="#E86000" viewBox="0 0 24 24"><path d={s.svg}/></svg>
+          </div>
+          <div class="stat-counter" data-target={s.target} data-suffix="+" style="font-family:var(--font-heading); font-size:clamp(2.2rem,4vw,3.2rem); font-weight:900; color:#fff; line-height:1; letter-spacing:-0.02em;">0+</div>
+          <div style="font-family:var(--font-heading); font-size:14px; font-weight:600; color:rgba(255,255,255,0.55); letter-spacing:0.04em; text-transform:uppercase; line-height:1.4;">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const start = performance.now();
+        const tick = now => {
+          const p = Math.min((now - start) / 1800, 1);
+          el.textContent = Math.floor(target * ease(p)).toLocaleString() + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.stat-counter').forEach(el => observer.observe(el));
+  })();
+</script>
+
+<BrandPartners />
+<BookingForm />
+<Footer />
+
+</Layout>

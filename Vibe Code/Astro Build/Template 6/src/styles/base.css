@@ -1,0 +1,91 @@
+/* ── Shared component styles (used across all pages) ──────────────────── */
+
+/* Accordion */
+details.accord summary { list-style:none; cursor:pointer; }
+details.accord summary::-webkit-details-marker { display:none; }
+details.accord .accord-icon::after { content:'+'; }
+details.accord[open] .accord-icon::after { content:'−'; }
+details.accord[open] summary .accord-title { color:#E86000; }
+
+/* Partner marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-wrap { overflow: hidden; }
+
+/* Cards */
+.rating-card { transition:transform 0.2s, box-shadow 0.2s; }
+.rating-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.18) !important; }
+.svc-card { transition:transform 0.2s, box-shadow 0.2s; }
+.svc-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.12) !important; }
+.testi-card { transition:box-shadow 0.2s; }
+.testi-card:hover { box-shadow:0 8px 28px rgba(0,0,0,0.10) !important; }
+.partner-item { transition:opacity 0.2s; }
+.partner-item:hover { opacity:1 !important; }
+.form-field:focus { border-color:#E86000 !important; outline:none; }
+
+/* Problem cards (hot water page) */
+.problem-card { transition:background 0.2s, border-color 0.2s; cursor:default; }
+.problem-card:hover { background:#000 !important; border-left-color:#E86000 !important; }
+.problem-card:hover .problem-card-title { color:#fff !important; }
+.problem-card:hover .problem-card-body { color:rgba(255,255,255,0.65) !important; }
+
+/* Service tile (orange bg) */
+.svc-tile { transition:background 0.2s, color 0.2s, border-color 0.2s; }
+.svc-tile:hover { background:#fff !important; border-color:#fff !important; }
+.svc-tile:hover span { color:#E86000 !important; }
+.svc-tile:hover svg { fill:#E86000 !important; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-img-col { display:none !important; }
+  .eight-grid { grid-template-columns: repeat(4,1fr) !important; }
+  .trust-cols { grid-template-columns: 1fr !important; }
+  .rating-row { grid-template-columns: 1fr !important; }
+  .testi-row { grid-template-columns: 1fr !important; }
+  .about-grid { grid-template-columns: 1fr !important; }
+  .stats-grid { grid-template-columns: 1fr !important; }
+  .overview-grid { grid-template-columns: 1fr !important; }
+  .svc-grid { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .book-inner { grid-template-columns: 1fr !important; }
+  .two-col { grid-template-columns: 1fr !important; }
+  .three-col { grid-template-columns: 1fr !important; }
+  .four-col { grid-template-columns: 1fr !important; }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--color-brand-text);
+    background: var(--color-brand-white);
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
