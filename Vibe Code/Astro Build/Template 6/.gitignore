@@ -34,3 +34,4 @@ pnpm-debug.log*
 
 # Codex CLI configuration
 .codex/
+.wrangler/
