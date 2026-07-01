@@ -1,0 +1,37 @@
+---
+import Eyebrow from './Eyebrow.astro';
+const faqs = [
+  { q: 'Which areas do you service?', a: 'We cover Happy Valley and right across southern Adelaide — including Reynella, Morphett Vale, Hallett Cove, Aberfoyle Park, Flagstaff Hill, Noarlunga and Seaford. If you’re nearby and not listed, give us a call.' },
+  { q: 'Is the call-out really free?', a: 'Yes — during standard business hours there’s a $0 call-out fee. You only pay for the work, which we quote upfront before we start. After-hours emergency jobs may carry a call-out, and we’ll always tell you the cost before attending.' },
+  { q: 'How fast can you get to an emergency?', a: 'Our typical response across the southern suburbs is 30–60 minutes. We run a genuine 24/7 line, so burst pipes and major leaks are attended around the clock.' },
+  { q: 'Are you licensed and insured?', a: 'Absolutely. Aptec Plumbing is fully licensed (Lic. #333997) and insured, and every plumber on our team is qualified and police-checked.' },
+  { q: 'Do you offer a warranty?', a: 'We back all our workmanship with a labour warranty, and installed products carry their manufacturer warranties. If something isn’t right, we’ll come back and make it right.' },
+  { q: 'How do you charge — hourly or fixed?', a: 'We quote a fixed price upfront for the job before we begin, so you know exactly what you’ll pay. No watching the clock, no surprise add-ons.' },
+  { q: 'Can I get a same-day appointment?', a: 'In most cases, yes. Call early and we’ll do everything we can to have a plumber out to you the same day.' },
+];
+---
+<section id="faq" class="bg-brand-surface reveal scroll-mt-24">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="mb-12">
+      <Eyebrow index="12" label="Good to Know" />
+      <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.8rem,4vw,2.7rem)] leading-tight tracking-tight">
+        Frequently Asked Questions
+      </h2>
+    </div>
+    <div class="border border-brand-secondary/12 rounded-sm divide-y divide-brand-secondary/12 bg-brand-bg">
+      {faqs.map((f) => (
+        <details class="group">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none p-5 sm:px-7">
+            <span class="font-heading font-bold text-brand-secondary text-[15px] sm:text-base pr-2">{f.q}</span>
+            <span class="shrink-0 grid place-items-center h-7 w-7 border border-brand-secondary/20 rounded-sm text-brand-primary transition-transform duration-300 group-open:rotate-45">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </summary>
+          <div class="px-5 sm:px-7 pb-5 -mt-1">
+            <p class="text-brand-muted leading-relaxed text-[15px] max-w-3xl">{f.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

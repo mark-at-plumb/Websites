@@ -1,0 +1,19 @@
+---
+import Motif from './Motif.astro';
+interface Props {
+  text: string;
+  align?: 'left' | 'center';
+  color?: string;
+}
+const { text, align = 'left', color = 'var(--color-brand-accent)' } = Astro.props;
+---
+<p
+  class:list={[
+    'reveal flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase',
+    align === 'center' ? 'justify-center' : '',
+  ]}
+  style="letter-spacing:0.22em"
+>
+  <Motif size={16} color={color} />
+  <span class="text-brand-accent">{text}</span>
+</p>

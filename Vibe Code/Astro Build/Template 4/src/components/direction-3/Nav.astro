@@ -1,0 +1,101 @@
+---
+import Motif from './Motif.astro';
+interface Props { phone: string; phoneHref: string }
+const { phone, phoneHref } = Astro.props;
+const links = [
+  { href: '#services', label: 'Services' },
+  { href: '#why-choose', label: 'Why us' },
+  { href: '#areas', label: 'Service areas' },
+  { href: '#faq', label: 'FAQs' },
+];
+---
+<header id="d3-nav" class="sticky top-0 z-50 transition-all duration-500" style="background:rgba(250,249,246,0.72);backdrop-filter:blur(8px)">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-[4.5rem]">
+    <a href="#top" class="flex items-center gap-2.5 group">
+      <Motif size={22} color="var(--color-brand-primary)" />
+      <span class="font-heading text-[1.05rem] text-brand-secondary tracking-tight" style="font-weight:560">Plumber Happy Valley</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm text-brand-secondary">
+      {links.map((l) => (
+        <a href={l.href} class="d3-underline" style="font-weight:480">{l.label}</a>
+      ))}
+    </nav>
+
+    <div class="hidden md:flex items-center gap-5">
+      <a href={phoneHref} class="d3-underline text-sm text-brand-secondary" style="font-weight:560">{phone}</a>
+      <a href={phoneHref} class="rounded-md bg-brand-secondary text-brand-bg text-sm px-4 py-2.5 transition-all duration-500 hover:bg-brand-primary" style="font-weight:520">Get a fixed quote</a>
+    </div>
+
+    <button id="d3-menu-btn" class="md:hidden flex flex-col gap-[5px] p-2 -mr-2" aria-label="Open menu" aria-expanded="false">
+      <span class="block w-6 h-px bg-brand-secondary transition-all duration-300"></span>
+      <span class="block w-6 h-px bg-brand-secondary transition-all duration-300"></span>
+      <span class="block w-6 h-px bg-brand-secondary transition-all duration-300"></span>
+    </button>
+  </div>
+
+  <!-- Mobile panel -->
+  <div id="d3-mobile" class="md:hidden overflow-hidden max-h-0 transition-[max-height] duration-500 ease-[cubic-bezier(.22,1,.36,1)] border-t border-brand-secondary/0">
+    <nav class="px-6 py-5 flex flex-col gap-1 bg-brand-bg/95">
+      {links.map((l) => (
+        <a href={l.href} class="d3-mobile-link py-3 text-brand-secondary border-b border-brand-secondary/8 flex items-center gap-3" style="font-weight:480">
+          <Motif size={14} color="var(--color-brand-accent)" />{l.label}
+        </a>
+      ))}
+      <a href={phoneHref} class="mt-4 rounded-md bg-brand-secondary text-brand-bg text-center px-4 py-3" style="font-weight:520">Call {phone}</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .d3-underline { position: relative; }
+  .d3-underline::after {
+    content: ''; position: absolute; left: 0; bottom: -4px; height: 1.5px; width: 100%;
+    background: var(--color-brand-accent); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.55s cubic-bezier(.22,1,.36,1);
+  }
+  .d3-underline:hover::after { transform: scaleX(1); }
+  #d3-mobile.open { max-height: 24rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .d3-underline::after { transition: none; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('d3-nav');
+  const onScroll = () => {
+    if (!nav) return;
+    if (window.scrollY > 24) {
+      nav.style.background = 'rgba(250,249,246,0.92)';
+      nav.style.boxShadow = '0 1px 0 rgba(35,48,68,0.08)';
+    } else {
+      nav.style.background = 'rgba(250,249,246,0.72)';
+      nav.style.boxShadow = 'none';
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const btn = document.getElementById('d3-menu-btn');
+  const panel = document.getElementById('d3-mobile');
+  btn?.addEventListener('click', () => {
+    const open = panel?.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!!open));
+    const spans = btn.querySelectorAll('span');
+    if (open) {
+      spans[0].style.transform = 'translateY(6px) rotate(45deg)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+    } else {
+      spans.forEach((s) => { (s as HTMLElement).style.transform = ''; (s as HTMLElement).style.opacity = ''; });
+    }
+  });
+  panel?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      panel.classList.remove('open');
+      btn?.setAttribute('aria-expanded', 'false');
+      const spans = btn?.querySelectorAll('span');
+      spans?.forEach((s) => { (s as HTMLElement).style.transform = ''; (s as HTMLElement).style.opacity = ''; });
+    })
+  );
+</script>

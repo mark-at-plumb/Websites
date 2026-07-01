@@ -1,0 +1,32 @@
+---
+import Eyebrow from './Eyebrow.astro';
+const suburbs = ['Happy Valley','Reynella','Morphett Vale','Hallett Cove','Aberfoyle Park','O’Halloran Hill','Flagstaff Hill','Christie Downs','Noarlunga','Seaford','Old Reynella','Woodcroft'];
+---
+<section id="areas" class="relative bg-brand-secondary text-white reveal scroll-mt-24 overflow-hidden">
+  <div class="pointer-events-none absolute -right-20 top-0 h-full w-px rotate-12 bg-white/10" aria-hidden="true"></div>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+      <div>
+        <Eyebrow index="13" label="Service Areas" light />
+        <h2 class="mt-4 font-heading font-extrabold text-[clamp(1.8rem,4vw,2.8rem)] leading-tight tracking-tight">
+          Servicing Happy Valley &amp; Southern Adelaide, <span class="text-brand-accent">24/7</span>
+        </h2>
+        <p class="mt-4 text-white/70 leading-relaxed max-w-lg">
+          Local plumbers who actually know the area. We’re minutes from most
+          southern suburbs, which is how we keep our response times to 30–60
+          minutes for emergencies.
+        </p>
+        <a href="tel:0880005050" class="mt-7 inline-flex items-center gap-2 bg-brand-accent text-white px-6 py-3.5 rounded-sm font-bold uppercase tracking-[0.08em] text-sm hover:brightness-95 transition-all">
+          Call (08) 8000 5050
+        </a>
+      </div>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-sm overflow-hidden">
+        {suburbs.map((s) => (
+          <li class="bg-brand-secondary px-4 py-4 flex items-center gap-2.5 text-sm font-medium hover:bg-brand-primary/30 transition-colors">
+            <span class="h-1.5 w-1.5 bg-brand-accent rounded-full shrink-0"></span>{s}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

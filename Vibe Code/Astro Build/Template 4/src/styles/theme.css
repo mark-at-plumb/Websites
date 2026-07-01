@@ -1,0 +1,20 @@
+/*
+  Token → Utility mapping:
+  --color-brand-*  → bg-brand-*, text-brand-*, border-brand-*, ring-brand-*
+  --font-*         → font-heading, font-body
+
+  Palette is the visual-layout reference from aptecplumbing.com.au, reused here
+  for Plumber Happy Valley (a different business — see brief.md).
+*/
+@theme {
+  --color-brand-primary:   #156ECE;
+  --color-brand-secondary: #1b3c5c;
+  --color-brand-accent:    #FF5700;
+  --color-brand-bg:        #ffffff;
+  --color-brand-surface:   #eef3f8;
+  --color-brand-text:      #1b3c5c;
+  --color-brand-muted:     #4a4a4a;
+
+  --font-heading: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+  --font-body:    'Inter Variable', system-ui, sans-serif;
+}

@@ -1,0 +1,433 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const phone = '(08) 8000 5050'; // PLACEHOLDER — replace with the real Plumber Happy Valley tracking number
+const phoneHref = 'tel:0880005050';
+
+const usps = [
+  { title: '24/7 Emergency Service', desc: 'We answer day and night, weekends included, whenever Happy Valley needs us.' },
+  { title: 'Lifetime Labour Warranty', desc: 'If our workmanship ever fails, we come back and fix it free.' },
+  { title: 'Fixed Upfront Pricing', desc: 'You get a fixed price before we start, never a surprise bill.' },
+  { title: 'Local, Family-Owned', desc: 'A family-run Adelaide team, not a call centre, not a franchise.' },
+];
+
+const services = [
+  { name: 'General Plumbing', slug: 'general-plumbing', desc: 'Leaking taps, running toilets, and everyday plumbing repairs around your Happy Valley home, handled properly the first time with a fixed price before we start.' },
+  { name: 'Emergency Plumbing', slug: 'emergency-plumbing', desc: "Burst pipes and major leaks don't wait for business hours, so neither do we. Call any time and we'll get to your Happy Valley home fast." },
+  { name: 'Blocked Drains', slug: 'blocked-drains', desc: 'Older homes nearby often have tree root intrusion in the pipes. We clear blocked drains with CCTV cameras and high-pressure hydrojetting to fix the real cause.' },
+  { name: 'Hot Water', slug: 'hot-water', desc: 'No hot water on a cold morning is no fun. We repair and replace gas, electric, and solar hot water systems across Happy Valley quickly.' },
+  { name: 'Gas Fitting', slug: 'gas-fitting', desc: 'Licensed gas fitting for appliance installs, leak detection, and cooktop connections, carried out to AS/NZS 3500 standards with safety checked every time.' },
+  { name: 'Pipe Relining', slug: 'pipe-relining', desc: 'Pipe relining repairs damaged pipes without digging up your yard, a faster and tidier fix than full replacement for most Happy Valley properties.' },
+  { name: 'Leak Detection', slug: 'leak-detection', desc: 'Hidden leaks waste water and damage your home quietly. Our team finds the source fast and fixes it before it becomes a bigger problem.' },
+  { name: 'Taps & Toilets', slug: 'taps-toilets', desc: 'Dripping taps, faulty cisterns, and toilet repairs are some of the most common calls we get from Happy Valley homeowners every single week.' },
+  { name: 'Burst Pipes', slug: 'burst-pipes', desc: 'A burst pipe can flood a home in minutes. Our 24/7 team responds fast to stop the damage and get your water running properly again.' },
+];
+
+const emergencyItems = [
+  'Burst pipes flooding floors, walls, or ceilings',
+  'Major leaks with no obvious source',
+  'Blocked sewer lines backing up wastewater',
+  'No hot water with young children or elderly residents at home',
+  'Suspected gas leaks (immediate safety risk)',
+  'Overflowing toilets a plunger will not fix',
+];
+
+const processSteps = [
+  { title: 'Speak to Our Team', desc: 'Call us any time, day or night, and talk to a real local plumber who understands the issue and what needs to happen next.' },
+  { title: 'Onsite Assessment & Quote', desc: "We arrive on time, assess the job properly, and give you a fixed price before any work begins, so there's never a surprise bill." },
+  { title: 'Work Completed Cleanly', desc: 'Our licensed team gets the job done properly the first time, working cleanly and treating your home with the respect it deserves.' },
+  { title: 'Testing & Handover', desc: 'Every job is tested before we leave, and we walk you through what was done, backed by our Lifetime Labour Warranty.' },
+];
+
+const whyChoose = [
+  { title: '24/7 Emergency Service', desc: "Burst pipes don't keep business hours and neither do we. Call any time, including weekends and public holidays, and our local team responds fast." },
+  { title: 'Lifetime Labour Warranty', desc: 'If a fault ever occurs because of our workmanship, we come back and fix it at no cost to you, for as long as you own the home.' },
+  { title: 'Fixed Upfront Pricing', desc: 'We quote the job before we start, not after. No hourly rates, no surprise call-out add-ons, just one fixed price you agree to first.' },
+  { title: 'Local, Family-Owned', desc: "We're a family-run Adelaide plumbing business, not a national franchise. The same licensed team backs every Happy Valley job we take on." },
+];
+
+const compareRows = [
+  ['Response time', 'Within the hour, where available', 'Variable, often next day'],
+  ['Pricing model', 'Fixed Upfront Pricing', 'Hourly with surprises'],
+  ['Workmanship warranty', 'Lifetime Labour Warranty', 'Limited or none'],
+  ['Emergency response', '24/7 across Happy Valley', 'Limited hours only'],
+  ['Licensed & insured', 'Lic. #333997, fully insured', 'Not always verified'],
+  ['Local knowledge', 'A decade across Adelaide', 'Often outside the area'],
+  ['Family-owned', 'Yes, locally run', 'Often national franchises'],
+  ['New customer offer', '$50 off your first service', 'Variable or none'],
+];
+
+const safety = [
+  { title: 'Licensed Adelaide Plumbers', desc: 'Every job is carried out by our licensed team, Lic. #333997 with Master Plumber South Australia, so the work is done properly.' },
+  { title: 'Fully Insured', desc: "We're fully insured on every job we take on, giving you peace of mind that your home and our work are properly covered." },
+  { title: 'AS/NZS 3500 Compliance', desc: 'All plumbing and gas work meets AS/NZS 3500 standards, the benchmark for safe, compliant work across South Australia.' },
+  { title: 'Lifetime Labour Warranty', desc: 'Every job is backed by our Lifetime Labour Warranty, so if our workmanship ever fails, we come back and fix it at no cost.' },
+];
+
+const credentials = [
+  'Lic. #333997, Master Plumber South Australia',
+  'ABN 52 668 135 886',
+  'Fully insured on every job',
+  'AS/NZS 3500 compliant on all work',
+  'A decade operating across Adelaide',
+  'Family-owned and locally led',
+  'Lifetime Labour Warranty on all workmanship',
+  '500+ 5-star reviews from Adelaide homeowners',
+];
+
+const adjoiningSuburbs = ['Aberfoyle Park', 'Reynella', 'Flagstaff Hill', 'Chandlers Hill', 'Trott Park', 'Old Reynella', 'Morphett Vale'];
+
+const faqs = [
+  { q: 'How quickly can a plumber arrive in Happy Valley?', a: 'We aim to respond within the hour where availability allows, with 24/7 emergency cover across Happy Valley and the surrounding suburbs.' },
+  { q: 'Do you offer 24/7 emergency plumbing?', a: "Yes. We're available around the clock, including weekends and public holidays, for burst pipes, gas leaks, and other urgent issues." },
+  { q: 'What plumbing services do you offer?', a: 'We cover general plumbing, blocked drains, hot water, gas fitting, pipe relining, leak detection, taps and toilets, and emergency repairs.' },
+  { q: 'How does plumbing pricing work?', a: 'You get a fixed price before any work starts. There are no hourly rates and no surprise call-out add-ons once we begin.' },
+  { q: 'Are your plumbers licensed and insured in South Australia?', a: 'Yes. Our team holds Lic. #333997 with Master Plumber South Australia and is fully insured on every job we complete.' },
+  { q: 'What suburbs do you service around Happy Valley?', a: 'Alongside Happy Valley, we service Aberfoyle Park, Reynella, Flagstaff Hill, Chandlers Hill, Trott Park, Old Reynella, and Morphett Vale.' },
+];
+---
+<Layout title="Plumber Happy Valley | Get a Quote Today" description="24/7 emergency plumber in Happy Valley. Family-owned, licensed, fixed upfront pricing and a Lifetime Labour Warranty on every job.">
+  <style is:global>
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1); }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+  </style>
+
+  <!-- 1. NAV -->
+  <header id="nav" class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-brand-surface">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+      <a href="#" class="font-heading font-extrabold text-lg text-brand-secondary flex items-center gap-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2c4 5 7 8.5 7 12.5A7 7 0 0 1 5 14.5C5 10.5 8 7 12 2Z" fill="var(--color-brand-primary)"/></svg>
+        Plumber Happy Valley
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-brand-secondary">
+        <a href="#services" class="hover:text-brand-primary transition-colors">Services</a>
+        <a href="#why-choose" class="hover:text-brand-primary transition-colors">Why Choose Us</a>
+        <a href="#areas" class="hover:text-brand-primary transition-colors">Service Areas</a>
+        <a href="#faq" class="hover:text-brand-primary transition-colors">FAQs</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href={phoneHref} class="hidden sm:flex items-center gap-1.5 font-heading font-bold text-brand-primary text-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.6c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" fill="currentColor"/></svg>
+          {phone}
+        </a>
+        <a href={phoneHref} class="rounded-full bg-brand-accent text-white text-sm font-bold px-4 py-2 hover:scale-105 transition-transform">Call Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2-3. HERO + USP STRIP -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-surface to-white">
+    <div class="max-w-6xl mx-auto px-5 pt-14 pb-10 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
+          <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+          Available 24/7
+        </span>
+        <h1 class="font-heading font-extrabold text-brand-secondary text-[clamp(2rem,5vw,3.25rem)] leading-tight tracking-tight">
+          24/7 Emergency Plumber in Happy Valley
+        </h1>
+        <p class="mt-5 text-brand-muted text-lg leading-relaxed">
+          Plumber Happy Valley is your local 24/7 plumber for Happy Valley,
+          <a href="#areas" class="text-brand-primary font-semibold underline decoration-brand-primary/30 hover:decoration-brand-primary">Aberfoyle Park</a>,
+          <a href="#areas" class="text-brand-primary font-semibold underline decoration-brand-primary/30 hover:decoration-brand-primary">Reynella</a>,
+          <a href="#areas" class="text-brand-primary font-semibold underline decoration-brand-primary/30 hover:decoration-brand-primary">Flagstaff Hill</a>, and
+          <a href="#areas" class="text-brand-primary font-semibold underline decoration-brand-primary/30 hover:decoration-brand-primary">Chandlers Hill</a>,
+          backed by our Lifetime Labour Warranty. Family-owned, licensed, and ready when you need us.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href={phoneHref} class="rounded-full bg-brand-accent text-white font-bold px-6 py-3 hover:scale-105 transition-transform">Call {phone}</a>
+          <a href="#services" class="rounded-full border-2 border-brand-secondary text-brand-secondary font-bold px-6 py-3 hover:bg-brand-secondary hover:text-white transition-colors">View Our Services</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-brand-surface">
+          <img src="/images/aptec/Cistern-Replacement.webp" alt="Licensed plumber replacing a toilet cistern" class="w-full h-[340px] object-cover" loading="eager" />
+        </div>
+        <div class="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-lg px-5 py-4 border border-brand-surface">
+          <p class="font-heading font-extrabold text-brand-secondary text-2xl">5.0 ★</p>
+          <p class="text-xs text-brand-muted">500+ Adelaide reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- USP hero strip — no H2, visual cards only -->
+    <div class="max-w-6xl mx-auto px-5 pb-12">
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {usps.map((u) => (
+          <div class="reveal bg-white rounded-2xl border border-brand-surface shadow-sm p-5 hover:-translate-y-1 hover:shadow-md transition-all">
+            <p class="font-heading font-bold text-brand-secondary text-sm mb-1.5">{u.title}</p>
+            <p class="text-brand-muted text-xs leading-relaxed">{u.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.4 WELCOME / ABOUT -->
+  <section class="max-w-3xl mx-auto px-5 py-16 text-center">
+    <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl mb-4">Happy Valley&rsquo;s Trusted Local Plumbers</h2>
+    <p class="reveal text-brand-muted leading-relaxed">
+      We&rsquo;re a family-owned plumbing business serving Happy Valley homes, backed by a decade of hands-on work
+      across Adelaide and Lic. #333997 with Master Plumber South Australia. Every job is completed by our licensed
+      local team, fully insured and quoted upfront, with the same standards across 500+ 5-star reviews from Adelaide
+      homeowners. We show up on time, do the job properly, and treat your home with respect. That&rsquo;s the whole
+      promise behind Plumber Happy Valley.
+    </p>
+  </section>
+
+  <!-- 5.5 SERVICES HUB -->
+  <section id="services" class="bg-brand-surface py-16">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl text-center mb-3">Our Complete Range of Plumbing Services in Happy Valley:</h2>
+      <p class="reveal text-brand-muted text-center max-w-2xl mx-auto mb-10">
+        From a dripping tap to a 2am burst pipe, our licensed team covers the full range of residential plumbing
+        Happy Valley homes need. Every job comes with Fixed Upfront Pricing and our Lifetime Labour Warranty.
+      </p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+        {services.map((s) => (
+          <a href={`#${s.slug}`} class="reveal block bg-white rounded-2xl border border-white p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all">
+            <h3 class="font-heading font-bold text-brand-secondary mb-2">{s.name}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.6 LOCAL CONTEXT -->
+  <section class="max-w-6xl mx-auto px-5 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <div class="rounded-3xl overflow-hidden shadow-lg border border-brand-surface order-2 md:order-1">
+      <img src="/images/aptec/Worn-Fill.webp" alt="Plumber repairing an ageing toilet cistern fill valve" class="w-full h-[320px] object-cover" loading="lazy" />
+    </div>
+    <div class="order-1 md:order-2">
+      <h2 class="reveal font-heading font-extrabold text-brand-secondary text-2xl mb-4">What Happy Valley Homes and Businesses Need from Their Local Plumber:</h2>
+      <div class="reveal text-brand-muted text-sm leading-relaxed space-y-3">
+        <p>Happy Valley sits in the City of Onkaparinga, about 20 kilometres south of the Adelaide CBD, wrapped around the Happy Valley Reservoir. Much of the suburb was built from the 1970s onward, so a lot of homes are reaching the age where original pipework, hot water systems, and fittings start to show their years. Properties on the sloped land near the reservoir can also see drainage issues during heavy rain, with stormwater needing somewhere to go.</p>
+        <p>We see the same patterns again and again around streets like Happy Valley Drive and Surf Drive: ageing copper and clay pipework prone to corrosion and root intrusion, hot water systems well past their realistic working life, and older toilet cisterns that run constantly and waste water. Newer homes on slab foundations bring a different set of plumbing needs, particularly around drainage and gas fitting for kitchen renovations.</p>
+        <p>Whatever era your Happy Valley home was built in, our local team has seen the plumbing that comes with it. We carry the right gear for clay pipe and modern PVC alike, and we know which fixes actually last on the hilly blocks around the reservoir rather than just patching the problem for a few months.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.7 EMERGENCY -->
+  <section class="bg-brand-secondary text-white py-16">
+    <div class="max-w-4xl mx-auto px-5">
+      <h2 class="reveal font-heading font-extrabold text-3xl text-center mb-8">When Emergency Plumbing Strikes in Happy Valley, We Respond Fast:</h2>
+      <div class="grid sm:grid-cols-2 gap-4 mb-8">
+        {emergencyItems.map((item) => (
+          <div class="reveal flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="mt-0.5 shrink-0"><path d="M12 2 2 21h20L12 2Z" stroke="var(--color-brand-accent)" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5M12 17h.01" stroke="var(--color-brand-accent)" stroke-width="2" stroke-linecap="round"/></svg>
+            <span class="text-sm">{item}</span>
+          </div>
+        ))}
+      </div>
+      <p class="reveal text-center text-white/80 max-w-2xl mx-auto text-sm mb-6">
+        We&rsquo;re available 24/7, including weekends and public holidays, and aim to respond within the hour
+        where availability allows. While you wait, turn off the water at the mains.
+      </p>
+      <div class="text-center">
+        <a href={phoneHref} class="inline-block rounded-full bg-brand-accent text-white font-bold px-7 py-3 hover:scale-105 transition-transform">Call {phone} Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.8 PROCESS -->
+  <section class="max-w-6xl mx-auto px-5 py-16">
+    <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl text-center mb-10">How We Work in Happy Valley:</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {processSteps.map((step, i) => (
+        <div class="reveal text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-brand-primary text-white font-heading font-extrabold flex items-center justify-center mb-4">{i + 1}</div>
+          <h3 class="font-heading font-bold text-brand-secondary mb-2">{step.title}</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 5.9 WHY CHOOSE -->
+  <section id="why-choose" class="bg-brand-surface py-16">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl text-center mb-3">Why Happy Valley Locals Choose Plumber Happy Valley</h2>
+      <p class="reveal text-brand-muted text-center max-w-2xl mx-auto mb-10">
+        Choosing a plumber comes down to trust. These are the four things Happy Valley homeowners tell us matter
+        most when they call, and they&rsquo;re the same four things we build every job around.
+      </p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+        {whyChoose.map((w) => (
+          <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-white">
+            <h3 class="font-heading font-bold text-brand-secondary mb-2">{w.title}</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">{w.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.10 COMPARISON TABLE -->
+  <section class="max-w-4xl mx-auto px-5 py-16">
+    <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl text-center mb-4">How We Compare to Other Plumbers in Happy Valley</h2>
+    <p class="reveal text-brand-muted text-center mb-8">
+      Choosing a plumber matters. Here&rsquo;s how our service compares to what you&rsquo;ll typically find from
+      other plumbers across Happy Valley and the wider southern Adelaide region:
+    </p>
+    <div class="reveal overflow-x-auto rounded-2xl border border-brand-surface shadow-sm">
+      <table class="w-full text-sm">
+        <thead class="bg-brand-secondary text-white">
+          <tr>
+            <th class="text-left font-heading font-bold px-4 py-3">Feature</th>
+            <th class="text-left font-heading font-bold px-4 py-3">Plumber Happy Valley</th>
+            <th class="text-left font-heading font-bold px-4 py-3">Typical Plumbers</th>
+          </tr>
+        </thead>
+        <tbody>
+          {compareRows.map((row, i) => (
+            <tr class={i % 2 === 0 ? 'bg-white' : 'bg-brand-surface'}>
+              <td class="px-4 py-3 font-semibold text-brand-secondary">{row[0]}</td>
+              <td class="px-4 py-3 text-brand-primary font-medium">{row[1]}</td>
+              <td class="px-4 py-3 text-brand-muted">{row[2]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5.11 SAFETY & COMPLIANCE -->
+  <section class="bg-brand-surface py-16">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl text-center mb-10">Safe, Compliant Plumbing Work in Happy Valley:</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+        {safety.map((s) => (
+          <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-white">
+            <h3 class="font-heading font-bold text-brand-secondary mb-2 text-sm">{s.title}</h3>
+            <p class="text-brand-muted text-xs leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.12 CREDENTIALS -->
+  <section class="max-w-3xl mx-auto px-5 py-16">
+    <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl text-center mb-3">Our Credentials and Standards</h2>
+    <p class="reveal text-brand-muted text-center mb-8">
+      These are the standards behind every job we do, the same ones across every Plumber Happy Valley visit.
+    </p>
+    <ul class="reveal grid sm:grid-cols-2 gap-3">
+      {credentials.map((c) => (
+        <li class="flex items-center gap-2 text-sm text-brand-secondary bg-brand-surface rounded-lg px-4 py-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="shrink-0"><path d="M5 13l4 4L19 7" stroke="var(--color-brand-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {c}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 5.14 SERVICE AREAS -->
+  <section id="areas" class="bg-brand-surface py-16">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl mb-3">Servicing Happy Valley and Surrounding Areas</h2>
+      <p class="reveal text-brand-muted mb-8">
+        We service Happy Valley and the neighbouring suburbs across southern Adelaide, with the same licensed
+        team, fixed pricing, and Lifetime Labour Warranty on every job.
+      </p>
+      <div class="reveal flex flex-wrap justify-center gap-3">
+        {adjoiningSuburbs.map((sub) => (
+          <span class="bg-white border border-brand-primary/20 text-brand-secondary text-sm font-semibold px-4 py-2 rounded-full">{sub}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.15 FINAL CTA -->
+  <section class="bg-brand-accent text-white py-16">
+    <div class="max-w-2xl mx-auto px-5 text-center">
+      <h2 class="reveal font-heading font-extrabold text-3xl mb-4">Need an Emergency Plumber in Happy Valley? Call Now</h2>
+      <p class="reveal mb-7 text-white/90">
+        Call {phone} any time, day or night. New customers get $50 off their first service, and every job is
+        backed by our Lifetime Labour Warranty.
+      </p>
+      <a href={phoneHref} class="reveal inline-block rounded-full bg-white text-brand-accent font-heading font-extrabold px-8 py-3.5 hover:scale-105 transition-transform">Call {phone}</a>
+    </div>
+  </section>
+
+  <!-- 5.16 FAQ -->
+  <section id="faq" class="max-w-3xl mx-auto px-5 py-16">
+    <h2 class="reveal font-heading font-extrabold text-brand-secondary text-3xl text-center mb-3">Happy Valley Plumber FAQs</h2>
+    <p class="reveal text-brand-muted text-center mb-8">
+      These are the questions we hear most often from Happy Valley homeowners, covering pricing, response times,
+      and the range of plumbing work our licensed team handles.
+    </p>
+    <div class="reveal space-y-3">
+      {faqs.map((f) => (
+        <details class="group bg-brand-surface rounded-xl px-5 py-4">
+          <summary class="font-heading font-bold text-brand-secondary cursor-pointer list-none flex items-center justify-between gap-3">
+            {f.q}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" stroke="var(--color-brand-primary)" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </summary>
+          <p class="text-brand-muted text-sm leading-relaxed mt-3">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-secondary text-white/80 pt-14 pb-8">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid md:grid-cols-4 gap-8 mb-10">
+        <div>
+          <p class="font-heading font-extrabold text-white text-lg mb-3">Plumber Happy Valley</p>
+          <p class="text-sm leading-relaxed">
+            Local, family-owned plumbing serving Happy Valley and the surrounding suburbs. Fixed Upfront Pricing,
+            Lifetime Labour Warranty, 24/7 emergency response.
+          </p>
+        </div>
+        <div>
+          <p class="font-heading font-bold text-white text-sm mb-3">Quick Links</p>
+          <ul class="text-sm space-y-2">
+            <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="#why-choose" class="hover:text-white transition-colors">Why Choose Us</a></li>
+            <li><a href="#areas" class="hover:text-white transition-colors">Service Areas</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-heading font-bold text-white text-sm mb-3">Our Services</p>
+          <ul class="text-sm space-y-2">
+            {services.slice(0, 5).map((s) => (
+              <li><a href={`#${s.slug}`} class="hover:text-white transition-colors">{s.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="font-heading font-bold text-white text-sm mb-3">Get In Touch</p>
+          <p class="text-sm mb-2"><a href={phoneHref} class="hover:text-white transition-colors font-semibold">{phone}</a></p>
+          <p class="text-sm">Servicing Happy Valley &amp; southern Adelaide, 24/7</p>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/60">
+        <p>Lic. #333997. ABN 52 668 135 886.</p>
+        <p>&copy; 2026 Plumber Happy Valley. Show up on time. Do the job properly. Treat the home with respect.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    els.forEach((el) => io.observe(el));
+  </script>
+</Layout>

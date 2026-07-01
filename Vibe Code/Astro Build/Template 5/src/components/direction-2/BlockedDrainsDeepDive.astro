@@ -1,0 +1,42 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { Image } from 'astro:assets';
+const items = [
+  { img: '/images/Tree-Root-Removal.webp', title: 'Tree Root Intrusion', desc: 'Roots invade joints and cracks chasing water. We cut, clear and reline to keep them out for good.' },
+  { img: '/images/Drain-Camera-Inspection.webp', title: 'Grease & Build-Up', desc: 'Fats and food waste narrow your pipes over time. High-pressure jetting restores full flow.' },
+];
+---
+<section class="bg-brand-surface reveal">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div class="bracket-frame">
+        <Image src="/images/CCTV-Pipe-Inspection-1.svg" alt="CCTV drain inspection" width={620} height={520} class="w-full bg-brand-secondary rounded-sm object-contain p-8 h-[clamp(280px,34vw,440px)]" />
+      </div>
+      <div>
+        <Eyebrow index="07" label="Blocked Drains" />
+        <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.7rem,3.6vw,2.5rem)] leading-tight tracking-tight">
+          We Find the Cause —<br class="hidden sm:block" /> Not Just the Symptom
+        </h2>
+        <p class="mt-4 text-brand-muted leading-relaxed">
+          A plunger clears the blockage today; a CCTV inspection tells you why it
+          happened. We camera every blocked drain so you get a real diagnosis and
+          a fix that lasts — not a callback next month.
+        </p>
+        <div class="mt-7 space-y-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-sm overflow-hidden">
+          {items.map((it) => (
+            <div class="bg-brand-bg flex gap-4 p-5">
+              <Image src={it.img} alt={it.title} width={120} height={120} class="h-20 w-20 object-cover rounded-sm shrink-0" />
+              <div>
+                <h3 class="font-heading font-bold text-brand-secondary">{it.title}</h3>
+                <p class="mt-1 text-sm text-brand-muted leading-relaxed">{it.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <a href="#contact" class="mt-7 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-brand-primary hover:gap-3 transition-all">
+          Book a Drain Inspection <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

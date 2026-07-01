@@ -1,0 +1,32 @@
+---
+const offers = [
+  { tag: 'New Customers', title: 'First-Time Service Discount', desc: '10% off your first job when you book with Aptec.', icon: 'first' },
+  { tag: 'Drains', title: '$99 Blocked Drains Special', desc: 'Flat-rate clearing on standard blockages, no surprises.', icon: 'drain' },
+  { tag: 'Free Add-On', title: 'Free CCTV Drain Inspection', desc: 'Complimentary camera check with any drain clearing.', icon: 'cctv' },
+  { tag: 'Pensioners', title: '10% Seniors Discount', desc: 'A standing thank-you discount for seniors card holders.', icon: 'seniors' },
+];
+---
+<section class="relative bg-brand-secondary reveal">
+  <div class="pt-14 lg:pt-16 pb-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border-y border-white/10">
+      {offers.map((o, i) => (
+        <div class="group relative bg-brand-secondary p-6 lg:p-8 transition-colors hover:bg-brand-primary/30">
+          <div class="flex items-start justify-between mb-5 gap-3">
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-accent pt-1">{o.tag}</span>
+            {o.icon === 'seniors'
+              ? <img src="/images/Seniors-1.svg" alt="" class="h-12 w-20 rounded-sm object-cover object-top opacity-90 shrink-0" aria-hidden="true" />
+              : o.icon === 'first'
+              ? <img src="/images/First-Service-1.svg" alt="" class="h-12 w-20 rounded-sm object-cover object-top opacity-90 shrink-0" aria-hidden="true" />
+              : o.icon === 'cctv'
+              ? <img src="/images/CCTV-Pipe-Inspection-1.svg" alt="" class="h-12 w-20 rounded-sm object-cover object-top opacity-90 shrink-0" aria-hidden="true" />
+              : <img src="/images/Blocked-Drains-1.svg" alt="" class="h-12 w-20 rounded-sm object-cover object-top opacity-90 shrink-0" aria-hidden="true" />}
+          </div>
+          <h3 class="font-heading font-bold text-white text-lg leading-snug">{o.title}</h3>
+          <p class="mt-2 text-sm text-white/60 leading-relaxed">{o.desc}</p>
+          <span class="mt-4 inline-block h-px w-0 bg-brand-accent transition-all duration-300 group-hover:w-10"></span>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-white/40 px-4">Offers can't be combined · Conditions apply · Mention when booking</p>
+  </div>
+</section>

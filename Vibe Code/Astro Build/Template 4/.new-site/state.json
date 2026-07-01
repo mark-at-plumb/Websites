@@ -1,0 +1,8 @@
+{
+  "phase": "prototypes_complete",
+  "direction_count": 1,
+  "is_redesign": true,
+  "source_url": "https://aptecplumbing.com.au/",
+  "business": "Plumber Happy Valley (Local Adelaide Plumbing network)",
+  "notes": "Single-direction homepage: aptecplumbing.com.au layout/visual structure reused, content per page-types/home.md + brand-voice-guide.md for Plumber Happy Valley. Phone number in src/pages/index.astro is a placeholder pending the real tracking number."
+}

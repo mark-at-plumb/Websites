@@ -1,0 +1,22 @@
+/*
+  Token → Utility mapping:
+  --color-brand-*  → bg-brand-*, text-brand-*, border-brand-*, ring-brand-*
+  --font-*         → font-heading, font-body
+
+  NOTE: Using @theme (not @theme static) so direction pages can override
+  via <style is:global> on :root. Defaults from Direction 1 (Trade Blue).
+*/
+@theme {
+  /* ── Colors (defaults from Direction 1: Trade Blue) ────── */
+  --color-brand-primary:   #0B5FFF;
+  --color-brand-secondary: #0B2847;
+  --color-brand-accent:    #11B76B;
+  --color-brand-bg:        #FFFFFF;
+  --color-brand-surface:   #F4F7FB;
+  --color-brand-text:      #0F1B2D;
+  --color-brand-muted:     #5B6B7C;
+
+  /* ── Typography (defaults from Direction 1) ── */
+  --font-heading: 'Manrope Variable', system-ui, sans-serif;
+  --font-body:    'Inter Variable', system-ui, sans-serif;
+}

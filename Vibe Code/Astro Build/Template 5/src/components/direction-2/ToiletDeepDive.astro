@@ -1,0 +1,38 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { Image } from 'astro:assets';
+const problems = [
+  { img: '/images/Constantly-Running-Cistern.webp', title: 'Constantly Running', desc: 'A running cistern can waste litres an hour. Usually a worn flush valve or fill valve.' },
+  { img: '/images/Worn-Fill.webp', title: 'Worn Fill Valve', desc: 'Slow refills, hissing and weak flushes point to a tired fill valve we’ll swap fast.' },
+  { img: '/images/Toilet-Cistern-Repair-1.webp', title: 'Cistern Repair', desc: 'Cracks, leaks and dodgy seals fixed on the spot wherever parts allow.' },
+  { img: '/images/Cistern-Replacement.webp', title: 'Full Replacement', desc: 'When repair isn’t worth it, we supply and fit a reliable new unit, same day.' },
+];
+---
+<section class="bg-brand-bg reveal">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="max-w-2xl mb-12">
+      <Eyebrow index="08" label="Toilet & Cistern" />
+      <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.8rem,4vw,2.7rem)] leading-tight tracking-tight">
+        Toilet Trouble, Sorted Same Day
+      </h2>
+      <p class="mt-4 text-brand-muted leading-relaxed">
+        A faulty toilet is more than an annoyance — it quietly drives up your
+        water bill. We diagnose the exact fault and repair or replace it on the
+        first visit, with parts that are built to last.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-sm overflow-hidden">
+      {problems.map((p) => (
+        <div class="bg-brand-bg group">
+          <div class="h-36 overflow-hidden">
+            <Image src={p.img} alt={p.title} width={360} height={260} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <div class="p-5">
+            <h3 class="font-heading font-bold text-brand-secondary text-[15px]">{p.title}</h3>
+            <p class="mt-1.5 text-[13px] text-brand-muted leading-relaxed">{p.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

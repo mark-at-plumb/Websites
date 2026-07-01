@@ -1,0 +1,125 @@
+---
+import Layout from './Layout.astro';
+import SiteHeader from '../components/direction-1/SiteHeader.astro';
+import SiteFooter from '../components/direction-1/SiteFooter.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = '' } = Astro.props;
+---
+<Layout title={title} description={description}>
+  <style is:global>
+    :root {
+      --color-brand-primary:   #156ECE;
+      --color-brand-secondary: #0B2847;
+      --color-brand-accent:    #FF7A1B;
+      --color-brand-bg:        #FFFFFF;
+      --color-brand-surface:   #F4F7FB;
+      --color-brand-text:      #0F1B2D;
+      --color-brand-muted:     #5B6B7C;
+      --font-heading: 'Manrope Variable', system-ui, sans-serif;
+      --font-body:    'Inter Variable', system-ui, sans-serif;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-in { opacity: 1; transform: none; }
+
+    /* Hero staggered entrance */
+    @keyframes heroUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-stagger > * {
+      animation: heroUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .hero-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero-stagger > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero-stagger > *:nth-child(3) { animation-delay: 0.25s; }
+    .hero-stagger > *:nth-child(4) { animation-delay: 0.35s; }
+    .hero-stagger > *:nth-child(5) { animation-delay: 0.45s; }
+    @keyframes heroImg {
+      from { opacity: 0; transform: translateY(30px) scale(0.98); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-img { animation: heroImg 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
+
+    /* Hero stat icons */
+    @keyframes statClockTick {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(90deg); }
+    }
+    .stat-icon-hand { transform-origin: 12px 12px; animation: statClockTick 4s ease-in-out infinite; }
+    @keyframes statPing {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      75%, 100% { transform: scale(1.7); opacity: 0; }
+    }
+    .stat-icon-ping { animation: statPing 2s cubic-bezier(0,0,0.2,1) infinite; }
+    @keyframes statHeartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+      60% { transform: scale(1); }
+    }
+    .stat-icon-heart svg { animation: statHeartbeat 2.6s ease-in-out infinite; transform-origin: center; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .hero-stagger > *, .hero-img { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+      .stat-icon-hand, .stat-icon-ping, .stat-icon-heart svg { animation: none !important; }
+    }
+
+    /* Slanted / parallelogram CTA buttons (solid — clip-path) */
+    .skew-btn {
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      border-radius: 2px !important;
+    }
+    /* Slanted border buttons — transform skew so border lines are fully visible */
+    .skew-border-btn {
+      transform: skewX(-10deg);
+      border-radius: 2px !important;
+    }
+    .skew-border-btn > .btn-inner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transform: skewX(10deg);
+    }
+    /* Slanted image containers */
+    .skew-img {
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      border-radius: 0 !important;
+    }
+  </style>
+
+  <SiteHeader />
+  <main class="bg-brand-bg font-body text-brand-text">
+    <slot />
+  </main>
+  <SiteFooter />
+
+  <script is:inline>
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            e.target.style.transitionDelay = (Math.min(i, 4) * 70) + 'ms';
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-in'));
+    }
+  </script>
+</Layout>

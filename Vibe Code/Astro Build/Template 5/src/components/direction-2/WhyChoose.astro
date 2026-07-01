@@ -1,0 +1,32 @@
+---
+import Eyebrow from './Eyebrow.astro';
+const pillars = [
+  { t: 'Family Owned', s: '15+ years', d: 'Locally owned and run — you deal with the people who do the work.', icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6' },
+  { t: '24/7 Available', s: 'Every day', d: 'Genuine round-the-clock cover for emergencies, weekends and holidays.', icon: 'M12 6v6l4 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z' },
+  { t: '100% Satisfaction', s: 'Guaranteed', d: 'We don’t leave until the job’s done right and you’re happy with it.', icon: 'M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z' },
+  { t: 'Fast & Efficient', s: '30–60 min', d: 'Typical response times across Happy Valley and southern Adelaide.', icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z' },
+  { t: 'Upfront Pricing', s: '$0 call-out', d: 'Fixed quotes before we start. No hidden fees, no nasty surprises.', icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6' },
+];
+---
+<section id="why-us" class="bg-brand-surface reveal scroll-mt-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="flex justify-center"><Eyebrow index="10" label="The Aptec Difference" /></div>
+      <h2 class="mt-4 font-heading font-extrabold text-brand-secondary text-[clamp(1.8rem,4vw,2.8rem)] leading-tight tracking-tight">
+        Why Choose Aptec Plumbing
+      </h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-brand-secondary/10 border border-brand-secondary/10 rounded-sm overflow-hidden">
+      {pillars.map((p) => (
+        <div class="group bg-brand-bg p-6 hover:bg-brand-secondary transition-colors duration-300">
+          <div class="grid place-items-center h-12 w-12 rounded-sm bg-brand-secondary/5 text-brand-primary group-hover:bg-brand-accent group-hover:text-white transition-colors mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={p.icon}/></svg>
+          </div>
+          <div class="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-accent">{p.s}</div>
+          <h3 class="mt-1 font-heading font-bold text-brand-secondary group-hover:text-white text-lg transition-colors">{p.t}</h3>
+          <p class="mt-2 text-[13px] text-brand-muted group-hover:text-white/70 leading-relaxed transition-colors">{p.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

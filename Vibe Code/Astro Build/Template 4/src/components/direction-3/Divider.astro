@@ -1,0 +1,12 @@
+---
+import Motif from './Motif.astro';
+interface Props { class?: string; dark?: boolean }
+const { class: cls = '', dark = false } = Astro.props;
+const line = dark ? 'rgba(255,255,255,0.18)' : 'rgba(35,48,68,0.14)';
+const mark = dark ? 'rgba(255,255,255,0.55)' : 'var(--color-brand-accent)';
+---
+<div class:list={['max-w-6xl mx-auto px-6 flex items-center gap-4', cls]} aria-hidden="true">
+  <span class="h-px flex-1" style={`background:${line}`}></span>
+  <Motif size={18} color={mark} />
+  <span class="h-px flex-1" style={`background:${line}`}></span>
+</div>

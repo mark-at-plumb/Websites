@@ -1,0 +1,87 @@
+---
+import Motif from './Motif.astro';
+interface Props { phone: string; phoneHref: string }
+const { phone, phoneHref } = Astro.props;
+---
+<section id="top" class="relative overflow-hidden bg-brand-bg">
+  <!-- faint vertical guide lines: the level-line motif at full scale -->
+  <div class="pointer-events-none absolute inset-0 max-w-6xl mx-auto" aria-hidden="true">
+    <span class="absolute top-0 bottom-0 left-1/2 w-px" style="background:linear-gradient(to bottom,transparent,rgba(58,110,165,0.10),transparent)"></span>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24 grid md:grid-cols-12 gap-10 items-center">
+    <div class="md:col-span-7">
+      <p class="d3-hero d3-hero-1 flex items-center gap-2.5 text-[0.72rem] font-semibold uppercase text-brand-accent" style="letter-spacing:0.24em">
+        <Motif size={16} color="var(--color-brand-primary)" />
+        Your local Happy Valley plumber
+      </p>
+
+      <h1 class="d3-hero d3-hero-2 mt-6 font-heading text-brand-secondary leading-[1.04] tracking-[-0.02em]" style="font-size:clamp(2.6rem,6vw,4.6rem);font-weight:340">
+        Show up on time.<br />
+        <span style="font-weight:600">Do the job properly.</span><br />
+        Treat the home<br class="hidden sm:block" /> with <span class="italic text-brand-primary">respect.</span>
+      </h1>
+
+      <p class="d3-hero d3-hero-3 mt-7 max-w-xl text-brand-muted text-[1.06rem] leading-relaxed">
+        We&rsquo;re the local, family-owned plumber for Happy Valley homes. You get a fixed price before we start,
+        a Lifetime Labour Warranty on every job, and a team that answers 24/7. No hourly rates. No surprises.
+      </p>
+
+      <div class="d3-hero d3-hero-4 mt-9 flex flex-wrap items-center gap-4">
+        <a href={phoneHref} class="rounded-md bg-brand-secondary text-brand-bg px-6 py-3.5 transition-all duration-500 hover:bg-brand-primary" style="font-weight:520">Call {phone}</a>
+        <a href="#services" class="d3-arrow inline-flex items-center gap-2 text-brand-secondary px-2 py-3.5" style="font-weight:520">
+          See what we do
+          <span class="d3-arrow-line h-px w-7 bg-brand-accent inline-block"></span>
+        </a>
+      </div>
+
+      <div class="d3-hero d3-hero-5 mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-brand-muted">
+        <span class="flex items-center gap-2"><Motif size={14} />Fixed Upfront Pricing</span>
+        <span class="flex items-center gap-2"><Motif size={14} />Lifetime Labour Warranty</span>
+        <span class="flex items-center gap-2"><Motif size={14} />Lic. #333997</span>
+      </div>
+    </div>
+
+    <!-- soft layered image, secondary -->
+    <div class="md:col-span-5 d3-hero d3-hero-6">
+      <div class="relative">
+        <div class="absolute -inset-3 rounded-lg bg-brand-surface" aria-hidden="true"></div>
+        <div class="relative rounded-lg overflow-hidden">
+          <img src="/images/aptec/Cistern-Replacement.webp" alt="Our licensed plumber replacing a toilet cistern in a Happy Valley home" class="w-full h-[300px] md:h-[420px] object-cover" loading="eager" />
+        </div>
+        <!-- floating review chip -->
+        <div class="d3-float absolute -bottom-5 -left-5 bg-brand-bg rounded-md px-5 py-3.5 border border-brand-secondary/10 shadow-[0_8px_30px_rgba(35,48,68,0.08)]">
+          <p class="font-heading text-brand-secondary text-xl" style="font-weight:600">5.0 <span class="text-brand-accent">★</span></p>
+          <p class="text-[0.72rem] text-brand-muted">500+ Adelaide reviews</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .d3-hero { opacity: 0; transform: translateY(18px); }
+  .d3-loaded .d3-hero { animation: d3rise 0.85s cubic-bezier(.22,1,.36,1) forwards; }
+  .d3-loaded .d3-hero-1 { animation-delay: 0.05s }
+  .d3-loaded .d3-hero-2 { animation-delay: 0.16s }
+  .d3-loaded .d3-hero-3 { animation-delay: 0.30s }
+  .d3-loaded .d3-hero-4 { animation-delay: 0.42s }
+  .d3-loaded .d3-hero-5 { animation-delay: 0.52s }
+  .d3-loaded .d3-hero-6 { animation-delay: 0.34s }
+  @keyframes d3rise { to { opacity: 1; transform: translateY(0) } }
+
+  .d3-float { animation: d3floaty 6s ease-in-out infinite; }
+  @keyframes d3floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-7px) } }
+
+  .d3-arrow .d3-arrow-line { transition: width 0.5s cubic-bezier(.22,1,.36,1); }
+  .d3-arrow:hover .d3-arrow-line { width: 2.75rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .d3-hero { opacity: 1 !important; transform: none !important; animation: none !important; }
+    .d3-float { animation: none !important; }
+  }
+</style>
+
+<script>
+  requestAnimationFrame(() => document.documentElement.classList.add('d3-loaded'));
+</script>

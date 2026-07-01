@@ -1,0 +1,48 @@
+<section style="background:#fff; padding:64px 20px;">
+  <div style="max-width:1260px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:48px;">
+      <p style="color:#E86000; font-family:var(--font-heading); font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 10px;">Customer Reviews</p>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; color:#0E151B; margin:0 0 10px;">Award Winning Service</h2>
+      <p style="font-size:15px; color:#6d6d6d; margin:0;">4.9 out of 5 &nbsp;&middot;&nbsp; 2,500+ verified reviews across Google, Facebook &amp; Product Review</p>
+    </div>
+    <div class="rating-row" style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;">
+      {[
+        { platform:'Google',         stars:'4.9', count:'2,614' },
+        { platform:'Facebook',       stars:'4.8', count:'259'   },
+        { platform:'Product Review', stars:'4.8', count:'729'   },
+        { platform:'Word of Mouth',  stars:'4.8', count:'65'    },
+      ].map(r => (
+        <div class="rating-card" style="border:1px solid #e8e8e8; border-radius:10px; padding:28px 20px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-family:var(--font-heading); font-size:12px; font-weight:700; color:#6d6d6d; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px;">{r.platform}</div>
+          <div style="display:flex; justify-content:center; gap:3px; margin-bottom:14px;">
+            {[1,2,3,4,5].map(() => <span style="color:#F5A623; font-size:20px; line-height:1;">&#9733;</span>)}
+          </div>
+          <div class="rating-counter" data-target={r.stars} style="font-family:var(--font-heading); font-size:2.6rem; font-weight:900; color:#0E151B; line-height:1;">0.0</div>
+          <div style="font-family:var(--font-heading); font-size:12px; font-weight:600; color:#6d6d6d; margin-top:8px; letter-spacing:0.03em;">BASED ON {r.count} REVIEWS</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const start = performance.now();
+        const tick = now => {
+          const p = Math.min((now - start) / 1600, 1);
+          el.textContent = (target * ease(p)).toFixed(1);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.rating-counter').forEach(el => observer.observe(el));
+  })();
+</script>
