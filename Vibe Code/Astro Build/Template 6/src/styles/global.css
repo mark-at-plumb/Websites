@@ -1,8 +1,0 @@
-@import '@fontsource-variable/open-sans';
-@import '@fontsource-variable/roboto';
-@import '@fontsource-variable/fraunces';
-@import '@fontsource-variable/jost';
-
-@import "tailwindcss";
-@import "./theme.css";
-@import "./base.css";
