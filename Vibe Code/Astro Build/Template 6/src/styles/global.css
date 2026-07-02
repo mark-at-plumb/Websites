@@ -1,0 +1,8 @@
+@import '@fontsource-variable/raleway';
+@import '@fontsource/lato';
+@import '@fontsource/lato/700.css';
+@import '@fontsource/lato/900.css';
+
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";
